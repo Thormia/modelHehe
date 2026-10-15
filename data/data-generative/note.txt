@@ -1,0 +1,12 @@
+Cách dùng (trong thư mục data-generative):
+python -X utf8 fix_generative.py
+Mặc định script đọc generative_backup_before_fix.jsonl và ghi đè generative.jsonl. Muốn chọn file khác thì dùng --input và --output.
+
+Script làm 3 việc:
+- Chuẩn hóa nhãn: sửa MentalState: thành Mental State: và bỏ dấu chấm cuối.
+- Xóa record trùng (cùng câu user và câu assistant).
+- Đánh lại test_id theo dạng TC-A0001…
+
+
+config để ra file generative_backup_before_fix.jsonl:
+dùng nó quăng vào 10 lần bên AIstudio của google vs threshhold và temperature mặc định,  flash 3.5 vì 3.1 pro 

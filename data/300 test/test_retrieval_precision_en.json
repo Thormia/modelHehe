@@ -1,0 +1,6277 @@
+[
+  {
+    "id": "RET_001",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "Lately I have been suffering from persistent insomnia, tossing and turning for 2 to 3 hours without falling asleep.",
+    "query_vi": "Dạo này tôi bị mất ngủ triền miên, đặt lưng xuống giường là trằn trọc 2 3 tiếng không chợp mắt được.",
+    "ground_truth": {
+      "symptoms": [
+        "mất ngủ",
+        "khó ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_002",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "Every night I wake up around 2 or 3 AM and stay wide awake, unable to fall back asleep.",
+    "query_vi": "Đêm nào tôi cũng thức giấc lúc 2 3 giờ sáng rồi tỉnh hẳn luôn, không tài nào ngủ lại được.",
+    "ground_truth": {
+      "symptoms": [
+        "thức giấc giữa đêm",
+        "mất ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_003",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "My sleep is very restless, even a small noise makes me startle and wake up.",
+    "query_vi": "Giấc ngủ của tôi rất chập chờn, chỉ cần một tiếng động nhỏ là giật mình tỉnh dậy.",
+    "ground_truth": {
+      "symptoms": [
+        "ngủ không sâu",
+        "chập chờn"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_004",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "Whenever I lie down, my mind wanders with endless thoughts, unable to relax and fall asleep.",
+    "query_vi": "Tôi cứ nằm xuống là đầu óc lại nghĩ vẩn vơ, không thể nào thư giãn để vào giấc ngủ được.",
+    "ground_truth": {
+      "symptoms": [
+        "khó vào giấc",
+        "trằn trọc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_005",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "For the past few weeks my circadian rhythm has been inverted; drowsy during the day but wide awake at night.",
+    "query_vi": "Mấy tuần nay tôi bị đảo lộn nhịp sinh học, ban ngày thì buồn ngủ rũ rượi còn đêm đến lại tỉnh như sáo.",
+    "ground_truth": {
+      "symptoms": [
+        "rối loạn nhịp sinh học",
+        "mất ngủ đêm"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_006",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "I often have nightmares that disrupt my sleep, waking up feeling exhausted as if I never rested.",
+    "query_vi": "Tôi thường xuyên bị ác mộng gián đoạn giấc ngủ, thức dậy thấy người mệt nhoài như chưa từng được nghỉ ngơi.",
+    "ground_truth": {
+      "symptoms": [
+        "ác mộng",
+        "ngủ không sâu"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_007",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "For the whole past month I have only been sleeping 3 to 4 hours per night, completely exhausted from sleep deprivation.",
+    "query_vi": "Cả tháng nay tôi chỉ ngủ được chừng 3 đến 4 tiếng mỗi đêm, cơ thể kiệt quệ vì thiếu ngủ.",
+    "ground_truth": {
+      "symptoms": [
+        "thiếu ngủ mãn tính",
+        "mất ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_008",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "Just before sleeping, my limbs feel restless and uncomfortable, having to toss and turn constantly to doze off.",
+    "query_vi": "Cứ chuẩn bị đi ngủ là chân tay tôi bồn chồn khó chịu, phải trở mình liên tục mới mong thiếp đi.",
+    "ground_truth": {
+      "symptoms": [
+        "khó ngủ",
+        "bồn chồn trước khi ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi"
+      ]
+    }
+  },
+  {
+    "id": "RET_009",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "I have had trouble sleeping since childhood, but recently it has worsened, staying awake the whole night.",
+    "query_vi": "Tôi bị chứng khó ngủ từ nhỏ, nhưng đợt này càng tệ hơn, mất cả đêm không ngủ được phút nào.",
+    "ground_truth": {
+      "symptoms": [
+        "khó ngủ kinh niên",
+        "mất ngủ toàn phần"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Melatonin",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_010",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "In the evening I feel exhausted, but closing my eyes brings no natural sleepiness; I just stare blankly.",
+    "query_vi": "Buổi tối tôi rất mệt nhưng cứ nhắm mắt lại là mắt mở trao tráo, không có cảm giác buồn ngủ tự nhiên.",
+    "ground_truth": {
+      "symptoms": [
+        "mất cảm giác buồn ngủ",
+        "khó vào giấc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_011",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "I often wake up an hour earlier than usual and cannot get back to sleep afterward.",
+    "query_vi": "Tôi hay bị thức dậy sớm hơn bình thường cả tiếng đồng hồ và sau đó không thể ngủ tiếp.",
+    "ground_truth": {
+      "symptoms": [
+        "thức sớm",
+        "mất ngủ cuối giấc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_012",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "Lately waking up leaves me with a heavy head and sluggishness; my sleep quality is extremely poor.",
+    "query_vi": "Dạo này ngủ dậy tôi hay bị nặng đầu và người uể oải, chất lượng giấc ngủ quá kém.",
+    "ground_truth": {
+      "symptoms": [
+        "ngủ kém chất lượng",
+        "uể oải sau ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_013",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "I work night shifts, so my daytime sleep is very light and interrupted by frequent startles.",
+    "query_vi": "Tôi làm ca đêm nên giấc ngủ ban ngày rất nông và dễ bị giật mình tỉnh giấc liên tục.",
+    "ground_truth": {
+      "symptoms": [
+        "ngủ chập chờn ca đêm",
+        "rối loạn giấc ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_014",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "Even with lights off and no phone usage, I still toss and turn until 3 AM to finally fall asleep.",
+    "query_vi": "Dù đã tắt hết đèn và không dùng điện thoại, tôi vẫn trằn trọc đến 3 giờ sáng mới ngủ được.",
+    "ground_truth": {
+      "symptoms": [
+        "trằn trọc",
+        "khó vào giấc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_015",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "Whenever the weather changes, I suffer from insomnia for several consecutive nights for no clear reason.",
+    "query_vi": "Cứ mỗi lần đổi thời tiết là tôi lại bị mất ngủ vài ba đêm liền không rõ lý do.",
+    "ground_truth": {
+      "symptoms": [
+        "mất ngủ thời tiết",
+        "rối loạn giấc ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_016",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "I sleep very lightly; in the middle of the night just the sound of wind or cars outside wakes me up.",
+    "query_vi": "Tôi ngủ không sâu giấc, nửa đêm chỉ cần nghe tiếng gió rít hay tiếng xe ngoài đường là tỉnh.",
+    "ground_truth": {
+      "symptoms": [
+        "ngủ nông",
+        "dễ giật mình"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_017",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "I feel like my brain refuses to switch off at bedtime; thoughts keep racing endlessly.",
+    "query_vi": "Tôi cảm giác não bộ không chịu tắt công tắc khi đi ngủ, suy nghĩ cứ chạy liên tục trong đầu.",
+    "ground_truth": {
+      "symptoms": [
+        "não bộ hưng phấn đêm",
+        "khó ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_018",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "This whole week I have stayed up all night for several nights, unable to sleep despite being dead tired.",
+    "query_vi": "Cả tuần nay tôi phải thức trắng vài đêm vì không tài nào chợp mắt được dù người mệt lả.",
+    "ground_truth": {
+      "symptoms": [
+        "thức trắng đêm",
+        "mất ngủ cấp tính"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Melatonin",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_019",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "Every night I dream vivid random dreams all night, waking up with a throbbing headache as if I never slept.",
+    "query_vi": "Đêm nào tôi cũng mơ linh tinh cả đêm, sáng dậy đầu nhức bưng bưng như chưa hề được ngủ.",
+    "ground_truth": {
+      "symptoms": [
+        "mộng mị nhiều",
+        "giấc ngủ gián đoạn"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_020",
+    "category": "sleep_regulation",
+    "complexity": "single",
+    "query_en": "I need to naturally improve my sleep because drifting off has become excessively difficult recently.",
+    "query_vi": "Tôi cần cải thiện giấc ngủ tự nhiên vì dạo này chìm vào giấc ngủ quá khó khăn.",
+    "ground_truth": {
+      "symptoms": [
+        "khó vào giấc ngủ tự nhiên"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_021",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "I frequently work late in front of computer screens, so at bedtime my eyes are strained but my mind is wide awake.",
+    "query_vi": "Tôi thường xuyên làm việc muộn trước màn hình máy tính nên đến khi đi ngủ mắt rất mỏi nhưng não lại tỉnh queo.",
+    "ground_truth": {
+      "symptoms": [
+        "mỏi mắt khó ngủ",
+        "khó vào giấc do ánh sáng xanh"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_022",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "Lately I feel slight anticipatory anxiety entering the bedroom, dreading the feeling of tossing and turning all night.",
+    "query_vi": "Dạo này tôi hay bị hồi hộp nhẹ mỗi khi bước vào phòng ngủ, sợ cảm giác lại phải nằm trằn trọc cả đêm.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu giấc ngủ",
+        "trằn trọc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_023",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "After recovering from an illness, my circadian clock was completely disrupted, awake all night and nodding off by day.",
+    "query_vi": "Sau đợt ốm dậy, đồng hồ sinh học của tôi bị hỏng hoàn toàn, đêm thức trắng ngày gà gật.",
+    "ground_truth": {
+      "symptoms": [
+        "rối loạn đồng hồ sinh học"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Vitamin B6",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_024",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "I have tried relaxing music and warm water, but it still takes at least 2 hours to fall asleep.",
+    "query_vi": "Tôi đã thử nghe nhạc êm dịu và uống nước ấm nhưng vẫn mất ít nhất 2 tiếng mới thiếp đi được.",
+    "ground_truth": {
+      "symptoms": [
+        "khó vào giấc kéo dài",
+        "trằn trọc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_025",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "At night I frequently experience mild calf muscle twitches that repeatedly interrupt my sleep.",
+    "query_vi": "Ban đêm tôi hay bị giật cơ nhẹ ở bắp chân khiến giấc ngủ bị ngắt quãng liên tục.",
+    "ground_truth": {
+      "symptoms": [
+        "co cơ ban đêm",
+        "giấc ngủ chập chờn"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi"
+      ]
+    }
+  },
+  {
+    "id": "RET_026",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "I sleep deeply for the first 4 hours, but the second half of the night I wake up and drift in semi-consciousness until morning.",
+    "query_vi": "Tôi ngủ được khoảng 4 tiếng đầu rất sâu, nhưng nửa sau đêm thì tỉnh dậy và nằm mơ màng cho đến sáng.",
+    "ground_truth": {
+      "symptoms": [
+        "thức giấc giữa đêm",
+        "ngủ nông nửa sau"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_027",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "Middle age has markedly shortened my sleep, waking up after only 4 to 5 hours and unable to sleep more.",
+    "query_vi": "Tuổi trung niên làm giấc ngủ của tôi ngắn lại rõ rệt, chỉ được 4 đến 5 tiếng là tỉnh và không ngủ thêm được.",
+    "ground_truth": {
+      "symptoms": [
+        "giảm thời lượng ngủ tuổi trung niên"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Magie",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_028",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "Whenever I drink tea or coffee at noon, I am guaranteed complete insomnia until morning.",
+    "query_vi": "Cứ uống trà hay cà phê vào buổi trưa là đêm đó tôi xác định mất ngủ hoàn toàn đến tận sáng.",
+    "ground_truth": {
+      "symptoms": [
+        "nhạy cảm caffeine",
+        "mất ngủ do kích thích"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_029",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "I often have nasal congestion and mild snoring, making sleep unrefreshing and leaving me exhausted in the morning.",
+    "query_vi": "Tôi ngủ hay bị nghẹt mũi và ngáy nhẹ khiến giấc ngủ không sâu, sáng dậy mệt mỏi.",
+    "ground_truth": {
+      "symptoms": [
+        "giấc ngủ kém sâu",
+        "uể oải sáng dậy"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin C"
+      ]
+    }
+  },
+  {
+    "id": "RET_030",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "Lately every evening I feel uncomfortably hot flashes, preventing me from settling into peaceful sleep.",
+    "query_vi": "Dạo này tối nào tôi cũng có cảm giác người nóng bừng bừng khó chịu, không thể an giấc.",
+    "ground_truth": {
+      "symptoms": [
+        "nóng bừng bứt rứt",
+        "khó ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi"
+      ]
+    }
+  },
+  {
+    "id": "RET_031",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "I moved to a new place and feel unsettled; I have been tossing and turning for a week without a full night's sleep.",
+    "query_vi": "Tôi chuyển chỗ ở mới nên bị lạ nhà, trằn trọc cả tuần nay chưa đêm nào ngủ trọn giấc.",
+    "ground_truth": {
+      "symptoms": [
+        "mất ngủ lạ chỗ",
+        "trằn trọc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_032",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "Around 11 PM my heart beats slightly faster and my mind becomes unusually alert.",
+    "query_vi": "Cứ đến khoảng 11 giờ đêm là tim tôi đập nhanh nhẹ và tinh thần tỉnh táo khác thường.",
+    "ground_truth": {
+      "symptoms": [
+        "tỉnh táo bất thường ban đêm",
+        "khó ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_033",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "My sleep is so light that I feel conscious of everything around me throughout the night.",
+    "query_vi": "Tôi ngủ chập chờn và cảm thấy như mình vẫn nhận thức được mọi thứ xung quanh suốt đêm.",
+    "ground_truth": {
+      "symptoms": [
+        "ngủ nông mơ màng",
+        "không sâu giấc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_034",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "After a long flight with jet lag, I cannot reset my sleep back to normal hours.",
+    "query_vi": "Sau chuyến bay dài lệch múi giờ, tôi không thể nào đưa giấc ngủ về giờ giấc bình thường.",
+    "ground_truth": {
+      "symptoms": [
+        "lệch múi giờ jet lag",
+        "rối loạn nhịp ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_035",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "I am easily awakened by dawn light, forced to wake up before getting sufficient restorative sleep.",
+    "query_vi": "Tôi rất dễ bị tỉnh giấc bởi ánh sáng rạng đông, ngủ chưa đỗ giấc đã phải dậy.",
+    "ground_truth": {
+      "symptoms": [
+        "thức sớm do ánh sáng",
+        "ngủ thiếu giấc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_036",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "Exhausted all day from work, yet the moment I get into bed my sleepiness vanishes without a trace.",
+    "query_vi": "Cả ngày làm việc mệt đứt hơi nhưng khi lên giường thì cơn buồn ngủ lại biến mất không dấu vết.",
+    "ground_truth": {
+      "symptoms": [
+        "nghịch lý kiệt sức khó ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_037",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "I need foods that support natural sleep hormone production because I do not want to rely on sedatives.",
+    "query_vi": "Tôi cần các thực phẩm hỗ trợ sản sinh hormone giấc ngủ tự nhiên vì không muốn lạm dụng thuốc an thần.",
+    "ground_truth": {
+      "symptoms": [
+        "hỗ trợ hormone giấc ngủ",
+        "khó ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_038",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "I am habituated to staying up late; now I want to sleep before 11 PM for health reasons but cannot manage to do so.",
+    "query_vi": "Tôi thức khuya quen giấc rồi, giờ muốn ngủ sớm trước 11 giờ để bảo vệ sức khỏe mà không tài nào ngủ nổi.",
+    "ground_truth": {
+      "symptoms": [
+        "khó ngủ sớm",
+        "rối loạn thói quen ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_039",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "Every night I have to turn dozens of times just to find a marginally tolerable sleeping posture.",
+    "query_vi": "Đêm nào tôi cũng phải trở mình hàng chục lần mới tìm được tư thế ngủ tạm chấp nhận được.",
+    "ground_truth": {
+      "symptoms": [
+        "trằn trọc trở mình",
+        "khó vào giấc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi"
+      ]
+    }
+  },
+  {
+    "id": "RET_040",
+    "category": "sleep_regulation",
+    "complexity": "moderate",
+    "query_en": "My sleep duration is too short, my eyes snap open after barely 4.5 hours with body aches.",
+    "query_vi": "Giấc ngủ của tôi ngắn quá, chỉ tầm 4 tiếng rưỡi là mắt tự mở và người ê ẩm.",
+    "ground_truth": {
+      "symptoms": [
+        "thời lượng ngủ ngắn",
+        "ngủ không hồi phục"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_041",
+    "category": "sleep_regulation",
+    "complexity": "complex",
+    "query_en": "I have had chronic insomnia for half a year; my memory has noticeably declined and daytime reflexes are sluggish.",
+    "query_vi": "Tôi bị mất ngủ kéo dài cả nửa năm nay, trí nhớ giảm sút rõ rệt và phản xạ chậm chạp ban ngày.",
+    "ground_truth": {
+      "symptoms": [
+        "mất ngủ mãn tính",
+        "suy giảm trí nhớ do thiếu ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Melatonin",
+        "Omega-3",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_042",
+    "category": "sleep_regulation",
+    "complexity": "complex",
+    "query_en": "Chronic sleepless nights gave me dark under-eye circles, sallow skin, and severe physical exhaustion.",
+    "query_vi": "Đêm mất ngủ triền miên làm mắt tôi thâm quầng, da dẻ sạm đi và cơ thể suy kiệt trầm trọng.",
+    "ground_truth": {
+      "symptoms": [
+        "suy kiệt do mất ngủ",
+        "mất ngủ kéo dài"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Vitamin B6",
+        "Kẽm",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_043",
+    "category": "sleep_regulation",
+    "complexity": "complex",
+    "query_en": "I toss and turn all night accompanied by night sweats, waking up with my back soaked in perspiration.",
+    "query_vi": "Tôi trằn trọc suốt đêm kèm theo hiện tượng đổ mồ hôi trộm và thức dậy với tấm lưng ướt đẫm.",
+    "ground_truth": {
+      "symptoms": [
+        "đổ mồ hôi trộm đêm",
+        "mất ngủ trằn trọc"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_044",
+    "category": "sleep_regulation",
+    "complexity": "complex",
+    "query_en": "Chronic sleep deprivation causes mild afternoon sensory fog and floating disassociation where I cannot focus on anything.",
+    "query_vi": "Thiếu ngủ kinh niên khiến tôi bị ảo giác nhẹ vào buổi chiều và đầu óc lơ lửng không tập trung được việc gì.",
+    "ground_truth": {
+      "symptoms": [
+        "thiếu ngủ kinh niên",
+        "mất ngủ nặng"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Tryptophan",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_045",
+    "category": "sleep_regulation",
+    "complexity": "complex",
+    "query_en": "I developed severe insomnia after a family trauma; closing my eyes brings flickering apprehension.",
+    "query_vi": "Tôi bị mất ngủ nghiêm trọng sau đợt biến cố gia đình, cứ nhắm mắt là thấy chập chờn lo sợ.",
+    "ground_truth": {
+      "symptoms": [
+        "mất ngủ hậu biến cố",
+        "chập chờn bất an"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_046",
+    "category": "sleep_regulation",
+    "complexity": "complex",
+    "query_en": "I have completely lost the natural sensation of sleepiness, having to lie motionless for 4 hours just to drift into light dozing.",
+    "query_vi": "Tôi mất hoàn toàn cảm giác buồn ngủ tự nhiên, phải nằm bất động trên giường 4 tiếng mới lơ mơ ngủ được một chút.",
+    "ground_truth": {
+      "symptoms": [
+        "mất phản xạ ngủ tự nhiên",
+        "trằn trọc kéo dài"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Tryptophan",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_047",
+    "category": "sleep_regulation",
+    "complexity": "complex",
+    "query_en": "Each night I awaken 4 to 5 times, waking up in the morning with throbbing temples and a heavy chest sensation.",
+    "query_vi": "Mỗi đêm tôi thức giấc 4 5 lần, sáng dậy thấy hai thái dương căng tức và lồng ngực nặng trĩu.",
+    "ground_truth": {
+      "symptoms": [
+        "thức giấc nhiều lần",
+        "giấc ngủ phân mảnh"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_048",
+    "category": "sleep_regulation",
+    "complexity": "complex",
+    "query_en": "I have drunk lotus plumule tea for weeks, but the state of staying awake all night has barely improved.",
+    "query_vi": "Tôi đã dùng trà tim sen nhiều tuần nhưng tình trạng thức trắng đêm vẫn không cải thiện được là bao.",
+    "ground_truth": {
+      "symptoms": [
+        "mất ngủ kháng trị nhẹ",
+        "thức trắng đêm"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_049",
+    "category": "sleep_regulation",
+    "complexity": "complex",
+    "query_en": "The persistent insomnia causes my early morning blood pressure to spike, leaving me constantly dazed.",
+    "query_vi": "Tình trạng mất ngủ làm huyết áp sáng sớm của tôi tăng vọt và người lúc nào cũng đờ đẫn.",
+    "ground_truth": {
+      "symptoms": [
+        "mất ngủ gây tăng áp buổi sáng",
+        "ngủ kém"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_050",
+    "category": "sleep_regulation",
+    "complexity": "complex",
+    "query_en": "I urgently need to restore my natural deep sleep cycle because my body can no longer endure staring at the ceiling every night.",
+    "query_vi": "Tôi muốn thiết lập lại chu kỳ ngủ sâu tự nhiên vì cơ thể đã không còn chịu nổi cảnh thức nhìn trần nhà mỗi đêm.",
+    "ground_truth": {
+      "symptoms": [
+        "thiết lập chu kỳ ngủ sâu",
+        "mất ngủ trầm trọng"
+      ],
+      "expected_effects": [
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Melatonin",
+        "Tryptophan",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_051",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "Lately piled-up work leaves me constantly in a state of extreme stress.",
+    "query_vi": "Dạo này công việc dồn dập khiến tôi lúc nào cũng trong trạng thái căng thẳng tột độ.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng công việc",
+        "áp lực"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_052",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "I frequently experience unprovoked anxiety and palpitation, with an indescribable restlessness in my chest.",
+    "query_vi": "Tôi hay bị hồi hộp và lo âu vô cớ, lồng ngực lúc nào cũng thấy bồn chồn khó tả.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu",
+        "bồn chồn"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_053",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "Whenever preparing for presentations or important meetings, my hands and feet turn icy cold and tremble from tension.",
+    "query_vi": "Cứ mỗi lần chuẩn bị thuyết trình hay họp quan trọng là tay chân tôi lạnh toát và run rẩy vì căng thẳng.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng hồi hộp",
+        "run rẩy lo âu"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_054",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "I feel my brain stretched tight like a bowstring, ready to explode at the slightest unexpected issue.",
+    "query_vi": "Tôi cảm thấy đầu óc căng như dây đàn, chỉ cần một việc nhỏ phát sinh là muốn nổ tung.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng thần kinh",
+        "quá tải"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_055",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "The pressure of sales quotas weighs so heavily that I cannot relax even on weekends.",
+    "query_vi": "Áp lực chỉ tiêu doanh số đè nặng làm tôi không thể thư giãn nổi dù đang trong ngày nghỉ cuối tuần.",
+    "ground_truth": {
+      "symptoms": [
+        "áp lực kéo dài",
+        "không thể thư giãn"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_056",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "I startle very easily and a lingering sense of insecurity constantly resides in my heart.",
+    "query_vi": "Tôi hay bị giật mình thon thót và cảm giác bất an luôn thường trực trong lòng.",
+    "ground_truth": {
+      "symptoms": [
+        "bất an thường trực",
+        "dễ giật mình"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_057",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "Waking up each morning and thinking about going to work makes me feel stressed and suffocated.",
+    "query_vi": "Mỗi buổi sáng thức dậy nghĩ đến việc phải đi làm là tôi lại thấy căng thẳng và nghẹt thở.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng buổi sáng",
+        "nghẹt thở vì áp lực"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_058",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "I feel my stress tolerance threshold is steadily declining, easily panicking over minor incidents.",
+    "query_vi": "Tôi cảm giác mức độ chịu đựng stress của mình ngày càng kém, dễ bị hoảng loạn trước các sự cố nhỏ.",
+    "ground_truth": {
+      "symptoms": [
+        "giảm sức chịu tải stress",
+        "dễ hoảng loạn"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Omega-3",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_059",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "High-focus work demands leave my neck and shoulder muscles perpetually stiff from tension.",
+    "query_vi": "Công việc đòi hỏi tập trung cao độ làm cơ cổ và vai của tôi lúc nào cũng co cứng vì căng thẳng.",
+    "ground_truth": {
+      "symptoms": [
+        "căng cơ cổ vai do stress",
+        "căng thẳng thể chất"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi"
+      ]
+    }
+  },
+  {
+    "id": "RET_060",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "I frequently breathe rapidly and shallowly whenever encountering sudden stressful situations.",
+    "query_vi": "Tôi thường xuyên thở dốc và thở nông mỗi khi gặp tình huống áp lực đột ngột.",
+    "ground_truth": {
+      "symptoms": [
+        "thở nông do lo âu",
+        "hồi hộp cấp tính"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_061",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "I constantly feel an impending dread that something terrible is about to happen even when everything is normal.",
+    "query_vi": "Tôi luôn có cảm giác lo sợ một điều tồi tệ sắp xảy ra dù xung quanh mọi thứ vẫn bình thường.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu mơ hồ",
+        "bất an"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_062",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "Exam cramming keeps my mental state on constant red alert, utterly exhausted.",
+    "query_vi": "Học tập thi cử dồn dập khiến tinh thần tôi luôn trong tình trạng báo động đỏ, mệt mỏi cùng cực.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng thi cử",
+        "quá tải học tập"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Vitamin B6",
+        "Magie",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_063",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "I feel my heart racing and my chest tightening whenever my boss calls my name.",
+    "query_vi": "Tôi cảm thấy nhịp tim đập nhanh và lồng ngực nghẹn lại mỗi khi sếp gọi tên.",
+    "ground_truth": {
+      "symptoms": [
+        "tim đập nhanh do sợ hãi",
+        "căng thẳng công sở"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_064",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "All day I pace back and forth in the room, unable to extinguish the restless anxiety.",
+    "query_vi": "Cả ngày tôi cứ đi đi lại lại trong phòng vì không dập tắt được cảm giác lo lắng bồn chồn.",
+    "ground_truth": {
+      "symptoms": [
+        "bồn chồn đi lại",
+        "lo âu vận động"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_065",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "Financial pressure has weighed heavily on me for months; my mind is perpetually gloomy and tense.",
+    "query_vi": "Tôi bị áp lực tài chính đè nặng nhiều tháng nay, lúc nào đầu óc cũng u u uất uất căng thẳng.",
+    "ground_truth": {
+      "symptoms": [
+        "áp lực tài chính kéo dài",
+        "căng thẳng tinh thần"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_066",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "Surrounding environmental noise makes me stressed and irritable far more easily than usual.",
+    "query_vi": "Tiếng ồn xung quanh làm tôi dễ bị căng thẳng và phát cáu hơn bình thường rất nhiều.",
+    "ground_truth": {
+      "symptoms": [
+        "nhạy cảm tiếng ồn",
+        "căng thẳng kích thích"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_067",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "I unconsciously bite my nails and shake my legs constantly due to excessive nervous tension.",
+    "query_vi": "Tôi hay cắn móng tay và rung đùi liên tục trong vô thức vì quá căng thẳng.",
+    "ground_truth": {
+      "symptoms": [
+        "thói quen bồn chồn",
+        "căng thẳng tiềm thức"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_068",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "Feelings of anxiety prevent me from concentrating enough to finish reading a single page of text.",
+    "query_vi": "Cảm giác lo âu làm tôi không thể tập trung đọc trọn vẹn một trang sách hay tài liệu.",
+    "ground_truth": {
+      "symptoms": [
+        "mất tập trung do lo âu",
+        "căng thẳng"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Magie",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_069",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "I find myself constantly bracing my entire body as if preparing to step into a battlefield.",
+    "query_vi": "Tôi thấy mình lúc nào cũng gồng cứng người như chuẩn bị bước vào một cuộc chiến.",
+    "ground_truth": {
+      "symptoms": [
+        "gồng cơ mãn tính",
+        "trạng thái căng thẳng thường trực"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi"
+      ]
+    }
+  },
+  {
+    "id": "RET_070",
+    "category": "stress_response",
+    "complexity": "single",
+    "query_en": "I need nutrients to soothe an overactive sympathetic nervous system.",
+    "query_vi": "Tôi cần các dưỡng chất giúp xoa dịu hệ thần kinh giao cảm đang hoạt động quá mức.",
+    "ground_truth": {
+      "symptoms": [
+        "xoa dịu thần kinh",
+        "giảm hoạt hóa giao cảm"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_071",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "Work stress causes sharp throbbing headaches at both temples every afternoon.",
+    "query_vi": "Căng thẳng công việc làm tôi xuất hiện những cơn đau nhói ở hai bên thái dương mỗi buổi chiều.",
+    "ground_truth": {
+      "symptoms": [
+        "đau đầu căng thẳng",
+        "áp lực thái dương"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_072",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "Lately I become irritable and impatient with coworkers over trivial matters due to chronic stress.",
+    "query_vi": "Dạo này tôi rất hay cáu bẳn và mất kiên nhẫn với đồng nghiệp chỉ vì những chuyện vặt vãnh.",
+    "ground_truth": {
+      "symptoms": [
+        "cáu gắt do áp lực",
+        "mất kiên nhẫn"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "impulsivity_control"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_073",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "I clearly sense my body pumping excessive stress hormones, perpetually feeling flushed and anxious inside.",
+    "query_vi": "Tôi cảm nhận rõ cơ thể đang tiết ra quá nhiều hormone stress, người lúc nào cũng hầm hập nóng ruột.",
+    "ground_truth": {
+      "symptoms": [
+        "tăng tiết cortisol",
+        "bứt rứt trong người"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin C",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_074",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "Whenever facing family conflicts, my voice trembles and my heart thumps violently in my chest.",
+    "query_vi": "Mỗi khi đối diện với mâu thuẫn gia đình, tôi lại bị run giọng và tim đập thình thịch trong lồng ngực.",
+    "ground_truth": {
+      "symptoms": [
+        "hồi hộp run giọng",
+        "căng thẳng cảm xúc"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_075",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "Graduation exam pressure leaves me constantly dizzy and lightheaded whenever sitting at the study desk.",
+    "query_vi": "Áp lực thi tốt nghiệp làm em luôn thấy choáng váng và hoa mắt mỗi khi ngồi vào bàn học.",
+    "ground_truth": {
+      "symptoms": [
+        "choáng váng áp lực học tập",
+        "căng thẳng thi cử"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Sắt",
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_076",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "I unconsciously sigh deeply and repeatedly, as if my chest lacks room to breathe.",
+    "query_vi": "Tôi hay bị thở dài thườn thượt một cách vô thức, dường như lồng ngực không đủ chỗ để thở.",
+    "ground_truth": {
+      "symptoms": [
+        "thở dài liên tục",
+        "nghẽn ngực vì stress"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_077",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "Prolonged stress produces mild spasms in my nape, making turning my neck sharply painful.",
+    "query_vi": "Căng thẳng kéo dài làm tôi bị co thắt nhẹ vùng gáy, xoay cổ thấy đau buốt.",
+    "ground_truth": {
+      "symptoms": [
+        "co thắt cơ gáy",
+        "đau gáy do stress"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi"
+      ]
+    }
+  },
+  {
+    "id": "RET_078",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "I feel I have completely lost composure; even a minor delay drives me furiously mad.",
+    "query_vi": "Tôi cảm thấy mất hoàn toàn sự bình tĩnh, chỉ một sự chậm trễ nhỏ cũng khiến tôi phát điên lên.",
+    "ground_truth": {
+      "symptoms": [
+        "mất kiểm soát bình tĩnh",
+        "bùng nổ do stress"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "impulsivity_control"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_079",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "Every time my phone chimes with a work notification, my heart flutters with dread.",
+    "query_vi": "Mỗi lần điện thoại reo chuông tin nhắn công việc là tim tôi lại thót lại một cái vì sợ hãi.",
+    "ground_truth": {
+      "symptoms": [
+        "phản xạ sợ chuông thông báo",
+        "lo âu công sở"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_080",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "I clench my teeth tightly during high-stress focus, waking up with aching jaws.",
+    "query_vi": "Tôi thường nghiến chặt răng khi tập trung làm việc căng thẳng, sáng dậy hàm đau ê ẩm.",
+    "ground_truth": {
+      "symptoms": [
+        "nghiến răng ban ngày",
+        "căng cơ hàm do stress"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi"
+      ]
+    }
+  },
+  {
+    "id": "RET_081",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "I find myself constantly in a state of rushing, hurriedness, and fearing running out of time.",
+    "query_vi": "Tôi thấy mình luôn trong trạng thái vội vã, hấp tấp và sợ hãi không kịp thời gian.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu áp lực thời gian",
+        "bồn chồn vội vã"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_082",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "Surges of anxiety cause my palms to sweat profusely despite sitting in an air-conditioned room.",
+    "query_vi": "Cơn lo âu ập đến khiến lòng bàn tay tôi vã mồ hôi ướt đẫm dù đang ngồi phòng máy lạnh.",
+    "ground_truth": {
+      "symptoms": [
+        "đổ mồ hôi tay do lo âu",
+        "rối loạn thần kinh thực vật"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_083",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "I experience transient tinnitus ringing in my ears whenever workload exceeds manageable limits.",
+    "query_vi": "Tôi bị ù tai thoáng qua mỗi khi khối lượng công việc vượt quá mức kiểm soát.",
+    "ground_truth": {
+      "symptoms": [
+        "ù tai do căng thẳng",
+        "quá tải thần kinh"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_084",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "Anxiety drives me to compulsively pull my hair and scratch my skin without being able to stop.",
+    "query_vi": "Lo âu khiến tôi có thói quen giật tóc và cào cấu da tay mà không dừng lại được.",
+    "ground_truth": {
+      "symptoms": [
+        "hành vi giải tỏa lo âu",
+        "bồn chồn bức bối"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "impulsivity_control"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_085",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "I dread social interactions and feel drained even after chatting with a few acquaintances.",
+    "query_vi": "Tôi sợ phải giao tiếp xã hội và thấy kiệt sức ngay cả khi chỉ nói chuyện với vài người quen.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu xã hội nhẹ",
+        "kiệt sức giao tiếp"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_086",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "Stress makes surrounding air feel thick and stifling, bringing episodic shortness of breath.",
+    "query_vi": "Căng thẳng khiến tôi cảm thấy không khí xung quanh đặc quánh lại và khó thở từng cơn.",
+    "ground_truth": {
+      "symptoms": [
+        "khó thở cơn",
+        "co thắt phế quản do lo âu"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_087",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "My eyelid twitches continuously for days whenever I pull late nights on stressful projects.",
+    "query_vi": "Tôi hay bị giật mí mắt liên tục mấy ngày liền mỗi khi thức khuya làm dự án căng thẳng.",
+    "ground_truth": {
+      "symptoms": [
+        "giật mí mắt do stress",
+        "thiếu hụt vi chất cơ"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_088",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "My mind feels like a tangled knot where I can no longer organize tasks by priority.",
+    "query_vi": "Tôi thấy đầu óc mình như một mớ bòng bong không thể sắp xếp công việc theo thứ tự ưu tiên.",
+    "ground_truth": {
+      "symptoms": [
+        "quá tải thông tin",
+        "rối loạn xử lý do stress"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Kẽm",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_089",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "I feel anxiety constricting my upper chest, having to tap lightly on my sternum for relief.",
+    "query_vi": "Tôi có cảm giác lo lắng đến thắt cả vùng ngực trên, phải đập nhẹ vào ngực mới dễ chịu hơn.",
+    "ground_truth": {
+      "symptoms": [
+        "thắt ngực lo âu",
+        "căng thẳng thể chất"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_090",
+    "category": "stress_response",
+    "complexity": "moderate",
+    "query_en": "Chronic stress has drained my natural creativity, sitting for hours unable to draft a single concept.",
+    "query_vi": "Căng thẳng làm tôi mất đi sự sáng tạo vốn có, ngồi hàng giờ không viết nổi một dòng ý tưởng.",
+    "ground_truth": {
+      "symptoms": [
+        "bế tắc sáng tạo do stress",
+        "cạn kiệt năng lượng não"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Folate",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_091",
+    "category": "stress_response",
+    "complexity": "complex",
+    "query_en": "Three months of nonstop project pressure caused nervous exhaustion, throbbing headaches, and morning tremors.",
+    "query_vi": "Áp lực dự án kéo dài 3 tháng nay làm tôi suy nhược thần kinh, đầu đau buốt và người run rẩy mỗi sáng.",
+    "ground_truth": {
+      "symptoms": [
+        "suy nhược thần kinh do stress",
+        "đau đầu căng thẳng mãn tính"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6",
+        "Omega-3",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_092",
+    "category": "stress_response",
+    "complexity": "complex",
+    "query_en": "I suffer from occupational burnout syndrome, feeling empty and terrified whenever looking at my desk.",
+    "query_vi": "Tôi bị hội chứng kiệt sức nghề nghiệp (burnout), cảm giác trống rỗng và sợ hãi mỗi khi nhìn thấy bàn làm việc.",
+    "ground_truth": {
+      "symptoms": [
+        "burnout kiệt sức",
+        "sợ hãi công việc"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Folate",
+        "Omega-3",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_093",
+    "category": "stress_response",
+    "complexity": "complex",
+    "query_en": "Extreme tension causes my blood pressure to fluctuate erratically with occasional skipped heartbeats.",
+    "query_vi": "Căng thẳng tột độ khiến huyết áp tôi dao động thất thường và tim thỉnh thoảng đập hẫng một nhịp.",
+    "ground_truth": {
+      "symptoms": [
+        "rối loạn nhịp tim do lo âu",
+        "dao động huyết áp stress"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_094",
+    "category": "stress_response",
+    "complexity": "complex",
+    "query_en": "I have generalized ongoing anxiety, constantly on guard and alarmed by any abrupt sound.",
+    "query_vi": "Tôi bị lo âu lan tỏa kéo dài, lúc nào cũng trong tư thế phòng thủ và hoảng hốt trước bất kỳ tiếng động nào.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu lan tỏa",
+        "tăng phản xạ cảnh giác"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_095",
+    "category": "stress_response",
+    "complexity": "complex",
+    "query_en": "The pressure of caring for a chronically ill relative has drained me physically and mentally, sobbing from sheer stress.",
+    "query_vi": "Áp lực chăm sóc người thân ốm nặng làm tôi kiệt quệ thể xác lẫn tinh thần, hay khóc nấc vì căng thẳng quá độ.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng người chăm sóc",
+        "quá tải cảm xúc"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_096",
+    "category": "stress_response",
+    "complexity": "complex",
+    "query_en": "Severe stress has compromised my immunity, causing recurrent aphthous ulcers and frequent colds.",
+    "query_vi": "Căng thẳng khiến tôi suy giảm miễn dịch nghiêm trọng, liên tục bị nhiệt miệng và cảm cúm tái phát.",
+    "ground_truth": {
+      "symptoms": [
+        "suy giảm miễn dịch do stress",
+        "căng thẳng mãn tính"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin C",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_097",
+    "category": "stress_response",
+    "complexity": "complex",
+    "query_en": "I feel my neural circuits are literally burning out from an overwhelming workload.",
+    "query_vi": "Tôi cảm thấy các nơ-ron thần kinh của mình như đang bị thiêu đốt vì khối lượng công việc khổng lồ.",
+    "ground_truth": {
+      "symptoms": [
+        "quá tải dẫn truyền thần kinh",
+        "stress cực độ"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_098",
+    "category": "stress_response",
+    "complexity": "complex",
+    "query_en": "Cutthroat workplace competition fills me with constant dread of obsolescence, keeping tension peaking.",
+    "query_vi": "Sự cạnh tranh khốc liệt ở công ty làm tôi luôn ám ảnh mình sẽ bị đào thải, tinh thần căng thẳng tột bực.",
+    "ground_truth": {
+      "symptoms": [
+        "ám ảnh đào thải",
+        "căng thẳng cạnh tranh"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_099",
+    "category": "stress_response",
+    "complexity": "complex",
+    "query_en": "I suffer severe migraine flare-ups following every week of relentless stress and sleep shortage.",
+    "query_vi": "Tôi bị chứng đau nửa đầu migraine bùng phát dữ dội sau mỗi tuần làm việc căng thẳng và thiếu ngủ.",
+    "ground_truth": {
+      "symptoms": [
+        "migraine do căng thẳng",
+        "đau nửa đầu stress"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_100",
+    "category": "stress_response",
+    "complexity": "complex",
+    "query_en": "I urgently need to restore adrenal resilience after prolonged periods steeped in stress and anxiety.",
+    "query_vi": "Tôi cần phục hồi lại tuyến thượng thận sau chuỗi ngày dài ngập chìm trong stress và lo âu.",
+    "ground_truth": {
+      "symptoms": [
+        "phục hồi tuyến thượng thận",
+        "stress mãn tính"
+      ],
+      "expected_effects": [
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin C",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_101",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "Lately my heart feels heavy with an aimless sadness lingering all day without any distinct cause.",
+    "query_vi": "Dạo này tôi thấy lòng mình trĩu nặng, cảm giác buồn bã vu vơ kéo dài suốt cả ngày mà không rõ nguyên cớ.",
+    "ground_truth": {
+      "symptoms": [
+        "buồn bã vô cớ",
+        "tâm trạng trĩu nặng"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Serotonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_102",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "I no longer feel enthusiastic or interested in doing anything, including hobbies I once loved.",
+    "query_vi": "Tôi chẳng còn cảm thấy hào hứng hay muốn làm bất cứ điều gì, kể cả những sở thích trước đây.",
+    "ground_truth": {
+      "symptoms": [
+        "mất hứng thú anhedonia",
+        "chán nản"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Dopamine",
+        "Omega-3",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_103",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "I constantly lack energy, feeling lethargic and depleted even without performing physical labor.",
+    "query_vi": "Tôi luôn cảm thấy thiếu năng lượng, người lúc nào cũng mệt mỏi rệu rã dù không làm việc nặng.",
+    "ground_truth": {
+      "symptoms": [
+        "uể oải thiếu năng lượng",
+        "mệt mỏi rệu rã"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Sắt",
+        "Vitamin B12",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_104",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "Waking up in the morning, a gloomy cloud covers my mind, making me reluctant to leave bed.",
+    "query_vi": "Buổi sáng thức dậy tôi thấy một đám mây xám xịt bao phủ tâm trí, không muốn bước chân ra khỏi giường.",
+    "ground_truth": {
+      "symptoms": [
+        "tâm trạng u ám sáng sớm",
+        "mất động lực"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_105",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "I feel overwhelmingly useless and terribly insecure about myself lately.",
+    "query_vi": "Tôi cảm thấy mình vô dụng và tự ti khủng khiếp về bản thân trong thời gian gần đây.",
+    "ground_truth": {
+      "symptoms": [
+        "tự ti",
+        "cảm giác vô dụng"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Serotonin",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_106",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "My smile feels so forced recently; on the inside lies only an emotionally numb void.",
+    "query_vi": "Nụ cười của tôi dạo này gượng gạo quá, bên trong chỉ thấy một khoảng trống rỗng tê liệt.",
+    "ground_truth": {
+      "symptoms": [
+        "trống rỗng cảm xúc",
+        "vô cảm tạm thời"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Omega-3",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_107",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "I am extremely emotionally labile, tearing up over any minor anecdote I happen to overhear.",
+    "query_vi": "Tôi rất dễ xúc động và có thể rơi nước mắt vì bất cứ câu chuyện nhỏ nhặt nào tình cờ nghe được.",
+    "ground_truth": {
+      "symptoms": [
+        "dễ khóc xúc động",
+        "bất ổn tâm trạng"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_108",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "I feel this bleak cloudy season is causing my mood to plummet without brakes.",
+    "query_vi": "Tôi cảm thấy mùa đông u ám này làm tâm trạng mình tuột dốc không phanh.",
+    "ground_truth": {
+      "symptoms": [
+        "trầm cảm theo mùa SAD",
+        "tâm trạng đi xuống"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Vitamin D",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_109",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "My mind is constantly preoccupied with pessimistic thoughts, seeing obstacles and dead ends everywhere.",
+    "query_vi": "Đầu óc tôi lúc nào cũng quanh quẩn những suy nghĩ bi quan, nhìn đâu cũng thấy khó khăn bế tắc.",
+    "ground_truth": {
+      "symptoms": [
+        "suy nghĩ bi quan",
+        "tiêu cực"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Folate",
+        "Omega-3",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_110",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "I feel as if drained of all vitality; even moving or talking feels overwhelmingly burdensome.",
+    "query_vi": "Tôi thấy mình như bị rút cạn toàn bộ sinh lực, di chuyển hay nói chuyện cũng thấy lười biếng.",
+    "ground_truth": {
+      "symptoms": [
+        "cạn kiệt sinh lực",
+        "chậm chạp tâm thần vận động"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Vitamin B12",
+        "Sắt",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_111",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "My mood swings erratically like a roller coaster; cheerful in the morning and despondent by dusk.",
+    "query_vi": "Tâm trạng tôi lên xuống thất thường như tàu lượn siêu tốc, sáng vui chiều buồn không kiểm soát nổi.",
+    "ground_truth": {
+      "symptoms": [
+        "thất thường cảm xúc",
+        "dao động tâm trạng"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_112",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "Life feels dull and flavorless lately, each day passing in gray monotony.",
+    "query_vi": "Tôi thấy cuộc sống dạo này tẻ nhạt vô vị, ngày nào trôi qua cũng lặp lại một cách xám xịt.",
+    "ground_truth": {
+      "symptoms": [
+        "nhạt nhẽo vô vị",
+        "thiếu niềm vui"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Dopamine"
+      ]
+    }
+  },
+  {
+    "id": "RET_113",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "I have isolated myself in my room all week, unwilling to answer calls from any friends.",
+    "query_vi": "Tôi tự cô lập mình trong phòng cả tuần nay, không muốn nhấc máy trả lời bất kỳ người bạn nào.",
+    "ground_truth": {
+      "symptoms": [
+        "thu mình cô lập",
+        "ngại giao tiếp"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_114",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "Lethargy and despair have made me neglect grooming and taking care of my appearance.",
+    "query_vi": "Cảm giác chán nản khiến tôi không còn muốn chăm chút cho vẻ bề ngoài của bản thân.",
+    "ground_truth": {
+      "symptoms": [
+        "bỏ bê bản thân",
+        "chán nản"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_115",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "I need foods that naturally stimulate the production of the happiness hormone Serotonin.",
+    "query_vi": "Tôi cần các món ăn giúp kích thích sản sinh hormone hạnh phúc Serotonin một cách tự nhiên.",
+    "ground_truth": {
+      "symptoms": [
+        "kích thích Serotonin",
+        "cải thiện tâm trạng"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Vitamin B6",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_116",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "Every twilight when dusk descends, loneliness and melancholy overwhelm me.",
+    "query_vi": "Mỗi buổi chiều hoàng hôn buông xuống là nỗi cô đơn và u sầu lại bủa vây lấy tôi.",
+    "ground_truth": {
+      "symptoms": [
+        "u sầu hoàng hôn",
+        "cô đơn"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_117",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "I feel I am gradually losing the capacity for joy, even when receiving genuinely good news.",
+    "query_vi": "Tôi thấy mình mất dần khả năng cảm nhận niềm vui ngay cả khi nhận được tin tốt lành.",
+    "ground_truth": {
+      "symptoms": [
+        "mất cảm xúc tích cực",
+        "chai sạn"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Folate",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_118",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "My footsteps feel heavy, my whole body weighed down like lead due to deep melancholy.",
+    "query_vi": "Tôi cảm thấy bước đi của mình nặng trĩu, toàn thân như đeo chì vì tâm trạng u uất.",
+    "ground_truth": {
+      "symptoms": [
+        "nặng nề thể xác do u uất"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Sắt",
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_119",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "Lately I sigh frequently, lingering in regret over bygone past events.",
+    "query_vi": "Dạo này tôi rất hay thở dài và cảm thấy tiếc nuối những chuyện đã qua trong quá khứ.",
+    "ground_truth": {
+      "symptoms": [
+        "hoài niệm buồn",
+        "nuối tiếc quá khứ"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_120",
+    "category": "mood_regulation",
+    "complexity": "single",
+    "query_en": "I wish to rediscover optimism and zest for life through an appropriate dietary regimen.",
+    "query_vi": "Tôi muốn tìm lại cảm giác phấn chấn và yêu đời như trước kia thông qua chế độ ăn uống.",
+    "ground_truth": {
+      "symptoms": [
+        "tìm lại phấn chấn",
+        "nâng cao tinh thần"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Tryptophan",
+        "Vitamin B12"
+      ]
+    }
+  },
+  {
+    "id": "RET_121",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I experience mild postpartum depression, feeling lonely and insecure despite family support.",
+    "query_vi": "Tôi bị trầm cảm nhẹ sau sinh, luôn cảm thấy cô độc và bất an dù gia đình vẫn ở bên.",
+    "ground_truth": {
+      "symptoms": [
+        "trầm cảm sau sinh nhẹ",
+        "cô độc bất an"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Folate",
+        "Sắt"
+      ]
+    }
+  },
+  {
+    "id": "RET_122",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "A broken relationship shattered my spirit, skipping meals and lying staring at the ceiling weeping quietly.",
+    "query_vi": "Mối quan hệ tan vỡ khiến tôi suy sụp tinh thần, bỏ ăn bỏ uống và chỉ nằm nhìn trần nhà khóc thầm.",
+    "ground_truth": {
+      "symptoms": [
+        "suy sụp sau chia tay",
+        "đau buồn cảm xúc"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_123",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I feel forced to wear a cheerful mask at work, completely collapsing into sorrow upon returning home.",
+    "query_vi": "Tôi thấy mình đang phải đeo một chiếc mặt nạ vui vẻ ở công ty, còn về nhà thì hoàn toàn sụp đổ.",
+    "ground_truth": {
+      "symptoms": [
+        "trầm cảm cười smiling depression",
+        "sụp đổ nội tâm"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Omega-3",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_124",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "Protracted sadness has dulled my taste buds; everything tastes like dry straw without flavor.",
+    "query_vi": "Nỗi buồn kéo dài làm vị giác của tôi tê liệt, ăn gì cũng thấy như nhai rơm rạ không chút mùi vị.",
+    "ground_truth": {
+      "symptoms": [
+        "mất vị giác do trầm cảm",
+        "u sầu"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_125",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I feel completely disconnected from the surrounding world, drifting like an invisible phantom.",
+    "query_vi": "Tôi cảm thấy mất kết nối hoàn toàn với thế giới xung quanh, như một người vô hình trôi dạt.",
+    "ground_truth": {
+      "symptoms": [
+        "mất kết nối thực tại",
+        "cô lập tâm lý"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Magie",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_126",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "A smoldering sense of despair makes me indifferent to planning anything for the future.",
+    "query_vi": "Cảm giác tuyệt vọng âm ỉ khiến tôi không còn tha thiết lập kế hoạch cho tương lai nữa.",
+    "ground_truth": {
+      "symptoms": [
+        "mất hy vọng tương lai",
+        "chán nản"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Folate",
+        "Tryptophan",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_127",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I dread Sundays because thinking about the upcoming week triggers waves of sorrow and emptiness.",
+    "query_vi": "Tôi rất sợ những ngày chủ nhật vì nghĩ đến tuần mới lại thấy nỗi buồn và sự trống rỗng ập đến.",
+    "ground_truth": {
+      "symptoms": [
+        "nỗi buồn chủ nhật",
+        "sợ hãi tuần mới"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_128",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I habitually torment myself, shouldering blame for minor missteps that occurred long ago.",
+    "query_vi": "Tôi hay tự dằn vặt và đổ lỗi cho bản thân về những sai lầm nhỏ nhặt đã xảy ra từ rất lâu.",
+    "ground_truth": {
+      "symptoms": [
+        "tự dằn vặt lỗi lầm",
+        "cắn rứt"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_129",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I notice my cognitive processing is painfully slow, with conversation reflexes far inferior to before.",
+    "query_vi": "Tôi thấy não bộ mình hoạt động rất chậm chạp, phản xạ giao tiếp kém hẳn so với trước đây.",
+    "ground_truth": {
+      "symptoms": [
+        "chậm chạp tư duy",
+        "suy giảm nhận thức do trầm cảm"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Vitamin B12",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_130",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "Whenever it drizzles gloomily, my spirits plunge; I just want to bury under blankets and evade everything.",
+    "query_vi": "Mỗi lần trời mưa rả rích là lòng tôi lại chùng xuống, chỉ muốn trùm chăn trốn tránh tất cả.",
+    "ground_truth": {
+      "symptoms": [
+        "nhạy cảm thời tiết mưa",
+        "trốn tránh thực tại"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Vitamin D"
+      ]
+    }
+  },
+  {
+    "id": "RET_131",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I feel emotionally blunted; whether relatives face joy or sorrow, I cannot feel resonance.",
+    "query_vi": "Tôi thấy mình trở nên chai sạn, người thân gặp chuyện vui hay buồn tôi cũng không rung động được.",
+    "ground_truth": {
+      "symptoms": [
+        "chai sạn cảm xúc blunted affect"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Folate",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_132",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I wish to nourish my brain to break free from the persistent gloom that has shadowed me for months.",
+    "query_vi": "Tôi muốn bồi bổ cho não bộ để thoát khỏi trạng thái u ám đã đeo bám suốt mấy tháng qua.",
+    "ground_truth": {
+      "symptoms": [
+        "nuôi dưỡng não bộ",
+        "vượt qua u ám"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Tryptophan",
+        "Kẽm",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_133",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I often endure pervasive feelings of abandonment and that nobody genuinely cares about my existence.",
+    "query_vi": "Tôi hay có cảm giác bị bỏ rơi và không ai thực sự quan tâm đến sự tồn tại của mình.",
+    "ground_truth": {
+      "symptoms": [
+        "mặc cảm bị bỏ rơi",
+        "tổn thương cảm xúc"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_134",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "Negative emotions continually steer me toward catastrophizing every event in the worst light.",
+    "query_vi": "Cảm xúc tiêu cực làm tôi luôn có xu hướng nhìn mọi sự việc theo chiều hướng xấu nhất.",
+    "ground_truth": {
+      "symptoms": [
+        "thiên kiến tiêu cực",
+        "bi quan hoá"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_135",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I feel my psychic stamina completely depleted as early as 10 in the morning.",
+    "query_vi": "Tôi cảm thấy năng lượng tinh thần của mình cạn sạch ngay từ 10 giờ sáng.",
+    "ground_truth": {
+      "symptoms": [
+        "suy kiệt năng lượng sớm",
+        "mệt mỏi tinh thần"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Sắt",
+        "Vitamin B12",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_136",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I frequently ponder the meaning of my life, sinking into existential deadlocks.",
+    "query_vi": "Tôi thường xuyên tự hỏi ý nghĩa cuộc sống của mình là gì và chìm vào bế tắc triết học.",
+    "ground_truth": {
+      "symptoms": [
+        "khủng hoảng hiện sinh",
+        "bế tắc ý nghĩa"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Folate",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_137",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I feel I have lost the ability to empathize or share joys with friends as I once did.",
+    "query_vi": "Tôi thấy mình không còn khả năng đồng cảm hay chia sẻ niềm vui với bạn bè như ngày xưa.",
+    "ground_truth": {
+      "symptoms": [
+        "suy giảm thấu cảm",
+        "cô lập cảm xúc"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_138",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "Sorrow leaves my chest heavily oppressed as if crushed by a boulder, breathing itself feeling arduous.",
+    "query_vi": "Nỗi buồn làm ngực tôi nặng trĩu như có tảng đá đè lên, hít thở cũng thấy nhọc nhằn.",
+    "ground_truth": {
+      "symptoms": [
+        "nặng ngực do u uất",
+        "nghẹn ngào"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_139",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I seek to rekindle life inspiration through light traditional dishes that help stabilize mood.",
+    "query_vi": "Tôi muốn tìm lại cảm hứng sống qua các món ăn truyền thống thanh đạm giúp cân bằng tâm trạng.",
+    "ground_truth": {
+      "symptoms": [
+        "thanh đạm cân bằng tâm trạng",
+        "hồi phục tinh thần"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_140",
+    "category": "mood_regulation",
+    "complexity": "moderate",
+    "query_en": "I feel totally alienated right in the middle of a boisterous crowd of laughing friends.",
+    "query_vi": "Tôi cảm thấy mình lạc lõng ngay giữa đám đông bạn bè đang cười đùa huyên náo.",
+    "ground_truth": {
+      "symptoms": [
+        "lạc lõng giữa đám đông",
+        "cô đơn sâu sắc"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_141",
+    "category": "mood_regulation",
+    "complexity": "complex",
+    "query_en": "I have been mired in depression for 6 months, lost 5kg, lost desire to work, and severed social ties.",
+    "query_vi": "Tôi chìm trong trầm cảm suốt 6 tháng nay, sụt 5kg, không thiết làm việc và cắt đứt liên lạc với xã hội.",
+    "ground_truth": {
+      "symptoms": [
+        "trầm cảm kéo dài",
+        "sụt cân do chán nản",
+        "cô lập xã hội"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Omega-3",
+        "Folate",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_142",
+    "category": "mood_regulation",
+    "complexity": "complex",
+    "query_en": "Melancholia has exhausted me physically, causing trembling gait and impaired vision from malnutrition.",
+    "query_vi": "Tâm trạng u uất làm tôi suy kiệt cả thể xác, bước đi run rẩy và thị lực giảm sút vì thiếu dinh dưỡng.",
+    "ground_truth": {
+      "symptoms": [
+        "suy kiệt thể xác do u sầu",
+        "suy dinh dưỡng tâm lý"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Vitamin A",
+        "Omega-3",
+        "Sắt",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_143",
+    "category": "mood_regulation",
+    "complexity": "complex",
+    "query_en": "I fell into abulia where will is paralyzed, lying in bed all day without caring to change clothes or brush teeth.",
+    "query_vi": "Tôi rơi vào trạng thái tê liệt ý chí, nằm trên giường cả ngày không buồn thay đồ hay đánh răng.",
+    "ground_truth": {
+      "symptoms": [
+        "tê liệt ý chí abulia",
+        "bỏ bê vệ sinh cá nhân"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Dopamine",
+        "Folate",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_144",
+    "category": "mood_regulation",
+    "complexity": "complex",
+    "query_en": "Chronic sorrow has reduced me to a lifeless shadow inside my own home.",
+    "query_vi": "Nỗi u sầu kinh niên biến tôi thành một cái bóng vô hồn trong chính ngôi nhà của mình.",
+    "ground_truth": {
+      "symptoms": [
+        "u sầu kinh niên",
+        "mất bản ngã"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Omega-3",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_145",
+    "category": "mood_regulation",
+    "complexity": "complex",
+    "query_en": "I just endured sudden bereavement; my psyche is frozen and cannot accept reality.",
+    "query_vi": "Tôi vừa trải qua nỗi đau mất người thân đột ngột, tâm trí đông cứng và không chấp nhận được thực tại.",
+    "ground_truth": {
+      "symptoms": [
+        "sang chấn mất mát bereavement",
+        "đau buồn tột độ"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_146",
+    "category": "mood_regulation",
+    "complexity": "complex",
+    "query_en": "I feel dopamine and serotonin in my brain are utterly drained after prolonged melancholia.",
+    "query_vi": "Tôi cảm thấy dopamine và serotonin trong não mình đã cạn kiệt hoàn toàn sau thời gian dài u uất.",
+    "ground_truth": {
+      "symptoms": [
+        "cạn kiệt chất dẫn truyền thần kinh",
+        "trầm cảm sâu"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Tyrosine",
+        "Folate",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_147",
+    "category": "mood_regulation",
+    "complexity": "complex",
+    "query_en": "I cried my eyes dry over nameless despairs, with throat continually choked with bitter grief.",
+    "query_vi": "Tôi khóc cạn nước mắt vì những chuyện không tên, cổ họng lúc nào cũng nghẹn đắng và xót xa.",
+    "ground_truth": {
+      "symptoms": [
+        "khóc nghẹn u uất",
+        "nghẹn cổ họng"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_148",
+    "category": "mood_regulation",
+    "complexity": "complex",
+    "query_en": "Protracted emotional collapse has stripped me of all trust in life and humanity.",
+    "query_vi": "Tâm trạng suy sụp kéo dài làm tôi mất hoàn toàn niềm tin vào cuộc sống và con người.",
+    "ground_truth": {
+      "symptoms": [
+        "mất niềm tin cuộc sống",
+        "suy sụp kéo dài"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Folate",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_149",
+    "category": "mood_regulation",
+    "complexity": "complex",
+    "query_en": "I feel brain fog heavily blanketing my mind, unable to recall events that occurred minutes ago.",
+    "query_vi": "Tôi cảm thấy não mình bị sương mù bao phủ dày đặc, không nhớ nổi những việc vừa xảy ra vài phút trước.",
+    "ground_truth": {
+      "symptoms": [
+        "sương mù não brain fog",
+        "suy giảm trí nhớ do trầm cảm"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Choline",
+        "Vitamin B12"
+      ]
+    }
+  },
+  {
+    "id": "RET_150",
+    "category": "mood_regulation",
+    "complexity": "complex",
+    "query_en": "I seek to rebuild positive energetic flow for my spirit after prolonged darkness.",
+    "query_vi": "Tôi muốn tái tạo lại dòng chảy năng lượng tích cực cho tâm hồn sau chuỗi ngày dài u tối.",
+    "ground_truth": {
+      "symptoms": [
+        "tái tạo năng lượng tích cực",
+        "chữa lành tâm trạng"
+      ],
+      "expected_effects": [
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Omega-3",
+        "Magie",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_151",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "Whenever anxious or stressed, my abdomen cramps up in intensely uncomfortable spasms.",
+    "query_vi": "Cứ mỗi lần lo âu hay căng thẳng là bụng tôi lại quặn đau thắt từng cơn rất khó chịu.",
+    "ground_truth": {
+      "symptoms": [
+        "đau quặn bụng do lo âu",
+        "co thắt ruột"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Chất xơ hòa tan",
+        "Kẽm",
+        "Probiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_152",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "Lately I suffer from acid reflux; gastric acid surges up to my throat causing chest heartburn.",
+    "query_vi": "Dạo này tôi bị trào ngược dạ dày thực quản, dịch axit ợ lên tận cuống họng làm nóng rát ngực.",
+    "ground_truth": {
+      "symptoms": [
+        "trào ngược dạ dày",
+        "nóng rát thực quản"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Chất xơ"
+      ]
+    }
+  },
+  {
+    "id": "RET_153",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "I frequently suffer postprandial bloating; my belly distends like a balloon despite eating very little.",
+    "query_vi": "Tôi hay bị đầy hơi chướng bụng sau khi ăn, bụng cứ căng tròn như quả bóng dù ăn rất ít.",
+    "ground_truth": {
+      "symptoms": [
+        "đầy hơi chướng bụng",
+        "chậm tiêu"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Enzyme tiêu hóa",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_154",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "Whenever walking into exam halls or job interviews, intestinal cramping triggers urgent bowel urges.",
+    "query_vi": "Mỗi khi bước vào phòng thi hay phỏng vấn xin việc là tôi lại buồn đi ngoài khẩn cấp vì thắt ruột.",
+    "ground_truth": {
+      "symptoms": [
+        "hội chứng ruột kích thích IBS",
+        "mót rặn do stress"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Chất xơ hòa tan"
+      ]
+    }
+  },
+  {
+    "id": "RET_155",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "My gastric mucosa suffers recurrent erosive gastritis whenever work enters crunch phases.",
+    "query_vi": "Dạ dày tôi bị viêm trợt tái đi tái lại nhiều lần mỗi khi công việc bước vào giai đoạn nước rút.",
+    "ground_truth": {
+      "symptoms": [
+        "viêm loét dạ dày do stress",
+        "đau thượng vị"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Flavonoid"
+      ]
+    }
+  },
+  {
+    "id": "RET_156",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "I suffer sour belching and feel food stagnating in my stomach without digesting.",
+    "query_vi": "Tôi hay bị ợ hơi chua và có cảm giác thức ăn ứ đọng ở dạ dày không chịu tiêu hóa.",
+    "ground_truth": {
+      "symptoms": [
+        "ợ chua",
+        "ứ trệ tiêu hóa"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Enzyme",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_157",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "My digestive tract is ultra-sensitive; a slight emotional tremor sets my intestines rumbling loud.",
+    "query_vi": "Hệ tiêu hóa của tôi rất nhạy cảm, chỉ cần một chút xáo trộn cảm xúc là ruột lại sôi ùng ục.",
+    "ground_truth": {
+      "symptoms": [
+        "ruột nhạy cảm trục não ruột",
+        "sôi bụng"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_158",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "I suffer chronic constipation for days; dry hard stool turns every bowel movement into an ordeal.",
+    "query_vi": "Tôi bị táo bón kinh niên nhiều ngày liền, phân khô cứng khiến mỗi lần đi vệ sinh là một cực hình.",
+    "ground_truth": {
+      "symptoms": [
+        "táo bón mãn tính",
+        "nhu động ruột kém"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Chất xơ hòa tan",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_159",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "My abdomen suffers dull periumbilical aches continuously; endoscopy reveals no organic lesions.",
+    "query_vi": "Bụng dạ tôi lúc nào cũng âm ỉ đau vùng quanh rốn, đi khám nội soi không thấy tổn thương thực thể.",
+    "ground_truth": {
+      "symptoms": [
+        "đau bụng chức năng",
+        "rối loạn trục não ruột"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_160",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "I experience dry retching and nausea every early morning before starting the new day.",
+    "query_vi": "Tôi hay có cảm giác buồn nôn khan vào mỗi buổi sáng sớm trước khi bắt đầu ngày mới.",
+    "ground_truth": {
+      "symptoms": [
+        "buồn nôn sáng sớm",
+        "tăng co thắt môn vị"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Gừng",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_161",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "Pressure strips away my appetite, leaving my stomach perpetually feeling stuffed and uneasy.",
+    "query_vi": "Áp lực làm tôi mất đi sự thèm ăn và bụng luôn có cảm giác đầy ứ khó chịu.",
+    "ground_truth": {
+      "symptoms": [
+        "đầy bụng khó tiêu",
+        "mất thèm ăn do dạ dày"
+      ],
+      "expected_effects": [
+        "digestion",
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Enzyme"
+      ]
+    }
+  },
+  {
+    "id": "RET_162",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "I experience sudden loose watery diarrhea whenever confronting fear or insecurity.",
+    "query_vi": "Tôi bị tiêu chảy phân lỏng bất chợt mỗi khi gặp chuyện bất an hay sợ hãi.",
+    "ground_truth": {
+      "symptoms": [
+        "tiêu chảy do lo âu",
+        "tăng nhu động ruột cấp"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Chất xơ hòa tan"
+      ]
+    }
+  },
+  {
+    "id": "RET_163",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "My stomach secretes excess acid, causing burning gnawing sensations like needle pricks.",
+    "query_vi": "Dạ dày tôi tiết ra quá nhiều axit làm bụng cồn cào xót xa như bị kim châm.",
+    "ground_truth": {
+      "symptoms": [
+        "tăng tiết axit dạ dày",
+        "xót ruột"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Canxi",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_164",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "I need dishes that soothe and restore damaged gastric mucosa.",
+    "query_vi": "Tôi cần các món ăn giúp làm dịu và phục hồi niêm mạc dạ dày đang bị tổn thương.",
+    "ground_truth": {
+      "symptoms": [
+        "phục hồi niêm mạc dạ dày",
+        "làm dịu niêm mạc"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Curcumin",
+        "Glutamine"
+      ]
+    }
+  },
+  {
+    "id": "RET_165",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "Food sits in my stomach stagnant; 4 to 5 hours later I still taste regurgitated food in my throat.",
+    "query_vi": "Thức ăn vào bụng như nằm nguyên một chỗ, 4 5 tiếng sau vẫn nghe mùi thức ăn ợ lên cổ.",
+    "ground_truth": {
+      "symptoms": [
+        "liệt dạ dày nhẹ",
+        "chậm làm rỗng dạ dày"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Enzyme",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_166",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "I frequently endure colonic spasms following rushed desk lunches at the office.",
+    "query_vi": "Tôi thường xuyên bị quặn thắt đại tràng sau mỗi bữa ăn trưa vội vã tại bàn làm việc.",
+    "ground_truth": {
+      "symptoms": [
+        "co thắt đại tràng",
+        "ăn vội đau bụng"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Chất xơ",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_167",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "My gut microbiome was wiped out after antibiotics, passing undigested stool and frequent diarrhea.",
+    "query_vi": "Hệ vi sinh đường ruột của tôi bị xáo trộn sau đợt uống kháng sinh, phân sống và hay đi lỏng.",
+    "ground_truth": {
+      "symptoms": [
+        "loạn khuẩn đường ruột",
+        "phân sống"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Prebiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_168",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "Retrosternal burning made me fear heart disease, but it turned out to be acid reflux.",
+    "query_vi": "Cảm giác nóng rát sau xương ức làm tôi tưởng mình bị bệnh tim nhưng hóa ra là do trào ngược dạ dày.",
+    "ground_truth": {
+      "symptoms": [
+        "nóng rát sau xương ức",
+        "trào ngược dạ dày"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Chất xơ"
+      ]
+    }
+  },
+  {
+    "id": "RET_169",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "My stomach abhors cold or spicy foods, immediately responding with severe cramps and diarrhea.",
+    "query_vi": "Bụng tôi rất sợ đồ ăn lạnh hoặc chua cay, ăn vào là đau thắt và đi ngoài ngay lập tức.",
+    "ground_truth": {
+      "symptoms": [
+        "dạ dày nhạy cảm đồ lạnh",
+        "kích ứng niêm mạc"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Gừng"
+      ]
+    }
+  },
+  {
+    "id": "RET_170",
+    "category": "digestion",
+    "complexity": "single",
+    "query_en": "I want to nourish digestion via the Gut-Brain axis to alleviate nervous tension.",
+    "query_vi": "Tôi muốn bồi bổ đường tiêu hóa theo trục Não - Ruột để tâm trạng bớt căng thẳng hơn.",
+    "ground_truth": {
+      "symptoms": [
+        "trục não ruột",
+        "nuôi dưỡng vi sinh đường ruột"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Chất xơ hòa tan",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_171",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "I suffer mixed-type irritable bowel syndrome, alternating between week-long constipation and acute diarrhea.",
+    "query_vi": "Tôi bị hội chứng ruột kích thích thể hỗn hợp, lúc thì táo bón cả tuần, lúc lại tiêu chảy cấp.",
+    "ground_truth": {
+      "symptoms": [
+        "IBS hỗn hợp",
+        "rối loạn bài tiết"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Chất xơ hòa tan",
+        "Probiotic",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_172",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "Acid reflux causes vocal cord hoarseness and persistent nocturnal dry cough.",
+    "query_vi": "Trào ngược dạ dày làm tôi bị khản tiếng hạt xơ thanh quản và ho khan kéo dài về đêm.",
+    "ground_truth": {
+      "symptoms": [
+        "ho trào ngược đêm",
+        "khản tiếng do axit"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Chất nhầy thảo mộc"
+      ]
+    }
+  },
+  {
+    "id": "RET_173",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "Chronic stress makes my colonic mucosa hypercontractile, bowels rumbling loudly all the time.",
+    "query_vi": "Căng thẳng triền miên làm niêm mạc đại tràng của tôi bị co bóp quá mức, bụng lúc nào cũng sôi sùng sục.",
+    "ground_truth": {
+      "symptoms": [
+        "tăng co bóp đại tràng",
+        "sôi ruột lo âu"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Probiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_174",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "I endure globus sensation in my throat like a plum pit lodged there, though ENT exams show normal.",
+    "query_vi": "Tôi hay có cảm giác vướng ở cổ họng như có hạt mơ chẹn lại nhưng đi khám họng thì bình thường.",
+    "ground_truth": {
+      "symptoms": [
+        "hội chứng nghẹn cổ globus",
+        "co thắt thực quản lo âu"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_175",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "Right after breakfast my stomach starts gnawing with cramps, forcing me to rush to the restroom immediately.",
+    "query_vi": "Sau khi ăn sáng xong là bụng tôi lại đau nhâm nhẩm và bắt buộc phải tìm nhà vệ sinh ngay.",
+    "ground_truth": {
+      "symptoms": [
+        "phản xạ dạ dày đại tràng tăng",
+        "đau bụng sau ăn"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Chất xơ hòa tan",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_176",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "I suffer indigestion coupled with poor sleep because my stomach sloshes with fluid all night.",
+    "query_vi": "Tôi bị đầy bụng khó tiêu kèm theo chứng khó ngủ vì dạ dày cứ ọc ạch nước suốt đêm.",
+    "ground_truth": {
+      "symptoms": [
+        "đầy bụng ban đêm",
+        "ọc ạch dạ dày khó ngủ"
+      ],
+      "expected_effects": [
+        "digestion",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Enzyme",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_177",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "Whenever brooding over finances, my epigastrium flares with burning pain like fire.",
+    "query_vi": "Cứ lo nghĩ chuyện tiền nong là thượng vị tôi lại nhói lên từng cơn bỏng rát như có lửa thiêu.",
+    "ground_truth": {
+      "symptoms": [
+        "đau thượng vị stress",
+        "rát dạ dày lo âu"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Chất kiềm hóa"
+      ]
+    }
+  },
+  {
+    "id": "RET_178",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "I wake up with bitter mouth in mornings and sour breath due to biliary reflux.",
+    "query_vi": "Tôi hay bị đắng ngắt miệng vào buổi sáng và hơi thở có mùi chua do trào ngược dịch mật.",
+    "ground_truth": {
+      "symptoms": [
+        "đắng miệng trào ngược mật",
+        "hơi thở chua"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Chất xơ",
+        "Actiso"
+      ]
+    }
+  },
+  {
+    "id": "RET_179",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "Poor digestion prevents nutrient absorption, leaving me emaciated and sallow.",
+    "query_vi": "Hệ tiêu hóa kém làm tôi ăn vào không hấp thu được, người gầy rộc và xanh xao.",
+    "ground_truth": {
+      "symptoms": [
+        "kém hấp thu malabsorption",
+        "gầy sút tiêu hóa"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Enzyme",
+        "Kẽm",
+        "Vitamin nhóm B"
+      ]
+    }
+  },
+  {
+    "id": "RET_180",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "My abdomen turns rock-hard every afternoon, tympanic like a drum when tapped.",
+    "query_vi": "Bụng tôi cứ căng cứng như tảng đá mỗi buổi chiều, gõ vào nghe vang như đánh trống.",
+    "ground_truth": {
+      "symptoms": [
+        "chướng bụng căng cứng",
+        "tích tụ khí đường ruột"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_181",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "I have had antral gastritis for years, badly needing a diet that heals mucosal erosions.",
+    "query_vi": "Tôi bị viêm hang vị dạ dày nhiều năm nay, rất cần chế độ ăn uống giúp làm lành vết trợt.",
+    "ground_truth": {
+      "symptoms": [
+        "viêm hang vị",
+        "lành vết loét niêm mạc"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Curcumin",
+        "Kẽm",
+        "Glutamine"
+      ]
+    }
+  },
+  {
+    "id": "RET_182",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "I frequently endure intractable post-meal hiccups due to diaphragmatic irritation from gastric bloating.",
+    "query_vi": "Tôi thường xuyên bị nấc cụt dai dẳng sau bữa ăn do cơ hoành bị kích thích bởi dạ dày chướng hơi.",
+    "ground_truth": {
+      "symptoms": [
+        "nấc cụt dai dẳng",
+        "chướng hơi kích thích cơ hoành"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Chất xơ"
+      ]
+    }
+  },
+  {
+    "id": "RET_183",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "Early satiety makes me feel choked up to my throat after barely a few spoonfuls of rice.",
+    "query_vi": "Cảm giác no giả tạo làm tôi mới ăn vài thìa cơm đã thấy nghẹn ứ ở cổ không thể nuốt thêm.",
+    "ground_truth": {
+      "symptoms": [
+        "no sớm early satiety",
+        "ứ nghẹn cổ họng"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Enzyme"
+      ]
+    }
+  },
+  {
+    "id": "RET_184",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "Pyloric dysmotility delays gastric emptying, keeping me perpetually lethargic.",
+    "query_vi": "Tôi bị rối loạn co bóp môn vị, thức ăn chậm xuống ruột làm người lúc nào cũng mệt mỏi.",
+    "ground_truth": {
+      "symptoms": [
+        "chậm tống thức ăn",
+        "rối loạn môn vị"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Enzyme"
+      ]
+    }
+  },
+  {
+    "id": "RET_185",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "Every seasonal transition triggers an acute gastritis flare-up despite unchanged dietary habits.",
+    "query_vi": "Mỗi lần chuyển mùa tôi lại bị một đợt đau dạ dày cấp tính dù chế độ ăn không hề thay đổi.",
+    "ground_truth": {
+      "symptoms": [
+        "đau dạ dày thời tiết",
+        "nhạy cảm niêm mạc"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Probiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_186",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "Bloating torments me to where I dare not wear tight clothes due to my swollen abdomen.",
+    "query_vi": "Tôi bị chứng đầy hơi hành hạ đến mức không dám mặc quần áo bó sát vì bụng căng phồng.",
+    "ground_truth": {
+      "symptoms": [
+        "chướng hơi căng phồng",
+        "bụng to do đầy hơi"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Prebiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_187",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "I frequently pass lumpy undigested stool; vegetables seemingly transit through unassimilated.",
+    "query_vi": "Tôi hay bị phân sống lổn nhổn, thức ăn rau củ dường như đi qua ruột mà chưa được tiêu hóa.",
+    "ground_truth": {
+      "symptoms": [
+        "tiêu hóa kém phân sống",
+        "thiếu enzyme tiêu hóa"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Enzyme",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_188",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "Stomach pain radiating to my back prevents me from sitting down to work for long.",
+    "query_vi": "Cơn đau dạ dày lan ra sau lưng làm tôi không thể ngồi làm việc lâu được.",
+    "ground_truth": {
+      "symptoms": [
+        "đau dạ dày lan sau lưng",
+        "co thắt thượng vị"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_189",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "I need to enrich my gut microbiome to boost synthesis of neural transmitters.",
+    "query_vi": "Tôi cần cải thiện hệ vi sinh đường ruột để tăng cường sản xuất các chất dẫn truyền thần kinh.",
+    "ground_truth": {
+      "symptoms": [
+        "vi sinh trục não ruột",
+        "tổng hợp chất dẫn truyền"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Prebiotic",
+        "Chất xơ hòa tan"
+      ]
+    }
+  },
+  {
+    "id": "RET_190",
+    "category": "digestion",
+    "complexity": "moderate",
+    "query_en": "My stomach is extremely delicate; delaying a meal slightly triggers excruciating hunger pangs halting work.",
+    "query_vi": "Dạ dày tôi rất yếu, ăn uống hơi trễ giờ một chút là cồn cào đau thắt không làm được việc gì.",
+    "ground_truth": {
+      "symptoms": [
+        "đau dạ dày do đói",
+        "tăng tiết dịch vị"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Chất kiềm hóa",
+        "Canxi",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_191",
+    "category": "digestion",
+    "complexity": "complex",
+    "query_en": "I suffer gastroduodenal ulcers combined with IBS, enduring abdominal spasms around the clock.",
+    "query_vi": "Tôi bị viêm loét dạ dày tá tràng kết hợp hội chứng ruột kích thích, bụng đau quặn cả ngày lẫn đêm.",
+    "ground_truth": {
+      "symptoms": [
+        "viêm loét dạ dày tá tràng",
+        "IBS mãn tính"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Curcumin",
+        "Probiotic",
+        "Glutamine"
+      ]
+    }
+  },
+  {
+    "id": "RET_192",
+    "category": "digestion",
+    "complexity": "complex",
+    "query_en": "Grade B GERD causes esophageal ulceration; nocturnal acid aspiration chokes my breathing.",
+    "query_vi": "Trào ngược dạ dày thực quản độ B gây viêm loét cổ họng, đêm ngủ hay bị sặc axit nghẹt thở.",
+    "ground_truth": {
+      "symptoms": [
+        "trào ngược độ B",
+        "sặc axit ban đêm"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Chất xơ hòa tan",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_193",
+    "category": "digestion",
+    "complexity": "complex",
+    "query_en": "Severe intestinal malabsorption has developed after years of chronic colitis.",
+    "query_vi": "Tôi bị suy giảm chức năng hấp thu đường ruột nghiêm trọng sau nhiều năm bị đại tràng mãn tính.",
+    "ground_truth": {
+      "symptoms": [
+        "kém hấp thu ruột non",
+        "viêm đại tràng mãn tính"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Glutamine",
+        "Probiotic",
+        "Sắt"
+      ]
+    }
+  },
+  {
+    "id": "RET_194",
+    "category": "digestion",
+    "complexity": "complex",
+    "query_en": "My gut resembles a battlefield; consuming any food triggers abdominal agony and evacuation within 15 minutes.",
+    "query_vi": "Bụng dạ tôi như một bãi chiến trường, ăn thức ăn gì vào cũng bị đau bụng đi ngoài ngay sau 15 phút.",
+    "ground_truth": {
+      "symptoms": [
+        "tăng phản xạ đại tràng cực độ",
+        "không dung nạp thức ăn"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Kẽm",
+        "Chất xơ hòa tan"
+      ]
+    }
+  },
+  {
+    "id": "RET_195",
+    "category": "digestion",
+    "complexity": "complex",
+    "query_en": "Job stress caused recurrent gastric mucosal ulcerations, leaving me emaciated and sickly.",
+    "query_vi": "Áp lực công việc làm tôi bị thủng loét niêm mạc dạ dày tái phát, người suy nhược gầy gò ốm yếu.",
+    "ground_truth": {
+      "symptoms": [
+        "tổn thương loét tái phát",
+        "suy nhược tiêu hóa"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Glutamine",
+        "Sắt"
+      ]
+    }
+  },
+  {
+    "id": "RET_196",
+    "category": "digestion",
+    "complexity": "complex",
+    "query_en": "Severe dysbiosis causes relentless intestinal meteorism gas buildup and paroxysmal spasms.",
+    "query_vi": "Hệ vi khuẩn đường ruột bị loạn khuẩn nặng nề, bụng chướng khí liên tục và đau thắt từng cơn.",
+    "ground_truth": {
+      "symptoms": [
+        "loạn khuẩn nặng dysbiosis",
+        "chướng khí đại tràng"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Prebiotic",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_197",
+    "category": "digestion",
+    "complexity": "complex",
+    "query_en": "Mild gastroptosis and loss of digestive motor tone cause 24-hour food stagnation and bloating.",
+    "query_vi": "Tôi bị sa dạ dày nhẹ và mất trương lực cơ tiêu hóa, thức ăn ứ trệ gây đầy bụng suốt 24 giờ.",
+    "ground_truth": {
+      "symptoms": [
+        "sa dạ dày",
+        "mất trương lực cơ tiêu hóa"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi",
+        "Enzyme"
+      ]
+    }
+  },
+  {
+    "id": "RET_198",
+    "category": "digestion",
+    "complexity": "complex",
+    "query_en": "Lower esophageal sphincter spasms cause dysphagia choking and pain behind my breastbone.",
+    "query_vi": "Tôi bị chứng co thắt cơ vòng thực quản dưới, nuốt thức ăn hay bị nghẹn đau tức vùng ngực.",
+    "ground_truth": {
+      "symptoms": [
+        "co thắt thực quản dưới",
+        "nuốt nghẹn đau ngực"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi"
+      ]
+    }
+  },
+  {
+    "id": "RET_199",
+    "category": "digestion",
+    "complexity": "complex",
+    "query_en": "Spastic colitis lasting years has brought intractable insomnia and precipitous weight loss.",
+    "query_vi": "Tình trạng viêm đại tràng co thắt kéo dài làm tôi mất ngủ triền miên và sụt cân không phanh.",
+    "ground_truth": {
+      "symptoms": [
+        "đại tràng co thắt",
+        "sụt cân tiêu hóa"
+      ],
+      "expected_effects": [
+        "digestion",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Probiotic",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_200",
+    "category": "digestion",
+    "complexity": "complex",
+    "query_en": "I urgently require a comprehensive digestive restorative nutritional protocol to rebalance the Gut-Brain axis.",
+    "query_vi": "Tôi cần một chế độ dinh dưỡng phục hồi toàn diện hệ tiêu hóa để tái lập cân bằng trục Não - Ruột.",
+    "ground_truth": {
+      "symptoms": [
+        "phục hồi toàn diện trục não ruột",
+        "chữa lành tiêu hóa"
+      ],
+      "expected_effects": [
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Glutamine",
+        "Kẽm",
+        "Probiotic",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_201",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "Lately I have an appalling lack of appetite; looking at meals induces nausea with no desire to touch food.",
+    "query_vi": "Dạo này tôi chán ăn khủng khiếp, nhìn thấy mâm cơm là thấy ngấy và không muốn đụng đũa.",
+    "ground_truth": {
+      "symptoms": [
+        "chán ăn",
+        "mất cảm giác ngon miệng"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin nhóm B"
+      ]
+    }
+  },
+  {
+    "id": "RET_202",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "Whenever stressed at work I crave sweets ravenously, constantly binging on bubble tea and pastries.",
+    "query_vi": "Cứ mỗi lần căng thẳng công việc là tôi lại thèm đồ ngọt cồn cào, ăn liên tục trà sữa và bánh ngọt.",
+    "ground_truth": {
+      "symptoms": [
+        "thèm ngọt do stress",
+        "ăn uống cảm xúc"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Chromium",
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_203",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "I have totally lost all hunger sensations; sipping a mouthful of water keeps me feeling full all day.",
+    "query_vi": "Tôi bị mất hoàn toàn cảm giác thèm ăn, cả ngày chỉ uống ngụm nước cũng không thấy đói bụng.",
+    "ground_truth": {
+      "symptoms": [
+        "mất cảm giác đói",
+        "chán ăn toàn phần"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin B1"
+      ]
+    }
+  },
+  {
+    "id": "RET_204",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "I have an uncontrolled night-eating habit; even with a stuffed stomach my mouth yearns to chew.",
+    "query_vi": "Tôi hay có thói quen ăn đêm không kiểm soát, dù bụng no căng nhưng miệng vẫn muốn nhai thứ gì đó.",
+    "ground_truth": {
+      "symptoms": [
+        "hội chứng ăn đêm",
+        "thèm ăn vô cớ"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Melatonin",
+        "Chromium"
+      ]
+    }
+  },
+  {
+    "id": "RET_205",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "My mouth constantly feels bland and bitter; even delicacies taste utterly devoid of flavor.",
+    "query_vi": "Miệng tôi lúc nào cũng nhạt thếch và đắng ngắt, ăn món sơn hào hải vị gì cũng thấy vô vị.",
+    "ground_truth": {
+      "symptoms": [
+        "nhạt miệng mất vị giác",
+        "chán ăn"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Sắt"
+      ]
+    }
+  },
+  {
+    "id": "RET_206",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "Anxiety chokes my throat; trying to swallow food triggers immediate gagging reflexes.",
+    "query_vi": "Cảm giác lo âu làm cổ họng tôi nghẹn ứ, cố nuốt thức ăn vào là muốn trớ ra ngay.",
+    "ground_truth": {
+      "symptoms": [
+        "nghẹn họng khi ăn",
+        "khó nuốt do lo âu"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_207",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "I binge eat whenever feeling bored or sad, devouring food uncontrollably without stopping.",
+    "query_vi": "Tôi bị cuồng ăn mỗi khi cảm thấy buồn chán, ăn ngấu nghiến không dừng lại được.",
+    "ground_truth": {
+      "symptoms": [
+        "cuồng ăn cảm xúc binge eating",
+        "thèm ăn mất kiểm soát"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Chromium",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_208",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "Lately I have been losing weight rapidly because at each meal I can barely choke down a few spoons of rice.",
+    "query_vi": "Dạo này tôi bị sụt cân nhanh chóng vì mỗi bữa chỉ nuốt nổi vài thìa cơm là buông bát.",
+    "ground_truth": {
+      "symptoms": [
+        "sụt cân do chán ăn",
+        "ăn ít"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin B12",
+        "Sắt"
+      ]
+    }
+  },
+  {
+    "id": "RET_209",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "I intensely crave greasy fried foods and fast food whenever trapped in workplace bottlenecks.",
+    "query_vi": "Tôi rất thèm đồ chiên rán dầu mỡ và thức ăn nhanh mỗi khi rơi vào trạng thái bế tắc công việc.",
+    "ground_truth": {
+      "symptoms": [
+        "thèm chất béo do stress",
+        "ăn uống giải tỏa"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_210",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "Meals feel like an onerous obligation rather than bringing any culinary pleasure.",
+    "query_vi": "Bữa ăn đối với tôi như một nghĩa vụ nặng nề chứ không còn chút niềm vui ẩm thực nào.",
+    "ground_truth": {
+      "symptoms": [
+        "mất niềm vui ăn uống",
+        "chán ăn tâm lý"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin nhóm B"
+      ]
+    }
+  },
+  {
+    "id": "RET_211",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "I habitually skip breakfast and lunch, only to binge on enormous quantities of food at dinner.",
+    "query_vi": "Tôi hay bỏ bữa sáng và bữa trưa, rồi đến tối lại ăn dồn dập một lượng thức ăn khổng lồ.",
+    "ground_truth": {
+      "symptoms": [
+        "bỏ bữa ăn dồn",
+        "rối loạn nhịp ăn uống"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Protein",
+        "Chất xơ",
+        "Chromium"
+      ]
+    }
+  },
+  {
+    "id": "RET_212",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "Cooking aromas from the kitchen nauseate me, forcing me to rush to open air to breathe.",
+    "query_vi": "Mùi thức ăn xào nấu trong bếp làm tôi buồn nôn và phải chạy ra chỗ thoáng để thở.",
+    "ground_truth": {
+      "symptoms": [
+        "sợ mùi thức ăn",
+        "buồn nôn khi ngửi mùi"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Vitamin B6",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_213",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "I crave salty dishes and heavily seasoned foods to stimulate lost taste sensation.",
+    "query_vi": "Tôi luôn thèm ăn mặn và các món ăn đậm gia vị để kích thích lại vị giác đã mất.",
+    "ground_truth": {
+      "symptoms": [
+        "thèm mặn",
+        "vị giác kém"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Khoáng vi lượng"
+      ]
+    }
+  },
+  {
+    "id": "RET_214",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "I mindlessly eat while watching TV or scrolling phones, polishing off large cookie packs unaware.",
+    "query_vi": "Tôi bị chứng ăn trong vô thức khi xem tivi hoặc lướt điện thoại, ăn hết cả gói bánh to mà không hay.",
+    "ground_truth": {
+      "symptoms": [
+        "ăn vô thức mindless eating"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Chất xơ",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_215",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "Academic pressure ruins both appetite and sleep; I shake my head weary at any dish offered.",
+    "query_vi": "Áp lực học tập khiến em ăn không ngon ngủ không yên, nhìn món gì cũng lắc đầu ngao ngán.",
+    "ground_truth": {
+      "symptoms": [
+        "chán ăn do áp lực học",
+        "ngán ăn"
+      ],
+      "expected_effects": [
+        "appetite_regulation",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin B6",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_216",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "My stomach growls famished with hunger pangs, yet my mouth refuses to chew and swallow.",
+    "query_vi": "Tôi thấy đói cồn cào trong bụng nhưng miệng lại hoàn toàn từ chối nhai và nuốt thức ăn.",
+    "ground_truth": {
+      "symptoms": [
+        "nghịch lý đói bụng chán miệng"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Enzyme"
+      ]
+    }
+  },
+  {
+    "id": "RET_217",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "Following every burst of rage, I seek snacks to vent anger and fill an emotional void.",
+    "query_vi": "Cứ sau mỗi cơn giận dữ là tôi lại tìm đồ ăn vặt để trút giận và lấp đầy khoảng trống.",
+    "ground_truth": {
+      "symptoms": [
+        "ăn để xả giận",
+        "ăn theo cảm xúc tiêu cực"
+      ],
+      "expected_effects": [
+        "appetite_regulation",
+        "impulsivity_control"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_218",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "I need to regulate my body's natural satiety cues to maintain stable weight.",
+    "query_vi": "Tôi muốn điều hòa lại cảm giác no đói tự nhiên của cơ thể để kiểm soát cân nặng ổn định.",
+    "ground_truth": {
+      "symptoms": [
+        "điều hòa leptin ghrelin",
+        "cân bằng no đói"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Protein",
+        "Chất xơ hòa tan",
+        "Chromium"
+      ]
+    }
+  },
+  {
+    "id": "RET_219",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "Lately I am hooked on sugary sodas, needing 2 to 3 cans daily just to feel alert.",
+    "query_vi": "Dạo này tôi bị nghiện đồ uống ngọt có ga, một ngày phải uống 2 3 lon mới thấy tỉnh táo.",
+    "ground_truth": {
+      "symptoms": [
+        "thèm đường ngọt có ga",
+        "nghiện đồ ngọt"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Chromium",
+        "Magie",
+        "Vitamin B1"
+      ]
+    }
+  },
+  {
+    "id": "RET_220",
+    "category": "appetite_regulation",
+    "complexity": "single",
+    "query_en": "I feel powerless before crunchy snacks whenever sitting alone at work.",
+    "query_vi": "Tôi cảm thấy mất kiểm soát trước các món ăn vặt giòn rụm mỗi khi ngồi làm việc một mình.",
+    "ground_truth": {
+      "symptoms": [
+        "thèm đồ ăn giòn",
+        "ăn vặt giảm stress"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_221",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I am trapped in a vicious cycle: stress triggers binging, guilt induces starvation diets.",
+    "query_vi": "Tôi rơi vào vòng luẩn quẩn: căng thẳng thì ăn nhiều, ăn xong thấy tội lỗi rồi lại nhịn đói kham khổ.",
+    "ground_truth": {
+      "symptoms": [
+        "vòng lặp ăn bù nhịn đói",
+        "tội lỗi sau ăn"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Chromium",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_222",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "Prolonged anorexia causes sudden hypoglycemia dips with lightheadedness and trembling limbs.",
+    "query_vi": "Sự chán ăn kéo dài làm lượng đường huyết của tôi hay bị hạ đột ngột, hoa mắt bủn rủn tay chân.",
+    "ground_truth": {
+      "symptoms": [
+        "hạ đường huyết do nhịn ăn",
+        "chán ăn hoa mắt"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Chromium",
+        "Carbohydrate phức hợp",
+        "Protein"
+      ]
+    }
+  },
+  {
+    "id": "RET_223",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "Morbid fear of weight gain makes me weigh every grain of rice and shun all dietary fats.",
+    "query_vi": "Tôi bị chứng sợ tăng cân quá mức dẫn đến việc đong đếm từng hạt cơm và từ chối mọi chất béo.",
+    "ground_truth": {
+      "symptoms": [
+        "sợ tăng cân ám ảnh",
+        "kiêng khem cực đoan"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Omega-3",
+        "Kẽm",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_224",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "From 3 to 5 PM, violent sugar cravings strike, destroying my workplace concentration.",
+    "query_vi": "Buổi chiều từ 3 đến 5 giờ là cơn thèm đồ ngọt lại ập đến dữ dội làm tôi không thể tập trung làm việc.",
+    "ground_truth": {
+      "symptoms": [
+        "cơn thèm đường buổi chiều",
+        "suy giảm năng lượng chiều"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Chromium",
+        "Protein",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_225",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "My eating pattern is chaotic: grazing 5 meals one day, completely forgetting to eat until night the next.",
+    "query_vi": "Tôi ăn uống rất thất thường, có ngày ăn liên tục 5 bữa, có ngày lại quên ăn từ sáng đến tối mịt.",
+    "ground_truth": {
+      "symptoms": [
+        "nhịp ăn thất thường",
+        "mất kiểm soát bữa ăn"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Chất xơ",
+        "Protein"
+      ]
+    }
+  },
+  {
+    "id": "RET_226",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "Family pressure makes my throat choke with bitterness; every family meal feels like torture.",
+    "query_vi": "Áp lực gia đình làm tôi cảm thấy nghẹn đắng ở họng, mỗi bữa ăn gia đình đều như một cuộc tra tấn.",
+    "ground_truth": {
+      "symptoms": [
+        "chán ăn bữa cơm gia đình",
+        "nghẹn ngào tâm lý"
+      ],
+      "expected_effects": [
+        "appetite_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_227",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I lost salivary reflexes when viewing food; my mouth is parched and cannot swallow rice.",
+    "query_vi": "Tôi bị mất phản xạ tiết nước bọt khi nhìn thức ăn, miệng khô khốc và không nuốt nổi cơm.",
+    "ground_truth": {
+      "symptoms": [
+        "khô miệng chán ăn",
+        "giảm tiết nước bọt"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin C"
+      ]
+    }
+  },
+  {
+    "id": "RET_228",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I habitually consume confectionery to pacify loneliness and emptiness on weekend evenings.",
+    "query_vi": "Tôi hay ăn đồ ngọt để xoa dịu cảm giác cô đơn và trống trải vào mỗi buổi tối cuối tuần.",
+    "ground_truth": {
+      "symptoms": [
+        "ăn ngọt xoa dịu cô đơn",
+        "bù đắp cảm xúc"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_229",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "After a breakup, psychogenic anorexia hit, shedding 4kg in barely two short weeks.",
+    "query_vi": "Sau khi chia tay người yêu, tôi bị chán ăn tâm lý và sụt mất 4kg chỉ trong vòng hai tuần ngắn ngủi.",
+    "ground_truth": {
+      "symptoms": [
+        "chán ăn sau biến cố tình cảm",
+        "sụt cân cấp"
+      ],
+      "expected_effects": [
+        "appetite_regulation",
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin nhóm B",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_230",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I feel food has lost all scent and taste recently, like chewing candle wax.",
+    "query_vi": "Tôi có cảm giác thức ăn dạo này không còn mùi vị gì cả, như nhai sáp đèn cầy.",
+    "ground_truth": {
+      "symptoms": [
+        "mất khứu giác vị giác ăn uống",
+        "nhạt miệng"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin B12"
+      ]
+    }
+  },
+  {
+    "id": "RET_231",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I frequently gorge to the point of suffocating stomach distension, followed by bitter remorse.",
+    "query_vi": "Tôi thường xuyên ăn quá no đến mức tức bụng khó thở rồi lại ân hận tự trách bản thân.",
+    "ground_truth": {
+      "symptoms": [
+        "ăn quá no quá chén",
+        "tự trách sau ăn"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Chất xơ hòa tan",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_232",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "Grief makes me crave only sugary carbonated drinks, refusing any solid nourishment.",
+    "query_vi": "Nỗi buồn làm tôi chỉ muốn uống nước ngọt có ga và từ chối ăn bất kỳ thức ăn đặc nào.",
+    "ground_truth": {
+      "symptoms": [
+        "chỉ uống nước ngọt bỏ cơm",
+        "từ chối thức ăn đặc"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Protein",
+        "Vitamin B1"
+      ]
+    }
+  },
+  {
+    "id": "RET_233",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I want to revive natural appetite through refreshing Vietnamese sour soups.",
+    "query_vi": "Tôi muốn tìm lại cảm giác thèm ăn tự nhiên thông qua các món canh chua thanh mát của Việt Nam.",
+    "ground_truth": {
+      "symptoms": [
+        "kích thích thèm ăn canh chua",
+        "vị giác tự nhiên"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Axit hữu cơ tự nhiên"
+      ]
+    }
+  },
+  {
+    "id": "RET_234",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I crave tongue-scorching spicy foods just to experience a flicker of sensory stimulation.",
+    "query_vi": "Tôi hay bị thèm ăn các món cay nóng xé lưỡi để cảm nhận lại một chút kích thích cảm giác.",
+    "ground_truth": {
+      "symptoms": [
+        "thèm cay kích thích",
+        "tìm kiếm kích thích vị giác"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_235",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I feel my stomach has shrunken; a small bowl of soup leaves me bloated up to my throat.",
+    "query_vi": "Tôi cảm thấy dạ dày mình thu nhỏ lại, chỉ ăn một chén súp nhỏ là đã có cảm giác đầy ứ đến tận họng.",
+    "ground_truth": {
+      "symptoms": [
+        "dạ dày nhanh đầy",
+        "dung tích ăn giảm"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Enzyme"
+      ]
+    }
+  },
+  {
+    "id": "RET_236",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "Carbohydrate and sugar cravings become irresistible whenever pulling late-night study sessions.",
+    "query_vi": "Cơn thèm tinh bột và đồ ngọt làm tôi không thể cưỡng lại được mỗi khi thức khuya học bài.",
+    "ground_truth": {
+      "symptoms": [
+        "thèm tinh bột đêm",
+        "ăn khuya học bài"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Chromium",
+        "Tryptophan",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_237",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I constantly graze on snacks while working without realizing the calorie intake.",
+    "query_vi": "Tôi hay có thói quen vừa làm việc vừa nhấm nháp đồ ăn vặt liên tục mà không hề hay biết lượng calo nạp vào.",
+    "ground_truth": {
+      "symptoms": [
+        "nhấm nháp ăn vặt liên tục",
+        "mất kiểm soát lượng ăn"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Chất xơ",
+        "Protein"
+      ]
+    }
+  },
+  {
+    "id": "RET_238",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "Restless agitation makes me eat excessively fast, gulping food without chewing properly.",
+    "query_vi": "Tâm trạng bức bối làm tôi ăn rất nhanh, nuốt chửng thức ăn mà hầu như không nhai kỹ.",
+    "ground_truth": {
+      "symptoms": [
+        "ăn nhanh nuốt chửng",
+        "kém nhai do căng thẳng"
+      ],
+      "expected_effects": [
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Chất xơ"
+      ]
+    }
+  },
+  {
+    "id": "RET_239",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I lost genuine physiological hunger cues, eating mechanically merely by clock habits.",
+    "query_vi": "Tôi thấy mình mất đi cảm giác đói thật sự, chỉ ăn theo giờ giấc thói quen một cách máy móc.",
+    "ground_truth": {
+      "symptoms": [
+        "mất cảm giác đói thật",
+        "ăn máy móc"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin B1"
+      ]
+    }
+  },
+  {
+    "id": "RET_240",
+    "category": "appetite_regulation",
+    "complexity": "moderate",
+    "query_en": "I need micronutrient-dense foods to stimulate gastric secretion and revive wholesome appetite.",
+    "query_vi": "Tôi cần các thực phẩm giàu vi chất giúp kích thích tiết dịch vị và phục hồi sự thèm ăn lành mạnh.",
+    "ground_truth": {
+      "symptoms": [
+        "kích thích tiết dịch vị",
+        "thèm ăn lành mạnh"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin nhóm B",
+        "Axit amin"
+      ]
+    }
+  },
+  {
+    "id": "RET_241",
+    "category": "appetite_regulation",
+    "complexity": "complex",
+    "query_en": "I suffer from anorexia nervosa, losing 8kg in 1 month, reduced to mere skin and bones.",
+    "query_vi": "Tôi bị rối loạn ăn uống dạng chán ăn tâm thần, sụt 8kg trong 1 tháng, người chỉ còn da bọc xương.",
+    "ground_truth": {
+      "symptoms": [
+        "chán ăn tâm thần anorexia",
+        "suy kiệt cân nặng trầm trọng"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Sắt",
+        "Protein",
+        "Vitamin B12"
+      ]
+    }
+  },
+  {
+    "id": "RET_242",
+    "category": "appetite_regulation",
+    "complexity": "complex",
+    "query_en": "Bulimia nervosa drives me to binge massive quantities followed by purging.",
+    "query_vi": "Hội chứng cuồng ăn bù trừ (Bulimia) làm tôi ăn một lượng khổng lồ rồi phải tìm cách móc họng nôn ra.",
+    "ground_truth": {
+      "symptoms": [
+        "cuồng ăn nôn móc bulimia",
+        "rối loạn ăn uống nặng"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Điện giải",
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_243",
+    "category": "appetite_regulation",
+    "complexity": "complex",
+    "query_en": "I developed severe post-treatment anorexia; so debilitated I cannot walk unaided.",
+    "query_vi": "Tôi bị chán ăn nghiêm trọng sau đợt điều trị bệnh kéo dài, người suy kiệt không thể tự đi lại.",
+    "ground_truth": {
+      "symptoms": [
+        "chán ăn suy kiệt hậu điều trị",
+        "suy mòn thể lực"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Đạm sinh học cao",
+        "Vitamin nhóm B"
+      ]
+    }
+  },
+  {
+    "id": "RET_244",
+    "category": "appetite_regulation",
+    "complexity": "complex",
+    "query_en": "Aversion to food caused severe iron deficiency anemia, pale lips, and frequent syncope fainting spells.",
+    "query_vi": "Cảm giác chán ghét thức ăn khiến tôi bị thiếu máu thiếu sắt nặng, môi nhợt nhạt và thường xuyên ngất xỉu.",
+    "ground_truth": {
+      "symptoms": [
+        "thiếu máu do chán ăn",
+        "ngất xỉu suy dinh dưỡng"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Sắt",
+        "Folate",
+        "Vitamin B12",
+        "Protein"
+      ]
+    }
+  },
+  {
+    "id": "RET_245",
+    "category": "appetite_regulation",
+    "complexity": "complex",
+    "query_en": "Uncontrollable nocturnal binge-eating disorder made me gain 10kg in 2 months, plunging me into despair.",
+    "query_vi": "Tôi bị cuồng ăn vô độ không thể kiểm soát mỗi đêm, tăng 10kg trong vòng 2 tháng và vô cùng tuyệt vọng.",
+    "ground_truth": {
+      "symptoms": [
+        "cuồng ăn đêm béo phì",
+        "tuyệt vọng thể trọng"
+      ],
+      "expected_effects": [
+        "appetite_regulation",
+        "mood_regulation"
+      ],
+      "expected_nutrients": [
+        "Chromium",
+        "GABA",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_246",
+    "category": "appetite_regulation",
+    "complexity": "complex",
+    "query_en": "Anorexia compounded with digestive distress caused muscle wasting and patchy hair loss.",
+    "query_vi": "Chán ăn kết hợp với rối loạn tiêu hóa làm tôi bị teo cơ bắp và rụng tóc từng mảng lớn.",
+    "ground_truth": {
+      "symptoms": [
+        "teo cơ do thiếu đạm",
+        "rụng tóc suy dinh dưỡng"
+      ],
+      "expected_effects": [
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Biotin",
+        "Protein",
+        "Sắt"
+      ]
+    }
+  },
+  {
+    "id": "RET_247",
+    "category": "appetite_regulation",
+    "complexity": "complex",
+    "query_en": "I completely lost bodily hunger/satiety signaling; my brain no longer regulates eating behaviors.",
+    "query_vi": "Tôi mất hoàn toàn tín hiệu no đói của cơ thể, não bộ không còn điều khiển được hành vi ăn uống.",
+    "ground_truth": {
+      "symptoms": [
+        "mất điều hòa no đói thần kinh",
+        "rối loạn trục não ruột"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Omega-3",
+        "Chromium"
+      ]
+    }
+  },
+  {
+    "id": "RET_248",
+    "category": "appetite_regulation",
+    "complexity": "complex",
+    "query_en": "Orthorexia obsession with clean eating leaves me terrified of virtually all restaurant foods.",
+    "query_vi": "Tôi bị ám ảnh bởi việc ăn sạch (Orthorexia) đến mức sợ hãi hầu hết mọi món ăn ngoài hàng quán.",
+    "ground_truth": {
+      "symptoms": [
+        "ám ảnh ăn sạch orthorexia",
+        "sợ hãi thực phẩm"
+      ],
+      "expected_effects": [
+        "appetite_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_249",
+    "category": "appetite_regulation",
+    "complexity": "complex",
+    "query_en": "Chronic anorexia caused liver enzyme elevation, thrusting my body into total systemic exhaustion.",
+    "query_vi": "Tình trạng chán ăn kéo dài làm men gan của tôi tăng cao và cơ thể rơi vào trạng thái suy nhược toàn diện.",
+    "ground_truth": {
+      "symptoms": [
+        "suy kiệt chuyển hóa do đói ăn",
+        "chán ăn mãn tính"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Choline",
+        "Kẽm",
+        "Chất chống oxy hóa"
+      ]
+    }
+  },
+  {
+    "id": "RET_250",
+    "category": "appetite_regulation",
+    "complexity": "complex",
+    "query_en": "I need a gentle nutritional pathway to progressively restore taste and the joy of savoring food.",
+    "query_vi": "Tôi cần một lộ trình dinh dưỡng nhẹ nhàng, từng bước phục hồi lại vị giác và niềm vui thưởng thức món ăn.",
+    "ground_truth": {
+      "symptoms": [
+        "phục hồi vị giác từng bước",
+        "tái tạo thèm ăn"
+      ],
+      "expected_effects": [
+        "appetite_regulation"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Vitamin nhóm B",
+        "Axit amin"
+      ]
+    }
+  },
+  {
+    "id": "RET_251",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Crushing work pressure leaves me tossing and turning sleepless by night, restless and anxious by day.",
+    "query_vi": "Áp lực công việc đè nặng làm tôi đêm trằn trọc mất ngủ, ngày thì căng thẳng bồn chồn không yên.",
+    "ground_truth": {
+      "symptoms": [
+        "mất ngủ",
+        "căng thẳng",
+        "bồn chồn"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_252",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Relentless exam stress makes me awaken fitfully every night with racing heartbeats.",
+    "query_vi": "Tôi bị căng thẳng thi cử triền miên khiến đêm nào cũng chập chờn thức giấc, tim đập thình thịch.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng thi cử",
+        "thức giấc đêm",
+        "tim đập nhanh"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Melatonin",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_253",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Brain stretched taut all day, unable to sleep at night as looping anxious thoughts race endlessly.",
+    "query_vi": "Đầu óc căng như dây đàn cả ngày, tối về lại không thể ngủ được vì những suy nghĩ lo âu cứ chạy vòng quanh.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng thần kinh",
+        "khó vào giấc",
+        "lo âu đêm"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Tryptophan",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_254",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Whenever deadlines loom, I suffer both tension headaches, stiff muscles, and consecutive sleepless nights.",
+    "query_vi": "Cứ mỗi lần deadline ập đến là tôi lại vừa đau đầu căng cơ vừa thức trắng vài đêm liền.",
+    "ground_truth": {
+      "symptoms": [
+        "đau đầu căng thẳng",
+        "thức trắng đêm",
+        "căng cơ"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Melatonin",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_255",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Workplace anxiety turns my sleep shallow and nightmare-ridden, waking up physically pulverized.",
+    "query_vi": "Tôi bị lo âu công việc khiến giấc ngủ chập chờn đầy ác mộng, thức dậy người rã rời.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu công sở",
+        "ác mộng",
+        "ngủ không sâu"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Melatonin",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_256",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Financial stress keeps me restless all day, startling awake every night at 3 AM unable to sleep back.",
+    "query_vi": "Căng thẳng tài chính làm tôi bồn chồn cả ngày và đêm nào cũng giật mình lúc 3 giờ sáng không ngủ lại được.",
+    "ground_truth": {
+      "symptoms": [
+        "áp lực tài chính",
+        "thức sớm giữa đêm",
+        "bồn chồn"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_257",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I find myself perpetually anxious and apprehensive, finding it immensely hard to drift into deep natural sleep.",
+    "query_vi": "Tôi thấy mình luôn trong trạng thái hồi hộp lo âu và rất khó để chìm vào giấc ngủ sâu tự nhiên.",
+    "ground_truth": {
+      "symptoms": [
+        "hồi hộp lo âu",
+        "khó ngủ sâu"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Tryptophan",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_258",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "A vague dread clings to me from morning till night; bedtime brings hours of restless tossing and turning.",
+    "query_vi": "Mối lo sợ mơ hồ cứ bám riết lấy tôi từ sáng đến tối, ban đêm thì trở mình hàng tiếng đồng hồ.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu mơ hồ",
+        "trằn trọc mất ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "GABA",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_259",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Stress nudges my blood pressure upward, fragmenting nocturnal sleep into brief disjointed episodes.",
+    "query_vi": "Căng thẳng khiến huyết áp tôi tăng nhẹ và giấc ngủ ban đêm bị chia cắt thành nhiều đoạn ngắn.",
+    "ground_truth": {
+      "symptoms": [
+        "tăng áp stress",
+        "giấc ngủ phân mảnh"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_260",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "My nervous system feels hyper-aroused, restless by day and sleepless by night.",
+    "query_vi": "Tôi cảm thấy hệ thần kinh mình bị kích thích quá độ, vừa bồn chồn ban ngày vừa mất ngủ ban đêm.",
+    "ground_truth": {
+      "symptoms": [
+        "hưng phấn thần kinh",
+        "mất ngủ bồn chồn"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_261",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Family pressure causes shallow rapid breathing by day and all-night ceiling staring by night.",
+    "query_vi": "Áp lực gia đình khiến tôi thở ngắn thở dốc ban ngày và thức trắng đêm nhìn trần nhà.",
+    "ground_truth": {
+      "symptoms": [
+        "thở nông áp lực",
+        "thức trắng đêm"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_262",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Just as I prepare for sleep, surges of anxiety strike with pounding heart and wide-open eyes.",
+    "query_vi": "Cứ chuẩn bị đi ngủ là cơn lo âu lại ập đến làm tim đập mạnh và mắt mở trao tráo.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu giờ ngủ",
+        "tim đập mạnh",
+        "khó ngủ"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "GABA",
+        "Magie",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_263",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Stress produces severe neck and shoulder aches, tossing and turning unable to find a comfortable posture.",
+    "query_vi": "Căng thẳng làm tôi đau mỏi cổ vai gáy dữ dội và trằn trọc không tìm được tư thế ngủ thoải mái.",
+    "ground_truth": {
+      "symptoms": [
+        "đau mỏi vai gáy",
+        "khó ngủ trằn trọc"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_264",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I am debilitated from confronting both massive work pressure and chronic sleep deprivation.",
+    "query_vi": "Tôi bị suy nhược vì vừa phải đối mặt với áp lực công việc khổng lồ vừa bị thiếu ngủ kinh niên.",
+    "ground_truth": {
+      "symptoms": [
+        "áp lực công việc",
+        "thiếu ngủ kinh niên",
+        "suy nhược"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_265",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I need nutritional solutions that both cool daytime tension and naturally induce nighttime sleep.",
+    "query_vi": "Tôi cần giải pháp dinh dưỡng giúp vừa hạ nhiệt căng thẳng ban ngày vừa ru ngủ tự nhiên ban đêm.",
+    "ground_truth": {
+      "symptoms": [
+        "giảm stress ban ngày",
+        "dễ ngủ ban đêm"
+      ],
+      "expected_effects": [
+        "sleep_regulation",
+        "stress_response"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan",
+        "GABA",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_266",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Whenever stressed at work, my abdomen cramps up with burning epigastric pain.",
+    "query_vi": "Mỗi khi căng thẳng trong công việc là bụng tôi lại quặn đau và đau rát vùng thượng vị.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng công việc",
+        "đau quặn bụng",
+        "rát thượng vị"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm",
+        "Probiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_267",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Exam pressure makes me anxious with heart flutters and triggers acute diarrhea right before walking in.",
+    "query_vi": "Áp lực thi cử làm em vừa lo âu hồi hộp vừa bị tiêu chảy cấp ngay trước giờ vào phòng thi.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu hồi hộp thi cử",
+        "tiêu chảy stress"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm",
+        "Probiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_268",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Brooding causes gastric hyperacidity with sour heartburn and throat constriction.",
+    "query_vi": "Cứ lo nghĩ nhiều là dạ dày tôi lại tăng tiết axit làm ợ chua nóng rát và nghẹn cổ họng.",
+    "ground_truth": {
+      "symptoms": [
+        "lo âu suy nghĩ",
+        "ợ chua nóng rát",
+        "nghẽn họng"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Canxi",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_269",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "My irritable bowel syndrome flares violently whenever confronting insecurity or interpersonal conflict.",
+    "query_vi": "Tôi bị hội chứng ruột kích thích bùng phát dữ dội mỗi khi gặp chuyện bất an hay xung đột.",
+    "ground_truth": {
+      "symptoms": [
+        "bất an xung đột",
+        "IBS bùng phát",
+        "co thắt ruột"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Magie",
+        "Chất xơ hòa tan"
+      ]
+    }
+  },
+  {
+    "id": "RET_270",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Prolonged tension leaves my abdomen rock-hard and bloated while both temples throb with headaches.",
+    "query_vi": "Căng thẳng kéo dài làm bụng tôi lúc nào cũng căng cứng đầy hơi và đầu thì đau buốt hai bên thái dương.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng đau đầu",
+        "chướng bụng đầy hơi"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_271",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Whenever my boss reprimands me, my bowels knot with cramps and intense nausea from sheer dread.",
+    "query_vi": "Mỗi lần sếp phê bình là bụng tôi lại quặn thắt và buồn nôn dữ dội vì quá sợ hãi.",
+    "ground_truth": {
+      "symptoms": [
+        "sợ hãi công sở",
+        "buồn nôn",
+        "quặn thắt bụng"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA",
+        "Gừng"
+      ]
+    }
+  },
+  {
+    "id": "RET_272",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Recurrent peptic ulcer flare-ups combined with generalized anxiety leave me emaciated and sallow.",
+    "query_vi": "Tôi bị viêm loét dạ dày tái phát kết hợp với chứng lo âu lan tỏa làm người gầy sút xanh xao.",
+    "ground_truth": {
+      "symptoms": [
+        "viêm loét dạ dày",
+        "lo âu lan tỏa",
+        "gầy sút"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Curcumin",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_273",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Financial stress brings shallow breathing, rapid pulse, and severe bowel constipation for days.",
+    "query_vi": "Tình trạng căng thẳng tài chính làm tôi vừa thở nông tim đập nhanh vừa bị táo bón nghẽn ruột nhiều ngày.",
+    "ground_truth": {
+      "symptoms": [
+        "căng thẳng tài chính",
+        "táo bón nghẽn ruột",
+        "hồi hộp"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Chất xơ hòa tan"
+      ]
+    }
+  },
+  {
+    "id": "RET_274",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I vividly feel the Gut-Brain link: tense head triggers immediate gut rumbling and sharp cramps.",
+    "query_vi": "Tôi cảm nhận rõ mối liên hệ giữa não và ruột: đầu căng thẳng là bụng sôi ùng ục và quặn đau ngay lập tức.",
+    "ground_truth": {
+      "symptoms": [
+        "trục não ruột nhạy cảm",
+        "sôi ruột co thắt do stress"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Magie",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_275",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Work pressure triggers acid regurgitation into my mouth coupled with brief panic episodes.",
+    "query_vi": "Áp lực công việc làm tôi trào ngược dịch dạ dày lên tận miệng kèm theo những cơn hoảng loạn ngắn.",
+    "ground_truth": {
+      "symptoms": [
+        "trào ngược axit",
+        "cơn hoảng loạn stress"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "GABA"
+      ]
+    }
+  },
+  {
+    "id": "RET_276",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I suffer colonic spasms after every tense meeting, belly swelling tympanic like a drum.",
+    "query_vi": "Tôi bị đau thắt đại tràng sau mỗi cuộc họp căng thẳng, bụng trướng to như cái trống.",
+    "ground_truth": {
+      "symptoms": [
+        "co thắt đại tràng sau họp",
+        "chướng hơi căng bụng"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Probiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_277",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Anxiety leaves food stagnating undigested in my stomach with uncomfortable restlessness in my chest.",
+    "query_vi": "Lo âu khiến tôi có cảm giác thức ăn nằm ứ đọng trong dạ dày không tiêu và lồng ngực bồn chồn khó chịu.",
+    "ground_truth": {
+      "symptoms": [
+        "ứ trệ tiêu hóa lo âu",
+        "bồn chồn lồng ngực"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Enzyme",
+        "Magie",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_278",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Stress makes me impatient and irritable while severe esophageal heartburn torments me.",
+    "query_vi": "Căng thẳng làm tôi vừa mất kiên nhẫn cáu gắt vừa bị chứng ợ nóng bỏng rát thực quản hành hạ.",
+    "ground_truth": {
+      "symptoms": [
+        "cáu gắt stress",
+        "ợ nóng thực quản"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion",
+        "impulsivity_control"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Kẽm"
+      ]
+    }
+  },
+  {
+    "id": "RET_279",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Stress-induced bowel dysmotility brings alternating diarrhea cramps and week-long heavy bloating.",
+    "query_vi": "Tôi bị rối loạn nhu động ruột do stress, lúc thì quặn đau đi lỏng lúc lại đầy bụng ậm ạch cả tuần.",
+    "ground_truth": {
+      "symptoms": [
+        "rối loạn nhu động ruột",
+        "đầy bụng tiêu chảy stress"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Probiotic",
+        "Magie",
+        "Chất xơ"
+      ]
+    }
+  },
+  {
+    "id": "RET_280",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I need foods that both calm the sympathetic nervous system and shield eroded gastric mucosa.",
+    "query_vi": "Tôi cần thực phẩm vừa làm dịu thần kinh giao cảm vừa bảo vệ lớp niêm mạc dạ dày đang bị bào mòn.",
+    "ground_truth": {
+      "symptoms": [
+        "làm dịu thần kinh",
+        "bảo vệ niêm mạc dạ dày"
+      ],
+      "expected_effects": [
+        "stress_response",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Curcumin",
+        "Magie",
+        "Glutamine"
+      ]
+    }
+  },
+  {
+    "id": "RET_281",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I suffer mild depression; sorrowful all day lacking motivation, and awake all night sleepless.",
+    "query_vi": "Tôi bị trầm cảm nhẹ, cả ngày buồn bã không muốn làm gì và đêm đến lại thức trắng không ngủ được.",
+    "ground_truth": {
+      "symptoms": [
+        "trầm cảm nhẹ",
+        "mất ngủ thức trắng",
+        "buồn bã"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Melatonin",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_282",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Crushing melancholia ruins my zest for life while sleep is fitful and full of nightmares.",
+    "query_vi": "Nỗi u sầu đè nặng làm tôi không thiết tha cuộc sống và giấc ngủ thì chập chờn toàn ác mộng.",
+    "ground_truth": {
+      "symptoms": [
+        "u sầu u uất",
+        "ác mộng",
+        "ngủ chập chờn"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie",
+        "Folate"
+      ]
+    }
+  },
+  {
+    "id": "RET_283",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I feel psychically exhausted, waking up weary and depressed while tossing endlessly at night to sleep.",
+    "query_vi": "Tôi thấy mình kiệt sức tinh thần, sáng thức dậy mệt mỏi chán chường còn tối thì trằn trọc mãi mới ngủ.",
+    "ground_truth": {
+      "symptoms": [
+        "kiệt sức tinh thần",
+        "chán chường sáng",
+        "trằn trọc đêm"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Magie",
+        "Vitamin B6"
+      ]
+    }
+  },
+  {
+    "id": "RET_284",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Mood collapsed following family trauma, causing chronic insomnia, emaciation, and pallor.",
+    "query_vi": "Tâm trạng tuột dốc sau biến cố gia đình làm tôi mất ngủ kinh niên, cả người gầy rộc và xanh xao.",
+    "ground_truth": {
+      "symptoms": [
+        "tâm trạng suy sụp",
+        "mất ngủ kinh niên",
+        "gầy sút"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Omega-3",
+        "Magie",
+        "Sắt"
+      ]
+    }
+  },
+  {
+    "id": "RET_285",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I feel life is meaningless; waking up every night at 3 AM and crying alone.",
+    "query_vi": "Tôi cảm thấy cuộc đời vô vị và đêm nào cũng thức giấc lúc 3 giờ sáng rồi nằm khóc một mình.",
+    "ground_truth": {
+      "symptoms": [
+        "cảm giác vô vị",
+        "thức giấc giữa đêm",
+        "khóc đêm"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Folate",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_286",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Chronic apathy robs my work motivation; at night my eyes stare wide open until morning.",
+    "query_vi": "Sự chán nản kéo dài làm tôi mất động lực đi làm, đêm đến thì mắt mở trao tráo đến tận sáng.",
+    "ground_truth": {
+      "symptoms": [
+        "mất động lực",
+        "mất ngủ trắng đêm"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Dopamine",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_287",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I feel plunged into a gloomy abyss, sleeping insufficiently with a mind heavy with pessimism.",
+    "query_vi": "Tôi thấy mình rơi vào hố sâu u ám, ngủ không đỗ giấc và lúc nào đầu óc cũng nặng trĩu bi quan.",
+    "ground_truth": {
+      "symptoms": [
+        "hố sâu u ám",
+        "ngủ không đỗ giấc",
+        "bi quan"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Omega-3",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_288",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Emotional instability makes me irritable by day and restless and anxious by night.",
+    "query_vi": "Tâm trạng bất ổn làm tôi dễ nổi nóng vào ban ngày và trằn trọc bất an vào ban đêm.",
+    "ground_truth": {
+      "symptoms": [
+        "bất ổn cảm xúc",
+        "nóng nảy",
+        "trằn trọc đêm"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "sleep_regulation",
+        "impulsivity_control"
+      ],
+      "expected_nutrients": [
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_289",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Deep loneliness engulfs me, preventing sound sleep and waking up with swollen puffy eyes.",
+    "query_vi": "Nỗi cô đơn sâu sắc bủa vây làm tôi không thể ngủ trọn giấc, sáng dậy với hai mắt sưng húp.",
+    "ground_truth": {
+      "symptoms": [
+        "cô đơn sâu sắc",
+        "ngủ không trọn giấc"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Melatonin",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_290",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I want to naturally boost Serotonin and Melatonin to both rediscover joy and sleep soundly.",
+    "query_vi": "Tôi muốn cải thiện nồng độ Serotonin và Melatonin tự nhiên để vừa tìm lại niềm vui vừa ngủ ngon giấc.",
+    "ground_truth": {
+      "symptoms": [
+        "tăng Serotonin và Melatonin",
+        "cải thiện tâm trạng và giấc ngủ"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "sleep_regulation"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Vitamin B6",
+        "Melatonin"
+      ]
+    }
+  },
+  {
+    "id": "RET_291",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Grief makes me completely lose appetite, lose 3kg, with stomach continually cramping painfully.",
+    "query_vi": "Nỗi buồn bã làm tôi chán ăn hoàn toàn, sụt 3kg và dạ dày lúc nào cũng đau quặn khó chịu.",
+    "ground_truth": {
+      "symptoms": [
+        "buồn bã chán ăn",
+        "sụt cân",
+        "đau quặn dạ dày"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Kẽm",
+        "Probiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_292",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I fell into mild depression, binging sweets uncontrollably then suffering severe acid reflux.",
+    "query_vi": "Tôi rơi vào trạng thái trầm cảm nhẹ, hay cuồng ăn đồ ngọt vô độ rồi sau đó bị trào ngược dạ dày dữ dội.",
+    "ground_truth": {
+      "symptoms": [
+        "trầm cảm cuồng ngọt",
+        "trào ngược axit sau ăn"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Chromium",
+        "Tryptophan",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_293",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Gloomy moods make me starve all day; eating even a little causes bloating distension and cramps.",
+    "query_vi": "Tâm trạng u uất khiến tôi nhịn đói cả ngày, đến khi ăn vào một chút là bụng lại chướng to và đau thắt.",
+    "ground_truth": {
+      "symptoms": [
+        "u uất nhịn ăn",
+        "chướng bụng đau thắt"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Probiotic",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_294",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Feelings of loneliness destroy appetite, causing physical depletion and week-long constipation.",
+    "query_vi": "Cảm giác cô đơn làm tôi chán ăn, người suy kiệt và hệ tiêu hóa bị táo bón kéo dài cả tuần.",
+    "ground_truth": {
+      "symptoms": [
+        "cô đơn chán ăn",
+        "suy kiệt",
+        "táo bón kéo dài"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Chất xơ hòa tan",
+        "Kẽm",
+        "Magie"
+      ]
+    }
+  },
+  {
+    "id": "RET_295",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Life feels tasteless; mouth is bitter refusing food while colon spasms continually.",
+    "query_vi": "Tôi thấy cuộc sống vô vị, miệng đắng ngắt không muốn ăn gì và đại tràng thì co thắt liên tục.",
+    "ground_truth": {
+      "symptoms": [
+        "vô vị nhạt miệng",
+        "chán ăn",
+        "co thắt đại tràng"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Magie",
+        "Probiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_296",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Emotionally drained, eating erratically between starvation and binging, gut constantly gassy and bloated.",
+    "query_vi": "Tôi bị kiệt sức cảm xúc, ăn uống thất thường lúc đói lúc no và bụng dạ lúc nào cũng đầy hơi ậm ạch.",
+    "ground_truth": {
+      "symptoms": [
+        "kiệt sức cảm xúc",
+        "ăn uống thất thường",
+        "đầy hơi"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Enzyme",
+        "Chất xơ",
+        "Omega-3"
+      ]
+    }
+  },
+  {
+    "id": "RET_297",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Post-trauma grief stole my taste, choked my swallowing, and caused loose undigested stools.",
+    "query_vi": "Nỗi đau buồn sau biến cố làm tôi mất vị giác, nuốt nghẹn thức ăn và ruột thì bị tiêu chảy phân sống.",
+    "ground_truth": {
+      "symptoms": [
+        "sang chấn mất mát",
+        "mất vị giác",
+        "tiêu chảy phân sống"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Probiotic",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_298",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Feeling melancholic and blocked, craving salty foods pointlessly while stomach burns with sour belching.",
+    "query_vi": "Tôi cảm thấy u uất bế tắc, thèm ăn mặn vô cớ và bụng lúc nào cũng ợ hơi chua xót ruột.",
+    "ground_truth": {
+      "symptoms": [
+        "u uất bế tắc",
+        "thèm mặn",
+        "ợ chua xót ruột"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Magie",
+        "Tryptophan"
+      ]
+    }
+  },
+  {
+    "id": "RET_299",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "Prolonged despondency makes me fear food, growing emaciated with daily intestinal cramping.",
+    "query_vi": "Tâm trạng chán nản kéo dài làm tôi sợ thức ăn, người gầy mòn và ruột co bóp đau quặn mỗi ngày.",
+    "ground_truth": {
+      "symptoms": [
+        "chán nản sợ thức ăn",
+        "gầy mòn",
+        "đau quặn ruột"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Kẽm",
+        "Glutamine",
+        "Probiotic"
+      ]
+    }
+  },
+  {
+    "id": "RET_300",
+    "category": "multi_symptom",
+    "complexity": "multi",
+    "query_en": "I need holistic restoration of mental health and Gut-Brain axis: boosting mood, reviving appetite, and soothing digestion.",
+    "query_vi": "Tôi cần phục hồi toàn diện sức khỏe tinh thần và trục Não - Ruột: cải thiện tâm trạng, lấy lại sự ngon miệng và làm dịu dạ dày.",
+    "ground_truth": {
+      "symptoms": [
+        "phục hồi trục não ruột toàn diện",
+        "cải thiện tâm trạng thèm ăn tiêu hóa"
+      ],
+      "expected_effects": [
+        "mood_regulation",
+        "appetite_regulation",
+        "digestion"
+      ],
+      "expected_nutrients": [
+        "Tryptophan",
+        "Kẽm",
+        "Probiotic",
+        "Magie"
+      ]
+    }
+  }
+]

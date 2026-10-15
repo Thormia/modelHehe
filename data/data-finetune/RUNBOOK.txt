@@ -1,0 +1,50 @@
+RUNBOOK - DỊCH DATASET SANG TIẾNG VIỆT (dành cho Claude, đọc rồi làm theo, KHÔNG hỏi lại từng bước)
+================================================================================
+Thư mục làm việc: C:\FPT\AIM\data-finetune\data emo\viets trans   (gọi tắt VT)
+Trạng thái nằm hết trên đĩa (src/, out/, done/, todo/, attempts.json, needs_manual.csv, PROGRESS.md,
+file PILOT_APPROVED). Hết token / reset session chỉ cần chạy lại từ bước 0 - không mất gì.
+
+PHẠM VI ĐÃ THU HẸP (2026-09-24, user chốt): chỉ dịch dòng có label >=150 ký tự (kiểu counselor), bỏ chitchat.
+Đã chạy `python tool.py scope` (KHÔNG chạy lại): còn 67 chunk sel_cNNN (9,905 dòng); chunk cũ chuyển vào src_old/, dòng đã dịch tốt giữ trong done/.
+Mục tiêu gốc: dịch clean/train_final.parquet + test_final.parquet sang tiếng Việt,
+bản dịch song song EN-VI, theo VT\MASTER_PROMPT_DICH.txt. Chỉ dịch: không lọc, không sửa nội dung, không
+đổi format JSON/CBT/PubMed. Không đụng raw/ và clean/.
+
+BƯỚC 0 - LUÔN LÀM ĐẦU TIÊN (cả khi mới bắt đầu lẫn khi resume)
+  python tool.py validate --all          (nhặt kết quả agent đã ghi xong mà session trước chưa kịp kiểm)
+  python tool.py status                  (đọc PROGRESS.md để biết đang ở đâu)
+
+BƯỚC 1 - PILOT (chỉ khi chưa có file VT\PILOT_APPROVED)
+  1. Nếu done/pilot.jsonl chưa đủ 100 dòng: spawn 1 agent theo MẪU AGENT bên dưới với
+     input = src\pilot.jsonl, tiền tố output = out\pilot_p ; rồi python tool.py validate pilot
+     (nếu có todo\pilot.jsonl thì dịch lại theo mẫu với input là todo\pilot.jsonl, tiền tố out\pilot_r1_p).
+  2. In cho user ~15 cặp EN|VI đại diện (ngắn, dài, slang, nhạy cảm) + số dòng validator loại.
+     DỪNG, chờ user duyệt. Khi user nói OK: tạo file rỗng VT\PILOT_APPROVED rồi sang bước 2.
+     Nếu user chê: chỉnh MASTER_PROMPT_DICH.txt theo góp ý, xóa done\pilot.jsonl, dịch lại pilot.
+
+BƯỚC 2 - CHẠY FULL (chỉ khi có PILOT_APPROVED)
+  Lặp cho đến khi `python tool.py next 10` không in gì:
+    a. python tool.py next 10   -> mỗi dòng: <tên chunk> <TAB> <file input> <TAB> <tiền tố output>
+    b. Trong 1 message duy nhất, spawn tối đa 10 agent song song (MẪU AGENT), mỗi agent 1 chunk.
+    c. Khi cả đợt xong: python tool.py validate --all ; python tool.py status
+    d. Cổng chất lượng: sau 2 đợt đầu, nếu >25% dòng bị validator loại -> DỪNG, báo user cùng ví dụ lỗi.
+  (Chunk có todo\ = lượt dịch lại các dòng lỗi, tối đa 3 lượt/chunk, hết lượt thì tool tự chuyển dòng
+   vào needs_manual.csv. Không tự tay sửa bản dịch.)
+
+BƯỚC 3 - KẾT THÚC
+  python tool.py merge  -> train_vi/test_vi (.parquet/.csv: id,input_en,label_en,input_vi,label_vi,flag),
+  spot_check.csv (200 cặp ngẫu nhiên). Báo user: số dòng dịch tốt, số dòng needs_manual, tỉ lệ flag,
+  đưa ~10 cặp spot-check. Nhắc user duyệt spot_check.csv (lỗi >3% thì dừng và sửa prompt).
+
+MẪU AGENT (Agent tool: subagent_type="general-purpose", model="sonnet" - KHÔNG dùng Haiku, KHÔNG tự dịch inline)
+  prompt = "Đọc file D:\AIM\paper\data emo\viets trans\MASTER_PROMPT_DICH.txt và làm đúng mọi quy tắc trong đó.
+  File input: <file input>. Tiền tố output: <tiền tố output> (ví dụ tiền tố X thì ghi X1.jsonl, X2.jsonl,
+  X3.jsonl, mỗi file 50 dòng input theo thứ tự). Mỗi dòng output PHẢI có đúng 4 khóa id,input_vi,label_vi,flag. Dịch toàn bộ, không bỏ dòng nào. Xong báo 'Đã dịch N/N dòng'."
+
+QUY TẮC CHUNG
+- Sonnet only (bài học README: Haiku đọc dở file và báo xong sai).
+- Không tự thay đổi MASTER_PROMPT_DICH.txt giữa chừng khi chưa được user đồng ý (đây là bản nộp trưởng nhóm).
+- Agent báo xong mà thiếu dòng -> validator tự bắt và tạo todo\, không cần làm gì thêm.
+- Cuối mỗi đợt luôn chạy status để PROGRESS.md cập nhật (đó là điểm resume).
+- Xưng hô do trưởng nhóm quy định (đã nằm trong MASTER_PROMPT_DICH.txt mục 2): input tự do chọn cách xưng hợp bối cảnh;
+  label chuẩn mực lịch sự.

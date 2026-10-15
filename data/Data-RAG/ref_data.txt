@@ -1,0 +1,212 @@
+DANH SÁCH NGUỒN THAM KHẢO (REF DATA)
+================================================================
+Mục đích: để nhóm đối chiếu dữ liệu trong bài lấy từ nguồn nào.
+
+
+1. DỮ LIỆU THÀNH PHẦN DINH DƯỠNG
+----------------------------------------------------------------------
+- Bảng thành phần thực phẩm Việt Nam (2007), Bộ Y tế - Viện Dinh dưỡng, NXB Y học
+  https://www.fao.org/fileadmin/templates/food_composition/documents/pdf/VTN_FCT_2007.pdf
+  Dùng cho: 526 thực phẩm VN (mã số + 86 chỉ số dinh dưỡng)
+
+- USDA FoodData Central
+  https://fdc.nal.usda.gov/
+  Dùng cho:
+    Trà thảo mộc - FDC 171917, 173227, 174120, 171946, 174156
+    Hạt cây thân gỗ - FDC 170187 (óc chó), 170567 (hạnh nhân), 170178 (mắc ca),
+    170184 (hồ trăn), 170182 (pecan), 170569 (dẻ Brazil), 170581 (hạt phỉ),
+    170591 (hạt thông), 170554 (hạt chia), 169414 (hạt lanh)
+    Bổ sung khác (lên men châu Á, hải sản, trái cây...) - danh sách đầy đủ 23
+    FDC ID xem trong crawl_data/bo_sung_khac/01_crawl_usda_bo_sung.py
+
+- FDA - Daily Value on the Nutrition and Supplement Facts Labels (2016)
+  https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
+  Dùng cho: tính %DV và điểm AFS
+
+- Vietnamese Food Composition Table (2017), Bộ Y tế (ghi nhận bởi FAO/INFOODS)
+  https://viendinhduong.vn/vi/cong-cu-va-tien-ich/gia-tri-dinh-duong-thuc-pham
+  Dùng cho: đối chiếu số liệu khi validate thủ công (không có file PDF công khai)
+
+
+2. PHƯƠNG PHÁP LUẬN
+----------------------------------------------------------------------
+- LaChance LR, Ramsey D. (2018). "Antidepressant foods: An evidence-based
+  nutrient profiling system for depression." World J Psychiatry 8(3):97-104.
+  PMID 30254980 | DOI 10.5498/wjp.v8.i3.97
+  https://pubmed.ncbi.nlm.nih.gov/30254980/
+  Dùng cho: công thức điểm AFS và danh sách 12 vi chất mục tiêu
+
+
+3. TRÀ THẢO MỘC - HOẠT CHẤT & BẰNG CHỨNG TÂM LÝ HỌC
+----------------------------------------------------------------------
+- Trà Việt. https://www.traviet.com/c/tra/
+  Danh mục 27 loại trà phổ biến ở VN (nguồn liệt kê, không phải nguồn khoa học)
+
+- EFSA (2018). "Scientific opinion on the safety of green tea catechins."
+  DOI 10.2903/j.efsa.2018.5239 | https://www.efsa.europa.eu/en/efsajournal/pub/5239
+  Trà xanh - catechin/EGCG
+
+- Keenan EK, et al. (2011). "How much theanine in a cup of tea?" Food
+  Chemistry 125:588-594
+  https://www.sciencedirect.com/science/article/abs/pii/S0308814610011416
+  Trà xanh/đen/Ô long - L-theanine
+
+- PMID 18296328. https://pubmed.ncbi.nlm.nih.gov/18296328/
+  L-theanine và trạng thái tinh thần
+
+- Rehman K, et al. "Anxiolytic and sedative effects of extracts of Hibiscus
+  sabdariffa." PMID 18756855 | https://pubmed.ncbi.nlm.nih.gov/18756855/
+  Trà hoa dâm bụt - anthocyanin (nghiên cứu động vật)
+
+- Netzler L, Lovell B (2025). "Cognitive and Cerebrovascular Effects of
+  Consuming Peppermint Tea." Human Psychopharmacology. PMID 40189738
+  https://pubmed.ncbi.nlm.nih.gov/40189738/
+  Trà bạc hà - hiệu quả nhận thức (không đo lo âu/tâm trạng)
+
+- Priya V, et al. (2025). "Anxiolytic, Antidepressant and Healthy
+  Sleep-Promoting Potential of Rosmarinic Acid." Neuropsychiatric Disease
+  and Treatment. PMID 40134762
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC11934053/
+  Cơ chế rosmarinic acid (nghiên cứu người trên bạc hà lục/spearmint, hương
+  thảo, tía tô đất)
+
+- "Gingerol-Enriched Ginger Extract Effects on Anxiety-like Behavior via
+  Colonic Microbiome-Neuroimmune Modulation." Molecules.
+  DOI 10.3390/molecules31010166 | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12787805/
+  Trà gừng - gingerol/shogaol (nghiên cứu động vật)
+
+- Mao JJ, et al. (2016). "Long-term chamomile treatment for generalized
+  anxiety disorder." Phytomedicine. PMID 27912875
+  https://pubmed.ncbi.nlm.nih.gov/27912875/
+  Trà hoa cúc - apigenin (RCT người, liều chiết xuất đậm đặc 1500mg/ngày)
+
+- "Lavender oil preparation Silexan is effective in generalized anxiety
+  disorder." Int J Neuropsychopharmacol 17(6):859
+  https://academic.oup.com/ijnp/article/17/6/859/691858
+  Trà hoa oải hương - linalool/linalyl acetate (RCT người, dạng viên dầu uống)
+
+- "Rosemary Tea Consumption Alters Peripheral Anxiety and Depression
+  Biomarkers." J Am Nutr Assoc 41(3). DOI 10.1080/07315724.2021.1873871
+  https://www.tandfonline.com/doi/full/10.1080/07315724.2021.1873871
+  Trà hương thảo - rosmarinic/carnosic acid (RCT người, đúng dạng trà pha)
+
+- "Rosa Damascena mill for treating adults' anxiety, depression, and
+  stress." PMID 34405933 | https://pubmed.ncbi.nlm.nih.gov/34405933/
+  Trà hoa hồng (RCT người, chủ yếu đường hít/viên nang)
+
+- "Cinnamon and cognitive function: a systematic review." PMID 36652384
+  https://pubmed.ncbi.nlm.nih.gov/36652384/
+  Trà quế - cinnamaldehyde (bằng chứng về nhận thức, không phải lo âu)
+
+
+4. NGHỆ TÂY (SAFFRON) - BẰNG CHỨNG TÂM LÝ HỌC
+----------------------------------------------------------------------
+- "Crocus sativus L. in the treatment of mild to moderate depression: a
+  double-blind, randomized and placebo-controlled trial." PMID 15852492
+  https://pubmed.ncbi.nlm.nih.gov/15852492/
+  Nhiều RCT khác cũng cho kết quả tương tự (so với fluoxetine, imipramine):
+  PMID 15707766, PMC517724 - hiệu quả tương đương thuốc chống trầm cảm chuẩn,
+  ít tác dụng phụ hơn.
+
+
+5. LAYER A - BẰNG CHỨNG TÂM LÝ HỌC THEO TỪNG VI CHẤT (không phải theo món)
+----------------------------------------------------------------------
+Cơ sở lý thuyết Ontology: Xhani et al. (2026), "Modelling Food and Mood
+Relation with Dynamic Personas", MODELSWARD 2026, DOI 10.5220/0014628500004058.
+4 động từ: STIMULATING/REGULATING/INHIBITING/REDUCING. Paper chỉ cho 3 ví dụ
+cụ thể (trang 547): "Omega-3 regulates inflammation and neurotransmission,
+Fibre regulates digestion, Magnesium inhibits stress hyperactivation" -
+KHÔNG có định nghĩa hình thức phân biệt rạch ròi 4 động từ.
+
+- Zinc, Magnesium, Selenium: "Zinc, Magnesium, Selenium and Depression: A
+  Review of the Evidence, Potential Mechanisms and Implications." PMID
+  29747386. https://pubmed.ncbi.nlm.nih.gov/29747386/
+  Bằng chứng người (meta-analysis, RCT bổ trợ thuốc chống trầm cảm) - mạnh
+  nhất cho Zinc, Magnesium/Selenium còn chưa nhất quán.
+  -> INHIBITING: stress_response (khớp đúng ví dụ gốc của paper Ontology)
+
+- Vitamin B6: Field DT, et al. (2022). "High-dose Vitamin B6 supplementation
+  reduces anxiety and strengthens visual surround suppression." Human
+  Psychopharmacology. PMID 35851507. RCT người, 478 người, 100mg/ngày (~77x
+  RDA - LƯU Ý liều bổ sung cao hơn nhiều so với hàm lượng trong thực phẩm),
+  giảm lo âu rõ rệt qua cơ chế tăng GABA.
+  -> INHIBITING: stress_response
+
+- Iron: "Association of total zinc, iron, copper and selenium intakes with
+  depression in the US adults." PMID 29232566. Dữ liệu dịch tễ học người,
+  liên hệ nghịch giữa lượng ăn vào và trầm cảm.
+  -> REGULATING: mood_regulation
+
+- Vitamin B12: "Effects of Vitamin B12 Supplementation on Cognitive
+  Function, Depressive Symptoms, and Fatigue: A Systematic Review,
+  Meta-Analysis." PMC8000524. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8000524/
+  -> REGULATING: neurotransmission
+
+- Folate: "Systematic review and meta-analysis of randomized
+  placebo-controlled trials of folate and vitamin B12 for depression."
+  PMID 25644193. LƯU Ý: bằng chứng ĐỘC LẬP yếu (không giảm trầm cảm rõ rệt
+  ngắn hạn khi dùng riêng), nhưng có RCT cho thấy hiệu quả khi dùng BỔ TRỢ
+  cùng thuốc chống trầm cảm (folate + citalopram, L-methylfolate adjunct).
+  -> REGULATING: neurotransmission (chỉ nên trình bày như vai trò hỗ trợ,
+     không phóng đại thành "chữa được trầm cảm")
+
+- Thiamin (B1): chưa tìm được RCT riêng cho thiamin - dựa trên review chung
+  về vai trò các vitamin nhóm B (B1/B6/B9/B12) trong tổng hợp chất dẫn
+  truyền thần kinh (norepinephrine, dopamine, serotonin, GABA, acetylcholine).
+  ĐÂY LÀ BẰNG CHỨNG YẾU NHẤT trong nhóm - cần bạn kiểm tra lại kỹ hơn nếu có
+  thời gian, chưa xác định được tên bài báo cụ thể.
+  -> REGULATING: neurotransmission
+
+- Vitamin C: "Effects of Oral Vitamin C Supplementation on Anxiety in
+  Students: A Double-Blind, Randomized, Placebo-Controlled Trial." Pakistan
+  Journal of Biological Sciences (2015). DOI 10.3923/pjbs.2015.11.18. RCT
+  người, 42 học sinh, 500mg/ngày, giảm lo âu rõ rệt (không có tác dụng rõ
+  với trầm cảm trong cùng nghiên cứu).
+  -> REDUCING: stress_response
+
+- Vitamin A: O'Reilly K, Bailey SJ, Lane MA (2008). "Retinoid-Mediated
+  Regulation of Mood: Possible Cellular Mechanisms." PMID 18296731. Cả
+  THIẾU và THỪA vitamin A/retinoid đều liên quan rối loạn tâm trạng (quan hệ
+  hình chữ U) - phù hợp đúng nghĩa "điều hòa" (REGULATING), không phải
+  "càng nhiều càng tốt".
+  -> REGULATING: neurotransmission
+
+- Long-chain Omega-3 (EPA+DHA): "Efficacy of omega-3 PUFAs in depression: A
+  meta-analysis." PMID 31383846. Meta-analysis 26 nghiên cứu, 2160 người,
+  hiệu quả rõ rệt giảm triệu chứng trầm cảm. Khớp đúng ví dụ gốc của paper
+  Ontology ("Omega-3 regulates... neurotransmission").
+  -> REGULATING: neurotransmission
+
+- Tryptophan: Ruhé HG, Mason NS, Schene AH (2007). "Mood is indirectly
+  related to serotonin, norepinephrine and dopamine levels in humans: a
+  meta-analysis of monoamine depletion studies." Molecular Psychiatry
+  12:331-359. PMID 17389902. QUAN TRỌNG - bằng chứng NHIỀU SẮC THÁI: nghiên
+  cứu làm cạn kiệt tryptophan xác nhận vai trò cơ chế của serotonin, nhưng
+  chính meta-analysis này cho thấy ở NGƯỜI KHỎE MẠNH việc thiếu tryptophan
+  KHÔNG làm giảm tâm trạng rõ rệt - ảnh hưởng rõ nhất ở người vốn dễ tổn
+  thương với trầm cảm. Không nên viết content_text như "tryptophan chắc
+  chắn cải thiện tâm trạng" - nên viết ở mức "hỗ trợ con đường tổng hợp
+  serotonin".
+  -> REGULATING: neurotransmission
+
+- Potassium: KHÔNG tìm được bằng chứng tâm lý học trực tiếp. Trong dữ liệu
+  400 món, Potassium không bao giờ là key_nutrient DUY NHẤT (luôn đi kèm
+  chất khác có bằng chứng tốt hơn) nên không dùng Potassium làm chất chính
+  quyết định ontology_effect cho bất kỳ món nào.
+
+- Lên men (probiotic): "Effects of Prebiotics and Probiotics on Symptoms of
+  Depression and Anxiety in Clinically Diagnosed Samples: Systematic Review
+  and Meta-analysis of RCT." PMID 39731509. Giảm có ý nghĩa triệu chứng
+  trầm cảm/lo âu qua cơ chế trục ruột-não (điều hòa hệ vi sinh vật, ảnh
+  hưởng tổng hợp serotonin/GABA).
+  -> REDUCING: mood_regulation
+
+- Catechin/EGCG (trà xanh/đen/ô long): "Relationship Between Depression and
+  Epigallocatechin Gallate from the Perspective of Gut Microbiota: A
+  Systematic Review." PMC11767295. (Thay cho trích dẫn EFSA cũ - EFSA chỉ
+  nói về AN TOÀN liều dùng, không phải hiệu quả tâm lý học).
+  -> REGULATING: digestion (cơ chế qua hệ vi sinh vật đường ruột)
+
+- Caffeine: "A systematic review and meta-analysis of the acute effect of
+  caffeine on attention." PMID 40335666.
+  -> STIMULATING: neurotransmission
