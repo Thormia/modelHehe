@@ -1,0 +1,27 @@
+# Không thuộc dự án / bản sao / file đóng gói
+Assignment Solutions/
+.claude/
+*.zip
+traindata_backup_*/
+datafinetuneRAW/
+kaggle_upload/
+index.html
+index_files/
+Model and RAG-H.pdf
+results/
+
+# Trọng số model (lưu trên Kaggle / Hugging Face, quá giới hạn 100 MB của GitHub)
+*.gguf
+*.safetensors
+*.pt
+*.bin
+
+# Phiếu chấm gốc có họ tên chuyên gia
+expert_review/*.xlsx
+expert_feedback/*.xlsx
+
+# Bí mật và file tạm
+.env
+!.env.example
+__pycache__/
+*.pyc
