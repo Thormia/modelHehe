@@ -1,0 +1,363 @@
+{
+  "meta": {
+    "seed": 42,
+    "n_per_dataset": 10,
+    "sources": {
+      "finetune": "data-finetune\\finetune.jsonl",
+      "generative": "data-generative\\generative.jsonl",
+      "nutrition": "Data-RAG\\400 data dinh duong_v3.json",
+      "psychology": "Data-RAG\\psychology_dataset_vi.jsonl"
+    },
+    "finetune_system_prompt": "Bạn là một chuyên gia tư vấn tâm lý lâm sàng. Nhiệm vụ của bạn là lắng nghe, thể hiện sự thấu cảm sâu sắc, công nhận cảm xúc của người dùng và đưa ra góc nhìn chuyên môn giúp họ an tâm. Không bao giờ phán xét hay đưa ra lời khuyên sáo rỗng."
+  },
+  "samples": {
+    "finetune": [
+      {
+        "review_id": "FT-01",
+        "source_index": 299,
+        "type": "Q2",
+        "user": "Tôi có rất nhiều vấn đề cần giải quyết. Tôi từng bị lạm dụng tình dục, tôi là người sống sót sau ung thư vú và tôi bị mất ngủ suốt đời. Tôi bị trầm cảm từ lâu và đang bắt đầu bị lo âu. Tôi có lòng tự trọng thấp nhưng tôi đã kết hôn hạnh phúc gần 35 năm.\nTôi chưa bao giờ được tham vấn về bất kỳ điều nào trong số này. Tôi có quá nhiều vấn đề để giải quyết trong tham vấn không?",
+        "assistant": "Có vẻ bạn đang cảm thấy khá choáng ngợp. Nhưng bạn cũng là người đã sống sót và có được lợi thế của một cuộc hôn nhân lâu dài, ổn định. Bạn không có quá nhiều vấn đề để giải quyết trong tham vấn. Một nhà trị liệu giỏi sẽ giúp bạn chia mục tiêu thành những mục tiêu nhỏ hơn và tập trung vào điều cấp bách nhất cần giải quyết trước trong quá trình điều trị."
+      },
+      {
+        "review_id": "FT-02",
+        "source_index": 697,
+        "type": "Q4_dai",
+        "user": "Tôi thấy áp lực khi nhìn tất cả bạn bè đều kết hôn và đi theo cái lộ trình xoay quanh mối quan hệ dị tính truyền thống. Tôi cũng có cảm giác mình nên ổn định hoặc có con, vì đó là điều bố mẹ tôi mong đợi. Họ biết tôi là người đồng tính nhưng chúng tôi không nói về chuyện đó, và đôi khi tôi cảm thấy thất vọng.",
+        "assistant": "Việc bạn cảm thấy áp lực từ những kỳ vọng của xã hội và các mối quan hệ trong gia đình là điều dễ hiểu. Hãy nhớ rằng hạnh phúc và sức khỏe tinh thần của chính bạn đến trước hết, và không sao nếu con đường sống của bạn khác với chuẩn mực xã hội hay khác với điều bố mẹ bạn mong đợi. Trao đổi về chuyện này với bố mẹ hoặc tìm sự hỗ trợ từ những người hiểu hoàn cảnh của bạn có thể giúp bạn ứng phó tốt hơn với áp lực và nỗi thất vọng này. Việc thiếu trao đổi cởi mở với bố mẹ khiến bạn cảm thấy thế nào?"
+      },
+      {
+        "review_id": "FT-03",
+        "source_index": 763,
+        "type": "Q3",
+        "user": "Ban đầu tôi bị đánh gục theo một cách đầy chấn thương tâm lý, nhưng bốn ngày sau tôi quay lại và xử lý được. Dù hơi cẩu thả, tôi vẫn thấy có chút tự hào về bản thân và tôi cảm thấy tình huống nào cũng có mặt tốt và mặt xấu.",
+        "assistant": "Thật tuyệt khi biết bạn đã vực dậy sau trải nghiệm đầy chấn thương tâm lý đó và xử lý được, dù chưa hoàn hảo. Nhận ra mặt tốt và mặt xấu của mọi tình huống cho thấy sự bền bỉ và góc nhìn cân bằng, điều quan trọng cho sự phát triển bản thân và ứng phó với những lúc khó khăn. Hãy tiếp tục rèn những kỹ năng phục hồi ấy và tự hào về tiến bộ của mình. Hãy nhớ rằng bạn hoàn toàn có thể nhờ giúp đỡ khi cần."
+      },
+      {
+        "review_id": "FT-04",
+        "source_index": 1095,
+        "type": "Q2",
+        "user": "Tôi cảm thấy chồng tôi không chịu trách nhiệm với các con và có vẻ như chúng chỉ là trách nhiệm của mình tôi. Mọi chuyện luôn là lỗi của tôi, còn không bao giờ là lỗi của anh ấy. Tôi đã bắt đầu uống rượu như một cách để ứng phó với cảm giác rằng mình đã gánh nhiều hơn khả năng.",
+        "assistant": "Tôi hiểu bạn đang trải qua một thời gian khó khăn, và cảm thấy choáng ngợp trước những trách nhiệm là điều hợp lý. Tuy nhiên, dùng rượu như một cách ứng phó không phải là giải pháp lành mạnh. Bạn đã thử nói với chồng về cảm nhận của mình chưa? Bày tỏ những băn khoăn và cùng nhau làm việc có thể giúp giảm bớt gánh nặng và củng cố mối quan hệ của hai bạn."
+      },
+      {
+        "review_id": "FT-05",
+        "source_index": 1159,
+        "type": "Q1_ngan",
+        "user": "Tôi thường cảm thấy mình có điều gì đó không ổn hoặc mình chưa đủ tốt, nhất là khi thấy mọi thứ đến với người khác dễ dàng như thế nào. Tôi hay chìm vào những suy nghĩ tiêu cực khi ở một mình.",
+        "assistant": "Nghe như bạn đang so sánh mình với người khác và tự nghi ngờ bản thân khi ở một mình. Thay vì tập trung vào những cảm xúc tiêu cực, hãy thử thương lấy chính mình trong những lúc đó, nhớ rằng ai cũng có khó khăn riêng, và bạn không đơn độc. Khi ở một mình, bạn có làm gì để ứng phó với những cảm giác này không?"
+      },
+      {
+        "review_id": "FT-06",
+        "source_index": 1334,
+        "type": "Q4_dai",
+        "user": "Tôi đã học cách cười trừ cho qua mọi chuyện để khỏi buồn hay khó chịu. Tôi từng nghe nói rằng nếu bạn cười, cả thế giới cười cùng bạn, nhưng nếu bạn khóc, bạn khóc một mình. Vì vậy giờ tôi thấy khó thể hiện hay chia sẻ cảm xúc của mình vì tôi sợ phải cảm nhận nỗi đau và bị cô độc.",
+        "assistant": "Có vẻ bạn đã hình thành một cơ chế ứng phó để tự bảo vệ mình khỏi những cảm xúc đau đớn, bằng cách cười trừ và tránh nỗi buồn. Tuy nhiên, điều này cũng có thể khiến bạn không xử lý và đối diện đầy đủ với cảm xúc của mình, mà điều đó lại quan trọng cho sự phát triển bản thân và các mối quan hệ lành mạnh. Bạn có thể cho tôi một ví dụ về một tình huống bạn cảm thấy như vậy, và nó đã ảnh hưởng thế nào đến mối quan hệ hoặc sự tương tác của bạn với người khác không?"
+      },
+      {
+        "review_id": "FT-07",
+        "source_index": 1467,
+        "type": "Q4_dai",
+        "user": "Dạo này em đang vật lộn với những cảm xúc tiêu cực và cô giáo em, cô Jones, lo cho em. Cô nói em thông minh và em quan trọng, nhưng em vẫn thấy buồn. Bạn có thể gợi ý một hoạt động giúp em tập trung vào điều tích cực không?",
+        "assistant": "Tôi rất vui khi biết cô giáo của bạn nhận ra tiềm năng của bạn. Hãy nhớ rằng bạn quan trọng và xung quanh bạn có những người quan tâm đến bạn. Chúng ta hãy thử một bài tập sáng tạo để giúp bạn suy ngẫm về những phẩm chất tích cực của mình: lòng can đảm, năng lực, sự gắn kết. Hãy vẽ một bức tranh về lúc bạn đã dùng một trong những phẩm chất này để vượt qua một khoảnh khắc khó khăn. Việc này sẽ giúp bạn hình dung điểm mạnh của mình và nhắc bạn nhớ về khả năng phục hồi của bản thân trong những lúc khó khăn."
+      },
+      {
+        "review_id": "FT-08",
+        "source_index": 2370,
+        "type": "Q2",
+        "user": "Tôi thấy mình cố giải quyết vấn đề bằng cách không ăn, và cảm giác như tôi đang chiến tranh với chính mình. Thay vì làm điều gì lành mạnh, như ép mình tập ở phòng gym, tôi chọn cách không ăn nhiều ngày liền.",
+        "assistant": "Nghe như bạn đang dùng việc hạn chế ăn uống để lấy lại quyền kiểm soát trong cuộc sống. Tuy nhiên, đây có thể là một cách ứng phó không lành mạnh. Tôi khuyên bạn nên tập trung vào những hoạt động lành mạnh hơn để kiểm soát căng thẳng và tìm lại cảm giác kiểm soát, như tập thể dục hoặc thiền. Bạn có yếu tố kích hoạt cụ thể nào dẫn đến hành vi này không?"
+      },
+      {
+        "review_id": "FT-09",
+        "source_index": 4403,
+        "type": "Q3",
+        "user": "Dạo này tôi cảm thấy cô đơn vì phần lớn thời gian tôi ở một mình. Bạn đời tôi thường đi vắng, và ngày càng khó đoán được khi nào anh ấy về.",
+        "assistant": "Có vẻ bạn đang vật lộn với nỗi cô đơn do sự vắng mặt và khó đoán của bạn đời. Điều quan trọng là tìm cách ứng phó với tình huống này, chẳng hạn như kết nối với bạn bè hoặc theo đuổi sở thích để lấp đầy khoảng trống. Ngoài ra, bạn có thể muốn nói với bạn đời về cảm xúc của mình và cân nhắc lập lịch hoặc kế hoạch để gặp lại nhau khi anh ấy ở nhà. Có điều gì đặc biệt khiến bạn khó kiểm soát nỗi cô đơn này không?"
+      },
+      {
+        "review_id": "FT-10",
+        "source_index": 4935,
+        "type": "Q1_ngan",
+        "user": "Tôi đang khó chấp nhận ý nghĩ rằng cảm thấy thất vọng khi mình làm không tốt là điều bình thường, vì tôi thấy mình đã thất bại với chính bản thân là một nghiên cứu sinh.",
+        "assistant": "Điều quan trọng là chuyển tư duy từ \"Tôi phải làm tốt\" sang \"Tôi muốn làm tốt\". Hãy nhớ rằng cảm thấy thất vọng khi làm không tốt là bình thường, nhưng đừng xem đó là thất bại. Thất vọng là một cảm xúc tự nhiên, và chấp nhận nó có thể giúp bạn trưởng thành và học hỏi từ trải nghiệm ấy."
+      }
+    ],
+    "generative": [
+      {
+        "review_id": "GEN-01",
+        "source_index": 30,
+        "test_id": "TC-A0031",
+        "mental_state": "Stressed",
+        "context": "Context: Nấm mỡ (nấm Tây) | Nutrient: Selenium | ontology_effect: INHIBITING: stress_response | Mental State: Stressed",
+        "user": "Bao nhiêu việc đổ lên đầu, mệt mỏi rã rời cả người không muốn nhúc nhích.",
+        "assistant": "Khối lượng công việc lớn đang vắt kiệt sức lực và tinh thần của bạn. Bạn có thể chế biến món nấm mỡ xào thơm ngon cho bữa tối. Nấm mỡ là nguồn cung cấp Selenium giúp kìm hãm tình trạng căng thẳng thần kinh hoạt hóa quá mức, giúp bạn dịu lại."
+      },
+      {
+        "review_id": "GEN-02",
+        "source_index": 34,
+        "test_id": "TC-A0035",
+        "mental_state": "LowMood",
+        "context": "Context: Hến | Nutrient: Iron | ontology_effect: REGULATING: mood_regulation | Mental State: LowMood",
+        "user": "Cứ thấy mệt mỏi rã rời, tâm trạng u uất chẳng buồn mở miệng nói chuyện.",
+        "assistant": "Tâm trạng u uất và cơ thể mệt mỏi thế này chắc chắn đang làm bạn suy kiệt. Bạn có thể nấu một bát canh hến ngọt mát cho bữa cơm. Hến cung cấp Iron có tác dụng điều hòa tâm trạng, vì tình trạng thiếu hụt vi chất này thường có liên hệ mật thiết với cảm giác uể oải."
+      },
+      {
+        "review_id": "GEN-03",
+        "source_index": 56,
+        "test_id": "TC-A0057",
+        "mental_state": "Energized",
+        "context": "Context: Quả kiwi | Nutrient: Vitamin C | ontology_effect: REDUCING: stress_response | Mental State: Energized",
+        "user": "Sức sống tràn trề, tinh thần phấn chấn sẵn sàng đón nhận thử thách mới.",
+        "assistant": "Nguồn năng lượng tích cực và sự tự tin này sẽ giúp bạn chinh phục mọi mục tiêu. Bạn có thể cắt một quả kiwi ăn vào bữa sáng. Kiwi rất giàu Vitamin C giúp giảm phản ứng căng thẳng oxy hóa, duy trì sự minh mẫn và tỉnh táo tối đa cho hệ thần kinh."
+      },
+      {
+        "review_id": "GEN-04",
+        "source_index": 115,
+        "test_id": "TC-A0116",
+        "mental_state": "LowMood",
+        "context": "Context: Rong biển (Laver/Nori) | Nutrient: Vitamin C | ontology_effect: REDUCING: stress_response | Mental State: LowMood",
+        "user": "Tâm trạng ủ rũ chán chường, chẳng muốn nhấc người làm việc gì.",
+        "assistant": "Cảm giác chán nản và trì trệ này đang kéo tụt năng lượng sống của bạn xuống thấp. Bạn thử ăn cơm cuốn rong biển hoặc canh rong biển xem sao nhé. Rong biển cung cấp Vitamin C giúp giảm bớt các phản ứng tâm lý tiêu cực nhờ khả năng chống oxy hóa bảo vệ tế bào não."
+      },
+      {
+        "review_id": "GEN-05",
+        "source_index": 382,
+        "test_id": "TC-A0383",
+        "mental_state": "Recovering",
+        "context": "Context: Khoai môn | Nutrient: Thiamin | ontology_effect: REGULATING: neurotransmission | Mental State: Recovering",
+        "user": "Sức khỏe đang hồi phục dần nhưng tinh thần vẫn còn chút bứt rứt không yên.",
+        "assistant": "Quá trình lấy lại thể trạng ban đầu cần sự kiên nhẫn để cơ thể thích nghi hoàn toàn. Bạn có thể nấu món canh khoai môn nấu sườn. Khoai môn chứa Thiamin giúp điều hòa dẫn truyền thần kinh (serotonin, GABA), hỗ trợ hệ thần kinh của bạn sớm tìm lại nhịp điệu bình ổn."
+      },
+      {
+        "review_id": "GEN-06",
+        "source_index": 384,
+        "test_id": "TC-A0385",
+        "mental_state": "Depressed",
+        "context": "Context: Đường cát | Nutrient: Iron | ontology_effect: REGULATING: mood_regulation | Mental State: Depressed",
+        "user": "Cảm giác tuyệt vọng bao trùm, mọi thứ tối sầm lại không muốn sống nữa.",
+        "assistant": "Tôi thực sự rất lo lắng khi nghe bạn chia sẻ những cảm xúc nặng nề và đau khổ này. Trước hết, bạn hãy tìm kiếm sự trợ giúp y tế ngay từ bác sĩ tâm thần hoặc gọi đường dây nóng khẩn cấp. Việc sử dụng các thực phẩm chứa Iron chỉ hỗ trợ phần nhỏ, không thể thay thế điều trị y tế."
+      },
+      {
+        "review_id": "GEN-07",
+        "source_index": 409,
+        "test_id": "TC-A0410",
+        "mental_state": "Recovering",
+        "context": "Context: Miso | Nutrient: Tryptophan | ontology_effect: REDUCING: mood_regulation | Mental State: Recovering",
+        "user": "Sức khỏe đang hồi phục dần nhưng tinh thần vẫn còn chút bứt rứt không yên.",
+        "assistant": "Quá trình lấy lại thể trạng ban đầu cần sự kiên nhẫn để cơ thể thích nghi hoàn toàn. Bạn có thể nấu món canh miso rong biển ấm nóng. Miso chứa vi sinh vật lên men và Tryptophan giúp điều hòa tâm trạng, hỗ trợ hệ thần kinh của bạn sớm tìm lại nhịp điệu bình ổn."
+      },
+      {
+        "review_id": "GEN-08",
+        "source_index": 489,
+        "test_id": "TC-A0490",
+        "mental_state": "Stressed",
+        "context": "Context: Dạ dày bò | Nutrient: Vitamin B12 | ontology_effect: INHIBITING: stress_response | Mental State: Stressed",
+        "user": "Áp lực học tập thi cử làm tôi căng thẳng đầu óc mất ngủ liên tục.",
+        "assistant": "Áp lực học tập thực sự rất nặng nề và dễ làm bạn kiệt sức. Bạn có thể làm món dạ dày bò xào dứa chua ngọt. Dạ dày bò cung cấp Selenium và Vitamin B12 giúp kìm hãm phản ứng căng thẳng thần kinh hoạt hóa quá mức, giúp tâm trí bạn dịu lại và dễ ngủ hơn."
+      },
+      {
+        "review_id": "GEN-09",
+        "source_index": 837,
+        "test_id": "TC-A0838",
+        "mental_state": "Anxious",
+        "context": "Context: Rau câu khô | Nutrient: Iron | ontology_effect: INHIBITING: stress_response | Mental State: Anxious",
+        "user": "Tôi hay bị những cơn lo âu vô cớ làm cho đứng ngồi không yên.",
+        "assistant": "Cảm giác lo lắng bất an xuất hiện thường xuyên thực sự rất phiền toái. Bạn nên thăm khám y tế để được các chuyên gia hỗ trợ phương pháp điều trị phù hợp nhé. Món chè thạch rau câu khô chứa Zinc và Iron chỉ hỗ trợ thêm."
+      },
+      {
+        "review_id": "GEN-10",
+        "source_index": 911,
+        "test_id": "TC-A0912",
+        "mental_state": "Calm",
+        "context": "Context: Sắn khô | Nutrient: Iron | ontology_effect: REGULATING: mood_regulation | Mental State: Calm",
+        "user": "Buổi chiều ngồi ngắm cảnh trong không gian tĩnh lặng thật thư thái và bình yên.",
+        "assistant": "Khoảnh khắc tĩnh lặng ngắm cảnh mang lại sự thư thái tuyệt vời cho tâm hồn. Bạn có thể tiếp tục thưởng thức các món từ sắn. Sắn khô chứa Iron giúp điều hòa tâm trạng, giữ cho cơ thể và tâm trí tiếp tục được thư giãn nhẹ nhàng."
+      }
+    ],
+    "nutrition": [
+      {
+        "review_id": "NUT-01",
+        "source_index": 42,
+        "food_item": "Tiết lợn sống",
+        "key_nutrients": "Iron",
+        "ontology_effect": "REGULATING: mood_regulation",
+        "content_text": "Tiết lợn sống là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+        "source_reference": "VN_FCT_2007_MaSo_7060"
+      },
+      {
+        "review_id": "NUT-02",
+        "source_index": 60,
+        "food_item": "Lá mơ lông",
+        "key_nutrients": "Vitamin C",
+        "ontology_effect": "REDUCING: stress_response",
+        "content_text": "Lá mơ lông là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+        "source_reference": "VN_FCT_2007_MaSo_4048"
+      },
+      {
+        "review_id": "NUT-03",
+        "source_index": 113,
+        "food_item": "Hành củ tươi",
+        "key_nutrients": "Vitamin C (dưới ngưỡng 20% DV - 11.11%)",
+        "ontology_effect": "REDUCING: stress_response",
+        "content_text": "Hành củ tươi có chứa Vitamin C ở mức dưới ngưỡng nguồn dồi dào (khoảng 11.11% DV/100g), là vi chất nổi bật nhất trong món. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+        "source_reference": "VN_FCT_2007_MaSo_4037"
+      },
+      {
+        "review_id": "NUT-04",
+        "source_index": 146,
+        "food_item": "Cà rốt (củ đỏ, vàng)",
+        "key_nutrients": "Zinc (dưới ngưỡng 20% DV - 10.09%)",
+        "ontology_effect": "INHIBITING: stress_response",
+        "content_text": "Cà rốt (củ đỏ, vàng) có chứa Zinc ở mức dưới ngưỡng nguồn dồi dào (khoảng 10.09% DV/100g), là vi chất nổi bật nhất trong món. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+        "source_reference": "VN_FCT_2007_MaSo_4007"
+      },
+      {
+        "review_id": "NUT-05",
+        "source_index": 168,
+        "food_item": "Đậu rồng (quả non)",
+        "key_nutrients": "Vitamin C",
+        "ontology_effect": "REDUCING: stress_response",
+        "content_text": "Đậu rồng (quả non) là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+        "source_reference": "VN_FCT_2007_MaSo_4032"
+      },
+      {
+        "review_id": "NUT-06",
+        "source_index": 214,
+        "food_item": "Cà muối nén",
+        "key_nutrients": "Vi sinh vật lên men: vi khuẩn lactic (Lactiplantibacillus pentosus, Lactiplantibacillus plantarum, Limosilactobacillus fermentum)",
+        "ontology_effect": "REDUCING: mood_regulation",
+        "content_text": "Cà muối nén là thực phẩm lên men nhờ vi khuẩn lactic (Lactiplantibacillus pentosus, Lactiplantibacillus plantarum, Limosilactobacillus fermentum). Hệ vi sinh vật lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+        "source_reference": "VN_FCT_2007_MaSo_4109"
+      },
+      {
+        "review_id": "NUT-07",
+        "source_index": 262,
+        "food_item": "Hạt điều",
+        "key_nutrients": "Iron, Magnesium, Selenium, Thiamin, Vitamin B6, Zinc, Tryptophan",
+        "ontology_effect": "INHIBITING: stress_response",
+        "content_text": "Hạt điều là nguồn cung cấp Zinc, cùng với Iron, Magnesium, Selenium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+        "source_reference": "VN_FCT_2007_MaSo_3015"
+      },
+      {
+        "review_id": "NUT-08",
+        "source_index": 358,
+        "food_item": "Trà Ô long",
+        "key_nutrients": "Catechin (trung gian), L-theanine, Caffeine",
+        "ontology_effect": "REGULATING: digestion",
+        "content_text": "Trà Ô long là nguồn cung cấp Catechin, cùng với L-theanine, Caffeine. Catechin có tác dụng REGULATING, giúp điều hòa hệ vi sinh vật đường ruột, liên quan nguy cơ trầm cảm.",
+        "source_reference": "USDA_FDC_174120; ref_data.txt muc 3.2, 3.3"
+      },
+      {
+        "review_id": "NUT-09",
+        "source_index": 376,
+        "food_item": "Hạt thông",
+        "key_nutrients": "Iron, Magnesium, Thiamin, Zinc, Tryptophan",
+        "ontology_effect": "INHIBITING: stress_response",
+        "content_text": "Hạt thông là nguồn cung cấp Zinc, cùng với Iron, Magnesium, Thiamin, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+        "source_reference": "USDA_FDC_170591"
+      },
+      {
+        "review_id": "NUT-10",
+        "source_index": 387,
+        "food_item": "Sữa chua Hy Lạp (Greek yogurt)",
+        "key_nutrients": "Vitamin B12",
+        "ontology_effect": "REGULATING: neurotransmission",
+        "content_text": "Sữa chua Hy Lạp (Greek yogurt) là nguồn cung cấp Vitamin B12. Vitamin B12 có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh, liên quan triệu chứng trầm cảm/nhận thức.",
+        "source_reference": "USDA_FDC_171304"
+      }
+    ],
+    "psychology": [
+      {
+        "review_id": "PSY-01",
+        "source_index": 86,
+        "chunk_id": "PSY_CBT_0152",
+        "target_mental_state": "Depression",
+        "tags": "cognitive restructuring, activity scheduling, abc model",
+        "content_text": "Bạn đã bao giờ nói hoặc nghe những câu như “Anh chưa bao giờ làm điều gì lãng mạn cho em cả”, hay “Tôi luôn phải đi đổ rác”, hay “Mọi người cứ chọc tức tôi”, hoặc “Tối nào tôi về nhà, lũ trẻ đó luôn để lại một đống bừa bộn!” rằng những bẫy tư duy tiêu cực này thường bao gồm những từ như \"tất cả\", \"không bao giờ\", \"luôn luôn\" và \"mọi\" khi, trong hầu hết các trường hợp, \"luôn luôn\" và \"không bao giờ\" không chắc chắn như chúng ta nghĩ.",
+        "source_reference": "CCI_WA_Back_From_The_Bluez_Module_05_p9"
+      },
+      {
+        "review_id": "PSY-02",
+        "source_index": 192,
+        "chunk_id": "PSY_CBT_0344",
+        "target_mental_state": "Eating Concerns",
+        "tags": "complex carbohydrates, cognitive restructuring, activity scheduling",
+        "content_text": "Carbohydrate bao gồm các loại thực phẩm như bánh mì, mì ống, khoai tây, couscous, gạo và ngũ cốc. - Chia nhỏ nhiệm vụ tăng tần suất và số lượng bữa ăn thành các bước có thể quản lý được sẽ giúp bạn bớt cảm thấy choáng ngợp hơn. - Khi thay đổi cơ cấu, số lượng ăn uống, việc gặp một số thay đổi về mặt sinh lý là điều bình thường.",
+        "source_reference": "CCI_WA_Break_Free_From_ED_Module_06_p9"
+      },
+      {
+        "review_id": "PSY-03",
+        "source_index": 208,
+        "chunk_id": "PSY_CBT_0380",
+        "target_mental_state": "Eating Concerns",
+        "tags": "all-or-nothing thinking, cognitive restructuring, activity scheduling",
+        "content_text": "Suy nghĩ 'tất cả hoặc không có gì' này rất phổ biến ở những người tham gia vào việc ăn uống vô độ và có thể dẫn đến các chu kỳ ăn uống vô độ lặp đi lặp lại, sau đó là các hành vi kiểm soát cân nặng nghiêm ngặt. Căng thẳng Mọi người đôi khi mô tả việc ăn uống vô độ như một cách để điều chỉnh, kiểm soát hoặc làm tê liệt những cảm giác mãnh liệt. Điều này có thể bao gồm sự buồn chán, lo lắng, buồn bã, thất vọng hoặc những cảm giác khác mà mọi người thấy tiêu cực hoặc đau khổ theo một cách nào đó.",
+        "source_reference": "CCI_WA_Break_Free_From_ED_Module_08_p3"
+      },
+      {
+        "review_id": "PSY-04",
+        "source_index": 476,
+        "chunk_id": "PSY_CBT_0835",
+        "target_mental_state": "Health Anxiety",
+        "tags": "thought diary, cognitive restructuring, activity scheduling",
+        "content_text": "Khi đến được thời gian và địa điểm cụ thể này, bạn có thể dành thời gian hoàn thành Nhật ký suy nghĩ để đánh giá suy nghĩ của mình. Nếu bạn thực hiện toàn bộ Nhật ký suy nghĩ để thách thức những suy nghĩ không có ích liên quan đến sức khỏe của mình, rất có thể bạn sẽ thấy sức mạnh niềm tin của mình giảm sút và do đó cường độ cảm xúc và cảm giác sinh lý của bạn cũng giảm đi.",
+        "source_reference": "CCI_WA_Helping_Health_Anxiety_Module_05_p5"
+      },
+      {
+        "review_id": "PSY-05",
+        "source_index": 508,
+        "chunk_id": "PSY_CBT_0883",
+        "target_mental_state": "Health Anxiety",
+        "tags": "cognitive restructuring, activity scheduling, abc model",
+        "content_text": "Hoặc tốt hơn nữa, hãy hỏi bác sĩ của bạn để có những hướng dẫn phù hợp về việc tự khám và kiểm tra sức khỏe. - Tạo và đánh giá mục tiêu hành vi mới Dựa trên quyết định giảm, trì hoãn hoặc loại bỏ hành vi của mình, bạn sẽ cần: - tạo ra mục tiêu hành vi mới và - xác định cụ thể những gì bạn sẽ làm để hướng tới mục tiêu này Trong một số trường hợp, mục tiêu mới và các hành vi cụ thể kèm theo có thể dễ dàng được xác định và thử ngay lập tức.",
+        "source_reference": "CCI_WA_Helping_Health_Anxiety_Module_06_p6"
+      },
+      {
+        "review_id": "PSY-06",
+        "source_index": 551,
+        "chunk_id": "PSY_CBT_0928",
+        "target_mental_state": "Health Anxiety",
+        "tags": "safety behaviours, cognitive restructuring, activity scheduling",
+        "content_text": "Nếu bạn đang xem nhật ký suy nghĩ của mình, có thể bạn đã đề cập đến một số tình huống mà bạn cảm thấy lo lắng và tránh né hoặc khi bạn đã áp dụng các hành vi an toàn để đối phó, vì vậy, có thể bạn nên xem xét những tình huống đó để tìm ý tưởng. Để giúp bạn, chúng tôi đã cung cấp một số về các tình huống và hoạt động thường gây khó chịu cho những người mắc lo âu bệnh tật (Health Anxiety).",
+        "source_reference": "CCI_WA_Helping_Health_Anxiety_Module_07_p3"
+      },
+      {
+        "review_id": "PSY-07",
+        "source_index": 651,
+        "chunk_id": "PSY_CBT_1050",
+        "target_mental_state": "Generalized Anxiety",
+        "tags": "cognitive restructuring, activity scheduling, abc model",
+        "content_text": "Người ta còn phát hiện ra rằng những người sinh ra với tính khí 'lo lắng' đặc biệt có thể dễ mắc chứng rối loạn lo âu sau này trong cuộc sống. Các yếu tố tâm lý Tuy nhiên, điều quan trọng cần nhớ là mặc dù sinh học của chúng ta có thể khiến chúng ta dễ mắc chứng rối loạn lo âu. Không phải tất cả những người mắc chứng dễ bị tổn thương này đều tiếp tục phát triển chứng lo âu có vấn đề.",
+        "source_reference": "CCI_WA_What_Me_Worry_Module_01_p5"
+      },
+      {
+        "review_id": "PSY-08",
+        "source_index": 769,
+        "chunk_id": "PSY_MINDFUL_0035",
+        "target_mental_state": "Overwhelmed",
+        "tags": "present moment focus, non-judgmental awareness, sensory grounding",
+        "content_text": "Đơn giản chỉ cần chờ đợi những suy nghĩ nảy sinh. Bạn không làm gì cả ngoại trừ việc chờ đợi những ý nghĩ xuất hiện nên bạn có thể nhận biết được chúng rất nhanh. Suy nghĩ giống như màn ảo thuật, có vẻ như thật khi chúng ta lạc vào chúng nhưng thường thay đổi khi kiểm tra. Còn những suy nghĩ mạnh mẽ ảnh hưởng đến bạn thì sao? Bạn đang xem và rồi đột nhiên ù lên! - bạn đi rồi, đang chìm trong suy nghĩ.",
+        "source_reference": "DCU_Mindfulness_Based_Stress_Reduction_Handbook_KabatZinn_p7"
+      },
+      {
+        "review_id": "PSY-09",
+        "source_index": 838,
+        "chunk_id": "PSY_MINDFUL_0111",
+        "target_mental_state": "Stressed",
+        "tags": "present moment focus, non-judgmental awareness, sensory grounding",
+        "content_text": "Tạo sự chú ý cho từng hoạt động.  Trước khi đi ngủ vào ban đêm, hãy dành vài phút và chú ý đến hơi thở của bạn trong ít nhất năm hơi thở trọn vẹn. , Teasdale J., Segal Z., Zinn J.K.",
+        "source_reference": "DCU_Mindfulness_Based_Stress_Reduction_Handbook_KabatZinn_p21"
+      },
+      {
+        "review_id": "PSY-10",
+        "source_index": 925,
+        "chunk_id": "PSY_PFA_0021",
+        "target_mental_state": "Trauma / Crisis",
+        "tags": "look listen link, emotional stabilization, active listening",
+        "content_text": "Ở một số nền văn hóa, việc một người chia sẻ cảm xúc với người ngoài gia đình mình là không có phong tục. Hoặc có thể chỉ phù hợp khi phụ nữ nói chuyện với những người phụ nữ khác, hoặc có lẽ một số cách ăn mặc hoặc che đậy bản thân là rất quan trọng. Bạn có thể thấy mình đang làm việc với những người có hoàn cảnh khác với bạn.",
+        "source_reference": "WHO_Psychological_First_Aid_Field_Guide_2011_p16"
+      }
+    ]
+  }
+}
