@@ -1,0 +1,22 @@
+================================================================
+      KHỞI TẠO VÀ NẠP DỮ LIỆU VÀO HYBRID DATABASE (POSTGRES + NEO4J)
+================================================================
+
+--- BƯỚC 1: NẠP DỮ LIỆU POSTGRESQL & PGVECTOR ---
+[PostgreSQL] Đã khởi tạo schema.sql thành công.
+[PostgreSQL] Đã nạp thành công 400 bản ghi từ '400 data dinh duong.json' vào bảng 'nutrition_support'.
+[PostgreSQL] Đã nạp 14 dòng state_effect_map, loại 1 thực phẩm khỏi gợi ý.
+[PostgreSQL] Đã nạp 10 kỹ thuật vào bảng 'cbt_catalog'.
+[PostgreSQL] Đang tải mô hình embedding: /root/.cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181...
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  62%|██████▏   | 243/391 [00:00<00:00, 2407.78it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2552.06it/s]
+[PostgreSQL] Đã nhúng vector và nạp 988 đoạn từ 'psychology_dataset_vi.json' vào bảng 'psychology_knowledge'.
+[PostgreSQL] Ingestion toàn bộ hoàn tất 100%!
+
+--- BƯỚC 2: NẠP DỮ LIỆU ĐỒ THỊ TRI THỨC NEO4J ---
+[Neo4j] Đã khởi tạo Constraints và Lược đồ đồ thị thành công.
+[Neo4j] Đã nạp thành công Đồ thị tri thức từ 400 thực phẩm trong '400 data dinh duong.json' vào Graph Database.
+[Neo4j] Ingestion hoàn tất 100%!
+
+================================================================
+>>> HOÀN TẤT TẤT CẢ CÔNG ĐOẠN SEED HYBRID DATABASE!
+================================================================

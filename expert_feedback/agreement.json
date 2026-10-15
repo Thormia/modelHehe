@@ -1,0 +1,572 @@
+{
+ "raters": [
+  "BacSiDaKhoa",
+  "CongNgheSinhHoc",
+  "HoaHuuCo",
+  "YHoc",
+  "Yhoc2",
+  "Yhoc3"
+ ],
+ "descriptive": {
+  "1_FineTune|Thấu cảm & công nhận cảm xúc": {
+   "n": 60,
+   "mean": 4.6,
+   "sd": 0.6689227362847252
+  },
+  "1_FineTune|Tự nhiên, giọng người bạn": {
+   "n": 50,
+   "mean": 4.6,
+   "sd": 0.6388765649999399
+  },
+  "1_FineTune|Chất lượng dịch tiếng Việt": {
+   "n": 50,
+   "mean": 4.8,
+   "sd": 0.4040610178208843
+  },
+  "1_FineTune|An toàn": {
+   "n": 60,
+   "mean": 4.9,
+   "sd": 0.35415212665401197
+  },
+  "2_Generative_QA|Thấu cảm & chuyển tiếp mượt": {
+   "n": 60,
+   "mean": 4.766666666666667,
+   "sd": 0.4997174342809082
+  },
+  "2_Generative_QA|Lời khuyên dinh dưỡng đúng khoa học": {
+   "n": 60,
+   "mean": 4.666666666666667,
+   "sd": 0.5097911392420601
+  },
+  "2_Generative_QA|Phù hợp triệu chứng": {
+   "n": 60,
+   "mean": 4.616666666666666,
+   "sd": 0.5237306419436756
+  },
+  "2_Generative_QA|Trung thành với context": {
+   "n": 60,
+   "mean": 4.716666666666667,
+   "sd": 0.49030141772790004
+  },
+  "3_RAG_DinhDuong|Thực phẩm giàu chất đã nêu": {
+   "n": 60,
+   "mean": 4.633333333333334,
+   "sd": 0.5812513288970897
+  },
+  "3_RAG_DinhDuong|Cơ chế tác động đúng khoa học": {
+   "n": 60,
+   "mean": 4.65,
+   "sd": 0.5150283849343991
+  },
+  "3_RAG_DinhDuong|Câu văn rõ ràng": {
+   "n": 50,
+   "mean": 4.86,
+   "sd": 0.35050983275386566
+  },
+  "4_RAG_TamLy|Nội dung đúng chuyên môn tâm lý": {
+   "n": 56,
+   "mean": 4.964285714285714,
+   "sd": 0.18725633517970777
+  },
+  "4_RAG_TamLy|Chất lượng dịch tiếng Việt": {
+   "n": 50,
+   "mean": 4.76,
+   "sd": 0.43141911058689997
+  },
+  "4_RAG_TamLy|Chunk đủ ngữ cảnh": {
+   "n": 50,
+   "mean": 4.78,
+   "sd": 0.4184519575964803
+  },
+  "1_FineTune|Dùng được để fine-tune (Đạt)": {
+   "n": 50,
+   "ones": 46
+  },
+  "2_Generative_QA|An toàn y khoa (Pass)": {
+   "n": 60,
+   "ones": 60
+  },
+  "2_Generative_QA|Cần chuyển tuyến mà chưa nói (Có)": {
+   "n": 60,
+   "ones": 0
+  },
+  "3_RAG_DinhDuong|Nhãn ontology_effect đúng": {
+   "n": 50,
+   "ones": 49
+  },
+  "3_RAG_DinhDuong|Có phát biểu quá mức (Có)": {
+   "n": 60,
+   "ones": 5
+  },
+  "4_RAG_TamLy|Nhãn target_mental_state đúng": {
+   "n": 56,
+   "ones": 56
+  },
+  "4_RAG_TamLy|Tags phù hợp": {
+   "n": 50,
+   "ones": 50
+  }
+ },
+ "agreement": {
+  "Dữ liệu fine-tune|likert": {
+   "alpha": 9.521895934405666e-05,
+   "gwet": 0.9423504118253122,
+   "gwet_pa": 0.9621875,
+   "fleiss": -0.014084507042253334,
+   "fleiss_items": 20,
+   "exact": 0.636,
+   "within1": 0.92,
+   "pairs": 500,
+   "units": 40
+  },
+  "Dữ liệu fine-tune|cat": {
+   "alpha": -0.06521739130434767,
+   "gwet": 0.8123827392120073,
+   "gwet_pa": 0.84,
+   "fleiss": null,
+   "fleiss_items": 0,
+   "exact": 0.84,
+   "within1": 1.0,
+   "pairs": 100,
+   "units": 10
+  },
+  "QA tự sinh (RAG → gợi ý)|likert": {
+   "alpha": 0.01667215926611243,
+   "gwet": 0.9480458039890328,
+   "gwet_pa": 0.9685416666666666,
+   "fleiss": 0.005858569188876831,
+   "fleiss_items": 40,
+   "exact": 0.5816666666666667,
+   "within1": 0.9716666666666667,
+   "pairs": 600,
+   "units": 40
+  },
+  "QA tự sinh (RAG → gợi ý)|cat": {
+   "alpha": 1.0,
+   "gwet": 1.0,
+   "gwet_pa": 1.0,
+   "fleiss": 1.0,
+   "fleiss_items": 20,
+   "exact": 1.0,
+   "within1": 1.0,
+   "pairs": 300,
+   "units": 20
+  },
+  "Kho RAG dinh dưỡng|likert": {
+   "alpha": -0.09781586062921632,
+   "gwet": 0.9461055931157102,
+   "gwet_pa": 0.9662499999999999,
+   "fleiss": -0.13488936041224642,
+   "fleiss_items": 20,
+   "exact": 0.54,
+   "within1": 0.9625,
+   "pairs": 400,
+   "units": 30
+  },
+  "Kho RAG dinh dưỡng|cat": {
+   "alpha": 0.7837301587301589,
+   "gwet": 0.7941589845176568,
+   "gwet_pa": 0.8966666666666666,
+   "fleiss": -0.09090909090909051,
+   "fleiss_items": 10,
+   "exact": 0.884,
+   "within1": 1.0,
+   "pairs": 250,
+   "units": 20
+  },
+  "Kho RAG tâm lý|likert": {
+   "alpha": 0.07709923664122131,
+   "gwet": 0.9784848333665934,
+   "gwet_pa": 0.9840277777777777,
+   "fleiss": -0.058823529411764955,
+   "fleiss_items": 6,
+   "exact": 0.7575757575757576,
+   "within1": 1.0,
+   "pairs": 330,
+   "units": 30
+  },
+  "Kho RAG tâm lý|cat": {
+   "alpha": null,
+   "gwet": 1.0,
+   "gwet_pa": 1.0,
+   "fleiss": null,
+   "fleiss_items": 6,
+   "exact": 1.0,
+   "within1": 1.0,
+   "pairs": 230,
+   "units": 20
+  },
+  "Tất cả|likert": {
+   "alpha": 0.0018755181306776558,
+   "gwet": 0.9531387499707568,
+   "gwet_pa": 0.9695535714285715,
+   "fleiss": -0.008335384673647615,
+   "fleiss_items": 86,
+   "exact": 0.6191256830601093,
+   "within1": 0.9606557377049181,
+   "pairs": 1830,
+   "units": 140
+  },
+  "Tất cả|cat": {
+   "alpha": 0.8793859649122815,
+   "gwet": 0.9111897118471386,
+   "gwet_pa": 0.9476190476190476,
+   "fleiss": 0.9070167886353853,
+   "fleiss_items": 36,
+   "exact": 0.9488636363636364,
+   "within1": 1.0,
+   "pairs": 880,
+   "units": 70
+  },
+  "1_FineTune|Thấu cảm & công nhận cảm xúc": {
+   "alpha": -0.06527777777777821,
+   "gwet": 0.8945054945054944,
+   "gwet_pa": 0.94,
+   "fleiss": -0.08695652173913025,
+   "fleiss_items": 10,
+   "exact": 0.5,
+   "within1": 0.8466666666666667,
+   "pairs": 150,
+   "units": 10
+  },
+  "1_FineTune|Tự nhiên, giọng người bạn": {
+   "alpha": -0.05617705949656737,
+   "gwet": 0.9010791366906477,
+   "gwet_pa": 0.9450000000000001,
+   "fleiss": null,
+   "fleiss_items": 0,
+   "exact": 0.51,
+   "within1": 0.87,
+   "pairs": 100,
+   "units": 10
+  },
+  "1_FineTune|Chất lượng dịch tiếng Việt": {
+   "alpha": -0.04125000000000001,
+   "gwet": 0.9696428571428571,
+   "gwet_pa": 0.97875,
+   "fleiss": null,
+   "fleiss_items": 0,
+   "exact": 0.66,
+   "within1": 1.0,
+   "pairs": 100,
+   "units": 10
+  },
+  "1_FineTune|An toàn": {
+   "alpha": 0.01728571428571446,
+   "gwet": 0.9824497257769652,
+   "gwet_pa": 0.985,
+   "fleiss": -0.03225806451612832,
+   "fleiss_items": 10,
+   "exact": 0.84,
+   "within1": 0.9733333333333334,
+   "pairs": 150,
+   "units": 10
+  },
+  "2_Generative_QA|Thấu cảm & chuyển tiếp mượt": {
+   "alpha": -0.06751570881226066,
+   "gwet": 0.9516616314199394,
+   "gwet_pa": 0.9666666666666667,
+   "fleiss": -0.06711409395973199,
+   "fleiss_items": 10,
+   "exact": 0.6466666666666666,
+   "within1": 0.94,
+   "pairs": 150,
+   "units": 10
+  },
+  "2_Generative_QA|Lời khuyên dinh dưỡng đúng khoa học": {
+   "alpha": 0.01923141186299082,
+   "gwet": 0.9458593054318788,
+   "gwet_pa": 0.9683333333333333,
+   "fleiss": -0.008782936010037509,
+   "fleiss_items": 10,
+   "exact": 0.5533333333333333,
+   "within1": 0.98,
+   "pairs": 150,
+   "units": 10
+  },
+  "2_Generative_QA|Phù hợp triệu chứng": {
+   "alpha": 0.1961383061383063,
+   "gwet": 0.9510818438381937,
+   "gwet_pa": 0.9729166666666667,
+   "fleiss": 0.13185530921820313,
+   "fleiss_items": 10,
+   "exact": 0.5866666666666667,
+   "within1": 0.9933333333333333,
+   "pairs": 150,
+   "units": 10
+  },
+  "2_Generative_QA|Trung thành với context": {
+   "alpha": -0.13675925925925947,
+   "gwet": 0.9460449625312238,
+   "gwet_pa": 0.9662499999999999,
+   "fleiss": -0.15159944367176612,
+   "fleiss_items": 10,
+   "exact": 0.54,
+   "within1": 0.9733333333333334,
+   "pairs": 150,
+   "units": 10
+  },
+  "3_RAG_DinhDuong|Thực phẩm giàu chất đã nêu": {
+   "alpha": -0.0995454545454546,
+   "gwet": 0.919487648673376,
+   "gwet_pa": 0.9541666666666666,
+   "fleiss": -0.11729141475211606,
+   "fleiss_items": 10,
+   "exact": 0.4866666666666667,
+   "within1": 0.9266666666666666,
+   "pairs": 150,
+   "units": 10
+  },
+  "3_RAG_DinhDuong|Cơ chế tác động đúng khoa học": {
+   "alpha": -0.1502357723577239,
+   "gwet": 0.9338782924613986,
+   "gwet_pa": 0.9620833333333333,
+   "fleiss": -0.15750915750915734,
+   "fleiss_items": 10,
+   "exact": 0.47333333333333333,
+   "within1": 0.9733333333333334,
+   "pairs": 150,
+   "units": 10
+  },
+  "3_RAG_DinhDuong|Câu văn rõ ràng": {
+   "alpha": -0.13953488372093026,
+   "gwet": 0.9773974814336454,
+   "gwet_pa": 0.9824999999999999,
+   "fleiss": null,
+   "fleiss_items": 0,
+   "exact": 0.72,
+   "within1": 1.0,
+   "pairs": 100,
+   "units": 10
+  },
+  "4_RAG_TamLy|Nội dung đúng chuyên môn tâm lý": {
+   "alpha": -0.0185185185185186,
+   "gwet": 0.9955654101995566,
+   "gwet_pa": 0.9958333333333333,
+   "fleiss": -0.058823529411764955,
+   "fleiss_items": 6,
+   "exact": 0.9230769230769231,
+   "within1": 1.0,
+   "pairs": 130,
+   "units": 10
+  },
+  "4_RAG_TamLy|Chất lượng dịch tiếng Việt": {
+   "alpha": -0.02083333333333326,
+   "gwet": 0.963905775075988,
+   "gwet_pa": 0.97625,
+   "fleiss": null,
+   "fleiss_items": 0,
+   "exact": 0.62,
+   "within1": 1.0,
+   "pairs": 100,
+   "units": 10
+  },
+  "4_RAG_TamLy|Chunk đủ ngữ cảnh": {
+   "alpha": 0.08624708624708632,
+   "gwet": 0.9705123479542941,
+   "gwet_pa": 0.98,
+   "fleiss": null,
+   "fleiss_items": 0,
+   "exact": 0.68,
+   "within1": 1.0,
+   "pairs": 100,
+   "units": 10
+  }
+ },
+ "comments": {
+  "1_FineTune|FT-01": [
+   [
+    "BacSiDaKhoa",
+    "Theo ý kiến của chị câu: 'Bạn không có quá nhiều vấn đề để giải quyết trong tham vấn.' sẽ có thể làm người bệnh xem nhẹ tình trạng của mình vì chị thấy BN cũng kha khá vấn đề á."
+   ],
+   [
+    "Yhoc3",
+    "Nhận xét: Người tư vấn có nhận diện được cảm xúc nhưng lập tức dùng từ chuyển ý \"Nhưng\" để hướng sang điểm tích cực. Trong tư vấn, việc vội vã đưa ra góc nhìn tích cực khi người có vấn đề tâm lý vừa chia sẻ chuỗi tổn thương nghiêm trọng vô tình tạo cảm giác phủ nhận hoặc xoa dịu bề ngoài, khiến họ cảm thấy nỗi đau của mình chưa thực sự được lắng nghe và tôn trọng trọn vẹn.\nĐề xuất: Việc bạn cảm thấy choáng ngợp là hoàn toàn có thể hiểu được - những gì bạn đã trải qua từ quá khứ cho đến hiện tại là những gánh nặng rất lớn mà bất kỳ ai khi gánh chịu cũng sẽ cảm thấy quá tải. Câu trả lời dành cho bạn là: Không, bạn không có quá nhiều vấn đề để tham vấn. Trong trị liệu tâm lý, bạn không cần và không phải giải quyết mọi thứ cùng một lúc. Việc bạn giữ vững được cuộc hôn nhân hạnh phúc suốt 35 năm và vượt qua căn bệnh hiểm nghèo cho thấy bạn có sức mạnh tinh thần rất lớn. Một nhà trị liệu giỏi sẽ không ép bạn xử lý tất cả ngay lập tức; họ sẽ cùng bạn tạo dựng một không gian an toàn, lắng nghe từng câu chuyện, chia nhỏ các mục tiêu và ưu tiên giải quyết điều đang làm bạn trăn trở nhất ở thời điểm hiện tại."
+   ]
+  ],
+  "1_FineTune|FT-05": [
+   [
+    "BacSiDaKhoa",
+    "Chị thấy cũng OK nhưng nếu em thêm 1 câu động viên chị nghĩ sẽ OK hơn nữa ấy bé"
+   ],
+   [
+    "Yhoc3",
+    "Nhận xét: Để cuộc tư vấn mang tính thấu cảm hơn, cần tránh việc đưa ra lời khuyên bảo hoặc. định hướng tư duy quá sớm (\"Thay vì... hãy...\"). Trong tham vấn, việc công nhận sự nặng nề của cảm giác \"không đủ tốt\" trước khi chuyển hướng sẽ giúp nguời được tư vấn cảm thấy thực sự được lắng nghe.\nĐề xuất: Cảm giác luôn thấy mình 'chưa đủ tốt' hay 'có điều gì đó không ổn' gây tình trạng kiệt sức trong âm thầm. Việc phải ở một mình với những suy nghĩ tiêu cực đó lại càng làm cho sự cô độc trở nên nặng nề hơn. Tôi muốn chia sẻ với bạn rằng: Việc bạn cảm thấy mệt mỏi và tự nghi ngờ bản thân trong những lúc như vậy là điều hoàn toàn có thể hiểu được, và bạn không hề đơn độc trong trải nghiệm này. Những lúc ở một mình và thấy mình bắt đầu chìm vào những suy nghĩ đó, bạn thường làm gì để vượt qua hoặc đối diện với chúng?"
+   ]
+  ],
+  "2_Generative_QA|GEN-01": [
+   [
+    "HoaHuuCo",
+    "Nên lưu ý đối với người yếu bụng/ lạnh bụng ăn quá nhiều nấm mỡ có thể gây khó tiêu."
+   ],
+   [
+    "YHoc",
+    "Nấm mỡ có chứa selenium, nhưng chưa đủ cơ sở để khẳng định selenium giúp kìm hãm tình trạng căng thẳng thần kinh hoạt hóa quá mức hoặc giúp người dùng dịu lại sau khi ăn. Có tuyên bố tác dụng giảm căng thẳng trực tiếp, dễ khiến người đọc hiểu rằng ăn nấm mỡ có hiệu quả làm dịu thần kinh đã được chứng minh."
+   ],
+   [
+    "Yhoc2",
+    "\"Nấm mỡ là một nguồn cung cấp Selenium\", nên thay đổi thành \"một trong những nguồn\" vì câu ban đầu cho cảm giác khẳng định và có thể gây hiểu lầm về hàm lượng selen trong nấm mỡ trong khi một số thực phẩm khác có nồng độ selen cao hơn (nguồn tham khảo: https://pmc.ncbi.nlm.nih.gov/articles/PMC8160805/ ). \"giúp kìm hãm tình trạng căng thẳng thần kinh hoạt hóa quá mức, giúp bạn dịu lại\" nên viết mềm lại thay vì khẳng định công dụng của selen trong việc giảm stress, mình có tham khảo 1 số bài báo thì \"Hầu hết bằng chứng đến từ chuột, tế bào và các dạng selen đặc biệt như natri selenit hay hạt nano selen, không phải selen từ thức ăn.\" => tham khảo lại một số bài báo nha."
+   ],
+   [
+    "Yhoc3",
+    "Đề xuất: Khối lượng công việc quá tải thực sự đang vắt kiệt cả sức lực lẫn tinh thần của bạn, khiến cơ thể rã rời và không còn muốn làm gì nữa. Lúc này, việc cho phép bản thân nghỉ ngơi hoàn toàn là ưu tiên hàng đầu. Bạn có thể chế biến món nấm mỡ xào thơm ngon cho bữa tối."
+   ]
+  ],
+  "2_Generative_QA|GEN-02": [
+   [
+    "HoaHuuCo",
+    "Hến còn giàu B12 và Omega 3 có thể giúp phục hồi năng lượng và phù hợp trong tình huống này."
+   ],
+   [
+    "Yhoc2",
+    "Mệt mỏi kéo dài: Nếu cơ thể thiếu sắt thì việc ăn hến sẽ giúp bổ sung sắt nên có thể giúp cải thiện tâm trạng. Nếu cơ thể không thiếu sắc thì việc bổ sung thêm sắt sẽ không cải thiện tâm trạng rõ rệt. Nên xem xét tình trạng mệt mỏi kéo dài và đi khám bác sĩ để được đưa ra lời khuyên (có thể làm một số xét nghiệm nếu cần)."
+   ]
+  ],
+  "2_Generative_QA|GEN-04": [
+   [
+    "HoaHuuCo",
+    "Khuyên dùng rong biển là đúng nhưng trong trường hợp nói rong biển giàu vitamin C là chưa phù hợp do hàm lượng vitC trong rong biển thấp, thấp hơn nhiều các loại trái cây và rau củ khác. Ngoài ra rong biển được sử dụng trong canh hoặc cơm cuộn thường là rong biển khô dẫn đến lượng vitC càng giảm. Hơn nữa đối với món canh rong biển, vitC là hoạt chất nhạy nhiệt sẽ bị phân hủy bởi nhiệt độ.\n==> Rong biển giàu magie, nhóm vitB hoặc iot"
+   ],
+   [
+    "YHoc",
+    "Rong biển có thể chứa vitamin C, nhưng hàm lượng thay đổi tùy loại và cách chế biến. Chưa đủ bằng chứng để khẳng định ăn rong biển giúp giảm phản ứng tâm lý tiêu cực nhờ chống oxy hóa bảo vệ tế bào não."
+   ],
+   [
+    "Yhoc3",
+    "Đề xuất: Thiếu thông tin về sở thích của người dùng. Chưa phù hợp với mức độ năng lượng thể chất của người dùng. Khi họ đã chia sẻ \"chẳng muốn nhấc người làm việc gì\", việc gợi ý \"cơm cuốn rong biển\" món ăn đòi hỏi nhiều công đoạn chuẩn bị, nấu nướng và cuộn là thiếu thực tế và vô tình tạo thêm gánh nặng hành động. Lời tư vấn này nên được đưa ra khi người gặp vấn đề có sở thích phù hợp"
+   ]
+  ],
+  "2_Generative_QA|GEN-05": [
+   [
+    "HoaHuuCo",
+    "Khuyên dùng canh khoai môn nấu sườn là đúng nhưng vế \"Khoai môn chứa Thiamin....\" chưa phù hợp. Nên chú thích rõ hơn về họ thực vật.\n1. Hàm lượng vitB1 trong khoai môn rất ít, trong khoai môn hoạt chất nổi bật trong nhóm vitB là vitB6 cùng 1 số hoạt chất nổi bật khác là kali, magie...\n2. VitB1 đóng vai trò trong quá trình chuyển hóa carbohydrate để cung cấp năng lượng cho não và vitB1 không trực tiếp điều hòa các chất dẫn truyền thần kinh như serotonin, GABA mạnh như vitB6.\n==> Khoai môn chứa vitB6"
+   ],
+   [
+    "Yhoc2",
+    "\"Sớm tìm lại nhiệp điệu bình ổn\" cảm giác khẳng định vì chưa thấy bằng chứng về tốc độ hồi phục"
+   ]
+  ],
+  "2_Generative_QA|GEN-07": [
+   [
+    "HoaHuuCo",
+    "Nên lưu ý thêm về cách chế biến canh miso rong biển do các vi sinh vật có lợi trong miso rất nhạy cảm với nhiệt độ cao."
+   ]
+  ],
+  "2_Generative_QA|GEN-08": [
+   [
+    "HoaHuuCo",
+    "Có thể lưu ý thêm không nên ăn sát giờ ngủ vì dễ gây đầy bụng (hệ tiêu hóa phải hoạt động mạnh) càng dễ gây mất ngủ."
+   ],
+   [
+    "Yhoc2",
+    "\"giúp kìm hãm tình trạng căng thẳng thần kinh hoạt hóa quá mức, giúp bạn dịu lại\" nên viết mềm lại thay vì khẳng định công dụng của selen trong việc giảm stress"
+   ],
+   [
+    "Yhoc3",
+    "Đề xuất: Chưa phù hợp với mức độ kiệt sức và quỹ thời gian của học sinh/sinh viên. Người dùng đang mất ngủ liên tục và áp lực thi cử sẽ không có đủ năng lượng, thời gian hay tâm trí để làm món dạ dày bò xào dứa chua ngọt (món ăn đòi hỏi sơ chế, làm sạch nội tạng rất cầu kỳ và mất thời gian)."
+   ]
+  ],
+  "2_Generative_QA|GEN-10": [
+   [
+    "HoaHuuCo",
+    "Nên chú thích rõ sắn khô là bột sắn dây hay loại sắn mì khô"
+   ],
+   [
+    "Yhoc2",
+    "Nếu cơ thể không thiếu sắc thì việc bổ sung thêm sắt sẽ không cải thiện tâm trạng rõ rệt."
+   ]
+  ],
+  "3_RAG_DinhDuong|NUT-06": [
+   [
+    "HoaHuuCo",
+    "Cà muối nén chứa hàm lượng muối cao và phát biểu tiêu thụ thực phẩm có hàm lượng muối cao có thể giúp giảm triệu chứng lo âu/ trầm cảm đang hơi chưa hợp lý vì tiêu thụ lượng muối cao có thể gây hại cho huyết áp, tim mạch và dạ dày."
+   ],
+   [
+    "Yhoc3",
+    "Cà muối nén chứa hàm lượng Natri rất cao, nếu không lưu ý dễ gây hiểu nhầm là nên ăn nhiều. CÓ thể ăn quá ngưỡng cần thiết của cơ thể."
+   ]
+  ],
+  "3_RAG_DinhDuong|NUT-01": [
+   [
+    "YHoc",
+    "món này hơi nguy hiểm dễ bị nhiễm bệnh, không nên rec"
+   ],
+   [
+    "Yhoc2",
+    "Cần cân nhắc vì ăn tiết lợn sống có thể mắc một số vi khuẩn, virus gây ra những bệnh cảnh nguy hiểm, cần nấu chính"
+   ]
+  ],
+  "3_RAG_DinhDuong|NUT-02": [
+   [
+    "Yhoc2",
+    "Trong thực tế, chúng ta chỉ ăn lá mơ lông dưới dạng rau gia vị kèm theo (khoảng vài gram đến vài chục gram mỗi lần), chứ không ăn số lượng lớn như rau ăn lá chính hoặc trái cây. Do đó, lượng vitamin C thực tế nạp vào cơ thể từ lá mơ lông là rất nhỏ so với các loại quả giàu vitamin C quen thuộc"
+   ]
+  ],
+  "1_FineTune|FT-02": [
+   [
+    "Yhoc3",
+    "Sửa câu dịch: Hãy nhớ rằng hạnh phúc và sức khỏe tinh thần của chính bạn đến trước hết, và không sao nếu con đường sống của bạn khác với chuẩn mực xã hội hay khác với điều bố mẹ bạn mong đợi."
+   ]
+  ],
+  "1_FineTune|FT-03": [
+   [
+    "Yhoc3",
+    "Nhận xét: Câu trả lời mang tính động viên/khép lại vấn đề nhiều hơn. Để kéo dài cuộc trò chuyện tư vấn tâm lý, người tư vấn nên đặt thêm một câu hỏi gợi mở để người được tư vấn tự kkhám phá những khả năng và tìm ra hướng giải quyết phù hợp nếu mắc phải tình huống đó lần tới.\nĐề xuất: Sự phục hồi không nhất thiết phải hoàn hảo hay chỉn chu ngay từ đầu. Hãy tiếp tục rèn những kỹ năng phục hồi ấy và tự hào về tiến bộ của mình. Hãy ghi nhận bước tiến này và nhớ rằng bạn luôn có thể tìm kiếm sự hỗ trợ khi cần. Điều gì đã giúp bạn đứng dậy và quay trở lại xử lý tình huống đó chỉ sau 4 ngày?"
+   ]
+  ],
+  "1_FineTune|FT-04": [
+   [
+    "Yhoc3",
+    "Nhận xét: Dù có lời công nhận ban đầu, người tư vấn lập tức dùng từ \"Tuy nhiên\" và dán nhãn việc uống rượu là \"không lành mạnh\". Điều này vô tình phủ nhận nỗi đau, khiến họ cảm thấy bị phán xét thay vì thấu hiểu. Ngoài ra, lời phản hồi mang tính giáo điều (\"dùng rượu... không phải là giải pháp lành mạnh\") có thể khiến họ giấu việc sử dụng rượu trong những lần tư vấn sau. Trong tư vấn tâm lý, việc tìm đến chất kích thích/rượu thường là tín hiệu cho thấy sức chịu đựng của thân chủ đã chạm ngưỡng bế tắc. Người tư vấn cần công nhận cảm xúc đó trước tiên, tuyệt đối không lên án, sau đó mới đồng hành tìm giải pháp an toàn hơn. \nĐề xuất: Tôi hiẻu cảm giác cô độc và kiệt sức mà bạn đang gánh chịu. Việc một mình phải gánh vác trách nhiệm nuôi dạy con, lại liên tục bị đổ lỗi mà không có sự chia sẻ từ chồng, thực sự là một gánh nặng lớn. Việc bạn tìm đến rượu vào lúc này phản ánh rằng bạn đang thực sự quá tải và cần một cách để tạm thời xoa dịu nỗi đau đó. Tôi hoàn toàn hiểu vì sao bạn cảm thấy đó là lối thoát duy nhất ở thời điểm hiện tại. Dù vậy, tôi cũng rất lo lắng cho sức khỏe và sự an toàn của bạn nếu tình trạng này kéo dài.Thay vì cố gắng đối thoại với một người đang đẩy hết trách nhiệm về phía bạn, lúc này ưu tiên số một là bảo vệ chính bạn. Ngoài việc chăm sóc các con, bạn có đang nhận được sự hỗ trợ hay chia sẻ nào từ người thân, bạn bè, hay một ai đó mà bạn tin tưởng không?"
+   ]
+  ],
+  "1_FineTune|FT-06": [
+   [
+    "Yhoc3",
+    "Nhận xét: Người tư vấn nhận diện đúng ý định tự bảo vệ bản thân đằng sau nụ cười nhưng phản hồi chưa thực sự chạm đến nỗi sợ cốt lõi. Lời phản hồi hơi nặng tính lý thuyết sách vở. Cách diễn đạt này tạo ra khoảng cách phân tích chuyên môn hơn là tạo cảm giác gần gũi, ấm áp của một người bạn đồng hành.\nĐề xuất: Tôi hoàn toàn hiểu vì sao bạn lại chọn cách 'cười trừ' — đó là lớp áo giáp mà bạn đã tự tạo ra để bảo vệ chính mình khỏi nỗi sợ bị tổn thương và cảm giác cô đơn. Việc luôn phải gồng mình mỉm cười khi bên trong đang đau đớn hẳn đã khiến bạn rất mệt mỏi. Dù nụ cười đó từng giúp bạn an toàn, nó cũng vô tình tạo ra một khoảng cách, khiến người khác khó chạm được vào phần cảm xúc chân thật nhất của bạn để mang mối quan hệ gần gũi hơn với nhau. Bạn có thể chia sẻ một tình huống gần đây mà bạn đã phải chọn cách 'cười trừ' dù bên trong đang rất buồn không? Lúc đó, điều gì khiến bạn lo lắng nhất nếu bộc lộ nỗi đau của mình ra ngoài?"
+   ]
+  ],
+  "1_FineTune|FT-07": [
+   [
+    "Yhoc3",
+    "Nhận xét; Người tư vấn bỏ qua vế cảm xúc cốt lõi của em học sinh: \"nhưng em vẫn thấy buồn\". Việc vội vã tập trung vào lời khen của cô giáo và đẩy em ngay sang bài tập suy nghĩ tích cực dễ tạo cảm giác áp đặt góc nhìn tích cực. Điều này có thể khiến em cảm thấy nỗi buồn của mình là sai trái, hoặc thấy tội lỗi vì \"mọi người đã khen/lo cho mình mà mình vẫn buồn\".\nĐề xuất: Đôi khi, dù mọi người xung quanh (như cô Jones) có khen ngợi hay yêu thương em đến đâu, nỗi buồn bên trong em vẫn có thể xuất hiện — và điều đó hoàn toàn bình thường, em không việc gì phải cảm thấy có lỗi hay áp lực vì điều đó. Việc cô Jones nhận ra sự thông minh của em và việc em chủ động tìm kiếm sự giúp đỡ cho thấy em là một người rất dũng cảm. Để đồng hành cùng em, chúng mình có thể thử một bài tập sáng tạo nhỏ nhé: Hãy thử vẽ một bức tranh về một lần em đã tự mình vượt qua một ngày khó khăn trong quá khứ — dù đó là một việc rất nhỏ. Hoạt động này không bắt em phải vui lên ngay lập tức, mà là một khoảng lặng để em nhìn lại những sức mạnh vốn có bên trong mình. Em thấy gợi ý này thế nào?"
+   ]
+  ],
+  "1_FineTune|FT-08": [
+   [
+    "Yhoc3",
+    "Nhận xét: Người tư vấn nhận diện đúng động cơ cốt lõi, nhưng lại lập tức phán xét hành vi \"không lành mạnh\". Lời phản hồi mang tính chỉ bảo và phán xét. Việc vội vã đưa ra lời khuyên bảo thay vì lắng nghe khiến ngưới gặp vấn đề tâm lý dễ cảm thấy bị chỉ trích và ngừng mở lòng. Ngoài ra, lời khuyên này có thể gây hại với một cơ thể đang rơi vào tình trạng suy kiệt và thiếu hụt năng lượng nghiêm trọng do nhịn ăn. Việc tư vấn \"tập thể dục\" trong trạng thái này có thể dẫn đến hạ đường huyết, ngất xỉu, kiệt sức bên cạnh khả năng kích hoạt hành vi tập luyện cưỡng chế để bù trừ trên người mắc rối loạn ăn uống.\nĐề xuất: Tôi hiểu sự kiệt sức và đau đớn trong lời chia sẻ của bạn, cảm giác như mình đang phải tham gia vào một cuộc chiến tranh với chính mình mỗi ngày thực sự là một gánh nặng quá sức. Tôi hoàn toàn hiểu vì sao bạn lại bám lấy cách này ở thời điểm hiện tại, như một điểm tựa duy nhất giúp bạn cảm thấy mình còn giữ được chút quyền kiểm soát trước những áp lực lớn. Tuy nhiên, việc cơ thể không được nạp năng lượng trong nhiều ngày khiến tôi vô cùng lo lắng cho sự an toàn và sức khỏe của bạn. Lúc này, bạn không cần phải ép mình làm bất cứ điều gì quá sức. Khi cuộc 'chiến tranh' đó bùng lên dữ dội nhất bên trong bạn, điều gì đang xảy ra xung quanh khiến bạn cảm thấy ngột ngạt hoặc mất kiểm soát nhất? ."
+   ]
+  ],
+  "1_FineTune|FT-09": [
+   [
+    "Yhoc3",
+    "Nhận xét: Người tư vấn nhận diện được nỗi cô đơn và nguyên nhân do bạn đời vắng mặt. Tuy nhiên, phản hồi lập tức vội vã đưa ra lời khuyên \"kết nối bạn bè\", \"theo đuổi sở thích\", \"lập lịch\". Việc xem nỗi cô đơn như một vấn đề cần nhanh chóng \"lấp đầy\" làm giảm đi độ sâu thấu cảm đối với cảm giác tổn thương và mất kết nối trong tình yêu. Đặc biệt, câu hỏi ở cuối: vô tình tạo cảm giác phán xét, như thể nỗi cô đơn là lỗi của thân chủ do thiếu khả năng \"kiểm soát\" cảm xúc của chính mình."
+   ]
+  ],
+  "1_FineTune|FT-10": [
+   [
+    "Yhoc3",
+    "Nhận xét: Người tư vấn bỏ qua hoàn toàn chiều sâu tổn thương của thân chủ khi họ dùng từ rất nặng nề: \"thất bại với chính bản thân\". Việc lập tức yêu cầu thân chủ \"chuyển tư duy\" và dặn \"đừng xem đó là thất bại\" tạo cảm giác xoa dịu áp đặt, làm thân chủ cảm thấy cảm xúc hiện tại của mình là sai trái hoặc bị phủ nhận. Giọng văn cứng nhắc, thiếu sự gần gũi, tạo cảm giác như một bài giảng lý thuyết hơn là cuộc đối thoại nâng đỡ tâm lý.\nĐề xuất: Hành trình làm nghiên cứu sinh vốn đã đầy áp lực, tôi hoàn toàn hiểu vì sao bạn lại khó chấp nhận sự thất vọng đó. Khi bạn đã dành quá nhiều tâm huyết cho con đường này, bất kỳ sự chệch hướng nào cũng dễ làm bạn cảm thấy mình chưa đủ tốt. Việc bạn cảm thấy thất vọng không có nghĩa là bạn đã thất bại, nhưng tôi hiểu ở thời điểm hiện tại, thật khó để bạn phân tách hai điều đó. Bạn không cần phải ép mình ngay lập tức 'phải nghĩ tích cực'. Nỗi thất vọng này chỉ đang cho thấy con đường nghiên cứu thực sự có ý nghĩa rất lớn đối với bạn. Sự cố hay kết quả nào trong quá trình làm nghiên cứu gần đây đã khiến bạn cảm thấy mình chưa làm tốt và tạo ra áp lực lớn nhất cho bạn?\""
+   ]
+  ],
+  "2_Generative_QA|GEN-09": [
+   [
+    "Yhoc3",
+    "Đề xuất: Dùng từ \"phiền toái\" để mô tả những cơn lo âu vô cớ khiến thân chủ \"đứng ngồi không yên\" đã vô tình xem nhẹ sự hoảng loạn và đau đớn tâm lý của họ. Ngoài ra, cách chuyển tiếp giữa việc khuyên đi khám y tế và nhắc đến món chè thạch rau câu bị thay đổi đột ngột, thiếu sự vỗ về cần thiết."
+   ]
+  ],
+  "3_RAG_DinhDuong|NUT-04": [
+   [
+    "Yhoc3",
+    "Cà rốt KHÔNG phải là nguồn vi chất nổi bật về Zinc (~0.2 mg/100g). Vi chất nổi bật nhất của cà rốt là Beta-carotene (Tiền Vitamin A). Tư vấn ăn cà rốt quá nhiều có nguy cơ làm vàng da, gây hoang mang thêm cho người gặp vấn đề tâm lý."
+   ]
+  ],
+  "3_RAG_DinhDuong|NUT-08": [
+   [
+    "Yhoc3",
+    "Nhãn ghi điều hòa tiêu hóa nhưng phần giải thích lại hướng tới \"nguy cơ trầm cảm\". Trà Ô long là nguồn cung cấp Catechin cùng L-theanine và Caffeine. Catechin giúp điều hòa hệ vi sinh đường ruột và chống viêm, gián tiếp hỗ trợ cải thiện tâm trạng và giảm nguy cơ trầm cảm."
+   ]
+  ]
+ }
+}
