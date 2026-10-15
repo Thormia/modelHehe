@@ -1,0 +1,33 @@
+# Ollama Modelfile cho LLM #2 (Qwen2.5-7B-Instruct + LoRA fine-tune, đã gộp và lượng tử hóa Q4_K_M)
+#   ollama create qwen-huhu -f Modelfile      (chạy trong thư mục chứa file .gguf)
+# Template giống hệt template ChatML của qwen2.5 trên Ollama, nhưng KHÔNG đặt SYSTEM mặc định
+# (idea.docx: không để chat template tự chèn system prompt mặc định; backend luôn gửi system prompt riêng).
+FROM ./qwen2.5-7b-huhu-Q4_K_M.gguf
+
+TEMPLATE """{{- if .Messages }}
+{{- if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}
+{{- range $i, $_ := .Messages }}
+{{- $last := eq (len (slice $.Messages $i)) 1 -}}
+{{- if eq .Role "user" }}<|im_start|>user
+{{ .Content }}<|im_end|>
+{{ else if eq .Role "assistant" }}<|im_start|>assistant
+{{ .Content }}{{ if not $last }}<|im_end|>
+{{ end }}
+{{- end }}
+{{- if and (ne .Role "assistant") $last }}<|im_start|>assistant
+{{ end }}
+{{- end }}
+{{- else }}
+{{- if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+{{ end }}{{ .Response }}{{ if .Response }}<|im_end|>{{ end }}"""
+
+PARAMETER temperature 0.3
+PARAMETER num_ctx 8192
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "<|endoftext|>"

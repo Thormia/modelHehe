@@ -1,0 +1,55 @@
+{
+ "_note": "Danh mục kỹ thuật CBT/chánh niệm dùng cho [CBT_CONTEXT]; lấy đúng 10 mục (tiêu đề | tóm tắt) xuất hiện trong dữ liệu fine-tune nhóm B2. Thêm mục mới thì giữ cùng văn phong.",
+ "items": [
+  {
+   "chunk_id": "PSY_CBT_0050",
+   "title": "Tái kích hoạt nhẹ nhàng (Gentle Activation)",
+   "summary": "Thực hiện một hành động nhẹ nhàng vừa sức thay vì nằm im thụ động"
+  },
+  {
+   "chunk_id": "PSY_CBT_0052",
+   "title": "Tiết chế nhịp độ (Pacing Technique)",
+   "summary": "Lắng nghe giới hạn năng lượng của cơ thể để phục hồi từng bước"
+  },
+  {
+   "chunk_id": "PSY_CBT_0053",
+   "title": "Phân chia nhiệm vụ (Task Chunking)",
+   "summary": "Chia việc phức tạp thành các việc đơn giản vừa sức để giảm tải áp lực"
+  },
+  {
+   "chunk_id": "PSY_CBT_0055",
+   "title": "Hoạt động nuôi dưỡng niềm vui (Pleasant Activity)",
+   "summary": "Chọn một hoạt động nhỏ yêu thích để kích hoạt lại cảm xúc tích cực"
+  },
+  {
+   "chunk_id": "PSY_CBT_0070",
+   "title": "Nhận diện suy nghĩ tự động (Thought Checking)",
+   "summary": "Nhận thức những ý nghĩ tiêu cực tự động mà không đồng nhất mình với chúng"
+  },
+  {
+   "chunk_id": "PSY_CBT_0095",
+   "title": "Mô hình ghi nhận cảm xúc (Emotion Logging)",
+   "summary": "Ghi lại tình huống và cảm xúc lo âu ra giấy để nhìn nhận khách quan"
+  },
+  {
+   "chunk_id": "PSY_CBT_0828",
+   "title": "Nhật ký suy nghĩ (Thought Diary)",
+   "summary": "Viết suy nghĩ ra giấy để làm rõ tâm trí và nhìn nhận khách quan thay vì giữ luẩn quẩn trong đầu"
+  },
+  {
+   "chunk_id": "PSY_MINDFUL_0001",
+   "title": "Nhận thức hơi thở (Breath Awareness)",
+   "summary": "Quan sát và nhận diện nhịp thở vào và thở ra tự nhiên để định tâm"
+  },
+  {
+   "chunk_id": "PSY_MINDFUL_0012",
+   "title": "Quét cơ thể (Body Scan)",
+   "summary": "Thả lỏng từng vùng cơ bắp bị căng thẳng từ đỉnh đầu đến bàn chân"
+  },
+  {
+   "chunk_id": "PSY_MINDFUL_0189",
+   "title": "Tiếp đất 5 giác quan (Sensory Grounding)",
+   "summary": "Nhận diện các đồ vật xung quanh để đưa tâm trí về khoảnh khắc hiện tại"
+  }
+ ]
+}

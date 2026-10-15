@@ -1,0 +1,106 @@
+{
+ "_note": "Ánh xạ (state, nhãn) -> đích tác động, theo ontology của Xhani et al. (2026), 'Modelling Food and Mood Relation with Dynamic Personas', MODELSWARD 2026 (index.html). Ontology (mục 3.2, Figure 1) gắn SleepState/AppetiteState/StressState/MoodState với SleepRegulation/AppetiteRegulation/StressResponse/MoodRegulation; bảng 400 thực phẩm (bản cuối) chỉ có các đích stress_response, mood_regulation, neurotransmission, digestion, nên giấc ngủ và ăn uống được nối qua cơ chế nền: Neurotransmission (mục 3.3: tryptophan, vitamin nhóm B cần cho tổng hợp chất dẫn truyền thần kinh, hỗ trợ điều hòa tâm trạng, ăn uống, nhận thức) và Digestion (Figure 3: rối loạn tiêu hóa, thay đổi khẩu vị -> chất xơ, thực phẩm lên men, vi chất). Nhãn mood theo state chart Figure 2. weight: 1.5 = phản ứng sinh lý tương ứng trực tiếp với state; 1.0 = cơ chế sinh lý nền; 0.5 = liên hệ gián tiếp. Dòng state='*' là mặc định khi 4 states đều tích cực (Figure 2, Calm: exit/ monitor micronutrient status). excluded_foods: mã NUT_ bị loại khỏi gợi ý vì ontology_effect chưa xác minh (idea.docx: nhút ghi REDUCING: mood_regulation).",
+ "map": [
+  {
+   "state": "sleep_state",
+   "value": "Poor",
+   "target": "neurotransmission",
+   "weight": 1.0,
+   "source": "3.3: tryptophan, vitamin B -> tổng hợp chất dẫn truyền thần kinh"
+  },
+  {
+   "state": "sleep_state",
+   "value": "Excessive",
+   "target": "mood_regulation",
+   "weight": 0.5,
+   "source": "Fig. 2: LowMood <- fatigue, poor sleep"
+  },
+  {
+   "state": "appetite_state",
+   "value": "Low",
+   "target": "neurotransmission",
+   "weight": 1.0,
+   "source": "3.3: vitamin B, tryptophan hỗ trợ điều hòa tâm trạng, ăn uống"
+  },
+  {
+   "state": "appetite_state",
+   "value": "Low",
+   "target": "digestion",
+   "weight": 1.0,
+   "source": "Fig. 3: gut discomfort, appetite changes -> fiber, fermented foods"
+  },
+  {
+   "state": "appetite_state",
+   "value": "High",
+   "target": "stress_response",
+   "weight": 0.5,
+   "source": "Fig. 2: Stressed entry/ sugar cravings"
+  },
+  {
+   "state": "stress_state",
+   "value": "High",
+   "target": "stress_response",
+   "weight": 1.5,
+   "source": "3.2: StressState <-> StressResponse"
+  },
+  {
+   "state": "stress_state",
+   "value": "Moderate",
+   "target": "stress_response",
+   "weight": 1.0,
+   "source": "3.2: StressState <-> StressResponse"
+  },
+  {
+   "state": "mood_state",
+   "value": "Stressed",
+   "target": "stress_response",
+   "weight": 1.0,
+   "source": "Fig. 2: Stressed exit/ rebalance carbs, protein, fiber"
+  },
+  {
+   "state": "mood_state",
+   "value": "Stressed",
+   "target": "mood_regulation",
+   "weight": 0.5,
+   "source": "3.2: MoodState <-> MoodRegulation"
+  },
+  {
+   "state": "mood_state",
+   "value": "LowMood",
+   "target": "mood_regulation",
+   "weight": 1.5,
+   "source": "3.2: MoodState <-> MoodRegulation"
+  },
+  {
+   "state": "mood_state",
+   "value": "LowMood",
+   "target": "neurotransmission",
+   "weight": 1.0,
+   "source": "3.3 + Fig. 2: LowMood exit/ sleep + steady nutrition"
+  },
+  {
+   "state": "mood_state",
+   "value": "Recovering",
+   "target": "mood_regulation",
+   "weight": 1.0,
+   "source": "Fig. 2: Recovering do/ micronutrient optimization"
+  },
+  {
+   "state": "*",
+   "value": "*",
+   "target": "mood_regulation",
+   "weight": 0.5,
+   "source": "Fig. 2: Calm exit/ monitor micronutrient status"
+  },
+  {
+   "state": "*",
+   "value": "*",
+   "target": "neurotransmission",
+   "weight": 0.5,
+   "source": "Fig. 2: Calm exit/ monitor micronutrient status"
+  }
+ ],
+ "excluded_foods": [
+  "NUT_060"
+ ]
+}

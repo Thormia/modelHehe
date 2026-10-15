@@ -1,0 +1,4152 @@
+[
+  {
+    "food_item": "Rau mùi",
+    "key_nutrients": [
+      "Iron",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau mùi là nguồn cung cấp Vitamin C, cùng với Iron. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4081"
+  },
+  {
+    "food_item": "Rau đay",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Vitamin B6",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Rau đay là nguồn cung cấp Vitamin B6, cùng với Folate, Iron, Vitamin C. Vitamin B6 có tác dụng INHIBITING, giúp ức chế lo âu thông qua tăng cường dẫn truyền GABA.",
+    "source_reference": "VN_FCT_2007_MaSo_4070"
+  },
+  {
+    "food_item": "Cải xanh",
+    "key_nutrients": [
+      "Folate",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Cải xanh là nguồn cung cấp Vitamin C, cùng với Folate. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4016"
+  },
+  {
+    "food_item": "Rau mồng tơi",
+    "key_nutrients": [
+      "Magnesium",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Rau mồng tơi là nguồn cung cấp Magnesium, cùng với Vitamin C. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_4080"
+  },
+  {
+    "food_item": "Rau giền cơm",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Thiamin",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau giền cơm là nguồn cung cấp Vitamin C, cùng với Folate, Iron, Thiamin. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4072"
+  },
+  {
+    "food_item": "Rau ngổ",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau ngổ là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4085"
+  },
+  {
+    "food_item": "Cải cúc",
+    "key_nutrients": [
+      "Folate",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Cải cúc là nguồn cung cấp Vitamin C, cùng với Folate. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4013"
+  },
+  {
+    "food_item": "Rau mùi tàu",
+    "key_nutrients": [
+      "Folate",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau mùi tàu là nguồn cung cấp Vitamin C, cùng với Folate. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4082"
+  },
+  {
+    "food_item": "Rau diếp",
+    "key_nutrients": [
+      "Thiamin",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau diếp là nguồn cung cấp Vitamin C, cùng với Thiamin. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4069"
+  },
+  {
+    "food_item": "Dọc củ cải (non)",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Dọc củ cải (non) là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4025"
+  },
+  {
+    "food_item": "Ớt vàng to",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Ớt vàng to là nguồn cung cấp Vitamin C, cùng với Iron, Thiamin. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4062"
+  },
+  {
+    "food_item": "Rau kinh giới",
+    "key_nutrients": [
+      "Magnesium",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Rau kinh giới là nguồn cung cấp Magnesium, cùng với Vitamin C. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_4077"
+  },
+  {
+    "food_item": "Bầu dục bò",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Selenium",
+      "Thiamin",
+      "Vitamin A",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bầu dục bò là nguồn cung cấp Selenium, cùng với Folate, Iron, Thiamin, Vitamin A, Vitamin B6, Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7029"
+  },
+  {
+    "food_item": "Ớt đỏ to",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Ớt đỏ to là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4061"
+  },
+  {
+    "food_item": "Măng chua",
+    "key_nutrients": [
+      "Magnesium",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Măng chua là nguồn cung cấp Lên men, cùng với Magnesium. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4050"
+  },
+  {
+    "food_item": "Súp lơ xanh",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Súp lơ xanh là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4100"
+  },
+  {
+    "food_item": "Rau húng",
+    "key_nutrients": [
+      "Iron",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau húng là nguồn cung cấp Vitamin C, cùng với Iron. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4075"
+  },
+  {
+    "food_item": "Thìa là",
+    "key_nutrients": [
+      "Folate",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Thìa là là nguồn cung cấp Vitamin C, cùng với Folate. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4101"
+  },
+  {
+    "food_item": "Trai",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Trai là nguồn cung cấp Selenium, cùng với Vitamin B12. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8054"
+  },
+  {
+    "food_item": "Ớt xanh to",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Ớt xanh to là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4063"
+  },
+  {
+    "food_item": "Sò",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Zinc",
+      "Long-chain Omega-3 (EPA+DHA)"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Sò là nguồn cung cấp Zinc, cùng với Selenium, Vitamin B12, Long-chain Omega-3. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8048"
+  },
+  {
+    "food_item": "Gan bò",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Selenium",
+      "Thiamin",
+      "Vitamin A",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Vitamin C",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Gan bò là nguồn cung cấp Zinc, cùng với Folate, Iron, Selenium, Thiamin, Vitamin A, Vitamin B6, Vitamin B12, Vitamin C, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7039"
+  },
+  {
+    "food_item": "Gan gà",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Selenium",
+      "Thiamin",
+      "Vitamin A",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Gan gà là nguồn cung cấp Zinc, cùng với Folate, Iron, Selenium, Thiamin, Vitamin A, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7040"
+  },
+  {
+    "food_item": "Ghẹ",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Zinc",
+      "Long-chain Omega-3 (EPA+DHA)"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Ghẹ là nguồn cung cấp Zinc, cùng với Selenium, Vitamin B12, Long-chain Omega-3. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8035"
+  },
+  {
+    "food_item": "Cải thìa (cải trắng)",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Cải thìa (cải trắng) là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4015"
+  },
+  {
+    "food_item": "Gan lợn",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Selenium",
+      "Thiamin",
+      "Vitamin A",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Vitamin C",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Gan lợn là nguồn cung cấp Zinc, cùng với Folate, Iron, Selenium, Thiamin, Vitamin A, Vitamin B6, Vitamin B12, Vitamin C, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7041"
+  },
+  {
+    "food_item": "Nho ta (nho chua)",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Nho ta (nho chua) là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5038"
+  },
+  {
+    "food_item": "Rau thơm",
+    "key_nutrients": [
+      "Iron",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau thơm là nguồn cung cấp Vitamin C, cùng với Iron. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4094"
+  },
+  {
+    "food_item": "Hoa chuối",
+    "key_nutrients": [
+      "Thiamin"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Hoa chuối là nguồn cung cấp Thiamin. Thiamin có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh (serotonin, GABA).",
+    "source_reference": "VN_FCT_2007_MaSo_4043"
+  },
+  {
+    "food_item": "Rau ngót",
+    "key_nutrients": [
+      "Magnesium",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Rau ngót là nguồn cung cấp Magnesium, cùng với Vitamin C. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_4086"
+  },
+  {
+    "food_item": "Cải soong",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Cải soong là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4014"
+  },
+  {
+    "food_item": "Rau muống",
+    "key_nutrients": [
+      "Folate",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau muống là nguồn cung cấp Vitamin C, cùng với Folate. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4083"
+  },
+  {
+    "food_item": "Rau giền đỏ",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Rau giền đỏ là nguồn cung cấp Magnesium, cùng với Iron, Vitamin C. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_4073"
+  },
+  {
+    "food_item": "Măng tây",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 13.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4052"
+  },
+  {
+    "food_item": "Bầu dục lợn",
+    "key_nutrients": [
+      "Iron",
+      "Selenium",
+      "Thiamin",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bầu dục lợn là nguồn cung cấp Zinc, cùng với Iron, Selenium, Thiamin, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7030"
+  },
+  {
+    "food_item": "Súp lơ trắng",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Súp lơ trắng là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4099"
+  },
+  {
+    "food_item": "Gan vịt",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Selenium",
+      "Thiamin",
+      "Vitamin A",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Gan vịt là nguồn cung cấp Zinc, cùng với Folate, Iron, Selenium, Thiamin, Vitamin A, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7042"
+  },
+  {
+    "food_item": "Mướp đắng",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Mướp đắng là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4055"
+  },
+  {
+    "food_item": "Chanh",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Chanh là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5003"
+  },
+  {
+    "food_item": "Lòng gà (cả bộ)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Selenium",
+      "Vitamin A",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Lòng gà (cả bộ) là nguồn cung cấp Zinc, cùng với Folate, Iron, Selenium, Vitamin A, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7082"
+  },
+  {
+    "food_item": "Rau khoai lang",
+    "key_nutrients": [
+      "Folate"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Rau khoai lang là nguồn cung cấp Folate. Folate có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh, rõ nhất khi dùng bổ trợ cùng điều trị khác.",
+    "source_reference": "VN_FCT_2007_MaSo_4076"
+  },
+  {
+    "food_item": "Cà chua",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Cà chua là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4005"
+  },
+  {
+    "food_item": "Tiết lợn sống",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Tiết lợn sống là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_7060"
+  },
+  {
+    "food_item": "Hẹ lá",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Hẹ lá là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4042"
+  },
+  {
+    "food_item": "Hành lá (hành hoa)",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Hành lá (hành hoa) là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4038"
+  },
+  {
+    "food_item": "Rau bí",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 12.22%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4066"
+  },
+  {
+    "food_item": "Bưởi",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Bưởi là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5001"
+  },
+  {
+    "food_item": "Cần tây",
+    "key_nutrients": [
+      "Iron",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Cần tây là nguồn cung cấp Vitamin C, cùng với Iron. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4018"
+  },
+  {
+    "food_item": "Nước mắm cá",
+    "key_nutrients": [
+      "Magnesium",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Nước mắm cá là nguồn cung cấp Lên men, cùng với Magnesium, Vitamin B6, Vitamin B12. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_13017"
+  },
+  {
+    "food_item": "Rau má, má mơ",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau má, má mơ là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4079"
+  },
+  {
+    "food_item": "Măng tre",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 14.12%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4053"
+  },
+  {
+    "food_item": "Ổi",
+    "key_nutrients": [
+      "Vitamin C",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Ổi là nguồn cung cấp Zinc, cùng với Vitamin C. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_5040"
+  },
+  {
+    "food_item": "Rau giấp cá, diếp cá",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau giấp cá, diếp cá là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4071"
+  },
+  {
+    "food_item": "Củ cải trắng",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Củ cải trắng là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4021"
+  },
+  {
+    "food_item": "Khế",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Khế là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4045"
+  },
+  {
+    "food_item": "Hoa lý",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Hoa lý là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4044"
+  },
+  {
+    "food_item": "Rau răm",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau răm là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4088"
+  },
+  {
+    "food_item": "Xương sông",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Xương sông là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_4107"
+  },
+  {
+    "food_item": "Đu đủ xanh",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Đu đủ xanh là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4033"
+  },
+  {
+    "food_item": "Nhút (muối từ mít non, ngọn đậu xanh non...)",
+    "key_nutrients": [
+      "Iron",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Nhút (muối từ mít non, ngọn đậu xanh non...) là nguồn cung cấp Lên men, cùng với Iron. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4118"
+  },
+  {
+    "food_item": "Lá mơ lông",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Lá mơ lông là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4048"
+  },
+  {
+    "food_item": "Mực tươi",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Mực tươi là nguồn cung cấp Selenium, cùng với Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8040"
+  },
+  {
+    "food_item": "Rau sà lách",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 16.67%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4090"
+  },
+  {
+    "food_item": "Phổi bò",
+    "key_nutrients": [
+      "Iron",
+      "Selenium",
+      "Vitamin B12",
+      "Vitamin C",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Phổi bò là nguồn cung cấp Selenium, cùng với Iron, Vitamin B12, Vitamin C, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7051"
+  },
+  {
+    "food_item": "Tía tô",
+    "key_nutrients": [
+      "Magnesium"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Tía tô là nguồn cung cấp Magnesium. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_4102"
+  },
+  {
+    "food_item": "Tim bò",
+    "key_nutrients": [
+      "Iron",
+      "Selenium",
+      "Thiamin",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Tim bò là nguồn cung cấp Selenium, cùng với Iron, Thiamin, Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7055"
+  },
+  {
+    "food_item": "Cải bắp",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Cải bắp là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4010"
+  },
+  {
+    "food_item": "Gioi",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Gioi là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5018"
+  },
+  {
+    "food_item": "Cần ta",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 16.67%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4017"
+  },
+  {
+    "food_item": "Đu đủ chín",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Đu đủ chín là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5017"
+  },
+  {
+    "food_item": "Tim lợn",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Tim lợn là nguồn cung cấp Zinc, cùng với Iron, Thiamin, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7057"
+  },
+  {
+    "food_item": "Cá hồi",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá hồi là nguồn cung cấp Selenium, cùng với Vitamin B6, Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8011"
+  },
+  {
+    "food_item": "Tôm biển",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Tôm biển là nguồn cung cấp Selenium, cùng với Vitamin B12, Long-chain Omega-3. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8051"
+  },
+  {
+    "food_item": "Su su, quả",
+    "key_nutrients": [
+      "Folate"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Su su, quả là nguồn cung cấp Folate. Folate có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh, rõ nhất khi dùng bổ trợ cùng điều trị khác.",
+    "source_reference": "VN_FCT_2007_MaSo_4098"
+  },
+  {
+    "food_item": "Tiết lợn luộc",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Tiết lợn luộc là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_7059"
+  },
+  {
+    "food_item": "Lá lốt",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Lá lốt là nguồn cung cấp Magnesium, cùng với Iron, Vitamin C. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_4046"
+  },
+  {
+    "food_item": "Óc bò",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Óc bò là nguồn cung cấp Selenium, cùng với Vitamin B12, Long-chain Omega-3. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7049"
+  },
+  {
+    "food_item": "Phổi lợn",
+    "key_nutrients": [
+      "Iron",
+      "Selenium",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Phổi lợn là nguồn cung cấp Selenium, cùng với Iron, Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7052"
+  },
+  {
+    "food_item": "Cá nục",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá nục là nguồn cung cấp Selenium, cùng với Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8020"
+  },
+  {
+    "food_item": "Cá mòi",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá mòi là nguồn cung cấp Selenium, cùng với Vitamin B6, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8015"
+  },
+  {
+    "food_item": "Bầu",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 13.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4001"
+  },
+  {
+    "food_item": "Tim gà",
+    "key_nutrients": [
+      "Iron",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Tim gà là nguồn cung cấp Zinc, cùng với Iron, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7056"
+  },
+  {
+    "food_item": "Cải bắp đỏ",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Cải bắp đỏ là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4011"
+  },
+  {
+    "food_item": "Cá ngừ",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá ngừ là nguồn cung cấp Selenium, cùng với Vitamin B6, Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8019"
+  },
+  {
+    "food_item": "Rau câu tươi",
+    "key_nutrients": [
+      "Folate"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Rau câu tươi là nguồn cung cấp Folate. Folate có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh, rõ nhất khi dùng bổ trợ cùng điều trị khác.",
+    "source_reference": "VN_FCT_2007_MaSo_4068"
+  },
+  {
+    "food_item": "Quả kiwi",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Quả kiwi là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5056"
+  },
+  {
+    "food_item": "Thịt hươu",
+    "key_nutrients": [
+      "Thiamin",
+      "Vitamin B6",
+      "Vitamin B12"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt hươu là nguồn cung cấp Vitamin B6, cùng với Thiamin, Vitamin B12. Vitamin B6 có tác dụng INHIBITING, giúp ức chế lo âu thông qua tăng cường dẫn truyền GABA.",
+    "source_reference": "VN_FCT_2007_MaSo_7015"
+  },
+  {
+    "food_item": "Su hào",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Su hào là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4096"
+  },
+  {
+    "food_item": "Quất chín (cả vỏ)",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Quất chín (cả vỏ) là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5046"
+  },
+  {
+    "food_item": "Rau sam",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau sam là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4091"
+  },
+  {
+    "food_item": "Quít",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Quít là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5047"
+  },
+  {
+    "food_item": "Cá thu đao",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá thu đao là nguồn cung cấp Selenium, cùng với Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8027"
+  },
+  {
+    "food_item": "Nấm thường tươi",
+    "key_nutrients": [
+      "Thiamin"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Nấm thường tươi là nguồn cung cấp Thiamin. Thiamin có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh (serotonin, GABA).",
+    "source_reference": "VN_FCT_2007_MaSo_4126"
+  },
+  {
+    "food_item": "Bí đao (bí xanh)",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 17.78%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4002"
+  },
+  {
+    "food_item": "Rau sắng (chùa Hương)",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau sắng (chùa Hương) là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4092"
+  },
+  {
+    "food_item": "Thịt bê nạc",
+    "key_nutrients": [
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt bê nạc là nguồn cung cấp Zinc, cùng với Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7002"
+  },
+  {
+    "food_item": "Trứng cá muối",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Selenium",
+      "Vitamin A",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Trứng cá muối là nguồn cung cấp Magnesium, cùng với Iron, Selenium, Vitamin A, Vitamin B12, Long-chain Omega-3, Tryptophan. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_9009"
+  },
+  {
+    "food_item": "Cá trích",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá trích là nguồn cung cấp Selenium, cùng với Vitamin B6, Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8031"
+  },
+  {
+    "food_item": "Cá chép",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin A",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá chép là nguồn cung cấp Selenium, cùng với Vitamin A, Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8003"
+  },
+  {
+    "food_item": "Gừng tươi",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 13.89%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_13003"
+  },
+  {
+    "food_item": "Dâu Tây",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Dâu Tây là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5009"
+  },
+  {
+    "food_item": "Tỏi ta",
+    "key_nutrients": [
+      "Selenium",
+      "Thiamin",
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Tỏi ta là nguồn cung cấp Selenium, cùng với Thiamin, Vitamin B6. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_4103"
+  },
+  {
+    "food_item": "Óc lợn",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Óc lợn là nguồn cung cấp Selenium, cùng với Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7050"
+  },
+  {
+    "food_item": "Cam",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Cam là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5002"
+  },
+  {
+    "food_item": "Mề gà",
+    "key_nutrients": [
+      "Iron",
+      "Selenium",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Mề gà là nguồn cung cấp Zinc, cùng với Iron, Selenium, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7048"
+  },
+  {
+    "food_item": "Dưa hấu",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 7.78%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5011"
+  },
+  {
+    "food_item": "Dưa hồng",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 7.78%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5012"
+  },
+  {
+    "food_item": "Rau câu khô",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Rau câu khô là nguồn cung cấp Zinc, cùng với Folate, Iron, Magnesium, Potassium. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_4067"
+  },
+  {
+    "food_item": "Nấm mỡ (nấm Tây)",
+    "key_nutrients": [
+      "Selenium"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Nấm mỡ (nấm Tây) là nguồn cung cấp Selenium. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_4124"
+  },
+  {
+    "food_item": "Tương ớt",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Tương ớt là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_13021"
+  },
+  {
+    "food_item": "Dưa chuột",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 5.56%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4027"
+  },
+  {
+    "food_item": "Đậu Hà Lan",
+    "key_nutrients": [
+      "Thiamin",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Đậu Hà Lan là nguồn cung cấp Vitamin C, cùng với Thiamin. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4031"
+  },
+  {
+    "food_item": "Lá sắn tươi",
+    "key_nutrients": [
+      "Thiamin",
+      "Vitamin C",
+      "Tryptophan"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Lá sắn tươi là nguồn cung cấp Vitamin C, cùng với Thiamin, Tryptophan. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4049"
+  },
+  {
+    "food_item": "Hành củ tươi",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 11.11%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4037"
+  },
+  {
+    "food_item": "Cà pháo",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 12.18%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4006"
+  },
+  {
+    "food_item": "Rau giền trắng",
+    "key_nutrients": [
+      "Iron",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau giền trắng là nguồn cung cấp Vitamin C, cùng với Iron. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4074"
+  },
+  {
+    "food_item": "Mướp",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 8.89%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4054"
+  },
+  {
+    "food_item": "Nhãn",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Nhãn là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5035"
+  },
+  {
+    "food_item": "Dứa ta",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Dứa ta là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5014"
+  },
+  {
+    "food_item": "Thịt bò, lưng, nạc",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt bò, lưng, nạc là nguồn cung cấp Zinc, cùng với Selenium, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7005"
+  },
+  {
+    "food_item": "Thịt lợn nạc",
+    "key_nutrients": [
+      "Selenium",
+      "Thiamin",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt lợn nạc là nguồn cung cấp Zinc, cùng với Selenium, Thiamin, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7017"
+  },
+  {
+    "food_item": "Giá đậu tương",
+    "key_nutrients": [
+      "Folate"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Giá đậu tương là nguồn cung cấp Folate. Folate có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh, rõ nhất khi dùng bổ trợ cùng điều trị khác.",
+    "source_reference": "VN_FCT_2007_MaSo_4035"
+  },
+  {
+    "food_item": "Cá đối",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá đối là nguồn cung cấp Selenium, cùng với Vitamin B6, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8009"
+  },
+  {
+    "food_item": "Đậu đũa",
+    "key_nutrients": [
+      "Thiamin",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Đậu đũa là nguồn cung cấp Vitamin C, cùng với Thiamin. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4030"
+  },
+  {
+    "food_item": "Trứng vịt",
+    "key_nutrients": [
+      "Folate",
+      "Selenium",
+      "Vitamin A",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Trứng vịt là nguồn cung cấp Selenium, cùng với Folate, Vitamin A, Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_9004"
+  },
+  {
+    "food_item": "Giá đậu xanh",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 16.67%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4036"
+  },
+  {
+    "food_item": "Trứng gà",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin A",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Trứng gà là nguồn cung cấp Selenium, cùng với Vitamin A, Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_9001"
+  },
+  {
+    "food_item": "Lươn",
+    "key_nutrients": [
+      "Vitamin A",
+      "Vitamin B12"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Lươn là nguồn cung cấp Vitamin B12, cùng với Vitamin A. Vitamin B12 có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh, liên quan triệu chứng trầm cảm/nhận thức.",
+    "source_reference": "VN_FCT_2007_MaSo_8038"
+  },
+  {
+    "food_item": "Sữa đậu nành (100g đậu/lít)",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 8.73%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_3032"
+  },
+  {
+    "food_item": "Tiết bò",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Tiết bò là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_7058"
+  },
+  {
+    "food_item": "Tôm đồng",
+    "key_nutrients": [
+      "Selenium",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Tôm đồng là nguồn cung cấp Selenium, cùng với Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8052"
+  },
+  {
+    "food_item": "Dưa bở",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 10.0%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5010"
+  },
+  {
+    "food_item": "Dứa Tây",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Dứa Tây là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5015"
+  },
+  {
+    "food_item": "Trứng chim cút",
+    "key_nutrients": [
+      "Iron",
+      "Selenium",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Trứng chim cút là nguồn cung cấp Selenium, cùng với Iron, Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_9007"
+  },
+  {
+    "food_item": "Mộc nhĩ",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Selenium",
+      "Vitamin B6",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Mộc nhĩ là nguồn cung cấp Zinc, cùng với Folate, Iron, Magnesium, Selenium, Vitamin B6. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_4121"
+  },
+  {
+    "food_item": "Hành tây",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 13.0%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4039"
+  },
+  {
+    "food_item": "Củ cải trắng khô",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Thiamin",
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Củ cải trắng khô là nguồn cung cấp Magnesium, cùng với Folate, Iron, Potassium, Thiamin, Vitamin B6. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_4022"
+  },
+  {
+    "food_item": "Dưa cải bắp",
+    "key_nutrients": [
+      "Vitamin C",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Dưa cải bắp là nguồn cung cấp Lên men, cùng với Vitamin C. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4111"
+  },
+  {
+    "food_item": "Thịt thỏ nhà",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt thỏ nhà là nguồn cung cấp Selenium, cùng với Vitamin B6, Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7021"
+  },
+  {
+    "food_item": "Vải",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Vải là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5052"
+  },
+  {
+    "food_item": "Dưa cải bẹ",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Dưa cải bẹ là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4112"
+  },
+  {
+    "food_item": "Tỏi Tây (cả lá)",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Tỏi Tây (cả lá) là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4104"
+  },
+  {
+    "food_item": "Cà bát",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 5.5%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4004"
+  },
+  {
+    "food_item": "Nghệ khô, bột",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Vitamin B6",
+      "Vitamin C",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Nghệ khô, bột là nguồn cung cấp Zinc, cùng với Iron, Magnesium, Potassium, Vitamin B6, Vitamin C. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_13006"
+  },
+  {
+    "food_item": "Ngó sen",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Ngó sen là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4059"
+  },
+  {
+    "food_item": "Bí ngô",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 8.89%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4003"
+  },
+  {
+    "food_item": "Cà rốt (củ đỏ, vàng)",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 10.09%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4007"
+  },
+  {
+    "food_item": "Hồng đỏ",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 17.78%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5020"
+  },
+  {
+    "food_item": "Nước dứa hộp",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Nước dứa hộp là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_11013"
+  },
+  {
+    "food_item": "Thịt ngựa",
+    "key_nutrients": [
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt ngựa là nguồn cung cấp Zinc, cùng với Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7020"
+  },
+  {
+    "food_item": "Ngô bao tử",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Ngô bao tử là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4058"
+  },
+  {
+    "food_item": "Dạ dày lợn",
+    "key_nutrients": [
+      "Selenium"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Dạ dày lợn là nguồn cung cấp Selenium. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7034"
+  },
+  {
+    "food_item": "Na",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Na là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5034"
+  },
+  {
+    "food_item": "Thịt bò, lưng, nạc và mỡ",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt bò, lưng, nạc và mỡ là nguồn cung cấp Zinc, cùng với Selenium, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7006"
+  },
+  {
+    "food_item": "Lưỡi bò",
+    "key_nutrients": [
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Lưỡi bò là nguồn cung cấp Zinc, cùng với Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7044"
+  },
+  {
+    "food_item": "Củ cái",
+    "key_nutrients": [
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Củ cái là nguồn cung cấp Zinc. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_2002"
+  },
+  {
+    "food_item": "Táo ta",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Táo ta là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5050"
+  },
+  {
+    "food_item": "Cá trê",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá trê là nguồn cung cấp Selenium, cùng với Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_8030"
+  },
+  {
+    "food_item": "Lòng đỏ trứng gà",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Selenium",
+      "Thiamin",
+      "Vitamin A",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Lòng đỏ trứng gà là nguồn cung cấp Zinc, cùng với Folate, Iron, Selenium, Thiamin, Vitamin A, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_9002"
+  },
+  {
+    "food_item": "Thịt bê mỡ",
+    "key_nutrients": [
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt bê mỡ là nguồn cung cấp Zinc, cùng với Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7001"
+  },
+  {
+    "food_item": "Thịt dê, nạc",
+    "key_nutrients": [
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt dê, nạc là nguồn cung cấp Zinc, cùng với Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7011"
+  },
+  {
+    "food_item": "Dạ dày bò",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Dạ dày bò là nguồn cung cấp Selenium, cùng với Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7033"
+  },
+  {
+    "food_item": "Bột đậu tương đã loại béo (đậu nành)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bột đậu tương đã loại béo (đậu nành) là nguồn cung cấp Zinc, cùng với Folate, Iron, Magnesium, Potassium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_3021"
+  },
+  {
+    "food_item": "Dưa chuột muối",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Dưa chuột muối là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4114"
+  },
+  {
+    "food_item": "Chuối xanh",
+    "key_nutrients": [
+      "Vitamin B6",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Chuối xanh là nguồn cung cấp Vitamin B6, cùng với Vitamin C. Vitamin B6 có tác dụng INHIBITING, giúp ức chế lo âu thông qua tăng cường dẫn truyền GABA.",
+    "source_reference": "VN_FCT_2007_MaSo_4019"
+  },
+  {
+    "food_item": "Lưỡi lợn",
+    "key_nutrients": [
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Lưỡi lợn là nguồn cung cấp Zinc, cùng với Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7045"
+  },
+  {
+    "food_item": "Muỗm, quéo",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Muỗm, quéo là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5033"
+  },
+  {
+    "food_item": "Ếch (thịt đùi)",
+    "key_nutrients": [
+      "Selenium"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Ếch (thịt đùi) là nguồn cung cấp Selenium. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7080"
+  },
+  {
+    "food_item": "Đậu rồng (quả non)",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Đậu rồng (quả non) là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4032"
+  },
+  {
+    "food_item": "Mãng cầu xiêm",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Mãng cầu xiêm là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5025"
+  },
+  {
+    "food_item": "Quả me chua",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 13.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4065"
+  },
+  {
+    "food_item": "Gừng khô (bột)",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Selenium",
+      "Vitamin B6",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Gừng khô (bột) là nguồn cung cấp Zinc, cùng với Iron, Magnesium, Potassium, Selenium, Vitamin B6. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_13002"
+  },
+  {
+    "food_item": "Chuối Tây",
+    "key_nutrients": [
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Chuối Tây là nguồn cung cấp Vitamin B6. Vitamin B6 có tác dụng INHIBITING, giúp ức chế lo âu thông qua tăng cường dẫn truyền GABA.",
+    "source_reference": "VN_FCT_2007_MaSo_5006"
+  },
+  {
+    "food_item": "Cà tím",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 16.67%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4009"
+  },
+  {
+    "food_item": "Kiệu muối",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Kiệu muối là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4117"
+  },
+  {
+    "food_item": "Xoài chín",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Xoài chín là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5055"
+  },
+  {
+    "food_item": "Dưa chuột hộp",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 2.22%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_11002"
+  },
+  {
+    "food_item": "Khoai lang",
+    "key_nutrients": [
+      "Magnesium",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Khoai lang là nguồn cung cấp Magnesium, cùng với Vitamin C. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_2008"
+  },
+  {
+    "food_item": "Đậu cô ve",
+    "key_nutrients": [
+      "Thiamin",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Đậu cô ve là nguồn cung cấp Vitamin C, cùng với Thiamin. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4029"
+  },
+  {
+    "food_item": "Mít dai",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 8.81%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5028"
+  },
+  {
+    "food_item": "Mận",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 5.0%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5027"
+  },
+  {
+    "food_item": "Sườn lợn",
+    "key_nutrients": [
+      "Thiamin",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Sườn lợn là nguồn cung cấp Zinc, cùng với Thiamin, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7053"
+  },
+  {
+    "food_item": "Men bia tươi",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin",
+      "Tryptophan",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Men bia tươi là nguồn cung cấp Lên men, cùng với Iron, Thiamin, Tryptophan. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4120"
+  },
+  {
+    "food_item": "Thịt trâu",
+    "key_nutrients": [
+      "Vitamin B6",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt trâu là nguồn cung cấp Vitamin B6, cùng với Tryptophan. Vitamin B6 có tác dụng INHIBITING, giúp ức chế lo âu thông qua tăng cường dẫn truyền GABA.",
+    "source_reference": "VN_FCT_2007_MaSo_7023"
+  },
+  {
+    "food_item": "Đậu xanh (đậu tắt)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Thiamin",
+      "Vitamin B6",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Đậu xanh (đậu tắt) là nguồn cung cấp Magnesium, cùng với Folate, Iron, Potassium, Thiamin, Vitamin B6, Tryptophan. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_3010"
+  },
+  {
+    "food_item": "Rau má rừng",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rau má rừng là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4078"
+  },
+  {
+    "food_item": "Sữa bột tách béo",
+    "key_nutrients": [
+      "Magnesium",
+      "Potassium",
+      "Selenium",
+      "Thiamin",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Sữa bột tách béo là nguồn cung cấp Zinc, cùng với Magnesium, Potassium, Selenium, Thiamin, Vitamin B6, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_10007"
+  },
+  {
+    "food_item": "Dưa gang",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 4.44%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4028"
+  },
+  {
+    "food_item": "Sầu riêng",
+    "key_nutrients": [
+      "Thiamin",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Sầu riêng là nguồn cung cấp Vitamin C, cùng với Thiamin. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5048"
+  },
+  {
+    "food_item": "Hồng bì",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Hồng bì là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5019"
+  },
+  {
+    "food_item": "Đậu tương (đậu nành)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Đậu tương (đậu nành) là nguồn cung cấp Zinc, cùng với Folate, Iron, Magnesium, Potassium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_3007"
+  },
+  {
+    "food_item": "Xì dầu",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 10.72%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_13022"
+  },
+  {
+    "food_item": "Bột đậu xanh",
+    "key_nutrients": [
+      "Folate",
+      "Magnesium",
+      "Potassium",
+      "Thiamin",
+      "Vitamin B6",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bột đậu xanh là nguồn cung cấp Magnesium, cùng với Folate, Potassium, Thiamin, Vitamin B6, Tryptophan. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_3023"
+  },
+  {
+    "food_item": "Magi",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Magi là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_13010"
+  },
+  {
+    "food_item": "Đào",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 11.11%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5016"
+  },
+  {
+    "food_item": "Mơ",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 11.67%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5031"
+  },
+  {
+    "food_item": "Nghệ tươi",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 12.49%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_13007"
+  },
+  {
+    "food_item": "Bột ca cao",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Selenium",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bột ca cao là nguồn cung cấp Zinc, cùng với Iron, Magnesium, Potassium, Selenium, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_12012"
+  },
+  {
+    "food_item": "Đậu Hà Lan (hạt)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Thiamin",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Đậu Hà Lan (hạt) là nguồn cung cấp Zinc, cùng với Folate, Iron, Magnesium, Thiamin, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_3006"
+  },
+  {
+    "food_item": "Hồng xiêm",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 12.78%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5022"
+  },
+  {
+    "food_item": "Thịt gà Tây",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin A",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt gà Tây là nguồn cung cấp Zinc, cùng với Selenium, Vitamin A, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7014"
+  },
+  {
+    "food_item": "Nấm hương tươi",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Nấm hương tươi là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_4123"
+  },
+  {
+    "food_item": "Hạt sen khô",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Thiamin",
+      "Vitamin B6",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt sen khô là nguồn cung cấp Magnesium, cùng với Folate, Iron, Potassium, Thiamin, Vitamin B6, Tryptophan. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_4041"
+  },
+  {
+    "food_item": "Thịt lợn nửa nạc, nửa mỡ",
+    "key_nutrients": [
+      "Selenium",
+      "Thiamin",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt lợn nửa nạc, nửa mỡ là nguồn cung cấp Selenium, cùng với Thiamin, Vitamin B6, Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7018"
+  },
+  {
+    "food_item": "Trứng vịt lộn",
+    "key_nutrients": [
+      "Vitamin A"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Trứng vịt lộn là nguồn cung cấp Vitamin A. Vitamin A có tác dụng REGULATING, giúp điều hòa dẫn truyền thần kinh - cả thiếu và thừa đều ảnh hưởng tâm trạng.",
+    "source_reference": "VN_FCT_2007_MaSo_9010"
+  },
+  {
+    "food_item": "Cá thu",
+    "key_nutrients": [
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Cá thu là nguồn cung cấp Long-chain Omega-3, cùng với Tryptophan. Long-chain Omega-3 có tác dụng REGULATING, giúp điều hòa dẫn truyền thần kinh, hỗ trợ giảm triệu chứng trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_8026"
+  },
+  {
+    "food_item": "Sữa chua vớt béo",
+    "key_nutrients": [
+      "Vitamin B12",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Sữa chua vớt béo là nguồn cung cấp Lên men, cùng với Vitamin B12. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_10005"
+  },
+  {
+    "food_item": "Sữa chua (từ sữa bò)",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Sữa chua (từ sữa bò) là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_10004"
+  },
+  {
+    "food_item": "Hồng ngâm",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 17.78%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5021"
+  },
+  {
+    "food_item": "Táo Tây",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 13.89%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5051"
+  },
+  {
+    "food_item": "Vừng (đen, trắng)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Vừng (đen, trắng) là nguồn cung cấp Zinc, cùng với Folate, Iron, Magnesium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_3020"
+  },
+  {
+    "food_item": "Ngải cứu",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 17.22%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4057"
+  },
+  {
+    "food_item": "Dứa hộp",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 15.56%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_11003"
+  },
+  {
+    "food_item": "Khoai tây",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 11.94%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_2014"
+  },
+  {
+    "food_item": "Cà muối nén",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Cà muối nén là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4109"
+  },
+  {
+    "food_item": "Vải khô",
+    "key_nutrients": [
+      "Iron",
+      "Potassium",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Vải khô là nguồn cung cấp Vitamin C, cùng với Iron, Potassium. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5053"
+  },
+  {
+    "food_item": "Củ cải đỏ",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Củ cải đỏ là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4020"
+  },
+  {
+    "food_item": "Chân giò lợn",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Chân giò lợn là nguồn cung cấp Selenium, cùng với Vitamin B6, Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7032"
+  },
+  {
+    "food_item": "Khoai lang khô",
+    "key_nutrients": [
+      "Magnesium",
+      "Selenium",
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Khoai lang khô là nguồn cung cấp Magnesium, cùng với Selenium, Vitamin B6. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_2022"
+  },
+  {
+    "food_item": "Kê",
+    "key_nutrients": [
+      "Folate",
+      "Magnesium",
+      "Thiamin",
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Kê là nguồn cung cấp Magnesium, cùng với Folate, Thiamin, Vitamin B6. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_1006"
+  },
+  {
+    "food_item": "Đậu đũa (hạt)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Thiamin",
+      "Vitamin B6",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Đậu đũa (hạt) là nguồn cung cấp Vitamin B6, cùng với Folate, Iron, Thiamin, Tryptophan. Vitamin B6 có tác dụng INHIBITING, giúp ức chế lo âu thông qua tăng cường dẫn truyền GABA.",
+    "source_reference": "VN_FCT_2007_MaSo_3005"
+  },
+  {
+    "food_item": "Trám xanh sống, trám trắng",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Trám xanh sống, trám trắng là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_4106"
+  },
+  {
+    "food_item": "Thịt gà ta",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt gà ta là nguồn cung cấp Selenium, cùng với Vitamin B6, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7013"
+  },
+  {
+    "food_item": "Trứng cá",
+    "key_nutrients": [
+      "Thiamin",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Trứng cá là nguồn cung cấp Vitamin C, cùng với Thiamin. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_9008"
+  },
+  {
+    "food_item": "Thịt thỏ rừng",
+    "key_nutrients": [
+      "Iron",
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Thịt thỏ rừng là nguồn cung cấp Tryptophan, cùng với Iron. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_7022"
+  },
+  {
+    "food_item": "Ớt khô bột",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Ớt khô bột là nguồn cung cấp Iron, cùng với Thiamin. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_13008"
+  },
+  {
+    "food_item": "Đậu trắng hạt (đậu Tây)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Thiamin",
+      "Vitamin B6",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Đậu trắng hạt (đậu Tây) là nguồn cung cấp Vitamin B6, cùng với Folate, Iron, Thiamin, Tryptophan. Vitamin B6 có tác dụng INHIBITING, giúp ức chế lo âu thông qua tăng cường dẫn truyền GABA.",
+    "source_reference": "VN_FCT_2007_MaSo_3008"
+  },
+  {
+    "food_item": "Hạt dẻ khô",
+    "key_nutrients": [
+      "Folate",
+      "Magnesium",
+      "Thiamin",
+      "Vitamin B6",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt dẻ khô là nguồn cung cấp Magnesium, cùng với Folate, Thiamin, Vitamin B6, Vitamin C. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_3013"
+  },
+  {
+    "food_item": "Hạt dẻ tươi",
+    "key_nutrients": [
+      "Magnesium",
+      "Vitamin B6",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt dẻ tươi là nguồn cung cấp Magnesium, cùng với Vitamin B6, Vitamin C. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_3012"
+  },
+  {
+    "food_item": "Nước mắm cá loại I",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Nước mắm cá loại I là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_13015"
+  },
+  {
+    "food_item": "Sữa bột toàn phần",
+    "key_nutrients": [
+      "Magnesium",
+      "Potassium",
+      "Selenium",
+      "Thiamin",
+      "Vitamin A",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Sữa bột toàn phần là nguồn cung cấp Zinc, cùng với Magnesium, Potassium, Selenium, Thiamin, Vitamin A, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_10006"
+  },
+  {
+    "food_item": "Sữa bò tươi",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 18.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_10001"
+  },
+  {
+    "food_item": "Rau tàu bay",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 11.11%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4093"
+  },
+  {
+    "food_item": "Lê",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 12.78%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5023"
+  },
+  {
+    "food_item": "Đậu đen (hạt)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Thiamin",
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Đậu đen (hạt) là nguồn cung cấp Tryptophan, cùng với Folate, Iron, Thiamin. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_3004"
+  },
+  {
+    "food_item": "Nhãn nước đường",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Nhãn nước đường là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_11012"
+  },
+  {
+    "food_item": "Quả bơ vỏ xanh",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 18.89%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5042"
+  },
+  {
+    "food_item": "Lòng trắng trứng gà",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Lòng trắng trứng gà là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_9003"
+  },
+  {
+    "food_item": "Cùi dừa già",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cùi dừa già là nguồn cung cấp Zinc, cùng với Iron, Magnesium. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_3001"
+  },
+  {
+    "food_item": "Đậu phụ",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Đậu phụ là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_3025"
+  },
+  {
+    "food_item": "Cua bể",
+    "key_nutrients": [
+      "Iron",
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Cua bể là nguồn cung cấp Tryptophan, cùng với Iron. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_8033"
+  },
+  {
+    "food_item": "Men bia khô",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Men bia khô là nguồn cung cấp Lên men, cùng với Iron, Thiamin. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4119"
+  },
+  {
+    "food_item": "Khoai tây khô",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Thiamin",
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Khoai tây khô là nguồn cung cấp Magnesium, cùng với Iron, Potassium, Thiamin, Vitamin B6. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_2023"
+  },
+  {
+    "food_item": "Gạo lứt",
+    "key_nutrients": [
+      "Selenium",
+      "Thiamin",
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Gạo lứt là nguồn cung cấp Selenium, cùng với Thiamin, Vitamin B6. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_1005"
+  },
+  {
+    "food_item": "Thịt bò loại I",
+    "key_nutrients": [
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt bò loại I là nguồn cung cấp Zinc, cùng với Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7003"
+  },
+  {
+    "food_item": "Bột mì",
+    "key_nutrients": [
+      "Magnesium",
+      "Selenium",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bột mì là nguồn cung cấp Zinc, cùng với Magnesium, Selenium, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_1018"
+  },
+  {
+    "food_item": "Hạt sen tươi",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 18.89%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4040"
+  },
+  {
+    "food_item": "Khoai sọ",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 16.65%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_2013"
+  },
+  {
+    "food_item": "Nước mắm loại II",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Nước mắm loại II là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_13016"
+  },
+  {
+    "food_item": "Sữa mẹ (sữa người)",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 10.0%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_10003"
+  },
+  {
+    "food_item": "Lòng đỏ trứng vịt",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin",
+      "Vitamin A",
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Lòng đỏ trứng vịt là nguồn cung cấp Tryptophan, cùng với Iron, Thiamin, Vitamin A. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_9005"
+  },
+  {
+    "food_item": "Thịt cừu, nạc",
+    "key_nutrients": [
+      "Selenium",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt cừu, nạc là nguồn cung cấp Zinc, cùng với Selenium, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7010"
+  },
+  {
+    "food_item": "Lựu",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 6.67%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5024"
+  },
+  {
+    "food_item": "Sữa dê tươi",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 5.56%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_10002"
+  },
+  {
+    "food_item": "Ngô vàng hạt khô",
+    "key_nutrients": [
+      "Magnesium",
+      "Selenium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Ngô vàng hạt khô là nguồn cung cấp Zinc, cùng với Magnesium, Selenium, Thiamin, Vitamin B6. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_1008"
+  },
+  {
+    "food_item": "Củ sắn",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Củ sắn là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_2004"
+  },
+  {
+    "food_item": "Thịt bồ câu ra ràng",
+    "key_nutrients": [
+      "Iron",
+      "Selenium",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt bồ câu ra ràng là nguồn cung cấp Zinc, cùng với Iron, Selenium, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7007"
+  },
+  {
+    "food_item": "Thịt vịt",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin A",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt vịt là nguồn cung cấp Selenium, cùng với Vitamin A, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7028"
+  },
+  {
+    "food_item": "Cua đồng",
+    "key_nutrients": [
+      "Vitamin A"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Cua đồng là nguồn cung cấp Vitamin A. Vitamin A có tác dụng REGULATING, giúp điều hòa dẫn truyền thần kinh - cả thiếu và thừa đều ảnh hưởng tâm trạng.",
+    "source_reference": "VN_FCT_2007_MaSo_8034"
+  },
+  {
+    "food_item": "Ngô bắp tươi",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 13.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_1007"
+  },
+  {
+    "food_item": "Khoai lang nghệ",
+    "key_nutrients": [
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Khoai lang nghệ là nguồn cung cấp Vitamin C. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_2009"
+  },
+  {
+    "food_item": "Nấm hương khô",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Nấm hương khô là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_4122"
+  },
+  {
+    "food_item": "Hạt điều",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Selenium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt điều là nguồn cung cấp Zinc, cùng với Iron, Magnesium, Selenium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_3015"
+  },
+  {
+    "food_item": "Hành củ muối",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Hành củ muối là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4116"
+  },
+  {
+    "food_item": "Pho mát",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin A",
+      "Vitamin B12",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Pho mát là nguồn cung cấp Zinc, cùng với Selenium, Vitamin A, Vitamin B12, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_10009"
+  },
+  {
+    "food_item": "Rau muống khô",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Rau muống khô là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_4084"
+  },
+  {
+    "food_item": "Cùi dừa non",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 6.67%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_3002"
+  },
+  {
+    "food_item": "Hạt tiêu",
+    "key_nutrients": [
+      "Iron",
+      "Potassium",
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt tiêu là nguồn cung cấp Vitamin B6, cùng với Iron, Potassium. Vitamin B6 có tác dụng INHIBITING, giúp ức chế lo âu thông qua tăng cường dẫn truyền GABA.",
+    "source_reference": "VN_FCT_2007_MaSo_13004"
+  },
+  {
+    "food_item": "Nước mắm cá (loại đặc biệt)",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Nước mắm cá (loại đặc biệt) là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_13014"
+  },
+  {
+    "food_item": "Chuối tiêu",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 9.76%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5007"
+  },
+  {
+    "food_item": "Quả thanh long",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 11.11%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5044"
+  },
+  {
+    "food_item": "Bột ngô vàng",
+    "key_nutrients": [
+      "Magnesium",
+      "Selenium",
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bột ngô vàng là nguồn cung cấp Magnesium, cùng với Selenium, Vitamin B6. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_1019"
+  },
+  {
+    "food_item": "Nho ngọt",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 5.06%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5037"
+  },
+  {
+    "food_item": "Lạc hạt",
+    "key_nutrients": [
+      "Folate",
+      "Magnesium",
+      "Thiamin",
+      "Vitamin B6",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Lạc hạt là nguồn cung cấp Magnesium, cùng với Folate, Thiamin, Vitamin B6, Tryptophan. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_3017"
+  },
+  {
+    "food_item": "Bột lạc",
+    "key_nutrients": [
+      "Folate",
+      "Magnesium",
+      "Thiamin",
+      "Vitamin B6",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bột lạc là nguồn cung cấp Magnesium, cùng với Folate, Thiamin, Vitamin B6, Tryptophan. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "VN_FCT_2007_MaSo_3024"
+  },
+  {
+    "food_item": "Gạo tẻ giã",
+    "key_nutrients": [
+      "Selenium"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Gạo tẻ giã là nguồn cung cấp Selenium. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_1003"
+  },
+  {
+    "food_item": "Củ niễng",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 7.78%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4024"
+  },
+  {
+    "food_item": "Nấm rơm",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 10.0%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4125"
+  },
+  {
+    "food_item": "Mơ khô",
+    "key_nutrients": [
+      "Iron",
+      "Potassium"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Mơ khô là nguồn cung cấp Iron, cùng với Potassium. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_5032"
+  },
+  {
+    "food_item": "Bột trứng",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin",
+      "Vitamin A"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Bột trứng là nguồn cung cấp Iron, cùng với Thiamin, Vitamin A. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_9011"
+  },
+  {
+    "food_item": "Nhãn khô",
+    "key_nutrients": [
+      "Iron",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Nhãn khô là nguồn cung cấp Vitamin C, cùng với Iron. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "VN_FCT_2007_MaSo_5036"
+  },
+  {
+    "food_item": "Mắc coọc nước đường",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 15.56%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_11005"
+  },
+  {
+    "food_item": "Bột cá",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Bột cá là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_8057"
+  },
+  {
+    "food_item": "Gạo tẻ máy",
+    "key_nutrients": [
+      "Selenium"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Gạo tẻ máy là nguồn cung cấp Selenium. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_1004"
+  },
+  {
+    "food_item": "Thịt lợn mỡ",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt lợn mỡ là nguồn cung cấp Selenium, cùng với Vitamin B12, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7016"
+  },
+  {
+    "food_item": "Thịt ngỗng",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Thịt ngỗng là nguồn cung cấp Selenium, cùng với Vitamin B6, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7019"
+  },
+  {
+    "food_item": "Thịt gà hộp",
+    "key_nutrients": [
+      "Vitamin A"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Thịt gà hộp là nguồn cung cấp Vitamin A. Vitamin A có tác dụng REGULATING, giúp điều hòa dẫn truyền thần kinh - cả thiếu và thừa đều ảnh hưởng tâm trạng.",
+    "source_reference": "VN_FCT_2007_MaSo_11018"
+  },
+  {
+    "food_item": "Tai lợn",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 13.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_7054"
+  },
+  {
+    "food_item": "Lòng lợn (ruột non)",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 7.5%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_7047"
+  },
+  {
+    "food_item": "Đậu phụ nướng",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Đậu phụ nướng là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_3027"
+  },
+  {
+    "food_item": "Đuôi lợn",
+    "key_nutrients": [
+      "Vitamin B6",
+      "Vitamin B12",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Đuôi lợn là nguồn cung cấp Zinc, cùng với Vitamin B6, Vitamin B12. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_7038"
+  },
+  {
+    "food_item": "Củ ấu",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 19.17%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_2001"
+  },
+  {
+    "food_item": "Gạo nếp máy (Loại thường)",
+    "key_nutrients": [
+      "Selenium",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Gạo nếp máy (Loại thường) là nguồn cung cấp Zinc, cùng với Selenium. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_1002"
+  },
+  {
+    "food_item": "Bột gạo tẻ",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bột gạo tẻ là nguồn cung cấp Selenium, cùng với Vitamin B6. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_1017"
+  },
+  {
+    "food_item": "Mít mật",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 7.5%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5030"
+  },
+  {
+    "food_item": "Măng khô",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Măng khô là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_4051"
+  },
+  {
+    "food_item": "Vải nước đường",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 11.11%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_11014"
+  },
+  {
+    "food_item": "Củ đậu",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 6.67%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4023"
+  },
+  {
+    "food_item": "Thịt bò khô",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Thịt bò khô là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_7075"
+  },
+  {
+    "food_item": "Mắc coọc",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 3.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5026"
+  },
+  {
+    "food_item": "Cải bắp khô",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Cải bắp khô là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_4012"
+  },
+  {
+    "food_item": "Chuối nước đường",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 10.0%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_11001"
+  },
+  {
+    "food_item": "Bì lợn",
+    "key_nutrients": [
+      "Thiamin"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Bì lợn là nguồn cung cấp Thiamin. Thiamin có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh (serotonin, GABA).",
+    "source_reference": "VN_FCT_2007_MaSo_7031"
+  },
+  {
+    "food_item": "Bột gạo nếp",
+    "key_nutrients": [
+      "Selenium",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bột gạo nếp là nguồn cung cấp Zinc, cùng với Selenium. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_1016"
+  },
+  {
+    "food_item": "Nụ mướp",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 6.67%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4060"
+  },
+  {
+    "food_item": "Hải sâm",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Hải sâm là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_8036"
+  },
+  {
+    "food_item": "Vú sữa",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 5.56%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5054"
+  },
+  {
+    "food_item": "Cá diếc",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 13.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_8006"
+  },
+  {
+    "food_item": "Bột khoai tây (lọc)",
+    "key_nutrients": [
+      "Vitamin B6"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Bột khoai tây (lọc) là nguồn cung cấp Vitamin B6. Vitamin B6 có tác dụng INHIBITING, giúp ức chế lo âu thông qua tăng cường dẫn truyền GABA.",
+    "source_reference": "VN_FCT_2007_MaSo_2019"
+  },
+  {
+    "food_item": "Mận nước đường",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 4.78%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_11006"
+  },
+  {
+    "food_item": "Hến",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 8.89%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_8037"
+  },
+  {
+    "food_item": "Thịt trâu thăn",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 18.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_7027"
+  },
+  {
+    "food_item": "Dâu gia",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 2.78%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5008"
+  },
+  {
+    "food_item": "Dưa lê",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 3.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5013"
+  },
+  {
+    "food_item": "Sữa bột đậu nành",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Sữa bột đậu nành là nguồn cung cấp Iron, cùng với Thiamin. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_3031"
+  },
+  {
+    "food_item": "Bột đậu tương rang chín",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin",
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Bột đậu tương rang chín là nguồn cung cấp Tryptophan, cùng với Iron, Thiamin. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_3022"
+  },
+  {
+    "food_item": "Mướp Nhật Bản",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 1.67%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4056"
+  },
+  {
+    "food_item": "Cá nạc",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Cá nạc là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_8018"
+  },
+  {
+    "food_item": "Bánh bích cốt",
+    "key_nutrients": [
+      "Thiamin"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Bánh bích cốt là nguồn cung cấp Thiamin. Thiamin có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh (serotonin, GABA).",
+    "source_reference": "VN_FCT_2007_MaSo_12001"
+  },
+  {
+    "food_item": "Dưa giá (đậu xanh)",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Dưa giá (đậu xanh) là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4115"
+  },
+  {
+    "food_item": "Gấc",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 12.22%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4034"
+  },
+  {
+    "food_item": "Quả cóc",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 8.89%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_5043"
+  },
+  {
+    "food_item": "Khoai môn",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 7.5%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_2010"
+  },
+  {
+    "food_item": "Thịt bò loại II",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Thịt bò loại II là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_7004"
+  },
+  {
+    "food_item": "Bánh bích quy",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Bánh bích quy là nguồn cung cấp Iron, cùng với Thiamin. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_12002"
+  },
+  {
+    "food_item": "Đậu phụ chúc",
+    "key_nutrients": [
+      "Iron",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Đậu phụ chúc là nguồn cung cấp Lên men, cùng với Iron. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_3026"
+  },
+  {
+    "food_item": "Thịt lợn, thịt bò xay hộp",
+    "key_nutrients": [
+      "Thiamin"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Thịt lợn, thịt bò xay hộp là nguồn cung cấp Thiamin. Thiamin có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh (serotonin, GABA).",
+    "source_reference": "VN_FCT_2007_MaSo_11020"
+  },
+  {
+    "food_item": "Đường cát",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Đường cát là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_12013"
+  },
+  {
+    "food_item": "Mực khô",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Mực khô là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_8039"
+  },
+  {
+    "food_item": "Sắn khô",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Sắn khô là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_2025"
+  },
+  {
+    "food_item": "Dăm bông lợn",
+    "key_nutrients": [
+      "Thiamin",
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Dăm bông lợn là nguồn cung cấp Tryptophan, cùng với Thiamin. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_7066"
+  },
+  {
+    "food_item": "Gạo nếp cái",
+    "key_nutrients": [
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Gạo nếp cái là nguồn cung cấp Zinc. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "VN_FCT_2007_MaSo_1001"
+  },
+  {
+    "food_item": "Trám đen chín",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 15.56%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_4105"
+  },
+  {
+    "food_item": "Bơ thực vật",
+    "key_nutrients": [
+      "Vitamin A"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Bơ thực vật là nguồn cung cấp Vitamin A. Vitamin A có tác dụng REGULATING, giúp điều hòa dẫn truyền thần kinh - cả thiếu và thừa đều ảnh hưởng tâm trạng.",
+    "source_reference": "VN_FCT_2007_MaSo_6005"
+  },
+  {
+    "food_item": "Tép khô",
+    "key_nutrients": [
+      "Iron"
+    ],
+    "ontology_effect": "REGULATING: mood_regulation",
+    "content_text": "Tép khô là nguồn cung cấp Iron. Iron có tác dụng REGULATING, thiếu hụt sắt có liên hệ với tăng nguy cơ trầm cảm.",
+    "source_reference": "VN_FCT_2007_MaSo_8050"
+  },
+  {
+    "food_item": "Cá bống",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Cá bống là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_8001"
+  },
+  {
+    "food_item": "Hạt điều khô, chiên dầu",
+    "key_nutrients": [
+      "Iron",
+      "Thiamin",
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Hạt điều khô, chiên dầu là nguồn cung cấp Tryptophan, cùng với Iron, Thiamin. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_3030"
+  },
+  {
+    "food_item": "Bánh mỳ",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 11.11%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_1012"
+  },
+  {
+    "food_item": "Cá trích hộp",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Cá trích hộp là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_11016"
+  },
+  {
+    "food_item": "Mỳ sợi",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Mỳ sợi là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_1022"
+  },
+  {
+    "food_item": "Hạt bí đỏ rang",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Hạt bí đỏ rang là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_3028"
+  },
+  {
+    "food_item": "Sữa đặc có đường Việt Nam",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Sữa đặc có đường Việt Nam là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_10008"
+  },
+  {
+    "food_item": "Hạt dưa đỏ rang (dưa hấu)",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Hạt dưa đỏ rang (dưa hấu) là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_3029"
+  },
+  {
+    "food_item": "Bỏng ngô",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - cao nhất 3.33%)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "VN_FCT_2007_MaSo_1015"
+  },
+  {
+    "food_item": "Cà chua muối",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Cà chua muối là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4108"
+  },
+  {
+    "food_item": "Cà muối sối",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Cà muối sối là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4110"
+  },
+  {
+    "food_item": "Dưa cải sen",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Dưa cải sen là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_4113"
+  },
+  {
+    "food_item": "Nem chua",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Nem chua là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_7073"
+  },
+  {
+    "food_item": "Rạm (muối, đồ)",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Rạm (muối, đồ) là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_8045"
+  },
+  {
+    "food_item": "Lòng trắng trứng vịt",
+    "key_nutrients": [
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Lòng trắng trứng vịt là nguồn cung cấp Tryptophan. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "VN_FCT_2007_MaSo_9006"
+  },
+  {
+    "food_item": "Mắm tôm đặc",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Mắm tôm đặc là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_13011"
+  },
+  {
+    "food_item": "Mắm tôm loãng",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Mắm tôm loãng là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_13012"
+  },
+  {
+    "food_item": "Mắm tép chua",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Mắm tép chua là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_13013"
+  },
+  {
+    "food_item": "Nước mắm cô",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Nước mắm cô là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_13018"
+  },
+  {
+    "food_item": "Tương ngô",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Tương ngô là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_13019"
+  },
+  {
+    "food_item": "Tương nếp",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Tương nếp là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "VN_FCT_2007_MaSo_13020"
+  },
+  {
+    "food_item": "Trà xanh",
+    "key_nutrients": [
+      "Catechin/EGCG",
+      "L-theanine",
+      "Caffeine"
+    ],
+    "ontology_effect": "REGULATING: digestion",
+    "content_text": "Trà xanh là nguồn cung cấp Catechin/EGCG, cùng với L-theanine, Caffeine. Catechin/EGCG có tác dụng REGULATING, giúp điều hòa hệ vi sinh vật đường ruột, liên quan nguy cơ trầm cảm.",
+    "source_reference": "USDA_FDC_171917; ref_data.txt muc 3.1, 3.2, 3.3"
+  },
+  {
+    "food_item": "Trà đen",
+    "key_nutrients": [
+      "Catechin (thấp hơn trà xanh)",
+      "L-theanine (cao nhất nhóm trà)",
+      "Caffeine"
+    ],
+    "ontology_effect": "REGULATING: digestion",
+    "content_text": "Trà đen là nguồn cung cấp Catechin, cùng với L-theanine, Caffeine. Catechin có tác dụng REGULATING, giúp điều hòa hệ vi sinh vật đường ruột, liên quan nguy cơ trầm cảm.",
+    "source_reference": "USDA_FDC_173227; ref_data.txt muc 3.2, 3.3"
+  },
+  {
+    "food_item": "Trà Ô long",
+    "key_nutrients": [
+      "Catechin (trung gian)",
+      "L-theanine",
+      "Caffeine"
+    ],
+    "ontology_effect": "REGULATING: digestion",
+    "content_text": "Trà Ô long là nguồn cung cấp Catechin, cùng với L-theanine, Caffeine. Catechin có tác dụng REGULATING, giúp điều hòa hệ vi sinh vật đường ruột, liên quan nguy cơ trầm cảm.",
+    "source_reference": "USDA_FDC_174120; ref_data.txt muc 3.2, 3.3"
+  },
+  {
+    "food_item": "Trà hoa dâm bụt (Hibiscus)",
+    "key_nutrients": [
+      "Anthocyanin"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Trà hoa dâm bụt (Hibiscus) là nguồn cung cấp Anthocyanin. Anthocyanin có tác dụng INHIBITING, có tác dụng giải lo âu/an thần (ghi nhận trên mô hình động vật).",
+    "source_reference": "USDA_FDC_171946; ref_data.txt muc 3.5 (LƯU Ý: chỉ có nghiên cứu động vật)"
+  },
+  {
+    "food_item": "Trà hoa cúc (Chamomile)",
+    "key_nutrients": [
+      "Apigenin"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Trà hoa cúc (Chamomile) là nguồn cung cấp Apigenin. Apigenin có tác dụng INHIBITING, có tác dụng giải lo âu qua gắn thụ thể GABA-A.",
+    "source_reference": "USDA_FDC_174156; ref_data.txt muc 3.8 (LƯU Ý: RCT dùng chiết xuất đậm đặc 1500mg, không phải trà thường)"
+  },
+  {
+    "food_item": "Trà bạc hà",
+    "key_nutrients": [
+      "Rosmarinic acid",
+      "Menthol"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Trà bạc hà là nguồn cung cấp Rosmarinic acid, cùng với Menthol. Rosmarinic acid có tác dụng INHIBITING, có tác dụng giải lo âu qua cơ chế gắn thụ thể GABA-A.",
+    "source_reference": "ref_data.txt muc 3.6 (LƯU Ý: RCT người chỉ đo nhận thức, không đo lo âu; review rosmarinic acid là trên bạc hà lục/spearmint, không phải bạc hà cay/peppermint)"
+  },
+  {
+    "food_item": "Trà gừng",
+    "key_nutrients": [
+      "Gingerol",
+      "Shogaol"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Trà gừng là nguồn cung cấp Gingerol, cùng với Shogaol. Gingerol có tác dụng REDUCING, giúp giảm hành vi lo âu qua điều biến hệ vi sinh vật đường ruột (ghi nhận trên mô hình động vật).",
+    "source_reference": "ref_data.txt muc 3.7 (LƯU Ý: chỉ có nghiên cứu động vật)"
+  },
+  {
+    "food_item": "Trà hoa oải hương (Lavender)",
+    "key_nutrients": [
+      "Linalool",
+      "Linalyl acetate"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Trà hoa oải hương (Lavender) là nguồn cung cấp Linalool, cùng với Linalyl acetate. Linalool có tác dụng INHIBITING, có tác dụng giải lo âu (nghiên cứu trên viên dầu uống đậm đặc, không phải trà).",
+    "source_reference": "ref_data.txt muc 3.9 (LƯU Ý: RCT dùng viên dầu uống Silexan, không phải trà)"
+  },
+  {
+    "food_item": "Trà hương thảo (Rosemary)",
+    "key_nutrients": [
+      "Rosmarinic acid",
+      "Carnosic acid"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Trà hương thảo (Rosemary) là nguồn cung cấp Rosmarinic acid, cùng với Carnosic acid. Rosmarinic acid có tác dụng INHIBITING, có tác dụng giải lo âu qua cơ chế gắn thụ thể GABA-A.",
+    "source_reference": "ref_data.txt muc 3.10 (nghiên cứu ĐÚNG dạng trà pha - không cần cảnh báo lệch liều)"
+  },
+  {
+    "food_item": "Trà hoa hồng (Rose)",
+    "key_nutrients": [
+      "Polyphenol hoa hồng (chưa xác định hợp chất cụ thể)"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Trà hoa hồng (Rose) là nguồn cung cấp Polyphenol hoa hồng. Polyphenol hoa hồng có tác dụng REDUCING, có tác dụng giảm lo âu/stress tạm thời (chưa xác định rõ 1 hoạt chất cụ thể).",
+    "source_reference": "ref_data.txt muc 3.11 (LƯU Ý: bằng chứng chủ yếu từ đường hít/viên nang, không phải trà uống)"
+  },
+  {
+    "food_item": "Trà quế (Cinnamon)",
+    "key_nutrients": [
+      "Cinnamaldehyde"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Trà quế (Cinnamon) là nguồn cung cấp Cinnamaldehyde. Cinnamaldehyde có tác dụng REGULATING, có bằng chứng hỗ trợ nhận thức, CHƯA có bằng chứng rõ về lo âu/trầm cảm.",
+    "source_reference": "ref_data.txt muc 3.12 (LƯU Ý: bằng chứng yếu, chủ yếu về nhận thức không phải lo âu/tâm trạng)"
+  },
+  {
+    "food_item": "Hạt lanh",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Selenium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt lanh là nguồn cung cấp Zinc, cùng với Folate, Iron, Magnesium, Selenium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_169414"
+  },
+  {
+    "food_item": "Hạt mắc ca",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Thiamin"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt mắc ca là nguồn cung cấp Magnesium, cùng với Iron, Thiamin. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "USDA_FDC_170178"
+  },
+  {
+    "food_item": "Hạt hồ đào (Pecan)",
+    "key_nutrients": [
+      "Magnesium",
+      "Thiamin",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt hồ đào (Pecan) là nguồn cung cấp Zinc, cùng với Magnesium, Thiamin. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170182"
+  },
+  {
+    "food_item": "Hạt hồ trăn (dẻ cười)",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt hồ trăn (dẻ cười) là nguồn cung cấp Zinc, cùng với Iron, Magnesium, Potassium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170184"
+  },
+  {
+    "food_item": "Hạt óc chó",
+    "key_nutrients": [
+      "Folate",
+      "Magnesium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt óc chó là nguồn cung cấp Zinc, cùng với Folate, Magnesium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170187"
+  },
+  {
+    "food_item": "Hạt chia",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Selenium",
+      "Thiamin",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt chia là nguồn cung cấp Zinc, cùng với Iron, Magnesium, Selenium, Thiamin, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170554"
+  },
+  {
+    "food_item": "Hạnh nhân",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạnh nhân là nguồn cung cấp Zinc, cùng với Iron, Magnesium, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170567"
+  },
+  {
+    "food_item": "Hạt dẻ Brazil",
+    "key_nutrients": [
+      "Magnesium",
+      "Selenium",
+      "Thiamin",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt dẻ Brazil là nguồn cung cấp Zinc, cùng với Magnesium, Selenium, Thiamin, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170569"
+  },
+  {
+    "food_item": "Hạt phỉ",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt phỉ là nguồn cung cấp Zinc, cùng với Folate, Iron, Magnesium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170581"
+  },
+  {
+    "food_item": "Hạt thông",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Thiamin",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt thông là nguồn cung cấp Zinc, cùng với Iron, Magnesium, Thiamin, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170591"
+  },
+  {
+    "food_item": "Đậu nành non (Edamame)",
+    "key_nutrients": [
+      "Folate",
+      "Tryptophan"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Đậu nành non (Edamame) là nguồn cung cấp Tryptophan, cùng với Folate. Tryptophan có tác dụng REGULATING, hỗ trợ con đường tổng hợp serotonin, góp phần điều hòa dẫn truyền thần kinh.",
+    "source_reference": "USDA_FDC_168410"
+  },
+  {
+    "food_item": "Rong biển (Laver/Nori)",
+    "key_nutrients": [
+      "Folate",
+      "Vitamin A",
+      "Vitamin C"
+    ],
+    "ontology_effect": "REDUCING: stress_response",
+    "content_text": "Rong biển (Laver/Nori) là nguồn cung cấp Vitamin C, cùng với Folate, Vitamin A. Vitamin C có tác dụng REDUCING, giúp giảm phản ứng lo âu thông qua vai trò chống oxy hóa.",
+    "source_reference": "USDA_FDC_168458"
+  },
+  {
+    "food_item": "Diêm mạch (Quinoa), đã nấu",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - AFS=4.88 nếu có)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "USDA_FDC_168917"
+  },
+  {
+    "food_item": "Tảo xoắn (Spirulina)",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - AFS=15.99 nếu có)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "USDA_FDC_170091"
+  },
+  {
+    "food_item": "Hạt gai dầu (hemp)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt gai dầu (hemp) là nguồn cung cấp Zinc, cùng với Folate, Iron, Magnesium, Potassium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170148"
+  },
+  {
+    "food_item": "Socola đen (70-85% cacao)",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Zinc"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Socola đen (70-85% cacao) là nguồn cung cấp Zinc, cùng với Iron, Magnesium. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170273"
+  },
+  {
+    "food_item": "Kim chi",
+    "key_nutrients": [
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Kim chi là nguồn cung cấp Lên men. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "USDA_FDC_170392"
+  },
+  {
+    "food_item": "Hạt hướng dương",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Selenium",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt hướng dương là nguồn cung cấp Zinc, cùng với Folate, Iron, Magnesium, Selenium, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_170562"
+  },
+  {
+    "food_item": "Hạt tiêu đen",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Potassium"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hạt tiêu đen là nguồn cung cấp Magnesium, cùng với Iron, Potassium. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "USDA_FDC_170931"
+  },
+  {
+    "food_item": "Nghệ tây (Saffron)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Magnesium",
+      "Potassium",
+      "Vitamin B6",
+      "Vitamin C"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Nghệ tây (Saffron) là nguồn cung cấp Magnesium, cùng với Folate, Iron, Potassium, Vitamin B6, Vitamin C. Magnesium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh và thư giãn cơ bắp.",
+    "source_reference": "USDA_FDC_170934"
+  },
+  {
+    "food_item": "Sữa chua Hy Lạp (Greek yogurt)",
+    "key_nutrients": [
+      "Vitamin B12"
+    ],
+    "ontology_effect": "REGULATING: neurotransmission",
+    "content_text": "Sữa chua Hy Lạp (Greek yogurt) là nguồn cung cấp Vitamin B12. Vitamin B12 có tác dụng REGULATING, hỗ trợ tổng hợp chất dẫn truyền thần kinh, liên quan triệu chứng trầm cảm/nhận thức.",
+    "source_reference": "USDA_FDC_171304"
+  },
+  {
+    "food_item": "Việt quất (Blueberry)",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - AFS=3.66 nếu có)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "USDA_FDC_171711"
+  },
+  {
+    "food_item": "Nam việt quất (Cranberry)",
+    "key_nutrients": [
+      "(dưới ngưỡng 20% DV - AFS=4.69 nếu có)"
+    ],
+    "ontology_effect": null,
+    "content_text": null,
+    "source_reference": "USDA_FDC_171722"
+  },
+  {
+    "food_item": "Đậu lăng (Lentils)",
+    "key_nutrients": [
+      "Folate",
+      "Iron",
+      "Thiamin",
+      "Vitamin B6",
+      "Zinc",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Đậu lăng (Lentils) là nguồn cung cấp Zinc, cùng với Folate, Iron, Thiamin, Vitamin B6, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_172420"
+  },
+  {
+    "food_item": "Miso",
+    "key_nutrients": [
+      "Zinc",
+      "Tryptophan",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Miso là nguồn cung cấp Lên men, cùng với Zinc, Tryptophan. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "USDA_FDC_172442"
+  },
+  {
+    "food_item": "Natto (đậu nành lên men)",
+    "key_nutrients": [
+      "Iron",
+      "Magnesium",
+      "Zinc",
+      "Tryptophan",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Natto (đậu nành lên men) là nguồn cung cấp Lên men, cùng với Iron, Magnesium, Zinc, Tryptophan. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "USDA_FDC_172443"
+  },
+  {
+    "food_item": "Cá cơm (Anchovy)",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá cơm (Anchovy) là nguồn cung cấp Selenium, cùng với Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_174182"
+  },
+  {
+    "food_item": "Vẹm xanh (Mussel)",
+    "key_nutrients": [
+      "Iron",
+      "Selenium",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Vẹm xanh (Mussel) là nguồn cung cấp Selenium, cùng với Iron, Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_174216"
+  },
+  {
+    "food_item": "Hàu (Oyster)",
+    "key_nutrients": [
+      "Iron",
+      "Selenium",
+      "Vitamin B12",
+      "Zinc",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Hàu (Oyster) là nguồn cung cấp Zinc, cùng với Iron, Selenium, Vitamin B12, Long-chain Omega-3, Tryptophan. Zinc có tác dụng INHIBITING, giúp ức chế tình trạng căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_174219"
+  },
+  {
+    "food_item": "Tempeh",
+    "key_nutrients": [
+      "Tryptophan",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Tempeh là nguồn cung cấp Lên men, cùng với Tryptophan. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "USDA_FDC_174272"
+  },
+  {
+    "food_item": "Đậu phụ nhự (chao)",
+    "key_nutrients": [
+      "Selenium",
+      "Tryptophan",
+      "Lên men (probiotic - cơ chế vi sinh, không đo bằng %DV)"
+    ],
+    "ontology_effect": "REDUCING: mood_regulation",
+    "content_text": "Đậu phụ nhự (chao) là nguồn cung cấp Lên men, cùng với Selenium, Tryptophan. Lên men có tác dụng REDUCING, giúp giảm triệu chứng lo âu/trầm cảm qua điều hòa hệ vi sinh vật đường ruột (trục ruột-não).",
+    "source_reference": "USDA_FDC_174280"
+  },
+  {
+    "food_item": "Cá mòi đóng hộp (dầu)",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá mòi đóng hộp (dầu) là nguồn cung cấp Selenium, cùng với Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_175139"
+  },
+  {
+    "food_item": "Cá hồi vân (Trout)",
+    "key_nutrients": [
+      "Selenium",
+      "Vitamin B6",
+      "Vitamin B12",
+      "Long-chain Omega-3 (EPA+DHA)",
+      "Tryptophan"
+    ],
+    "ontology_effect": "INHIBITING: stress_response",
+    "content_text": "Cá hồi vân (Trout) là nguồn cung cấp Selenium, cùng với Vitamin B6, Vitamin B12, Long-chain Omega-3, Tryptophan. Selenium có tác dụng INHIBITING, giúp ức chế căng thẳng thần kinh hoạt hóa quá mức.",
+    "source_reference": "USDA_FDC_175154"
+  }
+]

@@ -1,0 +1,50 @@
+# ====================================================================
+# GITIGNORE - HYBRID DATABASE RAG PROJECT (PYTHON + DOCKER + AI)
+# ====================================================================
+
+# 1. Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# 2. Virtual Environments
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# 3. Environment Variables & Credentials (Bảo mật mật khẩu CSDL)
+.env
+!.env.example
+
+# 4. Model Cache & Hugging Face Hub (Không đẩy mô hình AI nặng hàng GB lên Git)
+.cache/
+hf_cache/
+models/
+*.bin
+*.safetensors
+
+# 5. IDE & Code Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 6. Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 7. Logs & Temporary Data
+*.log
+scratch/
+tmp/
+temp/
+
+# 8. Log hội thoại của backend và file model GGUF
+logs/
+*.gguf
