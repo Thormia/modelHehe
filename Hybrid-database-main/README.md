@@ -198,8 +198,9 @@ python ingestion/seed_all.py      # BẮT BUỘC chạy lại: thêm cột nut_c
 ```
 
 ### Bước 2: Đưa model fine-tune lên Ollama
-1. Trên Kaggle: mở `serving/export_gguf_kaggle.ipynb`, Accelerator = None, Add Input dataset chứa `best_adapter`,
-   *Save & Run All*. Tải `qwen2.5-7b-huhu-Q4_K_M.gguf` (~4.7 GB) ở tab Output về thư mục `serving/`.
+1. Tải `qwen2.5-7b-huhu-Q4_K_M.gguf` (~4.7 GB) ở tab Output của https://www.kaggle.com/code/ghoenix/uploadhuhu về thư mục
+   `serving/`. Hoặc tự tạo lại: trên Kaggle mở `serving/export_gguf_kaggle.ipynb`, Accelerator = None, Add Input dataset chứa
+   `best_adapter`, *Save & Run All*. Kiểm sha256 file tải về: `91bfc32083ce6f7f67811561c461c0308ab32222655bd433473b60b6f3bacb8d`.
 2. Trên máy:
    ```bash
    cd serving
@@ -256,8 +257,13 @@ python scripts/eval_baselines.py report
   (recall/F1, McNemar, theo loại bẫy…) mà không chạy lại model.
 - `python scripts/build_final_report.py` sinh `../BAO_CAO_KET_QUA_CUOI.docx` từ các file kết quả trên; báo cáo đầy đủ ở
   `logs/eval/BAO_CAO_DANH_GIA.md`, chấm tay (chỉ để phân tích lỗi) ở `logs/eval/chamtay_after_b3fix.md`.
-- Trọng số không nằm trong repo (vượt 100 MB): `best_adapter` là Output của notebook fine-tune `../finetune_modelhuhu.ipynb`,
-  GGUF là Output của `serving/export_gguf_kaggle.ipynb`; sha256 GGUF ghi trong `manifest.json` của gói Kaggle.
+- Trọng số không nằm trong repo (vượt 100 MB):
+  - `best_adapter`: Output của notebook fine-tune `../finetune_modelhuhu.ipynb`.
+  - GGUF `qwen2.5-7b-huhu-Q4_K_M.gguf`: Output của notebook Kaggle https://www.kaggle.com/code/ghoenix/uploadhuhu
+    (bản đã chạy của `serving/export_gguf_kaggle.ipynb`, lưu ở `../uploadhuhu.ipynb`).
+    sha256 `91bfc32083ce6f7f67811561c461c0308ab32222655bd433473b60b6f3bacb8d`; digest Ollama của `qwen-huhu` là `6c40a8c893db`.
+- Phiếu chấm chuyên gia: bản ẩn danh ở `../expert_feedback/anonymized/` (tạo bằng `../expert_feedback/anonymize_sheets.py`);
+  `python scripts/expert_agreement.py ../expert_feedback/anonymized` cho kết quả giống hệt `../expert_feedback/agreement.json`.
 
 Chưa bật Docker vẫn chạy được toàn hệ thống với `RETRIEVER=offline` trong `.env` (đọc thẳng file JSON, cùng logic chọn món,
 không có `CBT_CONTEXT`); phiên hội thoại tự lưu trong bộ nhớ nếu không có Redis.

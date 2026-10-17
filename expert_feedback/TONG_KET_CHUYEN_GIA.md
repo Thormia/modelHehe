@@ -34,7 +34,7 @@ Phiếu này **không** chấm câu trả lời của hệ thống final; phần
 | R2 | CongNgheSinhHoc | Cử nhân công nghệ sinh học | 210/210 |
 | R3 | HoaHuuCo | Công nghệ hóa hữu cơ và hóa dược | 210/210 |
 | R4 | YHoc | Y học | 210/210 |
-| R5 | Yhoc2 | Sinh viên Y dược (ĐH Trà Vinh) | 210/210 |
+| R5 | Yhoc2 | Sinh viên Y dược | 210/210 |
 | R6 | Yhoc3 | Y học | 210/210 |
 
 ## 1. Điểm theo tiêu chí

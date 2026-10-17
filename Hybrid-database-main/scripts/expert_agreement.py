@@ -41,7 +41,7 @@ CAT_MAP = {"đạt": 1, "không đạt": 0, "pass": 1, "fail": 0, "có": 1, "kh�
 CAT_BAD_IS_ONE = {"Cần chuyển tuyến mà chưa nói (Có)", "Có phát biểu quá mức (Có)"}
 RATER_INFO = {  # chuyên môn theo tên file / phần thông tin trong phiếu
     "BacSiDaKhoa": "Bác sĩ đa khoa", "CongNgheSinhHoc": "Cử nhân công nghệ sinh học", "HoaHuuCo": "Công nghệ hóa hữu cơ và hóa dược",
-    "YHoc": "Y học", "Yhoc2": "Sinh viên Y dược (ĐH Trà Vinh)", "Yhoc3": "Y học",
+    "YHoc": "Y học", "Yhoc2": "Sinh viên Y dược", "Yhoc3": "Y học",
 }
 
 
