@@ -1,6 +1,8 @@
-"""Đóng gói hệ thống final để tải lên Kaggle làm dataset (không gồm file GGUF 4.7 GB, tải riêng).
+"""BẢN THỬ NGHIỆM (nhánh thu-nghiem/llm1-ngu-canh): đóng gói hệ thống để tải lên Kaggle làm dataset
+(không gồm file GGUF 4.7 GB, tải riêng). Tên gói và trường "variant" trong manifest khác bản chính thức, để notebook
+không chạy nhầm gói chính thức và không trộn kết quả của hai bản.
 
-    python scripts/make_kaggle_package.py      ->  ../kaggle_upload/huhu-system-final.zip
+    python scripts/make_kaggle_package.py      ->  ../kaggle_upload/huhu-system-thu-nghiem.zip
 
 Trong zip: AIM/Hybrid-database-main (code, data/processed, tests, serving trừ .gguf, .env), AIM/data/300 test và
 AIM/traindata (cho unit test đối chiếu system prompt với dữ liệu fine-tune).
@@ -19,7 +21,8 @@ if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AIM = os.path.dirname(ROOT)
-OUT = os.path.join(AIM, "kaggle_upload", "huhu-system-final.zip")
+VARIANT = "thu-nghiem/llm1-ngu-canh"
+OUT = os.path.join(AIM, "kaggle_upload", "huhu-system-thu-nghiem.zip")
 
 INCLUDE_DIRS = ["backend", "retrieval", "db", "ingestion", "scripts", "serving", "tests", os.path.join("data", "processed")]
 INCLUDE_FILES = ["requirements.txt", ".env", "README.md", "docker-compose.yml"]
@@ -67,7 +70,15 @@ def files():
 def main():
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     gguf = os.path.join(ROOT, "serving", "qwen2.5-7b-huhu-Q4_K_M.gguf")
-    manifest = {"created": time.strftime("%Y-%m-%dT%H:%M:%S"), "gguf_sha256": sha256(gguf),
+    if not os.path.exists(gguf):  # worktree thử nghiệm không có GGUF: dùng file của bản chính thức (cùng model)
+        gguf = os.path.join(os.path.dirname(AIM), "Hybrid-database-main", "serving", "qwen2.5-7b-huhu-Q4_K_M.gguf")
+    commit = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
+    dirty = subprocess.run(["git", "status", "--porcelain", "--", "backend", "retrieval", "db", "ingestion", "scripts",
+                            "serving", "tests", "data"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
+    if dirty:
+        sys.exit(f"Còn thay đổi chưa commit, hãy commit trước khi đóng gói:\n{dirty}")
+    manifest = {"variant": VARIANT, "git_commit": commit,
+                "created": time.strftime("%Y-%m-%dT%H:%M:%S"), "gguf_sha256": sha256(gguf),
                 "ollama_digests": ollama_digests(), "bge_m3": BGE_M3, "files": {}}
     if None in manifest["ollama_digests"].values():
         sys.exit(f"Thiếu model trong `ollama list`: {manifest['ollama_digests']}")
@@ -80,6 +91,7 @@ def main():
             manifest["files"][arc] = sha256(p)
         z.writestr("AIM/manifest.json", json.dumps(manifest, ensure_ascii=False, indent=1))
     print(f"{OUT}: {len(manifest['files'])} file, {os.path.getsize(OUT) / 1e6:.1f} MB")
+    print("variant:", VARIANT, "| commit:", commit)
     print("GGUF sha256:", manifest["gguf_sha256"])
     print("Ollama:", manifest["ollama_digests"])
 
