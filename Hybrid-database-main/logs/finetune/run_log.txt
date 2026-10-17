@@ -1,0 +1,159 @@
+09:37:26 torch 2.8.0+cpu | torch_xla 2.8.0
+09:37:39 TPU devices: 8 | global batch 8 | grad accum 2 | effective 16
+09:37:40 DATA_DIR = /kaggle/input/datasets/ghoenix/modelh
+09:37:56 Train: {'B4': 864, 'A': 3447, 'B3': 864, 'B1': 859, 'B2': 813} | total 6847
+09:37:56 Val: {'A': 384, 'B1': 95, 'B2': 79, 'B3': 96, 'B4': 96} | Test: {'A': 958, 'B1': 238, 'B2': 240, 'B3': 240, 'B4': 240}
+09:37:56 Bị loại vì > MAX_LEN: 0 []
+09:37:56 --- Mẫu một lượt: 372 token, 199 token tính loss ---
+09:38:39 VĂN BẢN ĐÃ ÁP TEMPLATE (cuối): hó chịu, kèm hỏi nguồn căng thẳng."}, "side_talk": "Nghe bạn ngủ ngon, đầu óc nhẹ nhõm hơn, mình mừng cho bạn. Còn hộp đồ không rõ nguồn gốc thì mình không thể xác định giúp, nên nếu chưa ăn thì đừng mạo hiểm khi không chắc nhé. Còn nếu đã ăn và thấy người khó chịu thì hãy đến cơ sở y tế. Dạo này có điều gì khiến bạn căng thẳng không?", "nutritional_advice": null, "source_reference": []}<|im_end|>
+09:38:39 PHẦN TÍNH LOSS: {"thought_process": {"detected_emotions": "Thư giãn, Phân vân", "detected_symptoms": [], "trigger_nutrition": false, "reasoning": "ROUTE_NUTRITION = false. Người dùng hỏi hộp đồ ăn lạ không rõ để từ bao giờ có ăn được không; không đủ cơ sở xác định nên khuyên không mạo hiểm, đến cơ sở y tế nếu đã ăn ... _reference": []}<|im_end|>
+09:38:39 --- Mẫu nhiều lượt: 504 token, 214 token tính loss ---
+09:38:39 VĂN BẢN ĐÃ ÁP TEMPLATE (cuối): a nhà và tình trạng chán ăn kéo dài. Câu trả lời xoa dịu sự kiệt sức, sau đó hỏi thăm về giấc ngủ."}, "side_talk": "Sự thất vọng hết lần này đến lần khác làm dạ dày bạn xót xa và tước đi sự ngon miệng, hành trình an cư lạc nghiệp ở thời buổi này thật sự quá gian nan. Mình muốn hiểu thêm về bạn một chút, đêm đến bạn thường ngủ thế nào?", "nutritional_advice": null, "source_reference": []}<|im_end|>
+09:38:39 PHẦN TÍNH LOSS: {"thought_process": {"detected_emotions": "Nản lòng, chới với", "detected_symptoms": ["xót cồn cào dạ dày", "đắng chát miệng"], "trigger_nutrition": false, "reasoning": "ROUTE_NUTRITION = false. Người dùng nản lòng vì liên tục bị tranh mua nhà dẫn đến bỏ bữa, xót dạ dày và đắng miệng. Đã xác định đư ... _reference": []}<|im_end|>
+09:38:51 OK: mọi mẫu có token tính loss và phần đó là JSON hợp lệ + <|im_end|>
+09:38:51 Độ dài token: p50 477 max 844 | buckets [512, 896]
+09:41:49 Đã chuyển model lên TPU, 198 ma trận trọng số được shard trên 8 lõi
+09:41:49 steps/epoch 429 | total 1287 | eval mỗi 107 bước
+09:48:45 epoch 1 step 10/1287 | train loss 2.1174 | lr 5.26e-05 | 6.9 phút
+09:50:39 epoch 1 step 20/1287 | train loss 1.5113 | lr 1.05e-04 | 8.8 phút
+09:50:58 epoch 1 step 30/1287 | train loss 1.2053 | lr 1.58e-04 | 9.1 phút
+09:52:52 epoch 1 step 40/1287 | train loss 1.0983 | lr 2.00e-04 | 11.0 phút
+09:53:10 epoch 1 step 50/1287 | train loss 1.0292 | lr 2.00e-04 | 11.3 phút
+09:53:28 epoch 1 step 60/1287 | train loss 0.9440 | lr 2.00e-04 | 11.6 phút
+09:53:48 epoch 1 step 70/1287 | train loss 0.9324 | lr 2.00e-04 | 12.0 phút
+09:54:08 epoch 1 step 80/1287 | train loss 0.8661 | lr 1.99e-04 | 12.3 phút
+09:54:27 epoch 1 step 90/1287 | train loss 0.8424 | lr 1.99e-04 | 12.6 phút
+09:54:47 epoch 1 step 100/1287 | train loss 0.8616 | lr 1.99e-04 | 13.0 phút
+09:56:47 [VAL] step 107 | A 0.9638 (ppl 2.62) | B1 0.9407 (ppl 2.56) | B2 0.2465 (ppl 1.28) | B3 0.7243 (ppl 2.06) | B4 0.8522 (ppl 2.34) | ALL 0.8314 (ppl 2.30)
+09:56:54   -> best mới, đã lưu /kaggle/working/output/best_adapter
+09:57:12 epoch 1 step 110/1287 | train loss 0.8517 | lr 1.98e-04 | 15.4 phút
+09:57:33 epoch 1 step 120/1287 | train loss 0.7857 | lr 1.98e-04 | 15.7 phút
+09:57:53 epoch 1 step 130/1287 | train loss 0.7965 | lr 1.97e-04 | 16.1 phút
+09:58:13 epoch 1 step 140/1287 | train loss 0.8405 | lr 1.97e-04 | 16.4 phút
+09:58:33 epoch 1 step 150/1287 | train loss 0.7987 | lr 1.96e-04 | 16.7 phút
+09:58:54 epoch 1 step 160/1287 | train loss 0.7424 | lr 1.95e-04 | 17.1 phút
+09:59:14 epoch 1 step 170/1287 | train loss 0.7744 | lr 1.95e-04 | 17.4 phút
+09:59:34 epoch 1 step 180/1287 | train loss 0.7559 | lr 1.94e-04 | 17.7 phút
+09:59:53 epoch 1 step 190/1287 | train loss 0.7798 | lr 1.93e-04 | 18.1 phút
+10:00:12 epoch 1 step 200/1287 | train loss 0.7620 | lr 1.92e-04 | 18.4 phút
+10:00:32 epoch 1 step 210/1287 | train loss 0.7203 | lr 1.91e-04 | 18.7 phút
+10:01:01 [VAL] step 214 | A 0.9199 (ppl 2.51) | B1 0.8487 (ppl 2.34) | B2 0.0598 (ppl 1.06) | B3 0.6309 (ppl 1.88) | B4 0.7215 (ppl 2.06) | ALL 0.7494 (ppl 2.12)
+10:01:06   -> best mới, đã lưu /kaggle/working/output/best_adapter
+10:01:29 epoch 1 step 220/1287 | train loss 0.7065 | lr 1.90e-04 | 19.7 phút
+10:01:49 epoch 1 step 230/1287 | train loss 0.7273 | lr 1.89e-04 | 20.0 phút
+10:02:09 epoch 1 step 240/1287 | train loss 0.7129 | lr 1.87e-04 | 20.3 phút
+10:02:28 epoch 1 step 250/1287 | train loss 0.7859 | lr 1.86e-04 | 20.6 phút
+10:02:48 epoch 1 step 260/1287 | train loss 0.7058 | lr 1.85e-04 | 21.0 phút
+10:03:07 epoch 1 step 270/1287 | train loss 0.7389 | lr 1.83e-04 | 21.3 phút
+10:03:27 epoch 1 step 280/1287 | train loss 0.6846 | lr 1.82e-04 | 21.6 phút
+10:03:46 epoch 1 step 290/1287 | train loss 0.7454 | lr 1.81e-04 | 21.9 phút
+10:04:05 epoch 1 step 300/1287 | train loss 0.6861 | lr 1.79e-04 | 22.3 phút
+10:04:24 epoch 1 step 310/1287 | train loss 0.7610 | lr 1.77e-04 | 22.6 phút
+10:04:45 epoch 1 step 320/1287 | train loss 0.6562 | lr 1.76e-04 | 22.9 phút
+10:05:07 [VAL] step 321 | A 0.8959 (ppl 2.45) | B1 0.8161 (ppl 2.26) | B2 0.0360 (ppl 1.04) | B3 0.5901 (ppl 1.80) | B4 0.6677 (ppl 1.95) | ALL 0.7199 (ppl 2.05)
+10:05:14   -> best mới, đã lưu /kaggle/working/output/best_adapter
+10:05:41 epoch 1 step 330/1287 | train loss 0.7469 | lr 1.74e-04 | 23.9 phút
+10:06:00 epoch 1 step 340/1287 | train loss 0.7439 | lr 1.73e-04 | 24.2 phút
+10:06:21 epoch 1 step 350/1287 | train loss 0.6847 | lr 1.71e-04 | 24.5 phút
+10:06:41 epoch 1 step 360/1287 | train loss 0.6805 | lr 1.69e-04 | 24.9 phút
+10:07:01 epoch 1 step 370/1287 | train loss 0.6623 | lr 1.67e-04 | 25.2 phút
+10:07:21 epoch 1 step 380/1287 | train loss 0.6731 | lr 1.65e-04 | 25.5 phút
+10:07:39 epoch 1 step 390/1287 | train loss 0.8136 | lr 1.63e-04 | 25.8 phút
+10:08:00 epoch 1 step 400/1287 | train loss 0.6544 | lr 1.61e-04 | 26.2 phút
+10:08:19 epoch 1 step 410/1287 | train loss 0.7392 | lr 1.59e-04 | 26.5 phút
+10:08:39 epoch 1 step 420/1287 | train loss 0.7119 | lr 1.57e-04 | 26.8 phút
+10:09:14 [VAL] step 428 | A 0.8791 (ppl 2.41) | B1 0.7749 (ppl 2.17) | B2 0.0289 (ppl 1.03) | B3 0.5734 (ppl 1.77) | B4 0.6449 (ppl 1.91) | ALL 0.7009 (ppl 2.02)
+10:09:18   -> best mới, đã lưu /kaggle/working/output/best_adapter
+10:09:33 epoch 2 step 430/1287 | train loss 0.4915 | lr 1.55e-04 | 27.7 phút
+10:09:52 epoch 2 step 440/1287 | train loss 0.6593 | lr 1.53e-04 | 28.1 phút
+10:10:13 epoch 2 step 450/1287 | train loss 0.5908 | lr 1.51e-04 | 28.4 phút
+10:10:32 epoch 2 step 460/1287 | train loss 0.6353 | lr 1.49e-04 | 28.7 phút
+10:10:52 epoch 2 step 470/1287 | train loss 0.5154 | lr 1.47e-04 | 29.0 phút
+10:11:11 epoch 2 step 480/1287 | train loss 0.5854 | lr 1.44e-04 | 29.4 phút
+10:11:30 epoch 2 step 490/1287 | train loss 0.6222 | lr 1.42e-04 | 29.7 phút
+10:11:49 epoch 2 step 500/1287 | train loss 0.6570 | lr 1.40e-04 | 30.0 phút
+10:12:09 epoch 2 step 510/1287 | train loss 0.5745 | lr 1.37e-04 | 30.3 phút
+10:12:29 epoch 2 step 520/1287 | train loss 0.6372 | lr 1.35e-04 | 30.7 phút
+10:12:49 epoch 2 step 530/1287 | train loss 0.5821 | lr 1.33e-04 | 31.0 phút
+10:13:20 [VAL] step 535 | A 0.8753 (ppl 2.40) | B1 0.7647 (ppl 2.15) | B2 0.0257 (ppl 1.03) | B3 0.5639 (ppl 1.76) | B4 0.6276 (ppl 1.87) | ALL 0.6946 (ppl 2.00)
+10:13:25   -> best mới, đã lưu /kaggle/working/output/best_adapter
+10:13:46 epoch 2 step 540/1287 | train loss 0.6024 | lr 1.30e-04 | 31.9 phút
+10:14:05 epoch 2 step 550/1287 | train loss 0.6313 | lr 1.28e-04 | 32.3 phút
+10:14:26 epoch 2 step 560/1287 | train loss 0.5386 | lr 1.25e-04 | 32.6 phút
+10:14:44 epoch 2 step 570/1287 | train loss 0.6178 | lr 1.23e-04 | 32.9 phút
+10:15:03 epoch 2 step 580/1287 | train loss 0.5909 | lr 1.21e-04 | 33.2 phút
+10:15:23 epoch 2 step 590/1287 | train loss 0.6195 | lr 1.18e-04 | 33.6 phút
+10:15:42 epoch 2 step 600/1287 | train loss 0.6107 | lr 1.16e-04 | 33.9 phút
+10:16:01 epoch 2 step 610/1287 | train loss 0.5824 | lr 1.13e-04 | 34.2 phút
+10:16:21 epoch 2 step 620/1287 | train loss 0.6331 | lr 1.11e-04 | 34.5 phút
+10:16:41 epoch 2 step 630/1287 | train loss 0.6139 | lr 1.08e-04 | 34.9 phút
+10:17:00 epoch 2 step 640/1287 | train loss 0.6637 | lr 1.06e-04 | 35.2 phút
+10:17:25 [VAL] step 642 | A 0.8686 (ppl 2.38) | B1 0.7470 (ppl 2.11) | B2 0.0229 (ppl 1.02) | B3 0.5518 (ppl 1.74) | B4 0.6170 (ppl 1.85) | ALL 0.6861 (ppl 1.99)
+10:17:32   -> best mới, đã lưu /kaggle/working/output/best_adapter
+10:17:59 epoch 2 step 650/1287 | train loss 0.6076 | lr 1.03e-04 | 36.2 phút
+10:18:20 epoch 2 step 660/1287 | train loss 0.5896 | lr 1.01e-04 | 36.5 phút
+10:18:39 epoch 2 step 670/1287 | train loss 0.5809 | lr 9.81e-05 | 36.8 phút
+10:18:59 epoch 2 step 680/1287 | train loss 0.6303 | lr 9.56e-05 | 37.2 phút
+10:19:18 epoch 2 step 690/1287 | train loss 0.6307 | lr 9.31e-05 | 37.5 phút
+10:19:39 epoch 2 step 700/1287 | train loss 0.5804 | lr 9.06e-05 | 37.8 phút
+10:19:59 epoch 2 step 710/1287 | train loss 0.5359 | lr 8.81e-05 | 38.2 phút
+10:20:19 epoch 2 step 720/1287 | train loss 0.6197 | lr 8.56e-05 | 38.5 phút
+10:20:38 epoch 2 step 730/1287 | train loss 0.6402 | lr 8.31e-05 | 38.8 phút
+10:20:58 epoch 2 step 740/1287 | train loss 0.6376 | lr 8.06e-05 | 39.1 phút
+10:21:35 [VAL] step 749 | A 0.8607 (ppl 2.36) | B1 0.7334 (ppl 2.08) | B2 0.0205 (ppl 1.02) | B3 0.5423 (ppl 1.72) | B4 0.5971 (ppl 1.82) | ALL 0.6770 (ppl 1.97)
+10:21:42   -> best mới, đã lưu /kaggle/working/output/best_adapter
+10:21:55 epoch 2 step 750/1287 | train loss 0.6069 | lr 7.82e-05 | 40.1 phút
+10:22:15 epoch 2 step 760/1287 | train loss 0.6146 | lr 7.57e-05 | 40.4 phút
+10:22:35 epoch 2 step 770/1287 | train loss 0.6396 | lr 7.33e-05 | 40.8 phút
+10:22:53 epoch 2 step 780/1287 | train loss 0.6160 | lr 7.09e-05 | 41.1 phút
+10:23:12 epoch 2 step 790/1287 | train loss 0.5783 | lr 6.85e-05 | 41.4 phút
+10:23:30 epoch 2 step 800/1287 | train loss 0.6488 | lr 6.61e-05 | 41.7 phút
+10:23:49 epoch 2 step 810/1287 | train loss 0.6239 | lr 6.37e-05 | 42.0 phút
+10:24:08 epoch 2 step 820/1287 | train loss 0.6294 | lr 6.14e-05 | 42.3 phút
+10:24:28 epoch 2 step 830/1287 | train loss 0.5886 | lr 5.91e-05 | 42.6 phút
+10:24:49 epoch 2 step 840/1287 | train loss 0.5494 | lr 5.68e-05 | 43.0 phút
+10:25:09 epoch 2 step 850/1287 | train loss 0.5321 | lr 5.46e-05 | 43.3 phút
+10:25:41 [VAL] step 856 | A 0.8526 (ppl 2.35) | B1 0.7207 (ppl 2.06) | B2 0.0192 (ppl 1.02) | B3 0.5329 (ppl 1.70) | B4 0.5850 (ppl 1.79) | ALL 0.6687 (ppl 1.95)
+10:25:47   -> best mới, đã lưu /kaggle/working/output/best_adapter
+10:26:07 epoch 3 step 860/1287 | train loss 0.5207 | lr 5.23e-05 | 44.3 phút
+10:26:27 epoch 3 step 870/1287 | train loss 0.4658 | lr 5.01e-05 | 44.6 phút
+10:26:47 epoch 3 step 880/1287 | train loss 0.4888 | lr 4.80e-05 | 45.0 phút
+10:27:07 epoch 3 step 890/1287 | train loss 0.4441 | lr 4.58e-05 | 45.3 phút
+10:27:27 epoch 3 step 900/1287 | train loss 0.4587 | lr 4.38e-05 | 45.6 phút
+10:27:48 epoch 3 step 910/1287 | train loss 0.4530 | lr 4.17e-05 | 46.0 phút
+10:28:07 epoch 3 step 920/1287 | train loss 0.4779 | lr 3.97e-05 | 46.3 phút
+10:28:26 epoch 3 step 930/1287 | train loss 0.4918 | lr 3.77e-05 | 46.6 phút
+10:28:44 epoch 3 step 940/1287 | train loss 0.5149 | lr 3.57e-05 | 46.9 phút
+10:29:04 epoch 3 step 950/1287 | train loss 0.4328 | lr 3.38e-05 | 47.2 phút
+10:29:25 epoch 3 step 960/1287 | train loss 0.4824 | lr 3.20e-05 | 47.6 phút
+10:29:51 [VAL] step 963 | A 0.8810 (ppl 2.41) | B1 0.7466 (ppl 2.11) | B2 0.0187 (ppl 1.02) | B3 0.5506 (ppl 1.73) | B4 0.6037 (ppl 1.83) | ALL 0.6910 (ppl 2.00)
+10:29:51   -> không cải thiện (1/3)
+10:30:15 epoch 3 step 970/1287 | train loss 0.4717 | lr 3.01e-05 | 48.4 phút
+10:30:34 epoch 3 step 980/1287 | train loss 0.5118 | lr 2.84e-05 | 48.7 phút
+10:30:53 epoch 3 step 990/1287 | train loss 0.4551 | lr 2.66e-05 | 49.1 phút
+10:31:13 epoch 3 step 1000/1287 | train loss 0.5116 | lr 2.49e-05 | 49.4 phút
+10:31:31 epoch 3 step 1010/1287 | train loss 0.5339 | lr 2.33e-05 | 49.7 phút
+10:31:51 epoch 3 step 1020/1287 | train loss 0.4854 | lr 2.17e-05 | 50.0 phút
+10:32:10 epoch 3 step 1030/1287 | train loss 0.5144 | lr 2.02e-05 | 50.3 phút
+10:32:30 epoch 3 step 1040/1287 | train loss 0.4885 | lr 1.87e-05 | 50.7 phút
+10:32:50 epoch 3 step 1050/1287 | train loss 0.4913 | lr 1.72e-05 | 51.0 phút
+10:33:09 epoch 3 step 1060/1287 | train loss 0.5061 | lr 1.59e-05 | 51.3 phút
+10:33:29 epoch 3 step 1070/1287 | train loss 0.4767 | lr 1.45e-05 | 51.7 phút
+10:34:09 [VAL] step 1070 | A 0.8793 (ppl 2.41) | B1 0.7411 (ppl 2.10) | B2 0.0185 (ppl 1.02) | B3 0.5528 (ppl 1.74) | B4 0.6023 (ppl 1.83) | ALL 0.6894 (ppl 1.99)
+10:34:09   -> không cải thiện (2/3)
+10:34:39 epoch 3 step 1080/1287 | train loss 0.5049 | lr 1.33e-05 | 52.8 phút
+10:34:58 epoch 3 step 1090/1287 | train loss 0.5035 | lr 1.20e-05 | 53.1 phút
+10:35:18 epoch 3 step 1100/1287 | train loss 0.4610 | lr 1.09e-05 | 53.5 phút
+10:35:37 epoch 3 step 1110/1287 | train loss 0.4446 | lr 9.75e-06 | 53.8 phút
+10:35:54 epoch 3 step 1120/1287 | train loss 0.5407 | lr 8.69e-06 | 54.1 phút
+10:36:13 epoch 3 step 1130/1287 | train loss 0.5347 | lr 7.70e-06 | 54.4 phút
+10:36:32 epoch 3 step 1140/1287 | train loss 0.5056 | lr 6.76e-06 | 54.7 phút
+10:36:52 epoch 3 step 1150/1287 | train loss 0.4557 | lr 5.88e-06 | 55.0 phút
+10:37:12 epoch 3 step 1160/1287 | train loss 0.4356 | lr 5.06e-06 | 55.4 phút
+10:37:31 epoch 3 step 1170/1287 | train loss 0.4695 | lr 4.30e-06 | 55.7 phút
+10:38:04 [VAL] step 1177 | A 0.8766 (ppl 2.40) | B1 0.7411 (ppl 2.10) | B2 0.0178 (ppl 1.02) | B3 0.5515 (ppl 1.74) | B4 0.5991 (ppl 1.82) | ALL 0.6873 (ppl 1.99)
+10:38:04   -> không cải thiện (3/3)
+10:38:15 Kết thúc train: early_stopping | best val 0.6687 tại bước 856
+10:42:31 Perplexity test (fine-tune): {'A': 2.342, 'B1': 2.632, 'B2': 3.221, 'B3': 1.937, 'B4': 1.957, 'ALL': 2.412}
+10:42:31 Perplexity test (gốc): {'A': 9.938, 'B1': 14.229, 'B2': 9.513, 'B3': 13.377, 'B4': 19.763, 'ALL': 11.229}
+10:42:31 Sinh văn bản nhóm A (fine-tune) ...
