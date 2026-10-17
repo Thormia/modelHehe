@@ -1,4 +1,4 @@
-"""LLM #1 - Extractor: trích 4 states, medication_alert, crisis_flag, panic_flag từ hội thoại (không fine-tune)."""
+"""LLM #1 - Extractor: trích 4 states, cờ y tế (health_alert -> medication_alert, nhóm B3), crisis_flag, panic_flag (không fine-tune)."""
 import json
 from dataclasses import dataclass, field
 
@@ -17,7 +17,7 @@ Các trường:
   "Calm" (ổn định, bình thản), "Stressed" (áp lực, căng thẳng, có thể thèm đồ ngọt, uống nhiều cà phê, khó tập trung),
   "LowMood" (buồn, thiếu năng lượng, giảm động lực, chán nản), "Recovering" (đang dần ổn lại, tâm trạng và nếp sinh hoạt đang cải thiện),
   "Energized" (nhiều năng lượng, có động lực, suy nghĩ tích cực). null nếu chưa thể hiện.
-- "medication_alert": true nếu người dùng (hoặc người thân mà họ hỏi giùm) đang dùng thuốc điều trị y tế, kể cả tiêm hormone, tiêm kích trứng, thuốc nội tiết, đang trong đợt điều trị. Thuốc lá, vape không tính. Ngược lại false.
+- "health_alert" (cờ y tế, nhóm B3): true khi chính người dùng, hoặc người thân mà họ đang hỏi giùm, có ÍT NHẤT MỘT trong hai điều sau. (1) Đang dùng thuốc hoặc đang điều trị y tế, kể cả tiêm hormone, tiêm kích trứng, thuốc nội tiết, đang trong đợt điều trị. (2) Cơ thể đang có điểm khác thường so với người khỏe mạnh bình thường: bệnh mãn tính, đang ốm hoặc sốt, vừa phẫu thuật, đang mang thai, đang trong kỳ kinh, vừa tiêm vaccine, vừa xăm, đang dùng hoặc đang cai chất kích thích (rượu bia, thuốc lá, vape, cà phê). Ngược lại false.
 - "crisis_flag": true nếu có dấu hiệu tự sát hoặc tự hại, kể cả gián tiếp ("cho nhẹ nợ", "không muốn tỉnh dậy nữa", "đi cho xong"). Cơn hoảng loạn không kèm ý tự hại ghi vào panic_flag, không phải crisis_flag. Ngược lại false.
 - "panic_flag": true nếu người dùng ĐANG trong cơn hoảng loạn hoặc lo âu cấp tính ngay lúc nhắn. Ngược lại false.
 
@@ -33,14 +33,14 @@ stress_state chỉ điền khi người dùng nói về căng thẳng, áp lực
 
 Ví dụ:
 Người dùng: Mình ăn uống vẫn bình thường, chỉ là hay buồn vô cớ.
-{"sleep_state": null, "appetite_state": "Normal", "stress_state": null, "mood_state": "LowMood", "medication_alert": false, "crisis_flag": false, "panic_flag": false}
+{"sleep_state": null, "appetite_state": "Normal", "stress_state": null, "mood_state": "LowMood", "health_alert": false, "crisis_flag": false, "panic_flag": false}
 Người dùng: Công việc áp lực lắm, đêm nào cũng trằn trọc. Mình đang uống thuốc chống trầm cảm.
-{"sleep_state": "Poor", "appetite_state": null, "stress_state": "High", "mood_state": "Stressed", "medication_alert": true, "crisis_flag": false, "panic_flag": false}
+{"sleep_state": "Poor", "appetite_state": null, "stress_state": "High", "mood_state": "Stressed", "health_alert": true, "crisis_flag": false, "panic_flag": false}
 Người dùng: Tuần trước tệ lắm, nhưng mấy hôm nay mình ngủ lại được rồi, thấy đỡ dần.
-{"sleep_state": "Good", "appetite_state": null, "stress_state": null, "mood_state": "Recovering", "medication_alert": false, "crisis_flag": false, "panic_flag": false}
+{"sleep_state": "Good", "appetite_state": null, "stress_state": null, "mood_state": "Recovering", "health_alert": false, "crisis_flag": false, "panic_flag": false}
 
 Định dạng trả về:
-{"sleep_state": ..., "appetite_state": ..., "stress_state": ..., "mood_state": ..., "medication_alert": false, "crisis_flag": false, "panic_flag": false}"""
+{"sleep_state": ..., "appetite_state": ..., "stress_state": ..., "mood_state": ..., "health_alert": false, "crisis_flag": false, "panic_flag": false}"""
 
 
 @dataclass
@@ -80,5 +80,5 @@ class Extractor:
         for s in STATES:
             v = o.get(s)
             states[s] = v if v in STATE_LABELS[s] else None
-        return Extraction(states=states, medication_alert=o.get("medication_alert") is True,
+        return Extraction(states=states, medication_alert=(o.get("health_alert") is True or o.get("medication_alert") is True),  # prompt dùng khoá health_alert
                           crisis_flag=o.get("crisis_flag") is True, panic_flag=o.get("panic_flag") is True, ok=True, raw=json.dumps(o, ensure_ascii=False))

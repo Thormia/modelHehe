@@ -87,7 +87,7 @@ Toàn bộ hệ thống tuân thủ nghiêm ngặt 2 tiêu chuẩn y khoa - th�
    ```
 3. Kiểm tra các dịch vụ đang chạy:
    - **PostgreSQL**: `localhost:5432` (User: `postgres`, Pass: `postgres123`, DB: `mental_health_nutrition`)
-   - **Neo4j Browser**: `http://localhost:7474` (User: `neo4j`, Pass: `nutrition_graph_2026`)
+   - **Neo4j Browser**: `http://localhost:7474` (User: `neo4j`, Pass: `password123`, theo `docker-compose.yml`)
    - **Redis**: `localhost:6379`
 
 ---
@@ -249,6 +249,17 @@ python scripts/eval_baselines.py report
    dựng PostgreSQL 16 + pgvector, Redis, Neo4j 5.18, Ollama bằng `serving/kaggle_services.sh` (thay docker-compose),
    seed DB, kiểm số dòng, so truy xuất PostgreSQL với bản JSON, chạy unit test, rồi chạy toàn bộ bộ test. Kết quả:
    `/kaggle/working/eval_final_results.zip`. Hết 12 giờ thì gắn Output làm input và chạy lại: ca đã xong được bỏ qua.
+**Kết quả chính thức và cách dựng lại báo cáo** (lần chạy 16–17/10 sau khi sửa lỗi implement nhóm B3):
+- Output 2 notebook Kaggle nằm ở `../eval_result_afterChangePrompt/` (`eval_final_results (1)/` cho crisis, retrieval, safety và 3 baseline;
+  `eval_grounding_results/` cho grounding và định tuyến nhiều lượt). Lần chạy 14–15/10 (định nghĩa cờ thuốc cũ, giữ làm lịch sử)
+  nằm ở `../eval_final_results/` và `logs/eval/grounding/`.
+- `python scripts/analyze_final.py "../eval_result_afterChangePrompt/eval_final_results (1)"` tính lại các chỉ số chi tiết
+  (recall/F1, McNemar, theo loại bẫy…) mà không chạy lại model.
+- `python scripts/build_final_report.py` sinh `../BAO_CAO_KET_QUA_CUOI.docx` từ các file kết quả trên; báo cáo đầy đủ ở
+  `logs/eval/BAO_CAO_DANH_GIA.md`, chấm tay (chỉ để phân tích lỗi) ở `logs/eval/chamtay_after_b3fix.md`.
+- Trọng số không nằm trong repo (vượt 100 MB): `best_adapter` là Output của notebook fine-tune `../finetune_modelhuhu.ipynb`,
+  GGUF là Output của `serving/export_gguf_kaggle.ipynb`; sha256 GGUF ghi trong `manifest.json` của gói Kaggle.
+
 Chưa bật Docker vẫn chạy được toàn hệ thống với `RETRIEVER=offline` trong `.env` (đọc thẳng file JSON, cùng logic chọn món,
 không có `CBT_CONTEXT`); phiên hội thoại tự lưu trong bộ nhớ nếu không có Redis.
 

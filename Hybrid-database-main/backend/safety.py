@@ -13,7 +13,9 @@ CRISIS_RE = re.compile(
     r"kết thúc cuộc sống|nhẹ nợ|rảnh nợ|đi cho xong|biến mất cho|không muốn tỉnh dậy|chết quách|"
     r"nhảy cầu|nhảy lầu|treo cổ|uống thuốc ngủ cho)", re.I)
 
-# "thuốc lá" không tính; "tiêm kích trứng", "đợt điều trị" dễ bị bỏ sót nên liệt kê riêng
+# Keyword chỉ bắt từ khoá thuốc điều trị ("thuốc lá" không khớp ở tầng này); các tình huống cơ thể khác thường
+# của nhóm B3 (mang thai, ốm, vừa mổ, chất kích thích...) do LLM #1 nhận diện qua medication_alert.
+# "tiêm kích trứng", "đợt điều trị" dễ bị bỏ sót nên liệt kê riêng
 MEDICATION_RE = re.compile(
     r"(thuốc(?!\s*lá)|tiêm|kích trứng|liều|kê đơn|đơn thuốc|hóa trị|hoá trị|xạ trị|nội tiết|hormone|hoóc[- ]?môn|"
     r"insulin|đợt điều trị|đang điều trị|phác đồ|chạy thận)", re.I)
