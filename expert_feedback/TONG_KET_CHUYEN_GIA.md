@@ -6,7 +6,7 @@
 - Kho RAG dinh dưỡng.
 - Kho RAG tâm lý.
 
-Phiếu này **không** chấm câu trả lời của hệ thống final; phần đó nằm trong `BAO_CAO_DANH_GIA.md` và `chamtay_final.md`.
+Phiếu này **không** chấm câu trả lời của hệ thống final; phần đó nằm trong `BAO_CAO_DANH_GIA.md` và `chamtay_after_b3fix.md`.
 
 **Cách tính:** `Hybrid-database-main/scripts/expert_agreement.py`, chạy lại được.
 - Cách nhập điểm được chuẩn hoá ("4.0" → 4; "đạt"/"Đạt"/"pass" → đạt); ô trống được coi là thiếu và không tính.
