@@ -170,7 +170,7 @@ def data():
     d.edge(a6, b1)
     d.edge(m1, b1, extra="exitX=0.5;exitY=1;entryX=1;entryY=0.25;")
     d.edge(m3, b1, extra="exitX=1;exitY=0.5;entryX=1;entryY=0.5;")
-    qa = d.node("QA dữ liệu train (A và B):\ncheck_traindata.py – kiểm tra luật tự động\nfix_traindata.py – sửa có ghi log (3.546 thay đổi: reasoning,\ncâu hỏi state, khuyên đi khám, xưng hô, câu hứa hẹn…)\nfinalize_step2.py – bỏ 68 mẫu B2-train trùng B2-test;\nmẫu khủng hoảng / dùng thuốc → safetyguard.jsonl", X - 70, 985, 400, 145, "proc")
+    qa = d.node("QA dữ liệu train:\nnhóm B: rà soát chéo 2 họ LLM (cả hai gắn cờ thì loại) · Perplexity\ncheck_traindata.py – kiểm tra luật tự động\nfix_traindata.py – sửa có ghi log (3.546 thay đổi: reasoning,\ncâu hỏi state, khuyên đi khám, xưng hô, câu hứa hẹn…)\nfinalize_step2.py – bỏ 68 mẫu B2-train trùng B2-test;\nmẫu khủng hoảng / dùng thuốc → safetyguard.jsonl", X - 70, 985, 400, 150, "proc")
     d.edge(b1, qa)
     lg = d.node("traindata_logs/\ncheck_traindata · fix_traindata · finalize_step2\nchange_log.jsonl · removed_samples.jsonl", 550, 1005, 200, 100, "data")
     d.edge(qa, lg, dashed=True)

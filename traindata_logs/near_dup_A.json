@@ -1,0 +1,125 @@
+{
+ "threshold": 0.9,
+ "model": "BAAI/bge-m3 (normalize, fp16 trên GPU)",
+ "text": "nối các tin nhắn user",
+ "source": {
+  "n": 5959,
+  "exact_duplicate_texts": 644,
+  "pairs_ge_thr": 14530,
+  "n_clusters": 142,
+  "samples_in_clusters": 1028,
+  "to_remove": 886,
+  "largest_cluster": 121,
+  "kept_after_dedup": 5073
+ },
+ "final_A_train": {
+  "n": 3831,
+  "exact_duplicate_texts": 1,
+  "pairs_ge_thr": 125,
+  "n_clusters": 33,
+  "samples_in_clusters": 91,
+  "to_remove": 58,
+  "largest_cluster": 9,
+  "kept_after_dedup": 3773
+ },
+ "final_A_test": {
+  "n": 958,
+  "exact_duplicate_texts": 0,
+  "pairs_ge_thr": 6,
+  "n_clusters": 4,
+  "samples_in_clusters": 9,
+  "to_remove": 5,
+  "largest_cluster": 3,
+  "kept_after_dedup": 953
+ },
+ "final_train_test_pairs_ge_thr": 62,
+ "final_test_with_train_neighbor": 25,
+ "final_train_test_examples": [
+  {
+   "train_line": 1679,
+   "test_line": 420,
+   "cos": 0.9993,
+   "train": "Người ta khóc trong lúc trị liệu có bình thường không, hay chỉ mình tôi như vậy?",
+   "test": "Người ta khóc trong lúc trị liệu có bình thường không, hay chỉ mình tôi thế?"
+  },
+  {
+   "train_line": 1681,
+   "test_line": 421,
+   "cos": 0.9984,
+   "train": "Tôi đã đi vài buổi trị liệu rồi mà lần nào bước vào tôi vẫn thấy hồi hộp và run rẩy. Điều này có bình thường không? Tôi vẫn nên cảm thấy như thế này sao?",
+   "test": "Tôi đã đi vài buổi trị liệu rồi mà lần nào bước vào tôi vẫn thấy hồi hộp và run rẩy. Như vậy có bình thường không? Tôi có nên vẫn cảm thấy như vậy không?"
+  },
+  {
+   "train_line": 1133,
+   "test_line": 287,
+   "cos": 0.998,
+   "train": "Khi con gái tôi căng thẳng về một chuyện ngớ ngẩn ở trường, con bé bắt đầu khóc và hoảng loạn. Con là học sinh giỏi, luôn được điểm 4.0, nhưng tôi sợ con căng t",
+   "test": "Khi con gái tôi căng thẳng vì một chuyện ngớ ngẩn ở trường, con bé bắt đầu khóc và hoảng loạn. Con là học sinh giỏi, luôn đạt điểm 4.0, nhưng tôi sợ con đang că"
+  },
+  {
+   "train_line": 1685,
+   "test_line": 419,
+   "cos": 0.9971,
+   "train": "Tôi đã đi trị liệu được vài buổi rồi mà lần nào bước vào tôi vẫn thấy hồi hộp và run. Điều này có bình thường không? Tôi có nên vẫn còn cảm thấy như vậy không?",
+   "test": "Tôi đã đi trị liệu vài buổi rồi mà lần nào bước vào tôi vẫn hồi hộp và run. Vậy có bình thường không? Tôi có nên vẫn còn cảm thấy như thế không?"
+  },
+  {
+   "train_line": 1671,
+   "test_line": 420,
+   "cos": 0.997,
+   "train": "Việc người ta khóc trong lúc trị liệu có bình thường không, hay chỉ mình tôi?",
+   "test": "Người ta khóc trong lúc trị liệu có bình thường không, hay chỉ mình tôi thế?"
+  },
+  {
+   "train_line": 1678,
+   "test_line": 421,
+   "cos": 0.9969,
+   "train": "Tôi đã đi vài buổi trị liệu rồi mà lần nào bước vào tôi vẫn hồi hộp và run rẩy. Điều này có bình thường không? Tôi có nên vẫn còn cảm thấy như vậy không?",
+   "test": "Tôi đã đi vài buổi trị liệu rồi mà lần nào bước vào tôi vẫn thấy hồi hộp và run rẩy. Như vậy có bình thường không? Tôi có nên vẫn cảm thấy như vậy không?"
+  },
+  {
+   "train_line": 1133,
+   "test_line": 286,
+   "cos": 0.9963,
+   "train": "Khi con gái tôi căng thẳng về một chuyện ngớ ngẩn ở trường, con bé bắt đầu khóc và hoảng loạn. Con là học sinh giỏi, luôn được điểm 4.0, nhưng tôi sợ con căng t",
+   "test": "Khi con gái tôi căng thẳng vì một chuyện ngớ ngẩn ở trường, con bé bắt đầu khóc và hoảng loạn. Con bé là học sinh giỏi, luôn được điểm 4.0, nhưng tôi sợ con bé "
+  },
+  {
+   "train_line": 1145,
+   "test_line": 298,
+   "cos": 0.996,
+   "train": "Con gái tôi dường như phát triển bình thường cho đến khoảng 10 tuổi. Sau đó con bắt đầu cư xử nhỏ hơn tuổi của mình. Giờ con chỉ muốn chơi với những đứa trẻ nhỏ",
+   "test": "Con gái tôi dường như phát triển bình thường cho đến khoảng 10 tuổi. Sau đó con bắt đầu cư xử nhỏ hơn tuổi. Giờ con chỉ muốn chơi với những đứa trẻ nhỏ hơn và k"
+  },
+  {
+   "train_line": 1680,
+   "test_line": 420,
+   "cos": 0.9956,
+   "train": "Việc người ta khóc trong lúc trị liệu có bình thường không, hay chỉ có mình tôi như vậy?",
+   "test": "Người ta khóc trong lúc trị liệu có bình thường không, hay chỉ mình tôi thế?"
+  },
+  {
+   "train_line": 920,
+   "test_line": 293,
+   "cos": 0.9924,
+   "train": "Tôi mất rất lâu mới ngủ được; tôi ước chừng khoảng hai tiếng. Tôi thường gặp ác mộng, bắt đầu bằng việc bị quái vật ăn thịt, và tôi hay tỉnh dậy trong sợ hãi và",
+   "test": "Tôi mất rất lâu mới ngủ được; tôi ước chừng khoảng hai tiếng. Tôi thường gặp ác mộng, bắt đầu bằng việc bị quái vật ăn thịt, và tôi thường tỉnh dậy trong sợ hãi"
+  }
+ ],
+ "final_A_all": {
+  "n": 4789,
+  "exact_duplicate_texts": 1,
+  "pairs_ge_thr": 193,
+  "n_clusters": 46,
+  "samples_in_clusters": 129,
+  "to_remove": 83,
+  "largest_cluster": 11,
+  "kept_after_dedup": 4706
+ },
+ "final_nn_cos_quantiles": {
+  "0.5": 0.7546,
+  "0.9": 0.8175,
+  "0.99": 0.9886,
+  "1.0": 1.0008
+ }
+}
