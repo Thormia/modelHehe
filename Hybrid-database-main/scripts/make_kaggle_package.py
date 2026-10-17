@@ -73,7 +73,8 @@ def main():
     if not os.path.exists(gguf):  # worktree thử nghiệm không có GGUF: dùng file của bản chính thức (cùng model)
         gguf = os.path.join(os.path.dirname(AIM), "Hybrid-database-main", "serving", "qwen2.5-7b-huhu-Q4_K_M.gguf")
     commit = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
-    dirty = subprocess.run(["git", "status", "--porcelain", "--", "backend", "retrieval", "db", "ingestion", "scripts",
+    # So nội dung (git diff), không dùng git status: file chép đúng byte từ bản chính thức (CRLF/LF) vẫn bị status báo M
+    dirty = subprocess.run(["git", "diff", "HEAD", "--name-only", "--", "backend", "retrieval", "db", "ingestion", "scripts",
                             "serving", "tests", "data"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
     if dirty:
         sys.exit(f"Còn thay đổi chưa commit, hãy commit trước khi đóng gói:\n{dirty}")
