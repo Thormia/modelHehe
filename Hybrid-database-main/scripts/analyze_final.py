@@ -268,6 +268,6 @@ def extra(root):
 
 
 if __name__ == "__main__":
-    r = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(ROOT), "eval_final_results")
+    r = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(ROOT), "eval_result_afterChangePrompt", "eval_final_results (1)")
     main(r)
     extra(r)

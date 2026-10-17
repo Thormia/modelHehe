@@ -1,6 +1,0 @@
-[chấm A_qwen-huhu_replies.jsonl] 240 ca
-[chấm A_qwen2.5_7b-instruct_replies.jsonl] 240 ca
-[chấm B/B1] 238 ca
-[chấm B/B2] 240 ca
-[chấm B/B3] 240 ca
-[chấm B/B4] 240 ca

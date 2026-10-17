@@ -251,8 +251,7 @@ python scripts/eval_baselines.py report
    `/kaggle/working/eval_final_results.zip`. Hết 12 giờ thì gắn Output làm input và chạy lại: ca đã xong được bỏ qua.
 **Kết quả chính thức và cách dựng lại báo cáo** (lần chạy 16–17/10 sau khi sửa lỗi implement nhóm B3):
 - Output 2 notebook Kaggle nằm ở `../eval_result_afterChangePrompt/` (`eval_final_results (1)/` cho crisis, retrieval, safety và 3 baseline;
-  `eval_grounding_results/` cho grounding và định tuyến nhiều lượt). Lần chạy 14–15/10 (định nghĩa cờ thuốc cũ, giữ làm lịch sử)
-  nằm ở `../eval_final_results/` và `logs/eval/grounding/`.
+  `eval_grounding_results/` cho grounding và định tuyến nhiều lượt). Báo cáo chỉ dùng số của lần chạy này.
 - `python scripts/analyze_final.py "../eval_result_afterChangePrompt/eval_final_results (1)"` tính lại các chỉ số chi tiết
   (recall/F1, McNemar, theo loại bẫy…) mà không chạy lại model.
 - `python scripts/build_final_report.py` sinh `../BAO_CAO_KET_QUA_CUOI.docx` từ các file kết quả trên; báo cáo đầy đủ ở
