@@ -1,8 +1,8 @@
-"""BẢN THỬ NGHIỆM (nhánh thu-nghiem/llm1-ngu-canh): đóng gói hệ thống để tải lên Kaggle làm dataset
+"""BẢN THỬ NGHIỆM (nhánh thu-nghiem/llm3-kiem-tra): đóng gói hệ thống để tải lên Kaggle làm dataset
 (không gồm file GGUF 4.7 GB, tải riêng). Tên gói và trường "variant" trong manifest khác bản chính thức, để notebook
 không chạy nhầm gói chính thức và không trộn kết quả của hai bản.
 
-    python scripts/make_kaggle_package.py      ->  ../kaggle_upload/huhu-system-thu-nghiem.zip
+    python scripts/make_kaggle_package.py      ->  ../kaggle_upload/huhu-system-thu-nghiem-llm3.zip
 
 Trong zip: AIM/Hybrid-database-main (code, data/processed, tests, serving trừ .gguf, .env), AIM/data/300 test và
 AIM/traindata (cho unit test đối chiếu system prompt với dữ liệu fine-tune).
@@ -21,8 +21,8 @@ if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AIM = os.path.dirname(ROOT)
-VARIANT = "thu-nghiem/llm1-ngu-canh"
-OUT = os.path.join(AIM, "kaggle_upload", "huhu-system-thu-nghiem.zip")
+VARIANT = "thu-nghiem/llm3-kiem-tra"
+OUT = os.path.join(AIM, "kaggle_upload", "huhu-system-thu-nghiem-llm3.zip")
 
 INCLUDE_DIRS = ["backend", "retrieval", "db", "ingestion", "scripts", "serving", "tests", os.path.join("data", "processed")]
 INCLUDE_FILES = ["requirements.txt", ".env", "README.md", "docker-compose.yml"]

@@ -15,7 +15,7 @@ sys.path.insert(0, ROOT)
 from backend import safety  # noqa: E402
 from backend.constants import FIXED_PROMPT, STATES, SYSTEM_OVERRIDE  # noqa: E402
 from backend.extractor import Extraction, Extractor  # noqa: E402
-from backend.guardrails import Verdict, check_tier1, repair  # noqa: E402
+from backend.guardrails import DangerVerdict, Verdict, check_tier1, repair  # noqa: E402
 from backend.llm import parse_json_object  # noqa: E402
 from backend.pipeline import ChatPipeline  # noqa: E402
 from backend.prompting import build_messages, build_system_prompt  # noqa: E402
@@ -193,11 +193,17 @@ class FakeRetriever:
 
 
 class FakeJudge:
-    def __init__(self, verdicts=None):
+    def __init__(self, verdicts=None, danger=None):
         self.verdicts = list(verdicts or [])
+        self.dangers = list(danger or [])
+        self.danger_calls = 0
 
     def judge(self, history, msg, o, route):
         return self.verdicts.pop(0) if self.verdicts else Verdict(ok=True)
+
+    def danger(self, history, msg):
+        self.danger_calls += 1
+        return DangerVerdict(ok=True, in_danger=self.dangers.pop(0)) if self.dangers else DangerVerdict(ok=True)
 
 
 FULL = {"sleep_state": "Poor", "appetite_state": "Low", "stress_state": "High", "mood_state": "Stressed"}
@@ -295,28 +301,28 @@ class TestPipeline(unittest.TestCase):
         r = p.handle("s", "chào bạn")
         self.assertIn("Cảm ơn bạn đã chia sẻ", r["reply"])
 
-    # BẢN THỬ NGHIỆM: giám khảo tầng 2 là lớp kiểm tra khủng hoảng thứ hai khi LLM #1 bỏ sót
-    def test_judge_danger_replaces_reply_with_crisis_response(self):
-        judge = FakeJudge([Verdict(ok=True, user_in_danger=True)])
+    # BẢN THỬ NGHIỆM: giám khảo (lượt gọi riêng) là lớp kiểm tra khủng hoảng thứ hai khi LLM #1 bỏ sót
+    def test_judge_danger_gives_crisis_response_without_generator(self):
+        judge = FakeJudge(danger=[True])
+        p, gen = make([({"stress_state": "High"}, False, False)], [], judge=judge)
+        r = p.handle("s", "câu tự soạn để kiểm tra luồng")
+        self.assertEqual(r["branch"], "crisis_judge")
+        self.assertEqual(gen.calls, [])
+        self.assertIn("115", r["reply"])
+
+    def test_danger_not_checked_when_llm1_already_flags_crisis(self):
+        judge = FakeJudge(danger=[True])
+        p, gen = make([({}, False, True)], [], judge=judge)
+        self.assertEqual(p.handle("s", "câu tự soạn để kiểm tra luồng")["branch"], "crisis")
+        self.assertEqual(judge.danger_calls, 0)
+
+    def test_no_danger_keeps_normal_flow(self):
+        judge = FakeJudge(danger=[False])
         p, gen = make([({"stress_state": "High"}, False, False)], [out(False, "Bạn ngủ thế nào?")], judge=judge)
-        r = p.handle("s", "câu tự soạn để kiểm tra luồng")
-        self.assertEqual(r["branch"], "crisis_judge")
-        self.assertEqual(len(gen.calls), 1)
-        self.assertIn("115", r["reply"])
-        self.assertNotIn("Bạn ngủ thế nào?", r["reply"])
-
-    def test_danger_checked_even_when_every_attempt_fails_tier1(self):
-        judge = FakeJudge([Verdict(ok=True, user_in_danger=True)])
-        p, gen = make([({}, False, False)], ["???", "???", "???"], judge=judge)
-        r = p.handle("s", "câu tự soạn để kiểm tra luồng")
-        self.assertEqual(r["branch"], "crisis_judge")
-        self.assertIn("115", r["reply"])
-
-    def test_no_danger_keeps_normal_reply(self):
-        p, gen = make([({"stress_state": "High"}, False, False)], [out(False, "Bạn ngủ thế nào?")])
         r = p.handle("s", "dạo này căng thẳng quá")
         self.assertEqual(r["branch"], "ask_states")
         self.assertEqual(r["reply"], "Bạn ngủ thế nào?")
+        self.assertEqual(judge.danger_calls, 1)
 
 
 class TestExtractorNormalization(unittest.TestCase):
