@@ -107,6 +107,10 @@ class ChatPipeline:
 
         # 5. LLM #2 + Guardrail
         obj, branch, spec = self._generate(history, message, branch, spec, trace)
+        if trace.get("judge_crisis"):
+            # BẢN THỬ NGHIỆM: giám khảo (tầng 2) thấy người dùng đang khủng hoảng / nguy hiểm mà LLM #1 bỏ sót
+            # -> thay câu trả lời bằng phản hồi khủng hoảng soạn sẵn
+            return self._finish(session_id, sess, message, safety.crisis_response(), "crisis_judge", trace, t0, obj=None)
         if obj is None:
             reply = FALLBACK_REPLY
         else:
@@ -145,6 +149,9 @@ class ChatPipeline:
                 v = self.judge.judge(history, message, obj, spec["route"])
                 rec["tier2"] = {"ok": v.ok, "flags": v.flags, "retry": v.retry, "block_nutrition": v.block_nutrition,
                                 "reason": v.reason}
+                if v.user_in_danger:
+                    trace["attempts"], trace["judge_crisis"] = attempts, True
+                    return None, branch, spec
                 if v.block_nutrition:
                     # Bỏ phần gợi ý thực phẩm: sinh lại ở chế độ side_talk (ROUTE false)
                     branch, spec, last_obj = "nutrition_blocked", dict(route=False), None
@@ -157,9 +164,19 @@ class ChatPipeline:
         if last_obj is not None:
             obj, spec_used, codes = last_obj
             trace["fallback"] = "repair"
-            return repair(obj, spec_used["route"], codes), branch, spec_used
-        trace["fallback"] = "canned"
-        return None, branch, spec
+            final = repair(obj, spec_used["route"], codes)
+        else:
+            trace["fallback"] = "canned"
+            final, spec_used = None, spec
+        # BẢN THỬ NGHIỆM: nếu chưa lần sinh nào được giám khảo chấm (đều trượt tầng 1), vẫn kiểm nguy hiểm một lần
+        # trên câu trả lời cuối (bản sửa hoặc câu dự phòng), để không ca nào lọt qua mà chưa được kiểm
+        if self.judge is not None and not any("tier2" in a for a in attempts):
+            v = self.judge.judge(history, message, final or {"side_talk": FALLBACK_REPLY}, False)
+            trace["final_danger_check"] = {"ok": v.ok, "user_in_danger": v.user_in_danger, "reason": v.reason}
+            if v.user_in_danger:
+                trace["judge_crisis"] = True
+                return None, branch, spec_used
+        return final, branch, spec_used
 
     def _finish(self, session_id, sess, message, reply, branch, trace, t0, obj, assistant_history=None):
         sess["history"] += [{"role": "user", "content": message},

@@ -295,6 +295,29 @@ class TestPipeline(unittest.TestCase):
         r = p.handle("s", "chào bạn")
         self.assertIn("Cảm ơn bạn đã chia sẻ", r["reply"])
 
+    # BẢN THỬ NGHIỆM: giám khảo tầng 2 là lớp kiểm tra khủng hoảng thứ hai khi LLM #1 bỏ sót
+    def test_judge_danger_replaces_reply_with_crisis_response(self):
+        judge = FakeJudge([Verdict(ok=True, user_in_danger=True)])
+        p, gen = make([({"stress_state": "High"}, False, False)], [out(False, "Bạn ngủ thế nào?")], judge=judge)
+        r = p.handle("s", "câu tự soạn để kiểm tra luồng")
+        self.assertEqual(r["branch"], "crisis_judge")
+        self.assertEqual(len(gen.calls), 1)
+        self.assertIn("115", r["reply"])
+        self.assertNotIn("Bạn ngủ thế nào?", r["reply"])
+
+    def test_danger_checked_even_when_every_attempt_fails_tier1(self):
+        judge = FakeJudge([Verdict(ok=True, user_in_danger=True)])
+        p, gen = make([({}, False, False)], ["???", "???", "???"], judge=judge)
+        r = p.handle("s", "câu tự soạn để kiểm tra luồng")
+        self.assertEqual(r["branch"], "crisis_judge")
+        self.assertIn("115", r["reply"])
+
+    def test_no_danger_keeps_normal_reply(self):
+        p, gen = make([({"stress_state": "High"}, False, False)], [out(False, "Bạn ngủ thế nào?")])
+        r = p.handle("s", "dạo này căng thẳng quá")
+        self.assertEqual(r["branch"], "ask_states")
+        self.assertEqual(r["reply"], "Bạn ngủ thế nào?")
+
 
 class TestExtractorNormalization(unittest.TestCase):
     def test_invalid_labels_become_null(self):
