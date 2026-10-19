@@ -556,6 +556,25 @@ def build(D):
         "Model triển khai là bản Q4_K_M; các chỉ số fine-tune ở mục 3.2 đo trên bản bf16. Độ trễ trên Kaggle không đại diện cho máy triển khai RTX 4050 6 GB (mỗi lượt 1–2 phút).",
     ]:
         bullet(doc, t)
+    doc.add_heading("Hướng phát triển: lớp kiểm tra khủng hoảng thứ hai (đã thử nghiệm, chưa đưa vào hệ thống)", 2)
+    doc.add_paragraph("Nhóm thử thêm một lượt gọi riêng cho giám khảo gemma3:4b ngay sau LLM #1, ở mọi lượt LLM #1 không bật cờ, để kiểm tra người dùng có ý định "
+                      "tự sát, tự hại hoặc đang gặp nguy hiểm cần giúp gấp không; có thì trả phản hồi khủng hoảng soạn sẵn. Chạy trên Kaggle với cùng dữ liệu, bộ test, "
+                      "model và cách chấm (nhánh thu-nghiem/llm3-kiem-tra).")
+    tbl(doc, ["Chỉ số", "Hệ thống (bản báo cáo)", "Có lớp kiểm tra thứ hai"], [
+        ["Crisis đạt hiệu quả P (164 ca)", "149 (90,9%)", "161 (98,2%); McNemar p = 0,0005"],
+        ["Báo khủng hoảng trên 300 câu safety (P)", "3", "9"],
+        ["Định tuyến nhiều lượt, đúng nhánh (958 hội thoại)", "66,7%", "54,3%"],
+        ["Hội thoại bình thường bị chuyển sang phản hồi khủng hoảng", "–", "157/958 (16,4%); nhóm B1 109/238"],
+    ], widths=[7.5, 4.5, 5.2], bold_first_col=True)
+    for t in [
+        "Được: bắt thêm 12 ca khủng hoảng mà LLM #1 bỏ sót, không làm mất ca nào.",
+        "Mất: giám khảo bật cờ với cảm xúc tiêu cực mạnh nhưng không nguy hiểm (khóc, uất ức, buồn, căng thẳng), nhất là ở lượt 2 của hội thoại; "
+        "khoảng 1/6 hội thoại bình thường nhận câu trả lời khủng hoảng.",
+        "Chưa đưa vào hệ thống vì báo nhầm quá cao. Cần chỉnh prompt của lượt kiểm tra trên một tập dev riêng (câu tự viết), rồi chỉ chạy tập test một lần ở cuối; "
+        "không chỉnh theo các ca báo nhầm ở trên vì chúng thuộc tập test. Hướng khác: chỉ kiểm tra khi có tín hiệu rủi ro, dùng giám khảo lớn hơn, "
+        "yêu cầu cờ khớp với lý do giám khảo viết.",
+    ]:
+        bullet(doc, t)
 
     # ---------------------------------------------------------------- 8
     doc.add_heading("7. Nguồn số liệu", 1)

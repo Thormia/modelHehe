@@ -221,7 +221,7 @@ Kết quả B3 đã được 13 người đọc lại xác nhận (4 thành viê
 
 ## 5. Hạn chế
 - LLM #1 bỏ sót 16/164 ca khủng hoảng, trong đó có 11 ca tự hại. Đây là giới hạn của model 7B lượng tử hoá khi chỉ có quy tắc chung. Nhiều ca tự hại bị sót gắn với vết thương thể chất (mục 1.1).
-- Khi LLM #1 bỏ sót khủng hoảng, model fine-tune có thể trả lời nguy hiểm, ví dụ khen "đã mua dây" hoặc giúp che vết tự hại (mục 1.2). Hiện chưa có lớp kiểm tra thứ hai cho câu trả lời ở nhánh thường hay nhánh thuốc. Giám khảo tầng 2 chưa có tiêu chí "người dùng có dấu hiệu khủng hoảng".
+- Khi LLM #1 bỏ sót khủng hoảng, model fine-tune có thể trả lời nguy hiểm, ví dụ khen "đã mua dây" hoặc giúp che vết tự hại (mục 1.2). Hiện chưa có lớp kiểm tra thứ hai cho câu trả lời ở nhánh thường hay nhánh thuốc. Giám khảo tầng 2 chưa có tiêu chí "người dùng có dấu hiệu khủng hoảng". Một lớp kiểm tra thứ hai đã được thử nghiệm (mục 5.1), nhưng chưa đưa vào hệ thống.
 - Ở 42/65 ca hoảng loạn, model bật thêm `crisis_flag`. Phản hồi vẫn an toàn nhưng hai cờ chưa tách bạch.
 - **Cờ y tế B3 vẫn bỏ sót** nhiều tình trạng thuộc định nghĩa (mục 9.3): sau nhậu (bắt được 5/21), nhịn ăn (6/19), cai thuốc lá hoặc vape (6/16), uống nhiều cà phê (2/9), thức trắng kèm triệu chứng thể chất (0/20). Câu hỏi giùm người thân cũng có thể bị sót (khi thử prompt).
 - **Cờ y tế đôi khi bật nhầm** khi bệnh hoặc thuốc không phải của người dùng: con ốm, thú cưng ốm, lấy nhầm thuốc cho khách, giá thuốc trừ sâu (5/35 hội thoại B1, mục 9.3).
@@ -231,6 +231,22 @@ Kết quả B3 đã được 13 người đọc lại xác nhận (4 thành viê
 - Model đôi khi thêm tác dụng ngoài context, và chưa có guardrail bắt lỗi này. Guardrail tầng 2 chưa có tiêu chí rối loạn ăn uống. Lần này ca B3_056 (đang nhịn ăn) không bị gợi ý món, vì cờ y tế đã chuyển ca này sang nhánh thuốc.
 - Chưa đo: tỷ lệ hỏi state B1/B4 chấm tay, đánh giá Tier 2/3 riêng, Likert mù trên câu trả lời của hệ thống final.
 - Tốc độ trên RTX 4050 6 GB: mỗi lượt 1–2 phút vì 3 model phải nạp luân phiên. Phản hồi khủng hoảng và hoảng loạn không cần LLM #2, chỉ mất vài giây.
+
+### 5.1 Hướng phát triển: lớp kiểm tra khủng hoảng thứ hai (đã thử nghiệm, chưa đưa vào hệ thống)
+
+Để khắc phục việc LLM #1 bỏ sót khủng hoảng, nhóm thử thêm một lượt gọi riêng cho giám khảo `gemma3:4b`, ngay sau LLM #1. Lượt này chạy ở mọi lượt LLM #1 không bật cờ, và kiểm tra người dùng có ý định tự sát, tự hại, hay đang gặp nguy hiểm cần giúp gấp ngay lúc nhắn không. Nếu có, hệ thống trả phản hồi khủng hoảng soạn sẵn. Mọi thành phần khác giữ nguyên. Bản thử nghiệm chạy trên Kaggle với cùng dữ liệu, bộ test, model và cách chấm (nhánh `thu-nghiem/llm3-kiem-tra`, báo cáo `BAO_CAO_THU_NGHIEM_LLM3.md` trong nhánh đó).
+
+| Chỉ số | Hệ thống (bản báo cáo) | Có lớp kiểm tra thứ hai |
+|---|---|---|
+| Crisis đạt hiệu quả P (164 ca) | 149 (90.9%) | 161 (98.2%); McNemar p = 0.0005 |
+| Báo khủng hoảng trên 300 câu safety (P) | 3 | 9 |
+| Định tuyến nhiều lượt, đúng nhánh (958 hội thoại) | 66.7% | 54.3% |
+| Hội thoại bình thường bị chuyển sang phản hồi khủng hoảng | – | 157/958 (16.4%); nhóm B1 109/238 |
+
+- **Được:** bắt thêm 12 ca khủng hoảng mà LLM #1 bỏ sót, không làm mất ca nào.
+- **Mất:** giám khảo bật cờ với cảm xúc tiêu cực mạnh nhưng không nguy hiểm (khóc, uất ức, buồn, căng thẳng), nhất là ở lượt 2 của hội thoại. Vì vậy trong khoảng 1/6 hội thoại bình thường, người dùng nhận câu trả lời khủng hoảng thay cho trò chuyện bình thường.
+- **Vì sao chưa đưa vào hệ thống:** tỷ lệ báo nhầm quá cao. Muốn giảm báo nhầm thì phải chỉnh prompt của lượt kiểm tra này trên một tập dev riêng (câu tự viết, gồm cả cảm xúc mạnh nhưng không nguy hiểm và hội thoại nhiều lượt), rồi chỉ chạy tập test một lần ở cuối. Không chỉnh theo các ca báo nhầm ở trên, vì chúng thuộc tập test.
+- Các hướng khác có thể thử: chỉ chạy lượt kiểm tra khi có tín hiệu rủi ro; dùng giám khảo lớn hơn; yêu cầu cờ phải khớp với lý do giám khảo viết.
 
 ## 6. Các quyết định thiết kế và vị trí kết quả
 
