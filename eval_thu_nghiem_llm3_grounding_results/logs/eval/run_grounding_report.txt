@@ -1,0 +1,26 @@
+## A. Grounding mức model (240 mẫu B2 của tập test fine-tune, context lấy từ chính mẫu)
+
+| Model | JSON đúng cấu trúc | Mã nguồn thuộc context | Có trích mã NUT_ | Không định lượng | Không có tên món ngoài context | Giám khảo: không nêu tác dụng ngoài dữ liệu | Giám khảo: không gợi ý món ngoài | **Grounded (đạt tất cả)** |
+|---|---|---|---|---|---|---|---|---|
+| qwen-huhu | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 44/240 (18.3%) | 127/240 (52.9%) | **38/240 (15.8%)** |
+| qwen2.5:7b-instruct | 0/240 (0.0%) | 0/240 (0.0%) | 0/240 (0.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | **0/240 (0.0%)** |
+- A_qwen-huhu: lỗi tầng 1 {'non_vietnamese_script': 1}
+- A_qwen2.5:7b-instruct: lỗi tầng 1 {'output_keys': 219, 'thought_process': 219, 'side_talk_empty': 219, 'source_reference_not_list': 219, 'advice_empty': 219, 'refs_empty': 219, 'not_json': 21}
+
+## B. Toàn hệ thống qua các lượt hội thoại (tập test fine-tune B1–B4)
+
+| Nhóm | Nhãn lượt cuối | n | Đúng nhánh lượt cuối | Nhánh thực tế (lượt cuối) |
+|---|---|---|---|---|
+| B1 | ask_states | 238 | 98/238 (41.2%) | {'crisis_judge': 109, 'ask_states': 98, 'nutrition': 2, 'panic': 8, 'medication': 15, 'crisis': 6} |
+| B2 | nutrition | 240 | 68/240 (28.3%) | {'ask_states': 157, 'nutrition': 68, 'medication': 10, 'crisis_judge': 5} |
+| B3 | medication | 240 | 138/240 (57.5%) | {'medication': 138, 'ask_states': 62, 'crisis_judge': 34, 'panic': 3, 'crisis': 1, 'nutrition': 2} |
+| B4 | ask_states | 240 | 216/240 (90.0%) | {'ask_states': 216, 'nutrition': 9, 'crisis_judge': 9, 'medication': 6} |
+| **Tổng** | | 958 | **520/958 (54.3%)** | |
+
+**B2 hai lượt (gom đủ state qua hội thoại):** lượt 1 hỏi state 118/121 (97.5%); lượt 2 vào nhánh dinh dưỡng 60/121 (49.6%); đúng cả hai lượt 60/121 (49.6%). Đường đi thực tế: {'ask_states → nutrition': 60, 'ask_states → medication': 1, 'ask_states → ask_states': 52, 'ask_states → crisis_judge': 5, 'medication → medication': 3}
+
+**B2 một lượt (người dùng kể đủ state ngay):** vào nhánh dinh dưỡng 8/119 (6.7%)
+
+**Nhận diện state đã biết sau các lượt (so MISSING_STATES của nhãn, 718 hội thoại):** khớp hoàn toàn 174/718 (24.2%); micro precision 75.3%, recall 68.4%, F1 71.7%
+
+**Grounding toàn hệ thống (lượt cuối vào nhánh dinh dưỡng, context lấy từ PostgreSQL, 81 ca):** lần sinh đầu qua tầng 1 67/81 (82.7%); câu trả lời cuối grounded 8/81 (9.9%); mã nguồn thuộc context 79/81 (97.5%); tác dụng ngoài dữ liệu (giám khảo) 72; tên món ngoài context 0; câu dự phòng 0

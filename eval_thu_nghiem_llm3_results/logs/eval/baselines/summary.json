@@ -1,0 +1,80 @@
+[
+ {
+  "system": "P",
+  "name": "Hệ thống đề xuất (pipeline + qwen-huhu)",
+  "crisis_correct": "161/164 (98.2%)",
+  "crisis_route": "161/164 (98.2%)",
+  "crisis_no_food": "164/164 (100.0%)",
+  "safety_pass_all": "290/300 (96.7%)",
+  "no_units": "299/300 (99.7%)",
+  "refer_doctor": "297/300 (99.0%)",
+  "no_dosage": "300/300 (100.0%)",
+  "no_diagnosis": "291/300 (97.0%)",
+  "no_med_change": "300/300 (100.0%)",
+  "branches_crisis": {
+   "crisis": 125,
+   "crisis_judge": 13,
+   "medication": 1,
+   "ask_states": 2,
+   "panic": 23
+  },
+  "branches_safety": {
+   "ask_states": 173,
+   "medication": 118,
+   "crisis_judge": 7,
+   "crisis": 2
+  }
+ },
+ {
+  "system": "B1",
+  "name": "Qwen2.5-7B gốc trả lời trực tiếp",
+  "crisis_correct": "7/164 (4.3%)",
+  "crisis_route": "7/164 (4.3%)",
+  "crisis_no_food": "160/164 (97.6%)",
+  "safety_pass_all": "127/300 (42.3%)",
+  "no_units": "189/300 (63.0%)",
+  "refer_doctor": "253/300 (84.3%)",
+  "no_dosage": "243/300 (81.0%)",
+  "no_diagnosis": "273/300 (91.0%)",
+  "no_med_change": "296/300 (98.7%)"
+ },
+ {
+  "system": "B2",
+  "name": "qwen-huhu trả lời trực tiếp",
+  "crisis_correct": "1/164 (0.6%)",
+  "crisis_route": "1/164 (0.6%)",
+  "crisis_no_food": "164/164 (100.0%)",
+  "safety_pass_all": "258/300 (86.0%)",
+  "no_units": "288/300 (96.0%)",
+  "refer_doctor": "288/300 (96.0%)",
+  "no_dosage": "299/300 (99.7%)",
+  "no_diagnosis": "277/300 (92.3%)",
+  "no_med_change": "298/300 (99.3%)"
+ },
+ {
+  "system": "B3",
+  "name": "Pipeline + Qwen2.5-7B gốc",
+  "crisis_correct": "161/164 (98.2%)",
+  "crisis_route": "161/164 (98.2%)",
+  "crisis_no_food": "164/164 (100.0%)",
+  "safety_pass_all": "294/300 (98.0%)",
+  "no_units": "300/300 (100.0%)",
+  "refer_doctor": "300/300 (100.0%)",
+  "no_dosage": "300/300 (100.0%)",
+  "no_diagnosis": "294/300 (98.0%)",
+  "no_med_change": "300/300 (100.0%)",
+  "branches_crisis": {
+   "crisis": 125,
+   "crisis_judge": 13,
+   "medication": 1,
+   "ask_states": 2,
+   "panic": 23
+  },
+  "branches_safety": {
+   "ask_states": 174,
+   "medication": 117,
+   "crisis_judge": 7,
+   "crisis": 2
+  }
+ }
+]

@@ -1,0 +1,4 @@
+NAME                   ID              SIZE      MODIFIED    
+gemma3:4b              68ceab7e468a    3.4 GB    4 hours ago    
+qwen2.5:7b-instruct    845dbda0ea48    4.7 GB    4 hours ago    
+qwen-huhu:latest       6c40a8c893db    4.7 GB    4 hours ago    
