@@ -36,7 +36,7 @@ import report_charts as ch  # noqa: E402
 from analyze_final import ci, mcnemar_exact  # noqa: E402
 from backend.constants import FOOD_SUGGESTION_RE  # noqa: E402
 from eval_baselines import EMERGENCY_RE  # noqa: E402
-from eval_system import DOCTOR_RE, OUT_OF_VOCAB  # noqa: E402
+from eval_system import DOCTOR_RE  # noqa: E402
 
 RERUN = os.path.join(AIM, "eval_result_afterChangePrompt")
 NEW_RATERS = {"Yhoc4", "Yhoc5"}  # 2 phiếu kiểm chứng dữ liệu bổ sung ngày 18/10
@@ -48,7 +48,15 @@ PPL_BASE = [9.94, 14.23, 9.51, 13.38, 19.76, 11.23]
 PPL_FT = [2.34, 2.63, 3.22, 1.94, 1.96, 2.41]
 FOOD_RE = re.compile(FOOD_SUGGESTION_RE, re.I)
 SYS = ["P", "B1", "B2", "B3"]
-OUT_OF_SCOPE = {"digestion"}
+# Truy xuất phân tích theo 4 state hệ thống nhận vào: nhãn của bộ test (đặt theo đích tác động) đổi sang state tương ứng;
+# digestion, impulsivity_control không ứng với state nào nên không tính
+EFFECT_TO_STATE = {"sleep_regulation": "sleep_state", "appetite_regulation": "appetite_state",
+                   "stress_response": "stress_state", "mood_regulation": "mood_state"}
+# Nhãn state thể hiện đúng chiều vấn đề mà câu test mô tả
+PROBLEM_LABELS = {"sleep_state": {"Poor", "Excessive"}, "appetite_state": {"Low", "High"},
+                  "stress_state": {"Moderate", "High"}, "mood_state": {"Stressed", "LowMood"}}
+STATE_VI = {"sleep_state": "Giấc ngủ (sleep_state)", "appetite_state": "Ăn uống (appetite_state)",
+            "stress_state": "Căng thẳng (stress_state)", "mood_state": "Tâm trạng (mood_state)"}
 STATES = ("sleep_state", "appetite_state", "stress_state", "mood_state")
 # Gom hội thoại B3 theo tình trạng người dùng kể, chỉ để báo cáo (khớp nhóm đầu tiên); không dùng trong hệ thống.
 B3_GROUPS = [
@@ -105,36 +113,28 @@ def load_all():
     D["crisis_detect"] = by
     # Retrieval
     rr = jl(os.path.join(ev, next(f for f in os.listdir(ev) if f.startswith("retrieval_"))))
-    # digestion (triệu chứng tiêu hoá) nằm ngoài 4 state của hệ thống, không thuộc phạm vi đánh giá truy xuất
-    D["retrieval_excluded"] = sum(r["category"] in OUT_OF_SCOPE for r in rr)
-    rr = [r for r in rr if r["category"] not in OUT_OF_SCOPE]
-    cat = defaultdict(Counter)
-    P = R = F = M = 0.0
-    m = 0
-    own = {"sleep_regulation": "sleep_state", "appetite_regulation": "appetite_state"}
+    per = {k: Counter() for k in STATES}
+    grp, wrong = defaultdict(Counter), Counter()
+    excluded = 0
     for r in rr:
-        c = cat[r["category"]]
-        c["n"] += 1
-        c["any"] += any(r["states"].values())
-        if r["category"] in own:
-            c["own_n"] += 1
-            c["own"] += bool(r["states"].get(own[r["category"]]))
-        exp = set(r["expected_effects"]) - OUT_OF_VOCAB
-        if exp:
-            c["m"] += 1
-            c["top"] += bool(r["top_hit"])
-            c["hit"] += bool(r["any_hit"])
-            w = r["target_weights"]
-            inter = len(set(w) & exp)
-            p_ = inter / len(w) if w else 0
-            r_ = inter / len(exp)
-            P += p_
-            R += r_
-            F += 2 * p_ * r_ / (p_ + r_) if p_ + r_ else 0
-            M += next((1 / (i + 1) for i, k in enumerate(sorted(w, key=lambda k: -w[k])) if k in exp), 0)
-            m += 1
-    D["retrieval"] = cat
-    D["retrieval_prf"] = (P / m, R / m, F / m, M / m, m)
+        exp = {EFFECT_TO_STATE[e] for e in r["expected_effects"] if e in EFFECT_TO_STATE}
+        if not exp:
+            excluded += 1
+            continue
+        ok_all = True
+        for st in exp:
+            v = r["states"].get(st)
+            per[st]["n"] += 1
+            per[st]["known"] += bool(v)
+            per[st]["prob"] += v in PROBLEM_LABELS[st]
+            if v and v not in PROBLEM_LABELS[st]:
+                wrong[f"{st}={v}"] += 1
+            ok_all &= v in PROBLEM_LABELS[st]
+        g = grp["Câu nhiều state" if len(exp) > 1 else "Câu một state"]
+        g["n"] += 1
+        g["ok"] += ok_all
+        g["target"] += bool(r["target_weights"])
+    D["retrieval"] = {"per": per, "grp": grp, "wrong": wrong, "excluded": excluded}
     # Baseline: tổng hợp + chi tiết
     D["an"] = json.load(open(os.path.join(ev, "analysis_final.json"), encoding="utf-8"))
     sc = {(s, su): {r["id"]: r for r in jl(os.path.join(ev, "baselines", f"{s}_{su}_scored.jsonl"))}
@@ -320,10 +320,11 @@ def build(D):
     cd = D["crisis_detect"]
     det = (sum(c["flag"] for c in cd.values()), sum(c["n"] for c in cd.values()))
     rt = D["retrieval"]
-    r_any = sum(c["any"] for c in rt.values())
-    r_n = sum(c["n"] for c in rt.values())
-    r_own = sum(c["own"] for c in rt.values())
-    r_own_n = sum(c["own_n"] for c in rt.values())
+    r_items = sum(g["n"] for g in rt["grp"].values())
+    r_ok = sum(g["ok"] for g in rt["grp"].values())
+    r_tgt = sum(g["target"] for g in rt["grp"].values())
+    r_prob = sum(c["prob"] for c in rt["per"].values())
+    r_n = sum(c["n"] for c in rt["per"].values())
     ro = D["routing"]
     rows = [
         ["Khủng hoảng (164 câu)", "LLM #1 phát hiện", pc(*det), "–", "–", "dùng chung LLM #1"],
@@ -334,9 +335,9 @@ def build(D):
         + [pp(an[s]["safety"]["correct"] / an[s]["safety"]["n"]) + ("*" if s == "B3" else "") for s in SYS],
         ["", "Trả lời hợp lệ (không phải câu dự phòng)"] + [pp(an[s]["safety"]["valid"] / an[s]["safety"]["n"]) for s in SYS],
         ["", "Đạt hiệu quả"] + [pp(an[s]["safety"]["effective"] / an[s]["safety"]["n"]) for s in SYS],
-        [f"Truy xuất ({r_n} câu)", "Trích được state / đúng state nhóm sleep-appetite",
-         f"{pp(r_any / r_n)} / {pp(r_own / r_own_n)}", "–", "–", "–"],
-        ["", "MRR đích tác động", num(D["retrieval_prf"][3]), "–", "–", "–"],
+        [f"Truy xuất theo 4 state ({r_items} câu)", "Trích đúng state mong đợi, đúng chiều vấn đề: theo từng state / đủ mọi state của câu",
+         f"{pp(r_prob / r_n)} / {pp(r_ok / r_items)}", "–", "–", "–"],
+        ["", "Có đích tác động để truy xuất món (từ state đã trích)", pp(r_tgt / r_items), "–", "–", "–"],
         ["Định tuyến nhiều lượt", "B2: đủ 4 state và không có cờ y tế → truy xuất PostgreSQL",
          f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']}", "–", "–", "–"],
         ["", "B3: cờ y tế bật → nhánh thuốc", f"{ro['b3_flag_med']}/{ro['b3_flag']}", "–", "–", "–"],
@@ -443,25 +444,32 @@ def build(D):
                 "\"vừa uống một nắm thuốc\" → chỉ khuyên đến cơ sở y tế sớm. Danh sách đầy đủ: chamtay_after_b3fix.md.")
     bullet(doc, "Phân tích chấm tay 15 ca này: mục 4.6.")
 
-    doc.add_heading(f"4.2 Truy xuất theo state ({sum(c['n'] for c in D['retrieval'].values())} câu, qua PostgreSQL)", 2)
-    cat = D["retrieval"]
+    rt = D["retrieval"]
+    doc.add_heading(f"4.2 Truy xuất theo 4 state ({r_items} câu, qua PostgreSQL)", 2)
+    note(doc, "Hệ thống chỉ nhận 4 state (giấc ngủ, ăn uống, căng thẳng, tâm trạng) rồi suy ra đích tác động qua state_effect_map, nên phần truy xuất "
+              "được chấm theo 4 state này. Bộ test gắn nhãn theo đích tác động; mỗi nhãn được đổi sang state tương ứng: sleep_regulation → sleep_state, "
+              "appetite_regulation → appetite_state, stress_response → stress_state, mood_regulation → mood_state. Một câu đạt ở một state khi LLM #1 "
+              "trích được state đó với nhãn đúng chiều vấn đề (giấc ngủ Poor/Excessive, ăn uống Low/High, căng thẳng Moderate/High, tâm trạng "
+              f"Stressed/LowMood). {rt['excluded']} câu chỉ có nhãn digestion hoặc impulsivity_control không ứng với state nào nên không tính.")
     rows = []
+    for st in STATES:
+        c = rt["per"][st]
+        rows.append([STATE_VI[st], c["n"], pc(c["known"], c["n"]), pc(c["prob"], c["n"])])
     tot = Counter()
-    for k in ("sleep_regulation", "appetite_regulation", "stress_response", "mood_regulation", "multi_symptom"):
-        c = cat[k]
+    for c in rt["per"].values():
         tot.update(c)
-        rows.append([k, pc(c["any"], c["n"]), pc(c["own"], c["own_n"]) if c["own_n"] else "–",
-                     pc(c["top"], c["m"]) if c["m"] else "–", pc(c["hit"], c["m"]) if c["m"] else "–"])
-    rows.append(["Tổng", pc(tot["any"], tot["n"]), pc(tot["own"], tot["own_n"]), pc(tot["top"], tot["m"]), pc(tot["hit"], tot["m"])])
-    tbl(doc, ["Nhóm", "Trích được state", "Đúng state của nhóm", "Đích cao nhất đúng", "Có đích đúng"], rows, widths=[4.2, 3.3, 3.5, 3.3, 3])
-    figure(doc, ch.retrieval_extract(cat, ["sleep_regulation", "appetite_regulation", "stress_response", "mood_regulation", "multi_symptom"]),
-           "Tỷ lệ trích được state và có đích tác động đúng theo nhóm câu truy xuất (đích chỉ chấm trên nhãn thuộc từ vựng hệ thống).")
-    P_, R_, F_, M_, m = D["retrieval_prf"]
-    tbl(doc, ["Macro precision", "Macro recall", "Macro F1", "MRR", "Số ca có nhãn thuộc từ vựng hệ thống"], [[pp(P_), pp(R_), pp(F_), num(M_), m]])
-    note(doc, "Giấc ngủ và ăn uống được nhóm chủ ý suy luận qua cơ chế và hoạt chất (state_effect_map), không gắn trực tiếp vào dữ liệu thực phẩm; vì vậy với nhóm sleep/appetite chỉ chấm việc trích đúng state, và đích tác động chỉ so trên nhãn thuộc từ vựng của hệ thống. "
-              f"Bộ truy xuất gốc có thêm {D['retrieval_excluded']} câu nhóm digestion (trào ngược, đầy hơi, đau bụng) không được đánh giá. Bộ test được xây theo "
-              "các đích tác động của ontology (gồm cả digestion, trục ruột – não), còn đầu vào của hệ thống chỉ là 4 state (ngủ, ăn uống, căng thẳng, cảm xúc): "
-              "triệu chứng tiêu hoá đơn thuần không ứng với state nào, và đích digestion chỉ được tới gián tiếp qua appetite_state = Low (kho có 3 món).")
+    rows.append(["Tổng (lượt state)", tot["n"], pc(tot["known"], tot["n"]), pc(tot["prob"], tot["n"])])
+    tbl(doc, ["State", "Số câu cần state này", "Trích được state", "Đúng chiều vấn đề"], rows, widths=[5.4, 3.4, 4, 4])
+    figure(doc, ch.retrieval_by_state([(STATE_VI[st].split(" (")[0], rt["per"][st]) for st in STATES]),
+           "Tỷ lệ LLM #1 trích được từng state mà câu truy xuất cần, và trích đúng chiều vấn đề.")
+    rows = [[g, rt["grp"][g]["n"], pc(rt["grp"][g]["ok"], rt["grp"][g]["n"]), pc(rt["grp"][g]["target"], rt["grp"][g]["n"])]
+            for g in ("Câu một state", "Câu nhiều state")]
+    rows.append(["Tổng", r_items, pc(r_ok, r_items), pc(r_tgt, r_items)])
+    tbl(doc, ["Loại câu", "n", "Trích đúng mọi state mong đợi", "Có đích tác động để truy xuất món"], rows, widths=[4.2, 1.6, 5.4, 5.6])
+    bullet(doc, "Trích sai chiều vấn đề: " + ", ".join(f"{k} ({v})" for k, v in rt["wrong"].most_common()) + "; còn lại là không trích được state.")
+    miss = sorted(((c["n"] - c["known"]) / c["n"], st) for st, c in rt["per"].items())[::-1][:2]
+    bullet(doc, "State hay bị bỏ sót nhất: " + "; ".join(
+        f"{STATE_VI[st].split(' (')[0].lower()} ({rt['per'][st]['n'] - rt['per'][st]['known']}/{rt['per'][st]['n']} câu không trích được)" for _, st in miss) + ".")
 
     doc.add_heading("4.3 Ranh giới an toàn (300 câu bẫy)", 2)
     rows = []

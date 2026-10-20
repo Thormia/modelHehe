@@ -14,15 +14,14 @@
 | Khủng hoảng (164) | LLM #1 phát hiện | 148/164 (90.2%) | – | – | (dùng chung LLM #1) |
 | | Đạt hiệu quả (có hướng dẫn khẩn cấp, không gợi ý món, trả lời hợp lệ) | **90.9%** | 6.7% | 0.0% | 90.9% |
 | | Recall / báo nhầm (trên 300 câu safety) / F1 phản hồi khẩn cấp (mục 7.1) | 90.9% / 1.0%† / 94.3% | 7.3% / 1.0% / 13.4% | 0.0% / 0.0% / 0.0% | 90.9% / 0.7% / 94.6% |
-| Truy xuất (250, mục 2) | Trích được state | 93.6% | – | – | – |
-| | Trích đúng state nhóm sleep/appetite | 89.0% | – | – | – |
-| | Đích tác động cao nhất đúng / có đích đúng | 77.6% / 92.9% | – | – | – |
+| Truy xuất theo 4 state (253 câu, mục 2) | Trích đúng state mong đợi, đúng chiều vấn đề: theo từng state | 91.2% | – | – | – |
+| | Trích đúng mọi state mong đợi của câu | 90.9% | – | – | – |
+| | Có đích tác động để truy xuất món (từ state đã trích) | 93.3% | – | – | – |
 | An toàn (300) | Đạt cả 5 tiêu chí (tự động) | 92.7% | 40.7% | 83.0% | 98.0%* |
 | | Trả lời hợp lệ (không phải câu dự phòng) | 100% | 100% | 100% | **0.7%** |
 | | **Đạt hiệu quả** | **92.7%** | 40.7% | 83.0% | **0.3%** |
 | | Khuyên gặp bác sĩ / chuyên gia; không gợi ý thực phẩm (safety, mục 7.2) | 96.0%; 100% | 61.0%; 97.0% | 91.0%; 100% | 0.7%; 0.7% |
 | | Hỏi ít nhất 1 state còn thiếu (nhánh ask_states, xấp xỉ) | 75.8% | – | – | – |
-| Truy xuất | Precision / recall / F1 / MRR đích tác động (mục 7.4) | 54.0% / 88.8% / 64.3% / 0.850 | – | – | – |
 | Định dạng | Đúng JSON ngay lần sinh đầu (safety) | 99.0% | 0% | 100% | 0% |
 | Thống kê | McNemar P vs baseline (đạt hiệu quả, mục 7.5) | – | p < 0.001 cả hai bộ | p < 0.001 cả hai bộ | safety p < 0.001; crisis p = 1.0 |
 | Định tuyến nhiều lượt (tập test fine-tune, mục 9) | B2: đủ 4 state → truy xuất database | 68/68 (100%)‡ | – | – | – |
@@ -134,22 +133,37 @@ Theo loại (đạt hiệu quả):
 
   Như vậy khi LLM #1 bỏ sót, không có lớp nào khác bắt lại.
 
-## 2. Truy xuất theo state (LLM #1 → state_effect_map → đích tác động, qua PostgreSQL)
+## 2. Truy xuất theo 4 state (LLM #1 → state_effect_map → đích tác động, qua PostgreSQL)
 
-Hệ thống lấy cảm hứng từ ontology của Xhani et al. (2026), không sao chép nguyên. Giấc ngủ và ăn uống phụ thuộc nhiều vào từng cá nhân và nhiều yếu tố khác nhau, nên nhóm chủ ý không gắn trực tiếp hai trường này vào dữ liệu thực phẩm. Thay vào đó, `state_effect_map` suy luận qua cơ chế và hoạt chất. Vì vậy các nhãn `sleep_regulation`, `appetite_regulation` và `impulsivity_control` của bộ test không thuộc từ vựng của hệ thống. Cách chấm:
-- Với nhóm sleep và appetite, chấm việc LLM #1 có trích đúng state của nhóm hay không.
-- Với đích tác động, chỉ so trên các nhãn thuộc từ vựng của hệ thống.
+Hệ thống chỉ nhận 4 state (giấc ngủ, ăn uống, căng thẳng, tâm trạng) rồi suy ra đích tác động qua `state_effect_map`, nên phần truy xuất được chấm theo 4 state này. Bộ test gắn nhãn theo đích tác động; mỗi nhãn được đổi sang state tương ứng:
 
-| Nhóm | Trích được state | Trích đúng state của nhóm | Đích cao nhất đúng | Có đích đúng |
-|---|---|---|---|---|
-| sleep_regulation | 48/50 | **47/50 (94.0%)** | – | – |
-| appetite_regulation | 44/50 | **42/50 (84.0%)** | 4/6 | 4/6 |
-| stress_response | 50/50 | – | 50/50 (100%) | 50/50 (100%) |
-| mood_regulation | 45/50 | – | 38/50 (76.0%) | 44/50 (88.0%) |
-| multi_symptom | 47/50 | – | 29/50 (58.0%) | 47/50 (94.0%) |
-| **Tổng** | **234/250 (93.6%)** | **89/100 (89.0%)** | **121/156 (77.6%)** | **145/156 (92.9%)** |
+| Nhãn của bộ test | State của hệ thống |
+|---|---|
+| sleep_regulation | sleep_state |
+| appetite_regulation | appetite_state |
+| stress_response | stress_state |
+| mood_regulation | mood_state |
+| digestion, impulsivity_control | không ứng với state nào, không tính |
 
-- Bộ truy xuất gốc có thêm 50 câu nhóm digestion (trào ngược, đầy hơi, đau bụng), không được đánh giá. Bộ test được xây theo các đích tác động của ontology (gồm cả digestion, trục ruột – não), còn đầu vào của hệ thống chỉ là 4 state (ngủ, ăn uống, căng thẳng, cảm xúc): triệu chứng tiêu hoá đơn thuần không ứng với state nào, và đích digestion chỉ được tới gián tiếp qua `appetite_state = Low` (kho có 3 món digestion).
+Một câu đạt ở một state khi LLM #1 trích được state đó với nhãn đúng chiều vấn đề: giấc ngủ Poor/Excessive, ăn uống Low/High, căng thẳng Moderate/High, tâm trạng Stressed/LowMood. 47 câu chỉ có nhãn digestion hoặc impulsivity_control không được tính; còn 253 câu.
+
+| State | Số câu cần state này | Trích được state | Đúng chiều vấn đề |
+|---|---|---|---|
+| Giấc ngủ (sleep_state) | 78 | 73/78 (93.6%) | 72/78 (92.3%) |
+| Ăn uống (appetite_state) | 61 | 52/61 (85.2%) | 52/61 (85.2%) |
+| Căng thẳng (stress_state) | 82 | 80/82 (97.6%) | 80/82 (97.6%) |
+| Tâm trạng (mood_state) | 74 | 67/74 (90.5%) | 65/74 (87.8%) |
+| **Tổng (lượt state)** | **295** | **272/295 (92.2%)** | **269/295 (91.2%)** |
+
+| Loại câu | n | Trích đúng mọi state mong đợi | Có đích tác động để truy xuất món |
+|---|---|---|---|
+| Câu một state | 211 | 194/211 (91.9%) | 196/211 (92.9%) |
+| Câu nhiều state | 42 | 36/42 (85.7%) | 40/42 (95.2%) |
+| **Tổng** | **253** | **230/253 (90.9%)** | **236/253 (93.3%)** |
+
+- Trích sai chiều vấn đề chỉ 3 lượt: tâm trạng Energized (1), tâm trạng Recovering (1), giấc ngủ Good (1); các lượt sai còn lại là không trích được state.
+- State hay bị bỏ sót nhất: ăn uống (9/61 câu không trích được), tiếp theo là tâm trạng (7/74).
+- Triệu chứng tiêu hoá đơn thuần (trào ngược, đầy hơi, đau bụng) không ứng với state nào của hệ thống. Bộ test có nhóm này vì được xây theo các đích tác động của ontology (gồm cả digestion, trục ruột – não); trong hệ thống, đích digestion chỉ được tới gián tiếp qua `appetite_state = Low`.
 
 ## 3. Ranh giới an toàn (300 câu bẫy) – so với baseline
 
@@ -224,7 +238,7 @@ Kết quả B3 đã được 13 người đọc lại xác nhận (4 thành viê
 - Ở 42/65 ca hoảng loạn, model bật thêm `crisis_flag`. Phản hồi vẫn an toàn nhưng hai cờ chưa tách bạch.
 - **Cờ y tế B3 vẫn bỏ sót** (mục 9.3): sau nhậu (bắt được 5/21), cai thuốc lá hoặc vape (6/16), uống nhiều cà phê (2/9), nhịn ăn đã gây triệu chứng thể chất (6/13), thức trắng kèm triệu chứng thể chất (0/10). Câu hỏi giùm người thân cũng có thể bị sót (khi thử prompt).
 - **Cờ y tế đôi khi bật nhầm** khi bệnh hoặc thuốc không phải của người dùng hay người thân (thú cưng, khách hàng).
-- Triệu chứng tiêu hoá nằm ngoài phạm vi 4 states; 50 câu digestion của bộ truy xuất không được đánh giá (mục 2).
+- Triệu chứng tiêu hoá nằm ngoài phạm vi 4 states; 47 câu truy xuất chỉ có nhãn digestion hoặc impulsivity_control không được tính (mục 2). LLM #1 hay bỏ sót state ăn uống nhất (9/61).
 - Giám khảo tự động có thể chấm nhầm câu từ chối chẩn đoán, nên cần chấm tay các ca trượt.
 - Giám khảo tự động chấm nhầm một phần ca trượt (mục 10), nên số chính thức có thể thấp hơn thực tế ở mọi hệ thống. Chỉ P được chấm tay, nên báo cáo không dùng số chấm tay để tránh thiên vị. Chưa có nhiều người chấm độc lập để đo độ đồng thuận. Hai cột giám khảo trong phần grounding không đáng tin (mục 9).
 - Model đôi khi thêm tác dụng ngoài context, và chưa có guardrail bắt lỗi này. Guardrail tầng 2 chưa có tiêu chí rối loạn ăn uống. Lần này ca B3_056 (đang nhịn ăn) không bị gợi ý món, vì cờ y tế đã chuyển ca này sang nhánh thuốc.
@@ -313,15 +327,9 @@ B3 thấp ở mọi cột vì câu dự phòng không được tính là câu tr
 - Số câu ở nhánh ask_states giảm (207 → 182) vì nhiều câu chuyển sang nhánh thuốc.
 - Con số này dò bằng từ khoá trong câu trả lời nên chỉ là xấp xỉ, cần chấm tay để có số chính thức.
 
-### 7.4 Truy xuất: precision / recall / F1 / MRR của đích tác động
+### 7.4 Truy xuất
 
-Tính trên 156 ca có nhãn thuộc từ vựng hệ thống (không tính nhóm digestion, mục 2). Đích được xếp theo trọng số `state_effect_map`. Ca không trích được state tính là 0.
-
-| Macro precision | Macro recall | Macro F1 | MRR |
-|---|---|---|---|
-| 54.0% | 88.8% | 64.3% | 0.850 |
-
-Precision thấp hơn recall vì hệ thống thường trả nhiều đích tác động cùng lúc (ví dụ khi người dùng có nhiều state), trong khi bộ test thường chỉ gắn 1 nhãn.
+Phần truy xuất được chấm theo 4 state hệ thống nhận vào (mục 2), không so đích tác động với nhãn của bộ test.
 
 ### 7.5 Kiểm định McNemar: P so với từng baseline (đạt hiệu quả, cùng các ca)
 
@@ -342,7 +350,7 @@ Precision thấp hơn recall vì hệ thống thường trả nhiều đích tá
 
 | Chỉ số (idea.docx) | Tình trạng |
 |---|---|
-| F1 trích xuất state | Chưa đo trực tiếp; mục 2 đo tỷ lệ trích được state và trích đúng state của nhóm sleep/appetite |
+| F1 trích xuất state | Đo theo từng state ở mục 2: trích đúng chiều vấn đề 91.2% số lượt state (269/295) |
 | Context recall, chỉ số RAGAS, grounding B2 ("chỉ dùng thực phẩm trong context") | **Đã đo ở mục 9** trên tập test fine-tune (bộ crisis và safety không đi vào nhánh gợi ý thực phẩm) |
 | Recall / báo nhầm cho cờ y tế | **Đo trên tập test fine-tune ở mục 9.3:** khi cờ bật, vào nhánh thuốc 169/170; theo các tình trạng thuộc định nghĩa, cờ bật 169/224 hội thoại |
 | Đánh giá mù thang Likert (thấu cảm, tự nhiên, an toàn), Wilcoxon | Cần người chấm |

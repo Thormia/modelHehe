@@ -136,26 +136,20 @@ def crisis_detection(cd, names):
     return _save(fig, "crisis_detect.png")
 
 
-def retrieval_extract(cat, keys):
-    """Tỷ lệ trích được state và có đích tác động đúng theo nhóm câu truy xuất."""
-    fig, ax = plt.subplots(figsize=(6.3, 2.9))
-    ys = list(range(len(keys)))[::-1]
+def retrieval_by_state(rows):
+    """rows = [(tên state, Counter n/known/prob)]: tỷ lệ trích được state và trích đúng chiều vấn đề."""
+    fig, ax = plt.subplots(figsize=(6.3, 2.6))
+    ys = list(range(len(rows)))[::-1]
     h = 0.38
-    a = [100 * cat[k]["any"] / cat[k]["n"] for k in keys]
-    b = [100 * cat[k]["hit"] / cat[k]["m"] if cat[k]["m"] else None for k in keys]
-    bars = ax.barh([y + h / 2 + 0.01 for y in ys], a, h, color=C[0], label="Trích được state")
-    _bar_labels(ax, bars, lambda v: vn(v) + "%", horizontal=True)
-    yb = [y - h / 2 - 0.01 for y, v in zip(ys, b) if v is not None]
-    bars = ax.barh(yb, [v for v in b if v is not None], h, color=C[1], label="Có đích tác động đúng")
-    _bar_labels(ax, bars, lambda v: vn(v) + "%", horizontal=True)
-    for y, v in zip(ys, b):
-        if v is None:
-            ax.text(1, y - h / 2, "không chấm đích", va="center", fontsize=8, color=INK2, style="italic")
-    ax.set_yticks(ys, keys)
+    for j, (key, label) in enumerate((("known", "Trích được state"), ("prob", "Đúng chiều vấn đề"))):
+        vals = [100 * c[key] / c["n"] for _, c in rows]
+        bars = ax.barh([y + (0.5 - j) * (h + 0.02) for y in ys], vals, h, color=C[j], label=label)
+        _bar_labels(ax, bars, lambda v: vn(v) + "%", horizontal=True)
+    ax.set_yticks(ys, [f"{n}\n(n = {c['n']})" for n, c in rows])
     ax.set_xlim(0, 112)
     ax.xaxis.set_major_formatter(PCT)
     _axes(ax, "x")
-    ax.legend(loc="upper center", ncol=2, bbox_to_anchor=(0.4, 1.13))
+    ax.legend(loc="upper center", ncol=2, bbox_to_anchor=(0.4, 1.15))
     return _save(fig, "retrieval.png")
 
 
