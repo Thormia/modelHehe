@@ -17,7 +17,11 @@ Các trường:
   "Calm" (ổn định, bình thản), "Stressed" (áp lực, căng thẳng, có thể thèm đồ ngọt, uống nhiều cà phê, khó tập trung),
   "LowMood" (buồn, thiếu năng lượng, giảm động lực, chán nản), "Recovering" (đang dần ổn lại, tâm trạng và nếp sinh hoạt đang cải thiện),
   "Energized" (nhiều năng lượng, có động lực, suy nghĩ tích cực). null nếu chưa thể hiện.
-- "health_alert" (cờ y tế, nhóm B3): true khi chính người dùng, hoặc người thân mà họ đang hỏi giùm, có ÍT NHẤT MỘT trong hai điều sau. (1) Đang dùng thuốc hoặc đang điều trị y tế, kể cả tiêm hormone, tiêm kích trứng, thuốc nội tiết, đang trong đợt điều trị. (2) Cơ thể đang có điểm khác thường so với người khỏe mạnh bình thường: bệnh mãn tính, đang ốm hoặc sốt, vừa phẫu thuật, đang mang thai, đang trong kỳ kinh, vừa tiêm vaccine, vừa xăm, đang dùng hoặc đang cai chất kích thích (rượu bia, thuốc lá, vape, cà phê). Ngược lại false.
+- "health_alert" (cờ y tế, nhóm B3): true khi chính người dùng, hoặc người thân mà họ đang hỏi giùm, có ÍT NHẤT MỘT trong ba điều sau.
+  (1) Đang dùng thuốc hoặc đang điều trị y tế, kể cả tiêm hormone, tiêm kích trứng, thuốc nội tiết, đang trong đợt điều trị.
+  (2) Cơ thể đang có tình trạng y tế: bệnh mãn tính, đang ốm hoặc sốt, vừa phẫu thuật, đang mang thai, đang trong kỳ kinh, vừa tiêm vaccine, vừa xăm.
+  (3) Rượu bia, thuốc lá, vape, cà phê hay nước tăng lực, nhịn ăn hay bỏ bữa, thức trắng hay thiếu ngủ CHƯA phải cờ y tế khi chỉ được nhắc tới, kể cả khi đang muốn bỏ hay đang cai. Chỉ true khi người dùng kể nó đã gây thay đổi trên CƠ THỂ, tức có triệu chứng thể chất (ví dụ đau, chóng mặt, buồn nôn, run, tim đập nhanh). Đã có triệu chứng thể chất thì vẫn true, kể cả khi giấc ngủ hay ăn uống đã được ghi vào sleep_state, appetite_state, hoặc khi người dùng cũng đang căng thẳng. Ảnh hưởng chỉ lên tâm trạng, giấc ngủ, cảm giác thèm ăn hay mức căng thẳng thì không tính.
+  Ngược lại false.
 - "crisis_flag": true nếu có dấu hiệu tự sát hoặc tự hại, kể cả gián tiếp ("cho nhẹ nợ", "không muốn tỉnh dậy nữa", "đi cho xong"). Cơn hoảng loạn không kèm ý tự hại ghi vào panic_flag, không phải crisis_flag. Ngược lại false.
 - "panic_flag": true nếu người dùng ĐANG trong cơn hoảng loạn hoặc lo âu cấp tính ngay lúc nhắn. Ngược lại false.
 
@@ -38,6 +42,10 @@ Người dùng: Công việc áp lực lắm, đêm nào cũng trằn trọc. M�
 {"sleep_state": "Poor", "appetite_state": null, "stress_state": "High", "mood_state": "Stressed", "health_alert": true, "crisis_flag": false, "panic_flag": false}
 Người dùng: Tuần trước tệ lắm, nhưng mấy hôm nay mình ngủ lại được rồi, thấy đỡ dần.
 {"sleep_state": "Good", "appetite_state": null, "stress_state": null, "mood_state": "Recovering", "health_alert": false, "crisis_flag": false, "panic_flag": false}
+Người dùng: Mình hút thuốc lá lâu rồi, dạo này công việc áp lực quá.
+{"sleep_state": null, "appetite_state": null, "stress_state": "High", "mood_state": "Stressed", "health_alert": false, "crisis_flag": false, "panic_flag": false}
+Người dùng: Hai hôm nay mình gần như không ăn gì, giờ đứng lên là choáng váng.
+{"sleep_state": null, "appetite_state": "Low", "stress_state": null, "mood_state": null, "health_alert": true, "crisis_flag": false, "panic_flag": false}
 
 Định dạng trả về:
 {"sleep_state": ..., "appetite_state": ..., "stress_state": ..., "mood_state": ..., "health_alert": false, "crisis_flag": false, "panic_flag": false}"""
