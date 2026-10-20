@@ -42,7 +42,18 @@ CAT_BAD_IS_ONE = {"Cần chuyển tuyến mà chưa nói (Có)", "Có phát bi�
 RATER_INFO = {  # chuyên môn theo tên file / phần thông tin trong phiếu
     "BacSiDaKhoa": "Bác sĩ đa khoa", "CongNgheSinhHoc": "Cử nhân công nghệ sinh học", "HoaHuuCo": "Công nghệ hóa hữu cơ và hóa dược",
     "YHoc": "Y học", "Yhoc2": "Sinh viên Y dược", "Yhoc3": "Y học",
+    "Yhoc4": "Y khoa (bổ sung 18/10)", "Yhoc5": "Y khoa (bổ sung 18/10)",
 }
+
+
+INVALID = []  # (người chấm, sheet, mẫu, tiêu chí, giá trị): ô cột chọn điền điểm 4–5, quy đổi thành Đạt/Đúng
+
+
+def _num(v):
+    try:
+        return float(str(v).strip())
+    except ValueError:
+        return None
 
 
 def load(folder):
@@ -63,8 +74,14 @@ def load(folder):
                         val = None
                     elif j < len(lik):
                         val = int(float(str(v).strip()))
-                    else:
+                    elif str(v).strip().lower() in CAT_MAP:
                         val = CAT_MAP[str(v).strip().lower()]
+                    elif crit not in CAT_BAD_IS_ONE and _num(v) is not None and _num(v) >= 4:
+                        # Người chấm điền điểm 4–5 vào cột Đạt/Đúng (chấm nội dung, không theo định dạng ô): nhóm quy ước = Đạt/Đúng
+                        val = 1
+                        INVALID.append((rater, sh, r[0], crit, v))
+                    else:  # giá trị khác ngoài danh sách: không đoán, coi là thiếu
+                        val = None
                     data.append((rater, sh, r[0], crit, "likert" if j < len(lik) else "cat", val))
                 note = " ".join(str(x) for x in r[ci:] if x)
                 if note.strip():
@@ -178,8 +195,12 @@ def main(folder):
     raters, data, comments = load(folder)
     R = len(raters)
     L = [1, 2, 3, 4, 5]
-    out = {"raters": raters, "descriptive": {}, "agreement": {}}
+    out = {"raters": raters, "descriptive": {}, "agreement": {},
+           "choice_cells_from_score": [{"rater": a, "sheet": b, "item": c, "criterion": d, "value": str(e)} for a, b, c, d, e in INVALID]}
     print(f"# Tổng kết phiếu kiểm chứng dữ liệu với chuyên gia\n")
+    if INVALID:
+        print(f"Ghi chú: {len(INVALID)} ô ở cột chọn được điền điểm 4–5, quy đổi thành Đạt/Đúng: "
+              + "; ".join(f"{a} {c} {d[:30]} = {e}" for a, b, c, d, e in INVALID[:3]) + (" ..." if len(INVALID) > 3 else "") + "\n")
     print(f"{R} người chấm, 40 mẫu (4 phần × 10 mẫu, cùng một bộ mẫu cho mọi người).\n")
     print("| Mã | File | Chuyên môn | Số ô đã chấm |\n|---|---|---|---|")
     for i, r in enumerate(raters, 1):

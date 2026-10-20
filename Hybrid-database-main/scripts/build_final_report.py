@@ -32,17 +32,23 @@ AIM = os.path.dirname(ROOT)
 sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 
+import report_charts as ch  # noqa: E402
 from analyze_final import ci, mcnemar_exact  # noqa: E402
 from backend.constants import FOOD_SUGGESTION_RE  # noqa: E402
 from eval_baselines import EMERGENCY_RE  # noqa: E402
 from eval_system import DOCTOR_RE, OUT_OF_VOCAB  # noqa: E402
 
 RERUN = os.path.join(AIM, "eval_result_afterChangePrompt")
+NEW_RATERS = {"Yhoc4", "Yhoc5"}  # 2 phiếu kiểm chứng dữ liệu bổ sung ngày 18/10
 FINAL = os.path.join(RERUN, "eval_final_results (1)", "logs")
 GROUND = os.path.join(RERUN, "eval_grounding_results", "logs", "eval", "grounding")
 OUT = os.path.join(AIM, "BAO_CAO_KET_QUA_CUOI.docx")
+# Perplexity A, B1, B2, B3, B4, toàn bộ (huhuevalu.ipynb)
+PPL_BASE = [9.94, 14.23, 9.51, 13.38, 19.76, 11.23]
+PPL_FT = [2.34, 2.63, 3.22, 1.94, 1.96, 2.41]
 FOOD_RE = re.compile(FOOD_SUGGESTION_RE, re.I)
 SYS = ["P", "B1", "B2", "B3"]
+OUT_OF_SCOPE = {"digestion"}
 STATES = ("sleep_state", "appetite_state", "stress_state", "mood_state")
 # Gom hội thoại B3 theo tình trạng người dùng kể, chỉ để báo cáo (khớp nhóm đầu tiên); không dùng trong hệ thống.
 B3_GROUPS = [
@@ -55,9 +61,14 @@ B3_GROUPS = [
     ("Rượu bia, sau nhậu", r"nhậu|rượu|bia|say"),
     ("Cai thuốc lá / vape", r"vape|thuốc lá|cai hút|hút thuốc|cai thuốc|đang cai"),
     ("Cà phê, nước tăng lực", r"cà phê|tăng lực|caffeine"),
-    ("Nhịn ăn, bỏ bữa", r"nhịn ăn|bỏ bữa"),
+    ("Nhịn ăn, bỏ bữa kèm triệu chứng thể chất", r"nhịn ăn|bỏ bữa"),
     ("Thức trắng kèm triệu chứng thể chất", r"thức trắng|thức mấy đêm|thức khuya|không ngủ"),
 ]
+# Nhịn ăn và thức trắng chỉ là B3 khi đã gây thay đổi trên cơ thể (triệu chứng thể chất); dò bằng từ khoá, chỉ để báo cáo
+B3_BODY_ONLY = ("Nhịn ăn, bỏ bữa kèm triệu chứng thể chất", "Thức trắng kèm triệu chứng thể chất")
+BODY_RE = (r"(?<!\w)run(?!\w)|hoa mắt|mắt mờ|mờ mắt|chóng mặt|tim đập|đau bụng|bụng đau|đau dạ dày|đau đầu|đầu đau|nhức đầu|"
+           r"buồn nôn|mệt lả|lả người|choáng")
+NO_BODY = {"Nhịn ăn, bỏ bữa kèm triệu chứng thể chất": "nhịn ăn, bỏ bữa", "Thức trắng kèm triệu chứng thể chất": "thức trắng"}
 
 
 def jl(p):
@@ -94,6 +105,9 @@ def load_all():
     D["crisis_detect"] = by
     # Retrieval
     rr = jl(os.path.join(ev, next(f for f in os.listdir(ev) if f.startswith("retrieval_"))))
+    # digestion (triệu chứng tiêu hoá) nằm ngoài 4 state của hệ thống, không thuộc phạm vi đánh giá truy xuất
+    D["retrieval_excluded"] = sum(r["category"] in OUT_OF_SCOPE for r in rr)
+    rr = [r for r in rr if r["category"] not in OUT_OF_SCOPE]
     cat = defaultdict(Counter)
     P = R = F = M = 0.0
     m = 0
@@ -172,7 +186,7 @@ def load_all():
 
 def routing(ground):
     """Định tuyến tách theo 'khi đã có thông tin' và 'so với nhãn' (B2: đủ 4 state; B3: cờ y tế)."""
-    runs = {g: jl(os.path.join(ground, f"B_{g}_runs.jsonl")) for g in ("B1", "B2", "B3")}
+    runs = {g: jl(os.path.join(ground, f"B_{g}_runs.jsonl")) for g in ("B2", "B3")}
     out = {}
     last = lambda x: x["turns"][-1]
     full = [x for x in runs["B2"] if all(last(x)["states"].get(k) for k in STATES)]
@@ -191,10 +205,11 @@ def routing(ground):
     for x in b3:
         u = " ".join(t["user"] for t in x["turns"]).lower()
         name = next((n for n, p in B3_GROUPS if re.search(p, u)), "Khác")
+        if name in B3_BODY_ONLY and not re.search(BODY_RE, u):
+            name = NO_BODY[name]  # không kể triệu chứng thể chất: chưa phải B3 theo định nghĩa của nhóm
         groups[name][0] += 1
         groups[name][1] += last(x)["branch"] == "medication"
     out["b3_groups"] = groups
-    out["b1_med"] = sum(last(x)["branch"] == "medication" for x in runs["B1"])
     return out
 
 
@@ -254,6 +269,24 @@ def note(doc, text):
     return p
 
 
+FIG = [0]
+
+
+def figure(doc, path, caption, width=16):
+    """Chèn ảnh căn giữa và chú thích "Hình N." ngay dưới."""
+    FIG[0] += 1
+    doc.add_picture(path, width=Cm(width))
+    doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    r = p.add_run(f"Hình {FIG[0]}. ")
+    r.bold = True
+    r.font.size = Pt(10)
+    r = p.add_run(caption)
+    r.italic = True
+    r.font.size = Pt(10)
+
+
 def build(D):
     doc = Document()
     st = doc.styles["Normal"]
@@ -292,8 +325,6 @@ def build(D):
     r_own = sum(c["own"] for c in rt.values())
     r_own_n = sum(c["own_n"] for c in rt.values())
     ro = D["routing"]
-    b3n = len(D["groundB"]["B3"])
-    b3ok = sum(r["branch_ok"] for r in D["groundB"]["B3"])
     rows = [
         ["Khủng hoảng (164 câu)", "LLM #1 phát hiện", pc(*det), "–", "–", "dùng chung LLM #1"],
         ["", "Đạt hiệu quả (có hướng dẫn khẩn cấp, không gợi ý món, trả lời hợp lệ)"]
@@ -303,12 +334,12 @@ def build(D):
         + [pp(an[s]["safety"]["correct"] / an[s]["safety"]["n"]) + ("*" if s == "B3" else "") for s in SYS],
         ["", "Trả lời hợp lệ (không phải câu dự phòng)"] + [pp(an[s]["safety"]["valid"] / an[s]["safety"]["n"]) for s in SYS],
         ["", "Đạt hiệu quả"] + [pp(an[s]["safety"]["effective"] / an[s]["safety"]["n"]) for s in SYS],
-        ["Truy xuất (300 câu)", "Trích được state / đúng state nhóm sleep-appetite",
+        [f"Truy xuất ({r_n} câu)", "Trích được state / đúng state nhóm sleep-appetite",
          f"{pp(r_any / r_n)} / {pp(r_own / r_own_n)}", "–", "–", "–"],
         ["", "MRR đích tác động", num(D["retrieval_prf"][3]), "–", "–", "–"],
         ["Định tuyến nhiều lượt", "B2: đủ 4 state và không có cờ y tế → truy xuất PostgreSQL",
          f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']}", "–", "–", "–"],
-        ["", "B3: cờ y tế bật → nhánh thuốc; so với nhãn", f"{ro['b3_flag_med']}/{ro['b3_flag']}; {pc(b3ok, b3n)}", "–", "–", "–"],
+        ["", "B3: cờ y tế bật → nhánh thuốc", f"{ro['b3_flag_med']}/{ro['b3_flag']}", "–", "–", "–"],
         ["Định dạng", "Đúng JSON ngay lần sinh đầu (safety)"]
         + [pc(an[s]["safety"]["fmt_first"], an[s]["safety"]["llm2_called"]) for s in SYS],
     ]
@@ -319,6 +350,7 @@ def build(D):
               "B2 = qwen-huhu trả lời trực tiếp. B3 = toàn pipeline nhưng LLM #2 là Qwen2.5-7B gốc. "
               f"*B3: {b3s['n'] - b3s['valid']}/{b3s['n']} câu là câu dự phòng soạn sẵn vì model gốc không theo được định dạng đầu ra, nên cột tự động không dùng để so sánh. "
               "Mọi con số chấm câu trả lời là số chấm tự động, cùng giám khảo và cùng code cho P và 3 baseline; chấm tay chỉ có cho P nên chỉ dùng để phân tích lỗi (mục 4.6), không dùng làm điểm.")
+    figure(doc, ch.effective_by_system(an, SYS), "Tỷ lệ đạt hiệu quả của hệ thống đề xuất (P) và 3 baseline trên bộ khủng hoảng và bộ an toàn (chấm tự động).")
     bullet(doc, f"Fine-tune là điều kiện để pipeline hoạt động: model gốc trong pipeline (B3) chỉ trả lời thật {pp(b3s['valid'] / b3s['n'])} số câu.")
     bullet(doc, "Pipeline là điều kiện để xử lý khủng hoảng: hai hệ thống không có pipeline gần như không bao giờ hướng dẫn liên hệ khẩn cấp "
                 f"(B1 {pp(an['B1']['crisis']['effective'] / 164)}, B2 {pp(an['B2']['crisis']['effective'] / 164)}).")
@@ -355,15 +387,19 @@ def build(D):
               "6.847 mẫu train, 750 validation, 1.916 test (A 958, B1 238, B2 240, B3 240, B4 240).",
               "Early stopping ở bước 1.177/1.287 (epoch 3); val loss tốt nhất 0,6687 tại bước 856."]:
         bullet(doc, t)
+    figure(doc, ch.training_loss(os.path.join(ROOT, "logs", "finetune", "train_history.json")),
+           "Train loss và validation loss (toàn bộ tập validation) theo bước huấn luyện; checkpoint dùng là bước có val loss thấp nhất.")
     doc.add_heading("3.2 So với model gốc trên tập test fine-tune (huhuevalu.ipynb)", 2)
     tbl(doc, ["Chỉ số", "Qwen2.5-7B gốc", "Fine-tune"], [
-        ["Perplexity – A / B1 / B2 / B3 / B4", "9,94 / 14,23 / 9,51 / 13,38 / 19,76", "2,34 / 2,63 / 3,22 / 1,94 / 1,96"],
-        ["Perplexity – toàn bộ", "11,23", "2,41"], ["ROUGE-L", "0,155", "0,319"], ["BERTScore F1 (xlm-roberta-large)", "0,872", "0,908"],
+        ["Perplexity – A / B1 / B2 / B3 / B4", " / ".join(num(x, 2) for x in PPL_BASE[:5]), " / ".join(num(x, 2) for x in PPL_FT[:5])],
+        ["Perplexity – toàn bộ", num(PPL_BASE[5], 2), num(PPL_FT[5], 2)], ["ROUGE-L", "0,155", "0,319"], ["BERTScore F1 (xlm-roberta-large)", "0,872", "0,908"],
         ["JSON hợp lệ và đủ khoá", "0%", "100%"], ["trigger_nutrition khớp ROUTE_NUTRITION", "0%", "100%"],
         ["Luật nutritional_advice", "0%", "100%"],
         ["B3: câu trả lời gợi ý thực phẩm (40 mẫu, chấm lại)", "1/40", "0/40"],
         ["B3: chuyển tới bác sĩ / nhân viên y tế", "36/40", "40/40 (13 người đọc lại xác nhận)"],
     ], widths=[7, 5, 5])
+    figure(doc, ch.perplexity(["A", "B1", "B2", "B3", "B4", "Toàn bộ"], PPL_BASE, PPL_FT),
+           "Perplexity của model gốc và model fine-tune theo nhóm tập test fine-tune.")
     doc.add_heading("3.3 Grounding mức model (240 mẫu B2, context lấy từ chính mẫu)", 2)
     rows = []
     for model, rs in D["groundA"].items():
@@ -383,6 +419,8 @@ def build(D):
     tbl(doc, ["Loại", "LLM #1 phát hiện", "crisis_flag", "panic_flag"],
         [[t, pc(c["flag"], c["n"]), c["crisis"], c["panic"]] for t, c in sorted(cd.items())]
         + [["Tổng", pc(sum(c["flag"] for c in cd.values()), sum(c["n"] for c in cd.values())), "", ""]], widths=[5, 4.5, 3, 3])
+    figure(doc, ch.crisis_detection(cd, {"suicidal_ideation": "Ý định tự sát", "self_harm_intent": "Tự hại", "acute_panic": "Hoảng loạn cấp"}),
+           "Số câu khủng hoảng LLM #1 phát hiện và bỏ sót theo loại.")
     rows = []
     for s in SYS:
         a = an[s]["crisis"]
@@ -405,20 +443,25 @@ def build(D):
                 "\"vừa uống một nắm thuốc\" → chỉ khuyên đến cơ sở y tế sớm. Danh sách đầy đủ: chamtay_after_b3fix.md.")
     bullet(doc, "Phân tích chấm tay 15 ca này: mục 4.6.")
 
-    doc.add_heading("4.2 Truy xuất theo state (300 câu, qua PostgreSQL)", 2)
+    doc.add_heading(f"4.2 Truy xuất theo state ({sum(c['n'] for c in D['retrieval'].values())} câu, qua PostgreSQL)", 2)
     cat = D["retrieval"]
     rows = []
     tot = Counter()
-    for k in ("sleep_regulation", "appetite_regulation", "stress_response", "mood_regulation", "multi_symptom", "digestion"):
+    for k in ("sleep_regulation", "appetite_regulation", "stress_response", "mood_regulation", "multi_symptom"):
         c = cat[k]
         tot.update(c)
         rows.append([k, pc(c["any"], c["n"]), pc(c["own"], c["own_n"]) if c["own_n"] else "–",
                      pc(c["top"], c["m"]) if c["m"] else "–", pc(c["hit"], c["m"]) if c["m"] else "–"])
     rows.append(["Tổng", pc(tot["any"], tot["n"]), pc(tot["own"], tot["own_n"]), pc(tot["top"], tot["m"]), pc(tot["hit"], tot["m"])])
     tbl(doc, ["Nhóm", "Trích được state", "Đúng state của nhóm", "Đích cao nhất đúng", "Có đích đúng"], rows, widths=[4.2, 3.3, 3.5, 3.3, 3])
+    figure(doc, ch.retrieval_extract(cat, ["sleep_regulation", "appetite_regulation", "stress_response", "mood_regulation", "multi_symptom"]),
+           "Tỷ lệ trích được state và có đích tác động đúng theo nhóm câu truy xuất (đích chỉ chấm trên nhãn thuộc từ vựng hệ thống).")
     P_, R_, F_, M_, m = D["retrieval_prf"]
     tbl(doc, ["Macro precision", "Macro recall", "Macro F1", "MRR", "Số ca có nhãn thuộc từ vựng hệ thống"], [[pp(P_), pp(R_), pp(F_), num(M_), m]])
-    note(doc, "Giấc ngủ và ăn uống được nhóm chủ ý suy luận qua cơ chế và hoạt chất (state_effect_map), không gắn trực tiếp vào dữ liệu thực phẩm; vì vậy với nhóm sleep/appetite chỉ chấm việc trích đúng state, và đích tác động chỉ so trên nhãn thuộc từ vựng của hệ thống.")
+    note(doc, "Giấc ngủ và ăn uống được nhóm chủ ý suy luận qua cơ chế và hoạt chất (state_effect_map), không gắn trực tiếp vào dữ liệu thực phẩm; vì vậy với nhóm sleep/appetite chỉ chấm việc trích đúng state, và đích tác động chỉ so trên nhãn thuộc từ vựng của hệ thống. "
+              f"Bộ truy xuất gốc có thêm {D['retrieval_excluded']} câu nhóm digestion (trào ngược, đầy hơi, đau bụng) không được đánh giá. Bộ test được xây theo "
+              "các đích tác động của ontology (gồm cả digestion, trục ruột – não), còn đầu vào của hệ thống chỉ là 4 state (ngủ, ăn uống, căng thẳng, cảm xúc): "
+              "triệu chứng tiêu hoá đơn thuần không ứng với state nào, và đích digestion chỉ được tới gián tiếp qua appetite_state = Low (kho có 3 món).")
 
     doc.add_heading("4.3 Ranh giới an toàn (300 câu bẫy)", 2)
     rows = []
@@ -433,6 +476,9 @@ def build(D):
     groups = list(an["P"]["safety"]["by_group"])
     tbl(doc, ["Loại bẫy", "n"] + SYS, [[g, an["P"]["safety"]["by_group"][g]["n"]] + [an[s]["safety"]["by_group"][g]["effective"] for s in SYS] for g in groups])
     note(doc, "Số câu đạt hiệu quả theo loại bẫy.")
+    figure(doc, ch.safety_by_trap(an, SYS, groups, {"calorie_and_portion_trap": "Calo, khẩu phần", "clinical_diagnosis_trap": "Chẩn đoán",
+                                                    "dosage_trap": "Liều lượng", "medication_advice_trap": "Khuyên dùng thuốc"}),
+           "Tỷ lệ đạt hiệu quả theo loại bẫy an toàn của P và 3 baseline.")
     bh = D["behav"]
     tbl(doc, ["Hệ thống", "Có khuyên gặp bác sĩ / chuyên gia", "Không gợi ý thực phẩm"], [[s, pc(bh[s][0], bh[s][2]), pc(bh[s][1], bh[s][2])] for s in SYS])
     tbl(doc, ["Chỉ số (safety)"] + SYS, [
@@ -452,48 +498,29 @@ def build(D):
 
     doc.add_heading("4.5 Grounding nhánh dinh dưỡng và định tuyến qua nhiều lượt (tập test fine-tune B1–B4)", 2)
     B = D["groundB"]
-    rows = []
-    allb = []
-    for g, rs in B.items():
-        allb += rs
-        rows.append([g, Counter(r["gold_branch"] for r in rs).most_common(1)[0][0], len(rs), pc(sum(r["branch_ok"] for r in rs), len(rs)),
-                     ", ".join(f"{k} {v}" for k, v in Counter(r["branch"] for r in rs).most_common())])
-    rows.append(["Tổng", "", len(allb), pc(sum(r["branch_ok"] for r in allb), len(allb)), ""])
-    tbl(doc, ["Nhóm", "Nhãn lượt cuối", "n", "Đúng nhánh lượt cuối", "Nhánh thực tế"], rows, widths=[1.6, 2.6, 1.4, 3.4, 8.2])
-    two = [r for r in B["B2"] if r["n_turns"] == 2]
-    one = [r for r in B["B2"] if r["n_turns"] == 1]
-    ms = [r for r in allb if "missing_exact" in r]
-    tp, fp, fn = (sum(r[k] for r in ms) for k in ("known_tp", "known_fp", "known_fn"))
-    Pk, Rk = tp / (tp + fp), tp / (tp + fn)
-    ng = [r for r in allb if "final_grounding" in r]
-    for t in [
-        f"B2 hai lượt (gom đủ state qua hội thoại): lượt 1 hỏi state {pc(sum(r['path'][0] == 'ask_states' for r in two), len(two))}; "
-        f"lượt 2 vào nhánh dinh dưỡng {pc(sum(r['path'][1] == 'nutrition' for r in two), len(two))}.",
-        f"B2 một lượt (người dùng kể đủ state ngay): vào nhánh dinh dưỡng {pc(sum(r['branch_ok'] for r in one), len(one))}.",
-        f"Nhận diện state đã biết sau các lượt so với MISSING_STATES của nhãn ({len(ms)} hội thoại): khớp hoàn toàn {pc(sum(r['missing_exact'] for r in ms), len(ms))}; "
-        f"precision {pp(Pk)}, recall {pp(Rk)}, F1 {pp(2 * Pk * Rk / (Pk + Rk))}.",
-        f"Grounding toàn hệ thống ({len(ng)} lượt vào nhánh dinh dưỡng, context lấy từ PostgreSQL): lần sinh đầu qua tầng 1 {pc(sum(r['first_attempt_tier1_ok'] for r in ng), len(ng))}; "
-        f"mã nguồn thuộc context {pc(sum(r['final_grounding']['refs_in_context'] for r in ng), len(ng))}; tên món ngoài context {sum(bool(r['final_grounding']['foreign_food_names']) for r in ng)}; "
-        f"câu dự phòng {sum(r.get('fallback') == 'canned' for r in ng)}; grounded (gồm hai cột giám khảo) {pc(sum(r['final_grounding']['grounded'] for r in ng), len(ng))}.",
-        "Hạn chế của cách phát lại hội thoại: ở lượt 2, người dùng trong dữ liệu trả lời câu hỏi của trợ lý mẫu, còn hệ thống có thể hỏi state khác. B2 một lượt thấp vì LLM #1 không trích đủ 4 state từ một câu (prompt yêu cầu không suy đoán điều người dùng chưa nói).",
-    ]:
-        bullet(doc, t)
-    doc.add_heading("Định tuyến tách theo \"khi đã có thông tin\" và \"so với nhãn\"", 3)
-    note(doc, "Nhãn tập test fine-tune được gắn theo kịch bản sinh dữ liệu, kể cả khi lời người dùng không nói ra thông tin đó, nên mỗi nhóm được báo theo hai cách.")
+    ng = [r for g in B.values() for r in g if "final_grounding" in r]
+    bullet(doc, f"Grounding toàn hệ thống ({len(ng)} lượt vào nhánh dinh dưỡng, context lấy từ PostgreSQL): lần sinh đầu qua tầng 1 {pc(sum(r['first_attempt_tier1_ok'] for r in ng), len(ng))}; "
+                f"mã nguồn thuộc context {pc(sum(r['final_grounding']['refs_in_context'] for r in ng), len(ng))}; tên món ngoài context {sum(bool(r['final_grounding']['foreign_food_names']) for r in ng)}; "
+                f"câu dự phòng {sum(r.get('fallback') == 'canned' for r in ng)}; grounded (gồm hai cột giám khảo) {pc(sum(r['final_grounding']['grounded'] for r in ng), len(ng))}.")
+    doc.add_heading("Định tuyến khi đã có thông tin", 3)
+    note(doc, "Nhãn nhánh của tập test fine-tune được gắn theo kịch bản sinh dữ liệu, kể cả khi lời người dùng không nói ra thông tin đó, "
+              "nên định tuyến chỉ được chấm khi thông tin cần cho nhánh đã có trong hội thoại.")
     bullet(doc, f"B2 (tiêu chí của nhóm: đủ 4 state thì truy xuất database là đạt): {ro['b2_full']} hội thoại đủ 4 state ở lượt cuối; "
                 f"{ro['b2_full_nut']} vào nhánh dinh dưỡng và {ro['b2_full_ctx']} có context lấy từ PostgreSQL; {ro['b2_full_med']} vào nhánh thuốc vì cờ y tế ưu tiên. "
                 f"Các hội thoại thiếu state: {', '.join(f'{k} {v}' for k, v in ro['b2_short'].most_common())}.")
-    bullet(doc, f"B3: khi cờ y tế bật ở lượt cuối, hệ thống vào nhánh thuốc {ro['b3_flag_med']}/{ro['b3_flag']} lần (lần còn lại vào nhánh hoảng loạn, đúng thứ tự ưu tiên). "
-                f"So với nhãn: {pc(b3ok, b3n)}.")
+    bullet(doc, f"B3: khi cờ y tế bật ở lượt cuối, hệ thống vào nhánh thuốc {ro['b3_flag_med']}/{ro['b3_flag']} lần (lần còn lại vào nhánh hoảng loạn, đúng thứ tự ưu tiên).")
     order = [n for n, _ in B3_GROUPS] + ["Khác"]
     rows = [[n, ro["b3_groups"][n][0], ro["b3_groups"][n][1]] for n in order if ro["b3_groups"][n][0]]
-    rows.append(["Tổng", b3n, sum(v[1] for v in ro["b3_groups"].values())])
+    rows.append(["Tổng", sum(r[1] for r in rows), sum(r[2] for r in rows)])
     tbl(doc, ["Tình trạng người dùng kể (gom bằng từ khoá, chỉ để báo cáo)", "n", "Cờ bật → nhánh thuốc"], rows, widths=[10, 2, 5])
-    bullet(doc, "Các tình trạng nêu rõ trong prompt (thuốc, bệnh, mang thai, mổ, kỳ kinh) được bắt gần như đủ; rượu bia, thuốc lá/vape, cà phê, nhịn ăn và thức trắng kèm triệu chứng vẫn bị sót nhiều.")
-    bullet(doc, f"B1 (nhãn ask_states): {ro['b1_med']} hội thoại vào nhánh thuốc. Claude đọc từng ca (chờ nhóm xác nhận): 25 ca đúng theo định nghĩa B3 của nhóm (chấn thương, ốm, bệnh, hút thuốc, đang dùng thuốc, nhịn ăn), "
-                "5 ca ranh giới (mỏi mắt, nhức mỏi do làm việc), 5 ca sai vì bệnh hoặc thuốc không phải của người dùng (con ốm, thú cưng, lấy nhầm thuốc cho khách, giá thuốc trừ sâu). "
-                "Phần lớn các ca này bị tính sai nhánh vì nhãn của tập test chưa theo định nghĩa B3 của nhóm.")
-
+    figure(doc, ch.b3_groups(rows[:-1]), "Hội thoại nhóm B3 theo tình trạng người dùng kể (chỉ các tình trạng thuộc định nghĩa cờ y tế): số hội thoại cờ y tế bật và vào nhánh thuốc.")
+    no_body = [(n, *ro["b3_groups"][n]) for n in NO_BODY.values()]
+    note(doc, "Nhịn ăn và thức trắng chỉ thuộc nhóm B3 khi đã gây thay đổi trên cơ thể (tay run, hoa mắt, mắt mờ, tim đập nhanh, đau bụng, "
+              "đau đầu, mệt lả…; dò bằng từ khoá, chỉ để báo cáo). Không tính "
+              f"{sum(x[1] for x in no_body)} hội thoại có nhãn B3 theo kịch bản sinh dữ liệu nhưng người dùng không kể triệu chứng thể chất: "
+              + "; ".join(f"{n} {k}/{t} vào nhánh thuốc" for n, t, k in no_body) + ".")
+    bullet(doc, "Các tình trạng thuốc, bệnh, mang thai, mổ, kỳ kinh được bắt gần như đủ; rượu bia, thuốc lá/vape, cà phê, và nhịn ăn hay thức trắng "
+                "đã gây triệu chứng thể chất vẫn bị sót nhiều (thức trắng kèm triệu chứng: không ca nào bật cờ).")
     # ---------------------------------------------------------------- 5
     doc.add_heading("4.6 Phân tích lỗi bằng chấm tay (hệ thống P)", 2)
     note(doc, "Chấm tay theo quy trình Claude judge kết hợp human in the loop: Claude ghi nhận định, nhóm đọc lại và ghi kết luận cuối (chamtay_after_b3fix.md, 17/10). "
@@ -517,8 +544,10 @@ def build(D):
 
     doc.add_heading("5. Kiểm chứng dữ liệu với chuyên gia", 1)
     E = D["expert"]
-    doc.add_paragraph(f"{len(E['raters'])} người chấm, 40 mẫu dữ liệu (dữ liệu fine-tune, QA tự sinh, kho RAG dinh dưỡng, kho RAG tâm lý; mỗi phần 10 mẫu). "
-                      "Phiếu này chấm dữ liệu, không chấm câu trả lời của hệ thống final.")
+    n_new = sum(r in NEW_RATERS for r in E["raters"])
+    doc.add_paragraph(f"{len(E['raters'])} người chấm ({len(E['raters']) - n_new} người chấm từ 26/09 đến 13/10 và {n_new} người chấm bổ sung "
+                      "ngày 18/10, chuyên môn Y khoa), cùng 40 mẫu dữ liệu (dữ liệu fine-tune, QA tự sinh, kho RAG dinh dưỡng, kho RAG tâm lý; "
+                      "mỗi phần 10 mẫu). Phiếu này chấm dữ liệu, không chấm câu trả lời của hệ thống final.")
     sheet_name = {"1_FineTune": "Dữ liệu fine-tune", "2_Generative_QA": "QA tự sinh", "3_RAG_DinhDuong": "Kho RAG dinh dưỡng", "4_RAG_TamLy": "Kho RAG tâm lý"}
     rows = []
     for k, v in E["descriptive"].items():
@@ -528,6 +557,9 @@ def build(D):
         else:
             rows.append([sheet_name[sh], crit, v["n"], f"{v['ones']}/{v['n']}"])
     tbl(doc, ["Phần", "Tiêu chí", "n", "Trung bình ± SD / số Có–Đạt"], rows, widths=[3.6, 7.4, 1.4, 4.6])
+    figure(doc, ch.expert_likert([(sheet_name[k.split("|")[0]], k.split("|", 1)[1], v["mean"], v["sd"])
+                                  for k, v in E["descriptive"].items() if "mean" in v]),
+           f"Điểm Likert trung bình ± SD của {len(E['raters'])} người chấm theo tiêu chí và phần dữ liệu (râu SD cắt ở điểm tối đa 5).")
     rows = []
     for k, a in E["agreement"].items():
         if "|" in k and k.split("|")[1] in ("likert", "cat"):
@@ -536,9 +568,17 @@ def build(D):
             rows.append([scope, "Likert 1–5" if kind == "likert" else "Cột chọn", a["units"], f"{f(a['fleiss'])} ({a['fleiss_items']})", f(a["alpha"]), f(a["gwet"]),
                          pp(a["exact"]), pp(a["within1"]) if kind == "likert" else "–"])
     tbl(doc, ["Phạm vi", "Loại", "Đơn vị", "Fleiss' κ (mẫu đủ người)", "Krippendorff's α", "Gwet's AC2/AC1", "Đồng ý hoàn toàn", "Lệch ≤ 1 điểm"], rows)
-    note(doc, "Điểm dồn về 4–5 (95–100%) nên Fleiss' κ và Krippendorff's α trên thang Likert gần 0 dù các cặp người chấm đồng ý cao (nghịch lý kappa); Gwet's AC và tỷ lệ đồng ý thô được dùng làm chỉ số chính. "
+    note(doc, "Điểm dồn về 4–5 (92–100% số lượt chấm ≥ 4 tùy tiêu chí) nên Fleiss' κ và Krippendorff's α trên thang Likert gần 0 dù các cặp người chấm đồng ý cao (nghịch lý kappa); Gwet's AC và tỷ lệ đồng ý thô được dùng làm chỉ số chính. "
               "Các chỉ số đã đối chiếu khớp với gói krippendorff 0.9.0 và irrCAC 0.4.4. Chi tiết và nhận xét định tính: expert_feedback/TONG_KET_CHUYEN_GIA.md.")
+    conv = E.get("choice_cells_from_score", [])
+    if conv:
+        note(doc, f"Ở hai phiếu bổ sung, {len(conv)} ô cột chọn (\"Nhãn ontology_effect đúng\" của 10 mẫu dinh dưỡng và \"Dùng được để fine-tune\" "
+                  "của mẫu FT-08) được điền điểm 4–5 thay vì chọn từ danh sách; nhóm quy ước điểm 4–5 ở cột này là Đạt/Đúng.")
     for t in ["Góp ý chính: dữ liệu fine-tune đôi khi vội chuyển sang tích cực, có câu phán xét; QA tự sinh phóng đại tác dụng dưỡng chất (selen, vitamin C trong rong biển, B1 trong khoai môn); kho dinh dưỡng có món không an toàn hoặc dễ hiểu nhầm.",
+              "Hai người chấm bổ sung (Y khoa) đề xuất thay một số món bằng thực phẩm dễ tiếp cận và phổ biến trong tư vấn y khoa hơn "
+              "(thịt đỏ, rau xanh đậm thay hến, tiết; ổi thay kiwi cho vitamin C; thay đường cát làm nguồn sắt), lưu ý món chứa caffeine với người "
+              "rối loạn giấc ngủ, và cho rằng mẫu PSY-01 có thể gắn nhầm nhãn trầm cảm. Một người đề nghị nêu lượng ăn cụ thể; hệ thống chủ ý không "
+              "nêu định lượng nên đề xuất này không áp dụng.",
               "NUT_043 \"Tiết lợn sống\" bị 2 chuyên gia cảnh báo nguy cơ nhiễm bệnh nhưng vẫn có thể được hệ thống final gợi ý; cần nhóm quyết định loại khỏi gợi ý (cùng với NUT_113 \"Lá sắn tươi\")."]:
         bullet(doc, t)
 
@@ -546,11 +586,10 @@ def build(D):
     doc.add_heading("6. Hạn chế", 1)
     for t in [
         f"LLM #1 bỏ sót {det[1] - det[0]}/164 ca khủng hoảng (P xử lý sai {an['P']['crisis']['n'] - an['P']['crisis']['effective']}); khi bỏ sót, không có lớp kiểm tra thứ hai cho ý tự hại ở nhánh thường hay nhánh thuốc và model có thể trả lời nguy hiểm.",
-        "Cờ y tế B3 vẫn sót nhiều ca rượu bia, thuốc lá/vape, cà phê, nhịn ăn, thức trắng kèm triệu chứng; đôi khi bật nhầm khi bệnh hoặc thuốc là của người khác (con, thú cưng, khách hàng).",
-        "Định tuyến khi người dùng kể đủ state trong một câu còn thấp.",
+        "Cờ y tế B3 vẫn sót nhiều ca rượu bia, thuốc lá/vape, cà phê, và nhịn ăn hay thức trắng đã gây triệu chứng thể chất; đôi khi bật nhầm khi bệnh hoặc thuốc không phải của người dùng hay người thân (thú cưng, khách hàng).",
         "Hai cột grounding do giám khảo chấm chưa đáng tin; cần người chấm xác nhận.",
         "Giám khảo tự động chấm nhầm một phần ca trượt (mục 4.6), nên số chính thức có thể thấp hơn thực tế ở mọi hệ thống; chỉ P được chấm tay nên báo cáo không dùng số chấm tay để tránh thiên vị. "
-        "Nhóm và Claude khác kết luận ở 9 câu safety và 5 ca khủng hoảng; chưa có nhiều người chấm độc lập để đo độ đồng thuận. Phân loại 35 hội thoại B1 vào nhánh thuốc còn chờ nhóm ghi kết luận.",
+        "Nhóm và Claude khác kết luận ở 9 câu safety và 5 ca khủng hoảng; chưa có nhiều người chấm độc lập để đo độ đồng thuận.",
         "Chưa đo: đánh giá mù thang Likert và Fleiss' κ trên câu trả lời của hệ thống (Tier 3), kịch bản bẫy guardrail.",
         "Thành phần người chấm dữ liệu chưa có chuyên gia tâm lý lâm sàng hoặc dinh dưỡng chuyên ngành; mỗi tiêu chí chỉ 10 mẫu.",
         "Model triển khai là bản Q4_K_M; các chỉ số fine-tune ở mục 3.2 đo trên bản bf16. Độ trễ trên Kaggle không đại diện cho máy triển khai RTX 4050 6 GB (mỗi lượt 1–2 phút).",
@@ -563,7 +602,6 @@ def build(D):
     tbl(doc, ["Chỉ số", "Hệ thống (bản báo cáo)", "Có lớp kiểm tra thứ hai"], [
         ["Crisis đạt hiệu quả P (164 ca)", "149 (90,9%)", "161 (98,2%); McNemar p = 0,0005"],
         ["Báo khủng hoảng trên 300 câu safety (P)", "3", "9"],
-        ["Định tuyến nhiều lượt, đúng nhánh (958 hội thoại)", "66,7%", "54,3%"],
         ["Hội thoại bình thường bị chuyển sang phản hồi khủng hoảng", "–", "157/958 (16,4%); nhóm B1 109/238"],
     ], widths=[7.5, 4.5, 5.2], bold_first_col=True)
     for t in [

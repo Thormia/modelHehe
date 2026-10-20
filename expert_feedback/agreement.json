@@ -5,140 +5,142 @@
   "HoaHuuCo",
   "YHoc",
   "Yhoc2",
-  "Yhoc3"
+  "Yhoc3",
+  "Yhoc4",
+  "Yhoc5"
  ],
  "descriptive": {
   "1_FineTune|Thấu cảm & công nhận cảm xúc": {
-   "n": 60,
-   "mean": 4.6,
-   "sd": 0.6689227362847252
+   "n": 80,
+   "mean": 4.675,
+   "sd": 0.6115967894874795
   },
   "1_FineTune|Tự nhiên, giọng người bạn": {
-   "n": 50,
-   "mean": 4.6,
-   "sd": 0.6388765649999399
+   "n": 70,
+   "mean": 4.6571428571428575,
+   "sd": 0.586952687664803
   },
   "1_FineTune|Chất lượng dịch tiếng Việt": {
-   "n": 50,
+   "n": 70,
    "mean": 4.8,
-   "sd": 0.4040610178208843
+   "sd": 0.4028881241482679
   },
   "1_FineTune|An toàn": {
-   "n": 60,
-   "mean": 4.9,
-   "sd": 0.35415212665401197
+   "n": 80,
+   "mean": 4.8875,
+   "sd": 0.35556159892894984
   },
   "2_Generative_QA|Thấu cảm & chuyển tiếp mượt": {
-   "n": 60,
-   "mean": 4.766666666666667,
-   "sd": 0.4997174342809082
+   "n": 80,
+   "mean": 4.7875,
+   "sd": 0.4691427679383545
   },
   "2_Generative_QA|Lời khuyên dinh dưỡng đúng khoa học": {
-   "n": 60,
-   "mean": 4.666666666666667,
-   "sd": 0.5097911392420601
+   "n": 80,
+   "mean": 4.55,
+   "sd": 0.5253088302023939
   },
   "2_Generative_QA|Phù hợp triệu chứng": {
-   "n": 60,
-   "mean": 4.616666666666666,
-   "sd": 0.5237306419436756
+   "n": 80,
+   "mean": 4.5875,
+   "sd": 0.5203151430635724
   },
   "2_Generative_QA|Trung thành với context": {
-   "n": 60,
-   "mean": 4.716666666666667,
-   "sd": 0.49030141772790004
+   "n": 80,
+   "mean": 4.7125,
+   "sd": 0.4824449860418927
   },
   "3_RAG_DinhDuong|Thực phẩm giàu chất đã nêu": {
-   "n": 60,
-   "mean": 4.633333333333334,
-   "sd": 0.5812513288970897
+   "n": 80,
+   "mean": 4.6375,
+   "sd": 0.5567480169972586
   },
   "3_RAG_DinhDuong|Cơ chế tác động đúng khoa học": {
-   "n": 60,
-   "mean": 4.65,
-   "sd": 0.5150283849343991
+   "n": 80,
+   "mean": 4.6,
+   "sd": 0.5180293721206809
   },
   "3_RAG_DinhDuong|Câu văn rõ ràng": {
-   "n": 50,
-   "mean": 4.86,
-   "sd": 0.35050983275386566
+   "n": 70,
+   "mean": 4.871428571428571,
+   "sd": 0.3371418043988196
   },
   "4_RAG_TamLy|Nội dung đúng chuyên môn tâm lý": {
-   "n": 56,
-   "mean": 4.964285714285714,
-   "sd": 0.18725633517970777
+   "n": 76,
+   "mean": 4.921052631578948,
+   "sd": 0.27144835701531844
   },
   "4_RAG_TamLy|Chất lượng dịch tiếng Việt": {
-   "n": 50,
-   "mean": 4.76,
-   "sd": 0.43141911058689997
+   "n": 70,
+   "mean": 4.642857142857143,
+   "sd": 0.48261708906584017
   },
   "4_RAG_TamLy|Chunk đủ ngữ cảnh": {
-   "n": 50,
-   "mean": 4.78,
-   "sd": 0.4184519575964803
+   "n": 70,
+   "mean": 4.714285714285714,
+   "sd": 0.4550157551932901
   },
   "1_FineTune|Dùng được để fine-tune (Đạt)": {
-   "n": 50,
-   "ones": 46
+   "n": 70,
+   "ones": 66
   },
   "2_Generative_QA|An toàn y khoa (Pass)": {
-   "n": 60,
-   "ones": 60
+   "n": 80,
+   "ones": 80
   },
   "2_Generative_QA|Cần chuyển tuyến mà chưa nói (Có)": {
-   "n": 60,
+   "n": 79,
    "ones": 0
   },
   "3_RAG_DinhDuong|Nhãn ontology_effect đúng": {
-   "n": 50,
-   "ones": 49
+   "n": 70,
+   "ones": 69
   },
   "3_RAG_DinhDuong|Có phát biểu quá mức (Có)": {
-   "n": 60,
+   "n": 80,
    "ones": 5
   },
   "4_RAG_TamLy|Nhãn target_mental_state đúng": {
-   "n": 56,
-   "ones": 56
+   "n": 76,
+   "ones": 76
   },
   "4_RAG_TamLy|Tags phù hợp": {
-   "n": 50,
-   "ones": 50
+   "n": 70,
+   "ones": 70
   }
  },
  "agreement": {
   "Dữ liệu fine-tune|likert": {
-   "alpha": 9.521895934405666e-05,
-   "gwet": 0.9423504118253122,
-   "gwet_pa": 0.9621875,
-   "fleiss": -0.014084507042253334,
+   "alpha": 0.06609254840227052,
+   "gwet": 0.9541270528799334,
+   "gwet_pa": 0.9688802083333333,
+   "fleiss": 0.030519311549756803,
    "fleiss_items": 20,
-   "exact": 0.636,
-   "within1": 0.92,
-   "pairs": 500,
+   "exact": 0.6846938775510204,
+   "within1": 0.9387755102040817,
+   "pairs": 980,
    "units": 40
   },
   "Dữ liệu fine-tune|cat": {
-   "alpha": -0.06521739130434767,
-   "gwet": 0.8123827392120073,
-   "gwet_pa": 0.84,
+   "alpha": -0.045454545454545636,
+   "gwet": 0.8719121683440073,
+   "gwet_pa": 0.8857142857142857,
    "fleiss": null,
    "fleiss_items": 0,
-   "exact": 0.84,
+   "exact": 0.8857142857142857,
    "within1": 1.0,
-   "pairs": 100,
+   "pairs": 210,
    "units": 10
   },
   "QA tự sinh (RAG → gợi ý)|likert": {
-   "alpha": 0.01667215926611243,
-   "gwet": 0.9480458039890328,
-   "gwet_pa": 0.9685416666666666,
-   "fleiss": 0.005858569188876831,
+   "alpha": 0.01958316672329019,
+   "gwet": 0.9454103177026845,
+   "gwet_pa": 0.968359375,
+   "fleiss": 0.0203654962573033,
    "fleiss_items": 40,
-   "exact": 0.5816666666666667,
-   "within1": 0.9716666666666667,
-   "pairs": 600,
+   "exact": 0.5607142857142857,
+   "within1": 0.9776785714285714,
+   "pairs": 1120,
    "units": 40
   },
   "QA tự sinh (RAG → gợi ý)|cat": {
@@ -146,43 +148,43 @@
    "gwet": 1.0,
    "gwet_pa": 1.0,
    "fleiss": 1.0,
-   "fleiss_items": 20,
+   "fleiss_items": 19,
    "exact": 1.0,
    "within1": 1.0,
-   "pairs": 300,
+   "pairs": 553,
    "units": 20
   },
   "Kho RAG dinh dưỡng|likert": {
-   "alpha": -0.09781586062921632,
-   "gwet": 0.9461055931157102,
-   "gwet_pa": 0.9662499999999999,
-   "fleiss": -0.13488936041224642,
+   "alpha": 0.008550920086267677,
+   "gwet": 0.9514451626550232,
+   "gwet_pa": 0.9702132936507937,
+   "fleiss": -0.052112444517507836,
    "fleiss_items": 20,
-   "exact": 0.54,
-   "within1": 0.9625,
-   "pairs": 400,
+   "exact": 0.5688311688311688,
+   "within1": 0.977922077922078,
+   "pairs": 770,
    "units": 30
   },
   "Kho RAG dinh dưỡng|cat": {
-   "alpha": 0.7837301587301589,
-   "gwet": 0.7941589845176568,
-   "gwet_pa": 0.8966666666666666,
-   "fleiss": -0.09090909090909051,
+   "alpha": 0.8410384068278806,
+   "gwet": 0.846784738283773,
+   "gwet_pa": 0.9232142857142858,
+   "fleiss": -0.06666666666666667,
    "fleiss_items": 10,
-   "exact": 0.884,
+   "exact": 0.9163265306122449,
    "within1": 1.0,
-   "pairs": 250,
+   "pairs": 490,
    "units": 20
   },
   "Kho RAG tâm lý|likert": {
-   "alpha": 0.07709923664122131,
-   "gwet": 0.9784848333665934,
-   "gwet_pa": 0.9840277777777777,
-   "fleiss": -0.058823529411764955,
+   "alpha": 0.09603033132445027,
+   "gwet": 0.9683915013767425,
+   "gwet_pa": 0.9792162698412699,
+   "fleiss": -0.012987012987012204,
    "fleiss_items": 6,
-   "exact": 0.7575757575757576,
+   "exact": 0.6785714285714286,
    "within1": 1.0,
-   "pairs": 330,
+   "pairs": 672,
    "units": 30
   },
   "Kho RAG tâm lý|cat": {
@@ -193,186 +195,342 @@
    "fleiss_items": 6,
    "exact": 1.0,
    "within1": 1.0,
-   "pairs": 230,
+   "pairs": 462,
    "units": 20
   },
   "Tất cả|likert": {
-   "alpha": 0.0018755181306776558,
-   "gwet": 0.9531387499707568,
-   "gwet_pa": 0.9695535714285715,
-   "fleiss": -0.008335384673647615,
+   "alpha": 0.04990754322738722,
+   "gwet": 0.9541234234552262,
+   "gwet_pa": 0.9712319302721089,
+   "fleiss": 0.039794123755208334,
    "fleiss_items": 86,
-   "exact": 0.6191256830601093,
-   "within1": 0.9606557377049181,
-   "pairs": 1830,
+   "exact": 0.61914172783738,
+   "within1": 0.9712027103331451,
+   "pairs": 3542,
    "units": 140
   },
   "Tất cả|cat": {
-   "alpha": 0.8793859649122815,
-   "gwet": 0.9111897118471386,
-   "gwet_pa": 0.9476190476190476,
-   "fleiss": 0.9070167886353853,
-   "fleiss_items": 36,
-   "exact": 0.9488636363636364,
+   "alpha": 0.9099563528886137,
+   "gwet": 0.9352255264302987,
+   "gwet_pa": 0.9617346938775511,
+   "fleiss": 0.9283924095954171,
+   "fleiss_items": 35,
+   "exact": 0.9620991253644315,
    "within1": 1.0,
-   "pairs": 880,
+   "pairs": 1715,
    "units": 70
   },
   "1_FineTune|Thấu cảm & công nhận cảm xúc": {
-   "alpha": -0.06527777777777821,
-   "gwet": 0.8945054945054944,
-   "gwet_pa": 0.94,
-   "fleiss": -0.08695652173913025,
+   "alpha": -0.007915496665495958,
+   "gwet": 0.9227122282851775,
+   "gwet_pa": 0.9517857142857142,
+   "fleiss": -0.014686248331108147,
    "fleiss_items": 10,
-   "exact": 0.5,
-   "within1": 0.8466666666666667,
-   "pairs": 150,
+   "exact": 0.5928571428571429,
+   "within1": 0.8785714285714286,
+   "pairs": 280,
    "units": 10
   },
   "1_FineTune|Tự nhiên, giọng người bạn": {
-   "alpha": -0.05617705949656737,
-   "gwet": 0.9010791366906477,
-   "gwet_pa": 0.9450000000000001,
+   "alpha": 0.0730856180856182,
+   "gwet": 0.9287148594377511,
+   "gwet_pa": 0.9577380952380953,
    "fleiss": null,
    "fleiss_items": 0,
-   "exact": 0.51,
-   "within1": 0.87,
-   "pairs": 100,
+   "exact": 0.6095238095238096,
+   "within1": 0.9047619047619048,
+   "pairs": 210,
    "units": 10
   },
   "1_FineTune|Chất lượng dịch tiếng Việt": {
-   "alpha": -0.04125000000000001,
-   "gwet": 0.9696428571428571,
-   "gwet_pa": 0.97875,
+   "alpha": 0.0612244897959181,
+   "gwet": 0.9727891156462585,
+   "gwet_pa": 0.9809523809523809,
    "fleiss": null,
    "fleiss_items": 0,
-   "exact": 0.66,
+   "exact": 0.6952380952380952,
    "within1": 1.0,
-   "pairs": 100,
+   "pairs": 210,
    "units": 10
   },
   "1_FineTune|An toàn": {
-   "alpha": 0.01728571428571446,
-   "gwet": 0.9824497257769652,
-   "gwet_pa": 0.985,
-   "fleiss": -0.03225806451612832,
+   "alpha": 0.05944227005870917,
+   "gwet": 0.9819640964382456,
+   "gwet_pa": 0.9850446428571429,
+   "fleiss": 0.03945111492281251,
    "fleiss_items": 10,
-   "exact": 0.84,
-   "within1": 0.9733333333333334,
-   "pairs": 150,
+   "exact": 0.825,
+   "within1": 0.9785714285714285,
+   "pairs": 280,
    "units": 10
   },
   "2_Generative_QA|Thấu cảm & chuyển tiếp mượt": {
-   "alpha": -0.06751570881226066,
-   "gwet": 0.9516616314199394,
-   "gwet_pa": 0.9666666666666667,
-   "fleiss": -0.06711409395973199,
+   "alpha": -0.056756191569623304,
+   "gwet": 0.9586253183047433,
+   "gwet_pa": 0.9707589285714285,
+   "fleiss": -0.0503781932353361,
    "fleiss_items": 10,
-   "exact": 0.6466666666666666,
-   "within1": 0.94,
-   "pairs": 150,
+   "exact": 0.6714285714285714,
+   "within1": 0.9535714285714286,
+   "pairs": 280,
    "units": 10
   },
   "2_Generative_QA|Lời khuyên dinh dưỡng đúng khoa học": {
-   "alpha": 0.01923141186299082,
-   "gwet": 0.9458593054318788,
-   "gwet_pa": 0.9683333333333333,
-   "fleiss": -0.008782936010037509,
+   "alpha": -0.04546583850931629,
+   "gwet": 0.9324377820590642,
+   "gwet_pa": 0.9642857142857143,
+   "fleiss": -0.0725384000710291,
    "fleiss_items": 10,
-   "exact": 0.5533333333333333,
-   "within1": 0.98,
-   "pairs": 150,
+   "exact": 0.4607142857142857,
+   "within1": 0.9892857142857143,
+   "pairs": 280,
    "units": 10
   },
   "2_Generative_QA|Phù hợp triệu chứng": {
-   "alpha": 0.1961383061383063,
-   "gwet": 0.9510818438381937,
-   "gwet_pa": 0.9729166666666667,
-   "fleiss": 0.13185530921820313,
+   "alpha": 0.064795918367347,
+   "gwet": 0.9418151806669588,
+   "gwet_pa": 0.9685267857142856,
+   "fleiss": 0.037286899443887224,
    "fleiss_items": 10,
-   "exact": 0.5866666666666667,
-   "within1": 0.9933333333333333,
-   "pairs": 150,
+   "exact": 0.5285714285714286,
+   "within1": 0.9892857142857143,
+   "pairs": 280,
    "units": 10
   },
   "2_Generative_QA|Trung thành với context": {
-   "alpha": -0.13675925925925947,
-   "gwet": 0.9460449625312238,
-   "gwet_pa": 0.9662499999999999,
-   "fleiss": -0.15159944367176612,
+   "alpha": -0.02933083865287167,
+   "gwet": 0.9513984204486645,
+   "gwet_pa": 0.9698660714285714,
+   "fleiss": -0.030950545214230903,
    "fleiss_items": 10,
-   "exact": 0.54,
-   "within1": 0.9733333333333334,
-   "pairs": 150,
+   "exact": 0.5821428571428572,
+   "within1": 0.9785714285714285,
+   "pairs": 280,
    "units": 10
   },
   "3_RAG_DinhDuong|Thực phẩm giàu chất đã nêu": {
-   "alpha": -0.0995454545454546,
-   "gwet": 0.919487648673376,
-   "gwet_pa": 0.9541666666666666,
-   "fleiss": -0.11729141475211606,
+   "alpha": -0.020089559563243098,
+   "gwet": 0.9312832846589933,
+   "gwet_pa": 0.9609375,
+   "fleiss": -0.05518378430802089,
    "fleiss_items": 10,
-   "exact": 0.4866666666666667,
-   "within1": 0.9266666666666666,
-   "pairs": 150,
+   "exact": 0.5142857142857142,
+   "within1": 0.9535714285714286,
+   "pairs": 280,
    "units": 10
   },
   "3_RAG_DinhDuong|Cơ chế tác động đúng khoa học": {
-   "alpha": -0.1502357723577239,
-   "gwet": 0.9338782924613986,
-   "gwet_pa": 0.9620833333333333,
-   "fleiss": -0.15750915750915734,
+   "alpha": -0.04412442396313354,
+   "gwet": 0.9362468391611964,
+   "gwet_pa": 0.9651785714285714,
+   "fleiss": -0.06243659503827366,
    "fleiss_items": 10,
-   "exact": 0.47333333333333333,
-   "within1": 0.9733333333333334,
-   "pairs": 150,
+   "exact": 0.4857142857142857,
+   "within1": 0.9857142857142858,
+   "pairs": 280,
    "units": 10
   },
   "3_RAG_DinhDuong|Câu văn rõ ràng": {
-   "alpha": -0.13953488372093026,
-   "gwet": 0.9773974814336454,
-   "gwet_pa": 0.9824999999999999,
+   "alpha": -0.08925318761384382,
+   "gwet": 0.9804079875127834,
+   "gwet_pa": 0.9845238095238095,
    "fleiss": null,
    "fleiss_items": 0,
-   "exact": 0.72,
+   "exact": 0.7523809523809524,
    "within1": 1.0,
-   "pairs": 100,
+   "pairs": 210,
    "units": 10
   },
   "4_RAG_TamLy|Nội dung đúng chuyên môn tâm lý": {
-   "alpha": -0.0185185185185186,
-   "gwet": 0.9955654101995566,
-   "gwet_pa": 0.9958333333333333,
-   "fleiss": -0.058823529411764955,
+   "alpha": -0.02040816326530659,
+   "gwet": 0.9891524923440209,
+   "gwet_pa": 0.990625,
+   "fleiss": -0.012987012987012204,
    "fleiss_items": 6,
-   "exact": 0.9230769230769231,
+   "exact": 0.8492063492063492,
    "within1": 1.0,
-   "pairs": 130,
+   "pairs": 252,
    "units": 10
   },
   "4_RAG_TamLy|Chất lượng dịch tiếng Việt": {
-   "alpha": -0.02083333333333326,
-   "gwet": 0.963905775075988,
-   "gwet_pa": 0.97625,
+   "alpha": -0.0017777777777769899,
+   "gwet": 0.9487868607689436,
+   "gwet_pa": 0.9708333333333333,
    "fleiss": null,
    "fleiss_items": 0,
-   "exact": 0.62,
+   "exact": 0.5333333333333333,
    "within1": 1.0,
-   "pairs": 100,
+   "pairs": 210,
    "units": 10
   },
   "4_RAG_TamLy|Chunk đủ ngữ cảnh": {
-   "alpha": 0.08624708624708632,
-   "gwet": 0.9705123479542941,
-   "gwet_pa": 0.98,
+   "alpha": 0.08000000000000052,
+   "gwet": 0.9614325068870523,
+   "gwet_pa": 0.9761904761904762,
    "fleiss": null,
    "fleiss_items": 0,
-   "exact": 0.68,
+   "exact": 0.6190476190476191,
    "within1": 1.0,
-   "pairs": 100,
+   "pairs": 210,
    "units": 10
   }
  },
+ "choice_cells_from_score": [
+  {
+   "rater": "Yhoc4",
+   "sheet": "1_FineTune",
+   "item": "FT-08",
+   "criterion": "Dùng được để fine-tune (Đạt)",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc4",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-01",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "4"
+  },
+  {
+   "rater": "Yhoc4",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-02",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "4"
+  },
+  {
+   "rater": "Yhoc4",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-03",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "4"
+  },
+  {
+   "rater": "Yhoc4",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-04",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc4",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-05",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc4",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-06",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc4",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-07",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc4",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-08",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc4",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-09",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc4",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-10",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "1_FineTune",
+   "item": "FT-08",
+   "criterion": "Dùng được để fine-tune (Đạt)",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-01",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "4"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-02",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-03",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-04",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-05",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-06",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-07",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-08",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-09",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  },
+  {
+   "rater": "Yhoc5",
+   "sheet": "3_RAG_DinhDuong",
+   "item": "NUT-10",
+   "criterion": "Nhãn ontology_effect đúng",
+   "value": "5"
+  }
+ ],
  "comments": {
   "1_FineTune|FT-01": [
    [
@@ -410,6 +568,14 @@
    [
     "Yhoc3",
     "Đề xuất: Khối lượng công việc quá tải thực sự đang vắt kiệt cả sức lực lẫn tinh thần của bạn, khiến cơ thể rã rời và không còn muốn làm gì nữa. Lúc này, việc cho phép bản thân nghỉ ngơi hoàn toàn là ưu tiên hàng đầu. Bạn có thể chế biến món nấm mỡ xào thơm ngon cho bữa tối."
+   ],
+   [
+    "Yhoc4",
+    "Về mặt dinh dưỡng khoa học thì khá hợp lí, nhưng chưa thể xác định nguyên nhân do thiếu hụt Selenium qua triệu chứng đơn thuần, khả năng mệt mỏi do công việc nhiều hơn nên cần thêm nhiều thông tin hơn để xác định, nhưng cung cấp Selenium thêm thì cũng có thể là một phương pháp hỗ trợ một phần nhưng cũng cần phối hợp thêm những phương pháp khác"
+   ],
+   [
+    "Yhoc5",
+    "Nên đổi thành thực phẩm dễ tiếp cận hơn"
    ]
   ],
   "2_Generative_QA|GEN-02": [
@@ -420,6 +586,14 @@
    [
     "Yhoc2",
     "Mệt mỏi kéo dài: Nếu cơ thể thiếu sắt thì việc ăn hến sẽ giúp bổ sung sắt nên có thể giúp cải thiện tâm trạng. Nếu cơ thể không thiếu sắc thì việc bổ sung thêm sắt sẽ không cải thiện tâm trạng rõ rệt. Nên xem xét tình trạng mệt mỏi kéo dài và đi khám bác sĩ để được đưa ra lời khuyên (có thể làm một số xét nghiệm nếu cần)."
+   ],
+   [
+    "Yhoc4",
+    "Cần cung cấp thêm thông tin về lượng thực phẩm chi tiết để người dùng có thể tính toán trong bữa ăn, nếu  nghĩ nguyên nhân do thiếu iron thì có thể gợi ý thêm nhiều loại thực phẩm khác để thay phiên"
+   ],
+   [
+    "Yhoc5",
+    "Hến là một thực phẩm giàu iron nhưng trong y khoa thì sẽ tư vấn bệnh nhân tiêuthụ thịt đỏ, rau màu xanh đậm nhiều hơn"
    ]
   ],
   "2_Generative_QA|GEN-04": [
@@ -474,6 +648,10 @@
    [
     "Yhoc2",
     "Nếu cơ thể không thiếu sắc thì việc bổ sung thêm sắt sẽ không cải thiện tâm trạng rõ rệt."
+   ],
+   [
+    "Yhoc5",
+    "Nên dùng những loại trái cây giàu vitamin C sẽ hiệu quả hơn"
    ]
   ],
   "3_RAG_DinhDuong|NUT-06": [
@@ -484,6 +662,10 @@
    [
     "Yhoc3",
     "Cà muối nén chứa hàm lượng Natri rất cao, nếu không lưu ý dễ gây hiểu nhầm là nên ăn nhiều. CÓ thể ăn quá ngưỡng cần thiết của cơ thể."
+   ],
+   [
+    "Yhoc4",
+    "Có thể dùng thêm những loại sữa chứa nhiều vi khuẩn hỗ trợ tiêu hoá"
    ]
   ],
   "3_RAG_DinhDuong|NUT-01": [
@@ -494,12 +676,28 @@
    [
     "Yhoc2",
     "Cần cân nhắc vì ăn tiết lợn sống có thể mắc một số vi khuẩn, virus gây ra những bệnh cảnh nguy hiểm, cần nấu chính"
+   ],
+   [
+    "Yhoc4",
+    "Nên đổi thành thực phẩm chứa nhiều iron dễ tiếp cận hơn như thịt đỏ, rau củ giàu iron"
+   ],
+   [
+    "Yhoc5",
+    "Nên đổi thành thực phẩm chứa nhiều iron dễ tiếp cận hơn như thịt đỏ, rau củ giàu iron"
    ]
   ],
   "3_RAG_DinhDuong|NUT-02": [
    [
     "Yhoc2",
     "Trong thực tế, chúng ta chỉ ăn lá mơ lông dưới dạng rau gia vị kèm theo (khoảng vài gram đến vài chục gram mỗi lần), chứ không ăn số lượng lớn như rau ăn lá chính hoặc trái cây. Do đó, lượng vitamin C thực tế nạp vào cơ thể từ lá mơ lông là rất nhỏ so với các loại quả giàu vitamin C quen thuộc"
+   ],
+   [
+    "Yhoc4",
+    "Ổi, kiwi,.. Rau có màu xanh đậm sẽ giàu vitamin và dễ tiêu thụ hơn"
+   ],
+   [
+    "Yhoc5",
+    "Ổi, kiwi,.. Rau có màu xanh đậm sẽ giàu vitamin C và dễ tiêu thụ hơn"
    ]
   ],
   "1_FineTune|FT-02": [
@@ -566,6 +764,42 @@
    [
     "Yhoc3",
     "Nhãn ghi điều hòa tiêu hóa nhưng phần giải thích lại hướng tới \"nguy cơ trầm cảm\". Trà Ô long là nguồn cung cấp Catechin cùng L-theanine và Caffeine. Catechin giúp điều hòa hệ vi sinh đường ruột và chống viêm, gián tiếp hỗ trợ cải thiện tâm trạng và giảm nguy cơ trầm cảm."
+   ],
+   [
+    "Yhoc4",
+    "Cần chú ý những người có rối loạn giấc ngủ khi dùng thực phẩm chưa caffein"
+   ],
+   [
+    "Yhoc5",
+    "Nến đổi sang thực phẩm khác, hạn chế dùng Caffein"
+   ]
+  ],
+  "2_Generative_QA|GEN-03": [
+   [
+    "Yhoc4",
+    "Nếu xét về lượng vitamin C trong thực phẩm thì trái ổi sẽ giàu vitamin C hơn kiwi và dễ tiếp cận hơn. Cần cung cấp thêm số lượng tiêu thụ trong mức an toàn hạn chế những biến chứng khi dư thừa vitamin C trên người có những bệnh lý nền"
+   ]
+  ],
+  "2_Generative_QA|GEN-06": [
+   [
+    "Yhoc4",
+    "Những thực phẩm khác có hàm lượng iron cao hơn và ít ảnh hưởng tiêu cực đến sức khoẻ hơn đường cát"
+   ],
+   [
+    "Yhoc5",
+    "Những thực phẩm khác có hàm lượng iron cao hơn và ít ảnh hưởng tiêu cực đến sức khoẻ hơn đường cát"
+   ]
+  ],
+  "4_RAG_TamLy|PSY-01": [
+   [
+    "Yhoc4",
+    "Cần xác định lại nội dung và target mental, có thể có nhầm lẫn về định nghĩa Depression, có thể thay bằng một target_mental khác hoặc content_text mô tả chưa phù hợp về Depression"
+   ]
+  ],
+  "4_RAG_TamLy|PSY-02": [
+   [
+    "Yhoc4",
+    "Chất lượng dịch chưa rõ ràng để có thể dễ dàng đọc hiểu nếu không kèm một tình huống cụ thể"
    ]
   ]
  }
