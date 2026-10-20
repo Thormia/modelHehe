@@ -32,7 +32,7 @@ Nhánh `main` là bản chính thức: hệ thống đã đánh giá ngày 16–
 | Bước | Notebook trong repo | Bản đã chạy trên Kaggle |
 |---|---|---|
 | Fine-tune Qwen2.5-7B-Instruct bằng LoRA trên TPU (ra `best_adapter`) | `finetune_modelhuhu.ipynb` | https://www.kaggle.com/code/ghoenix/modelhuhu/log |
-| Đánh giá model fine-tune so với model gốc trên tập test fine-tune (perplexity, ROUGE-L, BERTScore, định dạng JSON) | `huhuevalu.ipynb` | |
+| Đánh giá model fine-tune so với model gốc trên tập test fine-tune (perplexity, ROUGE-L, BERTScore, định dạng JSON) | `huhuevalu.ipynb` | https://www.kaggle.com/code/ghoenix/huhuevalu |
 | Gộp LoRA, xuất GGUF Q4_K_M để chạy bằng Ollama (ra `qwen2.5-7b-huhu-Q4_K_M.gguf`) | `uploadhuhu.ipynb` (= `Hybrid-database-main/serving/export_gguf_kaggle.ipynb`) | https://www.kaggle.com/code/ghoenix/uploadhuhu |
 
 - Log huấn luyện: `Hybrid-database-main/logs/finetune/run_log.txt`, `train_history.json` (loss theo bước, dùng vẽ biểu đồ trong báo cáo).
