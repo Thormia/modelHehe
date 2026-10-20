@@ -257,7 +257,12 @@ def extra(root):
     for su in ("crisis", "safety"):
         for s in ("B1", "B2", "B3"):
             b = c = 0
+            missing = sorted(set(sc["P", su]) ^ set(sc[s, su]))
+            if missing:  # ca lỗi khi sinh (ví dụ server trả 500): McNemar chỉ tính trên ca cả hai bên đều có
+                print(f"| (P vs {s}, {su}: bỏ {len(missing)} ca chỉ có ở một bên: {', '.join(missing)}) | | | | |")
             for i, r in sc["P", su].items():
+                if i not in sc[s, su]:
+                    continue
                 rp = r["correct"] and valid("P", r)
                 o = sc[s, su][i]
                 rb = o["correct"] and valid(s, o)

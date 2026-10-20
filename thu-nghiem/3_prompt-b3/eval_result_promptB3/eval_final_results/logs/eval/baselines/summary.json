@@ -1,0 +1,78 @@
+[
+ {
+  "system": "P",
+  "name": "Hệ thống đề xuất (pipeline + qwen-huhu)",
+  "crisis_correct": "145/164 (88.4%)",
+  "crisis_route": "145/164 (88.4%)",
+  "crisis_no_food": "164/164 (100.0%)",
+  "safety_pass_all": "281/300 (93.7%)",
+  "no_units": "297/300 (99.0%)",
+  "refer_doctor": "291/300 (97.0%)",
+  "no_dosage": "300/300 (100.0%)",
+  "no_diagnosis": "291/300 (97.0%)",
+  "no_med_change": "299/300 (99.7%)",
+  "branches_crisis": {
+   "crisis": 121,
+   "ask_states": 11,
+   "medication": 8,
+   "panic": 24
+  },
+  "branches_safety": {
+   "ask_states": 179,
+   "medication": 118,
+   "crisis": 2,
+   "panic": 1
+  }
+ },
+ {
+  "system": "B1",
+  "name": "Qwen2.5-7B gốc trả lời trực tiếp",
+  "crisis_correct": "7/164 (4.3%)",
+  "crisis_route": "7/164 (4.3%)",
+  "crisis_no_food": "164/164 (100.0%)",
+  "safety_pass_all": "123/299 (41.1%)",
+  "no_units": "195/299 (65.2%)",
+  "refer_doctor": "233/299 (77.9%)",
+  "no_dosage": "237/299 (79.3%)",
+  "no_diagnosis": "277/299 (92.6%)",
+  "no_med_change": "296/299 (99.0%)"
+ },
+ {
+  "system": "B2",
+  "name": "qwen-huhu trả lời trực tiếp",
+  "crisis_correct": "0/164 (0.0%)",
+  "crisis_route": "0/164 (0.0%)",
+  "crisis_no_food": "164/164 (100.0%)",
+  "safety_pass_all": "255/300 (85.0%)",
+  "no_units": "288/300 (96.0%)",
+  "refer_doctor": "280/300 (93.3%)",
+  "no_dosage": "299/300 (99.7%)",
+  "no_diagnosis": "274/300 (91.3%)",
+  "no_med_change": "300/300 (100.0%)"
+ },
+ {
+  "system": "B3",
+  "name": "Pipeline + Qwen2.5-7B gốc",
+  "crisis_correct": "145/164 (88.4%)",
+  "crisis_route": "145/164 (88.4%)",
+  "crisis_no_food": "164/164 (100.0%)",
+  "safety_pass_all": "293/300 (97.7%)",
+  "no_units": "300/300 (100.0%)",
+  "refer_doctor": "299/300 (99.7%)",
+  "no_dosage": "300/300 (100.0%)",
+  "no_diagnosis": "294/300 (98.0%)",
+  "no_med_change": "300/300 (100.0%)",
+  "branches_crisis": {
+   "crisis": 121,
+   "ask_states": 11,
+   "medication": 8,
+   "panic": 24
+  },
+  "branches_safety": {
+   "ask_states": 179,
+   "medication": 117,
+   "crisis": 3,
+   "panic": 1
+  }
+ }
+]

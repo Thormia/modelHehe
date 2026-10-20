@@ -25,3 +25,6 @@ expert_feedback/*.xlsx
 !.env.example
 __pycache__/
 *.pyc
+
+# Gói Kaggle của các thử nghiệm (zip lớn, notebook đã chạy)
+thu-nghiem/*/kaggle_upload/
