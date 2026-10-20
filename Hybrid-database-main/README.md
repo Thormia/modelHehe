@@ -47,8 +47,9 @@ Code/
 ├── serving/                        # Đưa model fine-tune lên Ollama
 │   ├── export_gguf_kaggle.ipynb    # Gộp LoRA + xuất GGUF Q4_K_M (chạy trên Kaggle CPU)
 │   └── Modelfile
-├── scripts/chat_cli.py             # Chat thử trên terminal
-└── tests/test_backend.py           # Test với LLM / DB giả lập
+├── scripts/                        # Đánh giá, phân tích, dựng báo cáo, đóng gói Kaggle (mô tả từng file: ../README.md)
+│   └── chat_cli.py                 # Chat thử trên terminal
+└── tests/                          # Unit test với LLM / DB giả lập
 ```
 
 ---
@@ -231,7 +232,7 @@ python -m unittest discover -s tests -v          # unit test, không cần Ollam
 
 # Test toàn hệ thống trên data/300 test (kết quả từng ca: logs/eval/*.jsonl)
 python scripts/eval_system.py crisis              # 164 ca thuộc định nghĩa khủng hoảng: tỷ lệ LLM #1 phát hiện
-python scripts/eval_system.py retrieval           # 300 ca: states -> đích tác động so với expected_effects (cần LLM #1)
+python scripts/eval_system.py retrieval           # truy xuất theo 4 state: LLM #1 trích đúng state, đúng chiều vấn đề (cần LLM #1)
 python scripts/eval_system.py safety              # 300 bẫy liều lượng / chẩn đoán / thuốc / calo (cần cả hệ thống)
 python scripts/eval_system.py safety --limit 20   # chạy thử ít ca trước
 
@@ -249,7 +250,9 @@ python scripts/eval_baselines.py report
 3. Mở `serving/eval_final_kaggle.ipynb`, Add Input 2 thứ trên, *Run All*. Notebook kiểm sha256/digest (lệch là dừng),
    dựng PostgreSQL 16 + pgvector, Redis, Neo4j 5.18, Ollama bằng `serving/kaggle_services.sh` (thay docker-compose),
    seed DB, kiểm số dòng, so truy xuất PostgreSQL với bản JSON, chạy unit test, rồi chạy toàn bộ bộ test. Kết quả:
-   `/kaggle/working/eval_final_results.zip`. Hết 12 giờ thì gắn Output làm input và chạy lại: ca đã xong được bỏ qua.
+   `/kaggle/working/eval_final_results.zip`. Các cell in trực tiếp các bảng của báo cáo (truy xuất theo 4 state, phân tích
+   `analyze_final.py`; notebook grounding in định tuyến khi đã có thông tin và bảng cờ y tế B3). Hết 12 giờ thì gắn Output
+   làm input và chạy lại: ca đã xong được bỏ qua; ca lỗi khi sinh được chạy lại tối đa 3 lượt.
 **Kết quả chính thức và cách dựng lại báo cáo** (lần chạy 16–17/10 sau khi sửa lỗi implement nhóm B3):
 - Output 2 notebook Kaggle nằm ở `../eval_result_afterChangePrompt/` (`eval_final_results (1)/` cho crisis, retrieval, safety và 3 baseline;
   `eval_grounding_results/` cho grounding và định tuyến nhiều lượt). Báo cáo chỉ dùng số của lần chạy này.
@@ -258,7 +261,7 @@ python scripts/eval_baselines.py report
 - `python scripts/build_final_report.py` sinh `../BAO_CAO_KET_QUA_CUOI.docx` từ các file kết quả trên; báo cáo đầy đủ ở
   `logs/eval/BAO_CAO_DANH_GIA.md`, chấm tay (chỉ để phân tích lỗi) ở `logs/eval/chamtay_after_b3fix.md`.
 - Trọng số không nằm trong repo (vượt 100 MB):
-  - `best_adapter`: Output của notebook fine-tune `../finetune_modelhuhu.ipynb`.
+  - `best_adapter`: Output của notebook fine-tune `../finetune_modelhuhu.ipynb` (bản đã chạy: https://www.kaggle.com/code/ghoenix/modelhuhu/log).
   - GGUF `qwen2.5-7b-huhu-Q4_K_M.gguf`: Output của notebook Kaggle https://www.kaggle.com/code/ghoenix/uploadhuhu
     (bản đã chạy của `serving/export_gguf_kaggle.ipynb`, lưu ở `../uploadhuhu.ipynb`).
     sha256 `91bfc32083ce6f7f67811561c461c0308ab32222655bd433473b60b6f3bacb8d`; digest Ollama của `qwen-huhu` là `6c40a8c893db`.
