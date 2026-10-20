@@ -37,6 +37,7 @@ from backend.constants import STATES  # noqa: E402
 from backend.guardrails import check_tier1  # noqa: E402
 from backend.llm import LLMClient, LLMError, parse_json_object  # noqa: E402
 from eval_baselines import read_done  # noqa: E402
+from eval_rules import print_routing, routing  # noqa: E402
 from eval_system import pct  # noqa: E402
 
 TRAINDATA = os.path.join(os.path.dirname(ROOT), "traindata")
@@ -310,41 +311,11 @@ def report():
         print(f"- {k}: lỗi tầng 1 {v['tier1_errors']}")
 
     print("\n## B. Toàn hệ thống qua các lượt hội thoại (tập test fine-tune B1–B4)\n")
-    print("| Nhóm | Nhãn lượt cuối | n | Đúng nhánh lượt cuối | Nhánh thực tế (lượt cuối) |")
-    print("|---|---|---|---|---|")
     allb = []
     for g in GROUPS:
-        rows = list(read_done(path(f"B_{g}_scored.jsonl")).values())
-        if not rows:
-            continue
-        allb += rows
-        gb = Counter(r["gold_branch"] for r in rows).most_common(1)[0][0]
-        print(f"| {g} | {gb} | {len(rows)} | {pct(sum(r['branch_ok'] for r in rows), len(rows))} | "
-              f"{dict(Counter(r['branch'] for r in rows))} |")
-    if allb:
-        print(f"| **Tổng** | | {len(allb)} | **{pct(sum(r['branch_ok'] for r in allb), len(allb))}** | |")
-    b2 = [r for r in allb if r["group"] == "B2"]
-    two = [r for r in b2 if r["n_turns"] == 2]
-    if two:
-        ok1 = sum(r["path"][0] == "ask_states" for r in two)
-        ok2 = sum(r["path"][1] == "nutrition" for r in two)
-        both = sum(r["path"] == ["ask_states", "nutrition"] for r in two)
-        print(f"\n**B2 hai lượt (gom đủ state qua hội thoại):** lượt 1 hỏi state {pct(ok1, len(two))}; lượt 2 vào nhánh "
-              f"dinh dưỡng {pct(ok2, len(two))}; đúng cả hai lượt {pct(both, len(two))}. "
-              f"Đường đi thực tế: {dict(Counter(' → '.join(r['path']) for r in two))}")
-    one = [r for r in b2 if r["n_turns"] == 1]
-    if one:
-        print(f"\n**B2 một lượt (người dùng kể đủ state ngay):** vào nhánh dinh dưỡng {pct(sum(r['branch_ok'] for r in one), len(one))}")
-    ms = [r for r in allb if "missing_exact" in r]
-    if ms:
-        tp = sum(r["known_tp"] for r in ms)
-        fp = sum(r["known_fp"] for r in ms)
-        fn = sum(r["known_fn"] for r in ms)
-        P = tp / (tp + fp) if tp + fp else 0
-        R = tp / (tp + fn) if tp + fn else 0
-        print(f"\n**Nhận diện state đã biết sau các lượt (so MISSING_STATES của nhãn, {len(ms)} hội thoại):** "
-              f"khớp hoàn toàn {pct(sum(r['missing_exact'] for r in ms), len(ms))}; micro precision {100 * P:.1f}%, "
-              f"recall {100 * R:.1f}%, F1 {100 * (2 * P * R / (P + R) if P + R else 0):.1f}%")
+        allb += list(read_done(path(f"B_{g}_scored.jsonl")).values())
+    if all(os.path.exists(path(f"B_{g}_runs.jsonl")) for g in ("B2", "B3")):
+        print_routing(routing(OUT_DIR))
     ng = [r for r in allb if "final_grounding" in r]
     if ng:
         n = len(ng)

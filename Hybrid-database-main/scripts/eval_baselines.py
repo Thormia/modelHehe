@@ -124,7 +124,19 @@ def make_worker(system):
     return run
 
 
-def gen(systems, suites, limit, workers):
+def gen(systems, suites, limit, workers, passes=3):
+    """Chạy tối đa `passes` lượt: ca lỗi (timeout, server trả 500...) của lượt trước được chạy lại ở lượt sau."""
+    for k in range(passes):
+        _gen_pass(systems, suites, limit, workers)
+        left = {f"{s}/{su}": len(items_of(su, limit)) - len(read_done(path(s, su, "replies"))) for s in systems for su in suites}
+        left = {key: v for key, v in left.items() if v}
+        if not left:
+            return
+        print(f"Còn ca lỗi sau lượt {k + 1}: {left}", flush=True)
+    print(f"CẢNH BÁO: vẫn còn ca lỗi sau {passes} lượt: {left}", flush=True)
+
+
+def _gen_pass(systems, suites, limit, workers):
     os.makedirs(OUT_DIR, exist_ok=True)
     for system in systems:
         for suite in suites:

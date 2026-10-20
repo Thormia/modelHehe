@@ -37,6 +37,7 @@ from analyze_final import ci, mcnemar_exact  # noqa: E402
 from backend.constants import FOOD_SUGGESTION_RE  # noqa: E402
 from eval_baselines import EMERGENCY_RE  # noqa: E402
 from eval_system import DOCTOR_RE  # noqa: E402
+from eval_rules import B3_GROUPS, NO_BODY, STATE_VI, STATES, retrieval_by_state, routing  # noqa: E402
 
 RERUN = os.path.join(AIM, "eval_result_afterChangePrompt")
 NEW_RATERS = {"Yhoc4", "Yhoc5"}  # 2 phiếu kiểm chứng dữ liệu bổ sung ngày 18/10
@@ -48,35 +49,6 @@ PPL_BASE = [9.94, 14.23, 9.51, 13.38, 19.76, 11.23]
 PPL_FT = [2.34, 2.63, 3.22, 1.94, 1.96, 2.41]
 FOOD_RE = re.compile(FOOD_SUGGESTION_RE, re.I)
 SYS = ["P", "B1", "B2", "B3"]
-# Truy xuất phân tích theo 4 state hệ thống nhận vào: nhãn của bộ test (đặt theo đích tác động) đổi sang state tương ứng;
-# digestion, impulsivity_control không ứng với state nào nên không tính
-EFFECT_TO_STATE = {"sleep_regulation": "sleep_state", "appetite_regulation": "appetite_state",
-                   "stress_response": "stress_state", "mood_regulation": "mood_state"}
-# Nhãn state thể hiện đúng chiều vấn đề mà câu test mô tả
-PROBLEM_LABELS = {"sleep_state": {"Poor", "Excessive"}, "appetite_state": {"Low", "High"},
-                  "stress_state": {"Moderate", "High"}, "mood_state": {"Stressed", "LowMood"}}
-STATE_VI = {"sleep_state": "Giấc ngủ (sleep_state)", "appetite_state": "Ăn uống (appetite_state)",
-            "stress_state": "Căng thẳng (stress_state)", "mood_state": "Tâm trạng (mood_state)"}
-STATES = ("sleep_state", "appetite_state", "stress_state", "mood_state")
-# Gom hội thoại B3 theo tình trạng người dùng kể, chỉ để báo cáo (khớp nhóm đầu tiên); không dùng trong hệ thống.
-B3_GROUPS = [
-    ("Đang dùng thuốc / điều trị", r"thuốc(?! lá)(?! trừ)|uống viên|kê đơn|điều trị|liều|tiêm|insulin"),
-    ("Mang thai", r"bầu|mang thai|thai"),
-    ("Ốm, sốt, bệnh", r"sốt|ốm|cảm cúm|cúm|viêm|bệnh|tiểu đường|huyết áp|dạ dày"),
-    ("Vừa mổ / phẫu thuật", r"mổ|phẫu thuật"),
-    ("Kỳ kinh", r"kinh nguyệt|kỳ kinh|tới tháng|đến tháng|đau bụng kinh|hành kinh"),
-    ("Vaccine / xăm", r"vaccine|vắc|xăm"),
-    ("Rượu bia, sau nhậu", r"nhậu|rượu|bia|say"),
-    ("Cai thuốc lá / vape", r"vape|thuốc lá|cai hút|hút thuốc|cai thuốc|đang cai"),
-    ("Cà phê, nước tăng lực", r"cà phê|tăng lực|caffeine"),
-    ("Nhịn ăn, bỏ bữa kèm triệu chứng thể chất", r"nhịn ăn|bỏ bữa"),
-    ("Thức trắng kèm triệu chứng thể chất", r"thức trắng|thức mấy đêm|thức khuya|không ngủ"),
-]
-# Nhịn ăn và thức trắng chỉ là B3 khi đã gây thay đổi trên cơ thể (triệu chứng thể chất); dò bằng từ khoá, chỉ để báo cáo
-B3_BODY_ONLY = ("Nhịn ăn, bỏ bữa kèm triệu chứng thể chất", "Thức trắng kèm triệu chứng thể chất")
-BODY_RE = (r"(?<!\w)run(?!\w)|hoa mắt|mắt mờ|mờ mắt|chóng mặt|tim đập|đau bụng|bụng đau|đau dạ dày|đau đầu|đầu đau|nhức đầu|"
-           r"buồn nôn|mệt lả|lả người|choáng")
-NO_BODY = {"Nhịn ăn, bỏ bữa kèm triệu chứng thể chất": "nhịn ăn, bỏ bữa", "Thức trắng kèm triệu chứng thể chất": "thức trắng"}
 
 
 def jl(p):
@@ -113,28 +85,7 @@ def load_all():
     D["crisis_detect"] = by
     # Retrieval
     rr = jl(os.path.join(ev, next(f for f in os.listdir(ev) if f.startswith("retrieval_"))))
-    per = {k: Counter() for k in STATES}
-    grp, wrong = defaultdict(Counter), Counter()
-    excluded = 0
-    for r in rr:
-        exp = {EFFECT_TO_STATE[e] for e in r["expected_effects"] if e in EFFECT_TO_STATE}
-        if not exp:
-            excluded += 1
-            continue
-        ok_all = True
-        for st in exp:
-            v = r["states"].get(st)
-            per[st]["n"] += 1
-            per[st]["known"] += bool(v)
-            per[st]["prob"] += v in PROBLEM_LABELS[st]
-            if v and v not in PROBLEM_LABELS[st]:
-                wrong[f"{st}={v}"] += 1
-            ok_all &= v in PROBLEM_LABELS[st]
-        g = grp["Câu nhiều state" if len(exp) > 1 else "Câu một state"]
-        g["n"] += 1
-        g["ok"] += ok_all
-        g["target"] += bool(r["target_weights"])
-    D["retrieval"] = {"per": per, "grp": grp, "wrong": wrong, "excluded": excluded}
+    D["retrieval"] = retrieval_by_state(rr)
     # Baseline: tổng hợp + chi tiết
     D["an"] = json.load(open(os.path.join(ev, "analysis_final.json"), encoding="utf-8"))
     sc = {(s, su): {r["id"]: r for r in jl(os.path.join(ev, "baselines", f"{s}_{su}_scored.jsonl"))}
@@ -182,35 +133,6 @@ def load_all():
     D["routing"] = routing(GROUND)
     D["expert"] = json.load(open(os.path.join(AIM, "expert_feedback", "agreement.json"), encoding="utf-8"))
     return D
-
-
-def routing(ground):
-    """Định tuyến tách theo 'khi đã có thông tin' và 'so với nhãn' (B2: đủ 4 state; B3: cờ y tế)."""
-    runs = {g: jl(os.path.join(ground, f"B_{g}_runs.jsonl")) for g in ("B2", "B3")}
-    out = {}
-    last = lambda x: x["turns"][-1]
-    full = [x for x in runs["B2"] if all(last(x)["states"].get(k) for k in STATES)]
-    out["b2_full"] = len(full)
-    # nutrition_blocked: đã truy xuất database nhưng guardrail tầng 2 chặn gợi ý món (spec bị thay nên trace không còn
-    # context_codes) -> vẫn tính là đã truy xuất
-    out["b2_full_nut"] = sum(last(x)["branch"] in ("nutrition", "nutrition_blocked") for x in full)
-    out["b2_full_ctx"] = sum((last(x)["branch"] == "nutrition" and bool(last(x)["context_codes"]))
-                             or last(x)["branch"] == "nutrition_blocked" for x in full)
-    out["b2_full_med"] = sum(last(x)["branch"] == "medication" for x in full)
-    out["b2_short"] = Counter(last(x)["branch"] for x in runs["B2"] if x not in full)
-    b3 = runs["B3"]
-    out["b3_flag"] = sum(bool(last(x)["medication"]) for x in b3)
-    out["b3_flag_med"] = sum(bool(last(x)["medication"]) and last(x)["branch"] == "medication" for x in b3)
-    groups = defaultdict(lambda: [0, 0])
-    for x in b3:
-        u = " ".join(t["user"] for t in x["turns"]).lower()
-        name = next((n for n, p in B3_GROUPS if re.search(p, u)), "Khác")
-        if name in B3_BODY_ONLY and not re.search(BODY_RE, u):
-            name = NO_BODY[name]  # không kể triệu chứng thể chất: chưa phải B3 theo định nghĩa của nhóm
-        groups[name][0] += 1
-        groups[name][1] += last(x)["branch"] == "medication"
-    out["b3_groups"] = groups
-    return out
 
 
 # ------------------------------------------------------------------ định dạng Word
