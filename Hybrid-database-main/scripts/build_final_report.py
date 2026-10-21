@@ -273,10 +273,8 @@ def build(D):
         ["", "Đạt hiệu quả (có hướng dẫn khẩn cấp, không gợi ý món, trả lời hợp lệ)"]
         + [pp(an[s]["crisis"]["effective"] / an[s]["crisis"]["n"]) for s in SYS],
         ["", "Recall / F1 phản hồi khẩn cấp"] + [f"{pp(em[s][0] / em[s][1])} / {pp(em[s][4])}" for s in SYS],
-        ["An toàn (300 câu)", "Đạt cả 5 tiêu chí (chấm tự động)"]
-        + [pp(an[s]["safety"]["correct"] / an[s]["safety"]["n"]) + ("*" if s == "B3" else "") for s in SYS],
-        ["", "Trả lời hợp lệ (không phải câu dự phòng)"] + [pp(an[s]["safety"]["valid"] / an[s]["safety"]["n"]) for s in SYS],
-        ["", "Đạt hiệu quả"] + [pp(an[s]["safety"]["effective"] / an[s]["safety"]["n"]) for s in SYS],
+        ["An toàn (300 câu)", "Trả lời hợp lệ (không phải câu dự phòng)"] + [pp(an[s]["safety"]["valid"] / an[s]["safety"]["n"]) for s in SYS],
+        ["", "Đạt hiệu quả (đạt cả 5 tiêu chí; câu dự phòng tính là không đạt)"] + [pp(an[s]["safety"]["effective"] / an[s]["safety"]["n"]) for s in SYS],
         [f"Truy xuất theo 4 state ({r_items} câu)", "Trích đúng state mong đợi, đúng chiều vấn đề: theo từng state / đủ mọi state của câu",
          f"{pp(r_prob / r_n)} / {pp(r_ok / r_items)}", "–", "–", "–"],
         ["", "Có đích tác động để truy xuất món (từ state đã trích)", pp(r_tgt / r_items), "–", "–", "–"],
@@ -292,7 +290,8 @@ def build(D):
     note(doc, "P = hệ thống đề xuất (LLM #1 + định tuyến + RAG + guardrail, LLM #2 = qwen-huhu). 3 baseline gọi theo model trả lời: "
               "Qwen2.5-7B gốc và qwen-huhu trả lời trực tiếp (không pipeline); Pipeline + Qwen2.5-7B gốc là toàn pipeline nhưng LLM #2 là model gốc. "
               "Trong code và tên file kết quả, 3 baseline mang mã B1, B2, B3 (khác với các nhóm dữ liệu B1–B4). "
-              f"*Pipeline + Qwen2.5-7B gốc: {b3s['n'] - b3s['valid']}/{b3s['n']} câu là câu dự phòng soạn sẵn vì model gốc không theo được định dạng đầu ra, nên cột tự động không dùng để so sánh. "
+              f"Câu dự phòng tính là không đạt: pipeline chỉ trả câu dự phòng khi model trả lời đã hỏng định dạng ở mọi lần sinh "
+              f"(Pipeline + Qwen2.5-7B gốc: {b3s['n'] - b3s['valid']}/{b3s['n']} câu safety). "
               "Mọi con số chấm câu trả lời là số chấm tự động, cùng giám khảo và cùng code cho P và 3 baseline; chấm tay chỉ có cho P nên chỉ dùng để phân tích lỗi (mục 4.6), không dùng làm điểm.")
     figure(doc, ch.effective_by_system(an, SYS), "Tỷ lệ đạt hiệu quả của hệ thống đề xuất (P) và 3 baseline trên bộ khủng hoảng và bộ an toàn (chấm tự động).")
     bullet(doc, f"Fine-tune là điều kiện để pipeline hoạt động: model gốc trong pipeline (Pipeline + Qwen2.5-7B gốc) chỉ trả lời thật {pp(b3s['valid'] / b3s['n'])} số câu.")
@@ -418,12 +417,14 @@ def build(D):
     rows = []
     for s in SYS:
         a = an[s]["safety"]
-        rows.append([L[s], pc(a["correct"], a["n"]) + ("*" if s == "B3" else ""), pc(a["valid"], a["n"]), pc(a["effective"], a["n"]),
+        rows.append([L[s], pc(a["valid"], a["n"]), pc(a["effective"], a["n"]),
                      ci(a["effective"], a["n"]).replace(".", ",")])
-    tbl(doc, ["Hệ thống", "Đạt cả 5 (tự động)", "Trả lời hợp lệ", "Đạt hiệu quả", "Đạt hiệu quả (95% CI)"], rows)
+    tbl(doc, ["Hệ thống", "Trả lời hợp lệ", "Đạt hiệu quả", "Đạt hiệu quả (95% CI)"], rows)
+    note(doc, "Đạt hiệu quả: đạt cả 5 tiêu chí và không phải câu dự phòng. Câu dự phòng không có số, không chẩn đoán, có chuyển chuyên gia nên nếu đem chấm "
+              "thì luôn qua đủ 5 tiêu chí; vì pipeline chỉ trả câu này khi model trả lời đã hỏng ở mọi lần sinh, báo cáo tính câu dự phòng là không đạt.")
     crit = list(an["P"]["safety"]["checks"])
-    tbl(doc, ["Tiêu chí"] + [L[s] for s in SYS], [[k] + [f"{an[s]['safety']['checks'][k]} ({an[s]['safety']['checks_valid'][k]})" for s in SYS] for k in crit])
-    note(doc, "Số đạt tự động; trong ngoặc: đạt và trả lời hợp lệ.")
+    tbl(doc, ["Tiêu chí"] + [L[s] for s in SYS], [[k] + [an[s]['safety']['checks_valid'][k] for s in SYS] for k in crit])
+    note(doc, "Số câu đạt từng tiêu chí; câu dự phòng tính là không đạt.")
     groups = list(an["P"]["safety"]["by_group"])
     tbl(doc, ["Loại bẫy", "n"] + [L[s] for s in SYS], [[g, an["P"]["safety"]["by_group"][g]["n"]] + [an[s]["safety"]["by_group"][g]["effective"] for s in SYS] for g in groups])
     note(doc, "Số câu đạt hiệu quả theo loại bẫy.")

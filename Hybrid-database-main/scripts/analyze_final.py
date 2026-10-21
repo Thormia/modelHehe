@@ -5,7 +5,8 @@
 Bổ sung cho eval_baselines.py report:
   - Trả lời hợp lệ: câu trả lời do model sinh ra (hoặc phản hồi khủng hoảng / hoảng loạn soạn sẵn theo thiết kế).
     Câu dự phòng FALLBACK_REPLY (pipeline trả khi LLM #2 hỏng định dạng sau mọi lần sinh) tính là KHÔNG hợp lệ.
-  - Đạt hiệu quả = đạt tiêu chí an toàn / khủng hoảng VÀ trả lời hợp lệ (không để câu dự phòng làm đẹp số).
+  - Đạt hiệu quả = đạt tiêu chí an toàn / khủng hoảng VÀ trả lời hợp lệ: câu dự phòng tính là không đạt (pipeline chỉ
+    trả câu này khi LLM #2 đã hỏng ở mọi lần sinh). Các bảng in ra chỉ dùng số này.
   - Tuân thủ định dạng đầu ra, tách theo loại bẫy / loại khủng hoảng, số lần sinh, guardrail, độ trễ (trên Kaggle).
 """
 import json
@@ -106,27 +107,26 @@ def show(o):
     print("| Chỉ số | " + " | ".join(S) + " |")
     print("|---|" + "---|" * len(S))
     for su, name in (("crisis", "Crisis"), ("safety", "Safety")):
-        print(f"| {name}: đạt (chấm tự động, gồm cả câu dự phòng) | " + " | ".join(pct(o[s][su]["correct"], o[s][su]["n"]) for s in S) + " |")
         print(f"| {name}: trả lời hợp lệ (không phải câu dự phòng) | " + " | ".join(pct(o[s][su]["valid"], o[s][su]["n"]) for s in S) + " |")
-        print(f"| **{name}: đạt hiệu quả (đạt VÀ trả lời hợp lệ)** | " + " | ".join(f"**{pct(o[s][su]['effective'], o[s][su]['n'])}**" for s in S) + " |")
+        print(f"| **{name}: đạt hiệu quả (câu dự phòng tính là không đạt)** | " + " | ".join(f"**{pct(o[s][su]['effective'], o[s][su]['n'])}**" for s in S) + " |")
     for su, name in (("crisis", "Crisis"), ("safety", "Safety")):
         print(f"| {name}: đúng định dạng ngay lần sinh đầu (trên ca có gọi LLM #2) | " + " | ".join(pct(o[s][su]["fmt_first"], o[s][su]["llm2_called"]) for s in S) + " |")
         print(f"| {name}: số lần sinh trung bình | " + " | ".join(str(o[s][su]["mean_gen"]) for s in S) + " |")
     for su in ("crisis", "safety"):
         print(f"| {su}: ca bị guardrail tầng 2 yêu cầu sinh lại | " + " | ".join(str(o[s][su]["tier2_retry_cases"]) if s in PIPELINE else "–" for s in S) + " |")
         print(f"| {su}: độ trễ trung vị / p90 (giây, Kaggle T4×2) | " + " | ".join(f"{o[s][su]['latency_median']} / {o[s][su]['latency_p90']}" if s in PIPELINE else "–" for s in S) + " |")
-    print("\n### Safety theo tiêu chí (đạt tự động; trong ngoặc: đạt và trả lời hợp lệ)\n")
+    print("\n### Safety theo tiêu chí (số câu đạt; câu dự phòng tính là không đạt)\n")
     print("| Tiêu chí | " + " | ".join(S) + " |")
     print("|---|" + "---|" * len(S))
     for k in o["P"]["safety"]["checks"]:
-        print(f"| {k} | " + " | ".join(f"{o[s]['safety']['checks'][k]} ({o[s]['safety']['checks_valid'][k]})" for s in S) + " |")
+        print(f"| {k} | " + " | ".join(str(o[s]['safety']['checks_valid'][k]) for s in S) + " |")
     for su, title in (("safety", "Safety theo loại bẫy"), ("crisis", "Crisis theo loại")):
-        print(f"\n### {title}: đạt tự động / đạt hiệu quả\n")
+        print(f"\n### {title}: đạt hiệu quả (câu dự phòng tính là không đạt)\n")
         print("| Loại | n | " + " | ".join(S) + " |")
         print("|---|---|" + "---|" * len(S))
         for gname, gv in o["P"][su]["by_group"].items():
             print(f"| {gname} | {gv['n']} | " + " | ".join(
-                f"{o[s][su]['by_group'][gname]['correct']} / {o[s][su]['by_group'][gname]['effective']}" for s in S) + " |")
+                str(o[s][su]['by_group'][gname]['effective']) for s in S) + " |")
 
 
 # ----------------------------------------------------------------------------------------------------------------------
