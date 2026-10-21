@@ -44,6 +44,8 @@ RERUN = os.path.join(AIM, "eval_result_final")
 NEW_RATERS = {"Yhoc4", "Yhoc5"}  # 2 phiếu kiểm chứng dữ liệu bổ sung ngày 18/10
 FINAL = os.path.join(RERUN, "eval_final_results", "logs")
 GROUND = os.path.join(RERUN, "eval_grounding_results", "logs", "eval", "grounding")
+# Định tuyến nhiều lượt của baseline Pipeline + Qwen2.5-7B gốc (notebook eval_routing_baseline_kaggle.ipynb, 21/10)
+ROUTE_BASE = os.path.join(AIM, "eval_routing_baseline_results", "logs", "eval", "grounding_pipeline_qwen_goc")
 OUT = os.path.join(AIM, "BAO_CAO_KET_QUA_CUOI.docx")
 # Perplexity A, B1, B2, B3, B4, toàn bộ (huhuevalu.ipynb)
 PPL_BASE = [9.94, 14.23, 9.51, 13.38, 19.76, 11.23]
@@ -139,6 +141,26 @@ def load_all():
     B = {g: jl(os.path.join(GROUND, f"B_{g}_scored.jsonl")) for g in ("B1", "B2", "B3", "B4")}
     D["groundB"] = B
     D["routing"] = routing(GROUND)
+    D["routing_base"] = routing(ROUTE_BASE)
+    # So từng hội thoại với P: nhánh lượt cuối (một lượt / nhiều lượt), lượt 1 (đầu vào giống hệt P), số lượt trả câu dự phòng
+    cmp = {"single": [0, 0], "multi": {}, "t1_states": 0, "t1_branch": 0, "n": 0, "canned": 0, "turns": 0}
+    for g in ("B2", "B3"):
+        pr = {r["id"]: r for r in jl(os.path.join(GROUND, f"B_{g}_runs.jsonl"))}
+        br = {r["id"]: r for r in jl(os.path.join(ROUTE_BASE, f"B_{g}_runs.jsonl"))}
+        mu = [0, 0]
+        for i, b in br.items():
+            a = pr[i]
+            diff = a["turns"][-1]["branch"] != b["turns"][-1]["branch"]
+            k = cmp["single"] if len(b["turns"]) == 1 else mu
+            k[0] += diff
+            k[1] += 1
+            cmp["t1_states"] += a["turns"][0]["states"] != b["turns"][0]["states"]
+            cmp["t1_branch"] += a["turns"][0]["branch"] != b["turns"][0]["branch"]
+            cmp["n"] += 1
+            cmp["canned"] += sum(t["fallback"] == "canned" for t in b["turns"])
+            cmp["turns"] += len(b["turns"])
+        cmp["multi"][g] = mu
+    D["route_cmp"] = cmp
     D["expert"] = json.load(open(os.path.join(AIM, "expert_feedback", "agreement.json"), encoding="utf-8"))
     return D
 
@@ -267,7 +289,7 @@ def build(D):
     r_tgt = sum(g["target"] for g in rt["grp"].values())
     r_prob = sum(c["prob"] for c in rt["per"].values())
     r_n = sum(c["n"] for c in rt["per"].values())
-    ro = D["routing"]
+    ro, rb = D["routing"], D["routing_base"]
     rows = [
         ["Khủng hoảng (164 câu)", "LLM #1 phát hiện", pc(*det), "–", "–", "dùng chung LLM #1"],
         ["", "Đạt hiệu quả (có hướng dẫn khẩn cấp, không gợi ý món, trả lời hợp lệ)"]
@@ -276,11 +298,11 @@ def build(D):
         ["An toàn (300 câu)", "Trả lời hợp lệ (không phải câu dự phòng)"] + [pp(an[s]["safety"]["valid"] / an[s]["safety"]["n"]) for s in SYS],
         ["", "Đạt hiệu quả (đạt cả 5 tiêu chí; câu dự phòng tính là không đạt)"] + [pp(an[s]["safety"]["effective"] / an[s]["safety"]["n"]) for s in SYS],
         [f"Truy xuất theo 4 state ({r_items} câu)", "Trích đúng state mong đợi, đúng chiều vấn đề: theo từng state / đủ mọi state của câu",
-         f"{pp(r_prob / r_n)} / {pp(r_ok / r_items)}", "–", "–", "–"],
-        ["", "Có đích tác động để truy xuất món (từ state đã trích)", pp(r_tgt / r_items), "–", "–", "–"],
+         f"{pp(r_prob / r_n)} / {pp(r_ok / r_items)}", "–", "–", "= P (§)"],
+        ["", "Có đích tác động để truy xuất món (từ state đã trích)", pp(r_tgt / r_items), "–", "–", "= P (§)"],
         ["Định tuyến nhiều lượt", "Nhóm dữ liệu B2: đủ 4 state và không có cờ y tế → truy xuất PostgreSQL",
-         f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']}", "–", "–", "–"],
-        ["", "Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc", f"{ro['b3_flag_med']}/{ro['b3_flag']}", "–", "–", "–"],
+         f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']}", "–", "–", f"{rb['b2_full_ctx']}/{rb['b2_full'] - rb['b2_full_med']}"],
+        ["", "Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc", f"{ro['b3_flag_med']}/{ro['b3_flag']}", "–", "–", f"{rb['b3_flag_med']}/{rb['b3_flag']}"],
         ["Định dạng", "Đúng JSON ngay lần sinh đầu (safety)"]
         + [pc(an[s]["safety"]["fmt_first"], an[s]["safety"]["llm2_called"]) for s in SYS],
     ]
@@ -290,6 +312,8 @@ def build(D):
     note(doc, "P = hệ thống đề xuất (LLM #1 + định tuyến + RAG + guardrail, LLM #2 = qwen-huhu). 3 baseline gọi theo model trả lời: "
               "Qwen2.5-7B gốc và qwen-huhu trả lời trực tiếp (không pipeline); Pipeline + Qwen2.5-7B gốc là toàn pipeline nhưng LLM #2 là model gốc. "
               "Trong code và tên file kết quả, 3 baseline mang mã B1, B2, B3 (khác với các nhóm dữ liệu B1–B4). "
+              "(§) Truy xuất chạy ở LLM #1 và state_effect_map, trước khi gọi model trả lời; Pipeline + Qwen2.5-7B gốc dùng chung các thành phần này "
+              "nên kết quả như P, không đo riêng. Hai baseline trả lời trực tiếp không có LLM #1, truy xuất hay định tuyến nên các ô này không áp dụng. "
               f"Câu dự phòng tính là không đạt: pipeline chỉ trả câu dự phòng khi model trả lời đã hỏng định dạng ở mọi lần sinh "
               f"(Pipeline + Qwen2.5-7B gốc: {b3s['n'] - b3s['valid']}/{b3s['n']} câu safety). "
               "Mọi con số chấm câu trả lời là số chấm tự động, cùng giám khảo và cùng code cho P và 3 baseline; chấm tay chỉ có cho P nên chỉ dùng để phân tích lỗi (mục 4.6), không dùng làm điểm.")
@@ -462,10 +486,11 @@ def build(D):
                 f"Các hội thoại thiếu state: {', '.join(f'{k} {v}' for k, v in ro['b2_short'].most_common())}.")
     bullet(doc, f"Nhóm dữ liệu B3: khi cờ y tế bật ở lượt cuối, hệ thống vào nhánh thuốc {ro['b3_flag_med']}/{ro['b3_flag']} lần (các lần còn lại vào nhánh hoảng loạn, đúng thứ tự ưu tiên).")
     order = [n for n, _ in B3_GROUPS] + ["Khác"]
-    rows = [[n, ro["b3_groups"][n][0], ro["b3_groups"][n][1]] for n in order if ro["b3_groups"][n][0]]
-    rows.append(["Tổng", sum(r[1] for r in rows), sum(r[2] for r in rows)])
-    tbl(doc, ["Tình trạng người dùng kể (gom bằng từ khoá, chỉ để báo cáo)", "n", "Cờ bật → nhánh thuốc"], rows, widths=[10, 2, 5])
-    figure(doc, ch.b3_groups(rows[:-1]), "Hội thoại nhóm B3 theo tình trạng người dùng kể (chỉ các tình trạng thuộc định nghĩa cờ y tế): số hội thoại cờ y tế bật và vào nhánh thuốc.")
+    rows = [[n, ro["b3_groups"][n][0], ro["b3_groups"][n][1], rb["b3_groups"][n][1]] for n in order if ro["b3_groups"][n][0]]
+    rows.append(["Tổng", sum(r[1] for r in rows), sum(r[2] for r in rows), sum(r[3] for r in rows)])
+    tbl(doc, ["Tình trạng người dùng kể (gom bằng từ khoá, chỉ để báo cáo)", "n", "Cờ bật → nhánh thuốc: P", "Pipeline + Qwen2.5-7B gốc"],
+        rows, widths=[8, 1.6, 3.6, 3.8])
+    figure(doc, ch.b3_groups([r[:3] for r in rows[:-1]]), "Hội thoại nhóm B3 theo tình trạng người dùng kể (chỉ các tình trạng thuộc định nghĩa cờ y tế): số hội thoại cờ y tế bật và vào nhánh thuốc.")
     no_body = [(n, *ro["b3_groups"][n]) for n in NO_BODY.values()]
     note(doc, "Nhịn ăn và thức trắng chỉ thuộc nhóm B3 khi đã gây thay đổi trên cơ thể (tay run, hoa mắt, mắt mờ, tim đập nhanh, đau bụng, "
               "đau đầu, mệt lả…; dò bằng từ khoá, chỉ để báo cáo). Không tính "
@@ -473,6 +498,25 @@ def build(D):
               + "; ".join(f"{n} {k}/{t} vào nhánh thuốc" for n, t, k in no_body) + ".")
     bullet(doc, "Các tình trạng thuốc, bệnh, mang thai, mổ, kỳ kinh được bắt gần như đủ; rượu bia, thuốc lá/vape, cà phê, và nhịn ăn hay thức trắng "
                 "đã gây triệu chứng thể chất vẫn bị sót nhiều (thức trắng kèm triệu chứng: không ca nào bật cờ).")
+    cm = D["route_cmp"]
+    doc.add_heading("Baseline Pipeline + Qwen2.5-7B gốc", 3)
+    note(doc, "Cùng pipeline, chỉ đổi model trả lời; chạy trên Kaggle 21/10 với cùng dữ liệu và cách chấm (serving/eval_routing_baseline_kaggle.ipynb). "
+              "Ở mỗi lượt, LLM #1 đọc cả hội thoại, gồm câu bot đã trả lời; model gốc trả câu dự phòng ở "
+              f"{cm['canned']}/{cm['turns']} lượt, nên từ lượt 2 LLM #1 đọc một hội thoại khác với P.")
+    tbl(doc, ["Chỉ số", "P", "Pipeline + Qwen2.5-7B gốc"], [
+        ["Nhóm dữ liệu B2: hội thoại đủ 4 state ở lượt cuối", ro["b2_full"], rb["b2_full"]],
+        ["Đủ 4 state, không có cờ y tế → truy xuất database", f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']}",
+         f"{rb['b2_full_ctx']}/{rb['b2_full'] - rb['b2_full_med']}"],
+        ["Thiếu state: hỏi tiếp state / vào nhánh thuốc", f"{ro['b2_short']['ask_states']} / {ro['b2_short']['medication']}",
+         f"{rb['b2_short']['ask_states']} / {rb['b2_short']['medication']}"],
+        ["Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc", f"{ro['b3_flag_med']}/{ro['b3_flag']}", f"{rb['b3_flag_med']}/{rb['b3_flag']}"],
+    ], widths=[9, 3.5, 4.5])
+    bullet(doc, "Khi đã có thông tin, cơ chế định tuyến cho kết quả như P (đủ 4 state thì truy xuất database, cờ y tế bật thì vào nhánh thuốc). "
+                f"Khác biệt nằm ở số hội thoại gom được đủ 4 state ({rb['b2_full']} so với {ro['b2_full']}).")
+    bullet(doc, f"So từng hội thoại với P, nhánh ở lượt cuối khác ở {cm['multi']['B2'][0]}/{cm['multi']['B2'][1]} hội thoại nhiều lượt của nhóm B2 và "
+                f"{cm['multi']['B3'][0]}/{cm['multi']['B3'][1]} của nhóm B3, nhưng chỉ {cm['single'][0]}/{cm['single'][1]} hội thoại một lượt. "
+                f"Ở lượt 1 (đầu vào giống hệt P), LLM #1 trích state khác P ở {cm['t1_states']}/{cm['n']} hội thoại và cho nhánh khác ở "
+                f"{cm['t1_branch']}/{cm['n']}: đây là dao động của LLM #1 giữa hai lần chạy, không do model trả lời.")
     # ---------------------------------------------------------------- 5
     doc.add_heading("4.6 Phân tích lỗi bằng chấm tay (hệ thống P)", 2)
     fails = {su: sorted(i for i, r in D["p_scored"][su].items() if not r["correct"]) for su in ("crisis", "safety")}
@@ -578,6 +622,7 @@ def build(D):
         ["Crisis, retrieval, P và 3 baseline (lần chạy cuối 20/10; trong tên file B1 = Qwen2.5-7B gốc, B2 = qwen-huhu, B3 = Pipeline + Qwen2.5-7B gốc)", "eval_result_final/eval_final_results/logs/eval/ (crisis_*.jsonl, retrieval_*.jsonl, baselines/, analysis_final.json, run_*.txt: bảng notebook in ra)"],
         ["Trace từng lượt của pipeline", "eval_result_final/eval_final_results/logs/turns.jsonl; eval_result_final/eval_grounding_results/logs/turns.jsonl"],
         ["Grounding và định tuyến (20/10)", "eval_result_final/eval_grounding_results/logs/eval/grounding/"],
+        ["Định tuyến nhiều lượt của Pipeline + Qwen2.5-7B gốc (21/10)", "eval_routing_baseline_results/logs/eval/grounding_pipeline_qwen_goc/"],
         ["Lần chạy trước (16–17/10, cùng hệ thống)", "eval_result_afterChangePrompt/"],
         ["Chấm tay (phân tích lỗi)", "Hybrid-database-main/logs/eval/chamtay_after_b3fix.md"],
         ["Kiểm chứng chuyên gia", "expert_feedback/TONG_KET_CHUYEN_GIA.md, agreement.json"],

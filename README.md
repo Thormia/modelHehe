@@ -87,6 +87,7 @@ Nhánh `main` là bản chính thức: hệ thống đã đánh giá trên Kaggl
 |---|---|
 | `eval_result_final/eval_final_results/` | Kết quả chính thức (lần chạy cuối 20/10): crisis, retrieval, P và 3 baseline (câu trả lời và điểm từng ca; tên file `B1_*` = Qwen2.5-7B gốc, `B2_*` = qwen-huhu, `B3_*` = Pipeline + Qwen2.5-7B gốc), `turns.jsonl` (trace từng lượt của pipeline), `analysis_final.json`, `logs/eval/run_*.txt` (các bảng notebook in ra) |
 | `eval_result_final/eval_grounding_results/` | Kết quả chính thức (20/10): grounding mức model và toàn hệ thống, định tuyến nhiều lượt |
+| `eval_routing_baseline_results/` | Định tuyến nhiều lượt của baseline Pipeline + Qwen2.5-7B gốc (21/10, notebook `eval_routing_baseline_kaggle.ipynb`) |
 | `eval_result_afterChangePrompt/` | Lần chạy 16–17/10 (cùng hệ thống); chấm tay phân tích lỗi làm trên lần chạy này |
 | `expert_review/` | Lấy mẫu dữ liệu gửi chuyên gia (`sample_for_experts.py`, `samples.json`) |
 | `expert_feedback/` | Phiếu chấm chuyên gia đã ẩn danh (`anonymized/`, 8 người chấm), `agreement.json` (độ đồng thuận), `TONG_KET_CHUYEN_GIA.md` (tổng kết và nhận xét) |

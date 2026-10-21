@@ -1,0 +1,23 @@
+Định tuyến, kết quả ở /kaggle/working/AIM/Hybrid-database-main/logs/eval/grounding_pipeline_qwen_goc
+
+Định tuyến khi đã có thông tin (nhãn nhánh của tập test fine-tune gắn theo kịch bản sinh dữ liệu, nên chỉ chấm khi thông tin cần cho nhánh đã có trong hội thoại).
+
+- B2: 65 hội thoại đủ 4 state ở lượt cuối; 64 vào nhánh dinh dưỡng, 64 có context lấy từ PostgreSQL; 1 vào nhánh thuốc vì cờ y tế ưu tiên → truy xuất database 64/64. Hội thoại thiếu state: {'ask_states': 167, 'medication': 8}.
+- B3: khi cờ y tế bật ở lượt cuối, vào nhánh thuốc 168/169.
+
+| Tình trạng người dùng kể (gom bằng từ khoá, chỉ để báo cáo) | n | Cờ bật → nhánh thuốc |
+|---|---|---|
+| Đang dùng thuốc / điều trị | 46 | 46 |
+| Mang thai | 21 | 21 |
+| Ốm, sốt, bệnh | 35 | 35 |
+| Vừa mổ / phẫu thuật | 19 | 19 |
+| Kỳ kinh | 19 | 15 |
+| Rượu bia, sau nhậu | 21 | 4 |
+| Cai thuốc lá / vape | 16 | 6 |
+| Cà phê, nước tăng lực | 9 | 2 |
+| Nhịn ăn, bỏ bữa kèm triệu chứng thể chất | 13 | 6 |
+| Thức trắng kèm triệu chứng thể chất | 10 | 0 |
+| Khác | 15 | 14 |
+| **Tổng** | **224** | **168** |
+
+Không tính 16 hội thoại nhịn ăn/thức trắng không kể triệu chứng thể chất (chưa phải B3 theo định nghĩa của nhóm): nhịn ăn, bỏ bữa 0/6 vào nhánh thuốc; thức trắng 0/10 vào nhánh thuốc
