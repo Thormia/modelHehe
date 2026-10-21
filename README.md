@@ -63,6 +63,7 @@ Nhánh `main` là bản chính thức: hệ thống đã đánh giá trên Kaggl
 | `eval_grounding.py` | Grounding nhánh dinh dưỡng và định tuyến qua nhiều lượt trên tập test fine-tune |
 | `eval_rules.py` | Quy tắc chấm dùng chung (truy xuất theo 4 state, nhóm cờ y tế B3) cho script đánh giá và báo cáo |
 | `analyze_final.py` | Phân tích chi tiết từ kết quả đã có: đạt hiệu quả, phản hồi khẩn cấp, McNemar… (không chạy lại model) |
+| `eval_ask_states.py` | Tỷ lệ hỏi lại state còn thiếu ở nhánh ask_states: tách câu hỏi của bot, giám khảo LLM xếp vào 4 state (chấm trên câu trả lời đã lưu) |
 | `build_final_report.py`, `report_charts.py` | Dựng `BAO_CAO_KET_QUA_CUOI.docx` và biểu đồ từ file kết quả |
 | `expert_agreement.py` | Tổng hợp phiếu chuyên gia, tính Fleiss' κ, Krippendorff's α, Gwet's AC |
 | `judge_bench.py` | Chọn model giám khảo trên 32 ca tự soạn |

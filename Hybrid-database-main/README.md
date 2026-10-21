@@ -258,6 +258,8 @@ python scripts/eval_baselines.py report
 - Output 2 notebook Kaggle nằm ở `../eval_result_final/` (`eval_final_results/` cho crisis, retrieval, safety và 3 baseline;
   `eval_grounding_results/` cho grounding và định tuyến nhiều lượt). Báo cáo chỉ dùng số của lần chạy này; lần chạy
   16–17/10 lưu ở `../eval_result_afterChangePrompt/`.
+- `python scripts/eval_ask_states.py final|grounding [--root <thư mục kết quả>]` chấm tỷ lệ hỏi lại state còn thiếu bằng giám khảo LLM
+  (notebook chạy luôn bước này).
 - `python scripts/analyze_final.py ../eval_result_final/eval_final_results` tính lại các chỉ số chi tiết
   (recall/F1, McNemar, theo loại bẫy…) mà không chạy lại model.
 - `python scripts/build_final_report.py` sinh `../BAO_CAO_KET_QUA_CUOI.docx` từ các file kết quả trên; báo cáo đầy đủ ở

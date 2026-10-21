@@ -131,7 +131,8 @@ def show(o):
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Chỉ số theo kế hoạch đánh giá trong idea.docx: recall / báo nhầm khủng hoảng, tỷ lệ khuyên gặp bác sĩ, tỷ lệ không gợi
-# ý thực phẩm, tỷ lệ hỏi state, khoảng tin cậy 95%, McNemar. Truy xuất chấm theo 4 state trong eval_system.py.
+# ý thực phẩm, khoảng tin cậy 95%, McNemar. Truy xuất chấm theo 4 state trong eval_system.py; tỷ lệ hỏi lại state
+# chấm bằng giám khảo LLM trong eval_ask_states.py.
 import math  # noqa: E402
 import re  # noqa: E402
 
@@ -143,8 +144,6 @@ from eval_baselines import EMERGENCY_RE  # noqa: E402
 from eval_system import DOCTOR_RE  # noqa: E402
 
 FOOD_RE = re.compile(FOOD_SUGGESTION_RE, re.I)
-STATE_Q = {"sleep_state": r"ngủ", "appetite_state": r"ăn uống|ăn |thèm ăn|bữa|khẩu vị",
-           "stress_state": r"căng thẳng|áp lực|stress", "mood_state": r"tâm trạng|cảm xúc|tinh thần"}
 
 
 def wilson(k, n, z=1.96):
@@ -212,20 +211,6 @@ def extra(root):
         nofood = sum((not FOOD_RE.search(r["reply"])) and "NUT_" not in r["reply"] and valid(s, r) for r in rows)
         eff = an[s]["safety"]["effective"]
         print(f"| {s} | {pct(doc, 300)} | {pct(nofood, 300)} | {eff}/300 = {ci(eff, 300)} |")
-
-    print("\n### Tỷ lệ hỏi state (nhánh ask_states, hệ thống P; dò từ khoá trong câu trả lời, xấp xỉ)\n")
-    asked = Counter()
-    n_ask = hit = 0
-    for t in trace["P"]:
-        if t.get("branch") != "ask_states" or t.get("fallback") == "canned":
-            continue
-        miss = [k for k, v in (t.get("states") or {}).items() if not v]
-        n_ask += 1
-        q = [k for k in miss if re.search(STATE_Q[k], t["reply"], re.I)]
-        hit += bool(q)
-        asked.update(q)
-    print(f"- Câu trả lời ở nhánh ask_states có hỏi ít nhất 1 state còn thiếu: {pct(hit, n_ask)}")
-    print(f"- Phân bổ state được hỏi: {dict(asked)}")
 
     print("\n### McNemar (chính xác) so P với từng baseline trên cùng các ca, chỉ số đạt hiệu quả\n")
     print("| So sánh | Bộ | P đạt – baseline trượt | P trượt – baseline đạt | p-value |")
