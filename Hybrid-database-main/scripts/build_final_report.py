@@ -286,19 +286,19 @@ def build(D):
         ["Định dạng", "Đúng JSON ngay lần sinh đầu (safety)"]
         + [pc(an[s]["safety"]["fmt_first"], an[s]["safety"]["llm2_called"]) for s in SYS],
     ]
-    tbl(doc, ["Nhóm", "Chỉ số", "P (đề xuất)", "Baseline 1: gốc trực tiếp", "Baseline 2: fine-tune trực tiếp", "Baseline 3: pipeline + gốc"], rows,
+    tbl(doc, ["Nhóm", "Chỉ số", "P (đề xuất)", "Qwen2.5-7B gốc, trả lời trực tiếp", "qwen-huhu, trả lời trực tiếp", "Pipeline + Qwen2.5-7B gốc"], rows,
         widths=[2.6, 5.2, 2.4, 2.2, 2.4, 2.4])
     b3s = an["B3"]["safety"]
-    note(doc, "P = hệ thống đề xuất (LLM #1 + định tuyến + RAG + guardrail, LLM #2 = qwen-huhu). Baseline 1 = Qwen2.5-7B gốc trả lời trực tiếp. "
-              "Baseline 2 = qwen-huhu trả lời trực tiếp. Baseline 3 = toàn pipeline nhưng LLM #2 là Qwen2.5-7B gốc. "
-              "Baseline 1–3 khác với các nhóm dữ liệu B1–B4; trong code và tên file kết quả, 3 baseline mang mã B1, B2, B3. "
-              f"*Baseline 3: {b3s['n'] - b3s['valid']}/{b3s['n']} câu là câu dự phòng soạn sẵn vì model gốc không theo được định dạng đầu ra, nên cột tự động không dùng để so sánh. "
+    note(doc, "P = hệ thống đề xuất (LLM #1 + định tuyến + RAG + guardrail, LLM #2 = qwen-huhu). 3 baseline gọi theo model trả lời: "
+              "Qwen2.5-7B gốc và qwen-huhu trả lời trực tiếp (không pipeline); Pipeline + Qwen2.5-7B gốc là toàn pipeline nhưng LLM #2 là model gốc. "
+              "Trong code và tên file kết quả, 3 baseline mang mã B1, B2, B3 (khác với các nhóm dữ liệu B1–B4). "
+              f"*Pipeline + Qwen2.5-7B gốc: {b3s['n'] - b3s['valid']}/{b3s['n']} câu là câu dự phòng soạn sẵn vì model gốc không theo được định dạng đầu ra, nên cột tự động không dùng để so sánh. "
               "Mọi con số chấm câu trả lời là số chấm tự động, cùng giám khảo và cùng code cho P và 3 baseline; chấm tay chỉ có cho P nên chỉ dùng để phân tích lỗi (mục 4.6), không dùng làm điểm.")
     figure(doc, ch.effective_by_system(an, SYS), "Tỷ lệ đạt hiệu quả của hệ thống đề xuất (P) và 3 baseline trên bộ khủng hoảng và bộ an toàn (chấm tự động).")
-    bullet(doc, f"Fine-tune là điều kiện để pipeline hoạt động: model gốc trong pipeline (Baseline 3) chỉ trả lời thật {pp(b3s['valid'] / b3s['n'])} số câu.")
+    bullet(doc, f"Fine-tune là điều kiện để pipeline hoạt động: model gốc trong pipeline (Pipeline + Qwen2.5-7B gốc) chỉ trả lời thật {pp(b3s['valid'] / b3s['n'])} số câu.")
     bullet(doc, "Pipeline là điều kiện để xử lý khủng hoảng: hai hệ thống không có pipeline gần như không bao giờ hướng dẫn liên hệ khẩn cấp "
-                f"(Baseline 1 {pp(an['B1']['crisis']['effective'] / 164)}, Baseline 2 {pp(an['B2']['crisis']['effective'] / 164)}).")
-    bullet(doc, "McNemar: P tốt hơn Baseline 1 và Baseline 2 trên cả hai bộ, tốt hơn Baseline 3 trên safety (p < 0,001); P và Baseline 3 ngang nhau trên crisis vì dùng chung LLM #1.")
+                f"(Qwen2.5-7B gốc {pp(an['B1']['crisis']['effective'] / 164)}, qwen-huhu {pp(an['B2']['crisis']['effective'] / 164)}).")
+    bullet(doc, "McNemar: P tốt hơn Qwen2.5-7B gốc và qwen-huhu (trả lời trực tiếp) trên cả hai bộ, tốt hơn Pipeline + Qwen2.5-7B gốc trên safety (p < 0,001); P và Pipeline + Qwen2.5-7B gốc ngang nhau trên crisis vì dùng chung LLM #1.")
     bullet(doc, "Hạn chế quan trọng nhất: ở các ca khủng hoảng LLM #1 bỏ sót, model fine-tune trả lời như hội thoại thường và có câu nguy hiểm (mục 4.1).")
 
     # ---------------------------------------------------------------- 2
@@ -315,7 +315,7 @@ def build(D):
     for t in [
         "Bộ test 300 câu (crisis, retrieval, safety) chỉ chạy trên hệ thống đã cố định rồi báo số. Không lấy câu, cụm từ hay ca sót trong bộ test để viết prompt, từ khoá hay luật; định nghĩa và cách chấm do nhóm quy định từ đầu.",
         "Gói hệ thống kèm manifest sha256 (2026-10-20T16:06:58). Trước khi chạy, notebook Kaggle kiểm mọi file, GGUF (sha256), digest 3 model Ollama và trọng số bge-m3 so với bản local; seed lại database và kiểm số dòng; so truy xuất PostgreSQL với bản JSON trên 384 tổ hợp state; chạy unit test. Notebook dừng nếu có bước lệch; cả hai notebook đều chạy đến bước nén kết quả.",
-        "Mỗi hệ thống (P, Baseline 1, 2, 3) được sinh câu trả lời rồi chấm bằng cùng một đoạn code và cùng giám khảo; mỗi câu chạy trong phiên mới.",
+        "Mỗi hệ thống (P và 3 baseline) được sinh câu trả lời rồi chấm bằng cùng một đoạn code và cùng giám khảo; mỗi câu chạy trong phiên mới.",
         "Toàn bộ phần sinh và chấm (kể cả grounding) chạy trên Kaggle; bge-m3 chạy bằng CPU để model trả lời không bị đẩy sang CPU (chỉ ảnh hưởng tốc độ).",
     ]:
         bullet(doc, t)
@@ -574,7 +574,7 @@ def build(D):
     # ---------------------------------------------------------------- 8
     doc.add_heading("7. Nguồn số liệu", 1)
     tbl(doc, ["Nội dung", "File"], [
-        ["Crisis, retrieval, P và 3 baseline (lần chạy cuối 20/10; mã B1/B2/B3 trong tên file = Baseline 1/2/3)", "eval_result_final/eval_final_results/logs/eval/ (crisis_*.jsonl, retrieval_*.jsonl, baselines/, analysis_final.json, run_*.txt: bảng notebook in ra)"],
+        ["Crisis, retrieval, P và 3 baseline (lần chạy cuối 20/10; trong tên file B1 = Qwen2.5-7B gốc, B2 = qwen-huhu, B3 = Pipeline + Qwen2.5-7B gốc)", "eval_result_final/eval_final_results/logs/eval/ (crisis_*.jsonl, retrieval_*.jsonl, baselines/, analysis_final.json, run_*.txt: bảng notebook in ra)"],
         ["Trace từng lượt của pipeline", "eval_result_final/eval_final_results/logs/turns.jsonl; eval_result_final/eval_grounding_results/logs/turns.jsonl"],
         ["Grounding và định tuyến (20/10)", "eval_result_final/eval_grounding_results/logs/eval/grounding/"],
         ["Lần chạy trước (16–17/10, cùng hệ thống)", "eval_result_afterChangePrompt/"],

@@ -236,8 +236,8 @@ python scripts/eval_system.py retrieval           # truy xuất theo 4 state: LL
 python scripts/eval_system.py safety              # 300 bẫy liều lượng / chẩn đoán / thuốc / calo (cần cả hệ thống)
 python scripts/eval_system.py safety --limit 20   # chạy thử ít ca trước
 
-# So sánh với 3 baseline (P = hệ thống đề xuất; mã B1 = Baseline 1: Qwen2.5-7B gốc trả lời trực tiếp; mã B2 = Baseline 2:
-# qwen-huhu trả lời trực tiếp; mã B3 = Baseline 3: pipeline + Qwen2.5-7B gốc) trên crisis (164 ca) và safety (300 ca).
+# So sánh với 3 baseline (P = hệ thống đề xuất; mã B1 = Qwen2.5-7B gốc trả lời trực tiếp; mã B2 = qwen-huhu
+# trả lời trực tiếp; mã B3 = Pipeline + Qwen2.5-7B gốc) trên crisis (164 ca) và safety (300 ca).
 # Mã baseline B1/B2/B3 khác với nhóm dữ liệu B1–B4.
 python scripts/eval_baselines.py gen   --systems P B1 B2 B3 --suites crisis safety   # pha 1: sinh câu trả lời
 python scripts/eval_baselines.py score --systems P B1 B2 B3 --suites crisis safety   # pha 2: chấm (JUDGE_MODEL)

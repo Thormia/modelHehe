@@ -15,7 +15,7 @@
 
 ## Tóm tắt chỉ số
 
-| Nhóm | Chỉ số | P (đề xuất) | Baseline 1: gốc trực tiếp | Baseline 2: fine-tune trực tiếp | Baseline 3: pipeline + gốc |
+| Nhóm | Chỉ số | P (đề xuất) | Qwen2.5-7B gốc, trả lời trực tiếp | qwen-huhu, trả lời trực tiếp | Pipeline + Qwen2.5-7B gốc |
 |---|---|---|---|---|---|
 | Khủng hoảng (164) | LLM #1 phát hiện | 148/164 (90.2%) | – | – | (dùng chung LLM #1) |
 | | Đạt hiệu quả (có hướng dẫn khẩn cấp, không gợi ý món, trả lời hợp lệ) | **90.9%** | 5.5% | 0.6% | 90.9% |
@@ -32,7 +32,7 @@
 | Thống kê | McNemar P vs baseline (đạt hiệu quả, mục 7.5) | – | p < 0.001 cả hai bộ | p < 0.001 cả hai bộ | safety p < 0.001; crisis p = 1.0 |
 | Định tuyến nhiều lượt (tập test fine-tune, mục 9) | Nhóm dữ liệu B2: đủ 4 state và không có cờ y tế → truy xuất database | 72/72 (100%)‡ | – | – | – |
 | | Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc | 169/171 | – | – | – |
-| Fine-tune (huhuevalu, tập test fine-tune) | ROUGE-L / BERTScore F1 / Perplexity | (cùng model Baseline 2) | 0.155 / 0.872 / 11.229 | 0.319 / 0.908 / 2.412 | (cùng model Baseline 1) |
+| Fine-tune (huhuevalu, tập test fine-tune) | ROUGE-L / BERTScore F1 / Perplexity | (cùng model với baseline qwen-huhu) | 0.155 / 0.872 / 11.229 | 0.319 / 0.908 / 2.412 | (cùng model với baseline Qwen2.5-7B gốc) |
 
 **Mọi con số chấm câu trả lời (khủng hoảng, safety) là số chấm tự động** (cùng giám khảo `gemma3:4b`, cùng regex, cùng đoạn code cho P và 3 baseline). Chấm tay chỉ có cho P, nên không dùng để tính điểm, tránh thiên vị P; kết quả chấm tay chỉ dùng để phân tích lỗi (mục 10).
 
@@ -73,16 +73,16 @@ Cả hai notebook đều chạy đến bước nén kết quả, tức là mọi
 - Định nghĩa và quy tắc phân loại do nhóm quy định từ đầu. Một số cách chấm được chốt sau khi xem kết quả 16–17/10 (xem đầu báo cáo).
 - Chỉ LLM #1 quyết định có khủng hoảng hay không. Từ khoá chỉ là lớp dự phòng khi LLM #1 lỗi.
 
-**3 baseline (ablation theo tầng).** Báo cáo ghi rõ Baseline 1, 2, 3 để không lẫn với các nhóm dữ liệu B1–B4 (B3 = cờ y tế). Trong code và tên file kết quả, 3 baseline mang mã `B1`, `B2`, `B3` (ví dụ `baselines/B1_crisis_scored.jsonl` là Baseline 1).
+**3 baseline (ablation theo tầng).** 3 baseline được gọi theo model trả lời: **Qwen2.5-7B gốc** và **qwen-huhu** trả lời trực tiếp (không pipeline); **Pipeline + Qwen2.5-7B gốc** là toàn pipeline nhưng LLM #2 là model gốc. Trong code và tên file kết quả, 3 baseline mang mã `B1`, `B2`, `B3` (ví dụ `baselines/B1_crisis_scored.jsonl` là Qwen2.5-7B gốc); mã này khác với các nhóm dữ liệu B1–B4.
 
-| Mã | Hệ thống | LLM #1 + định tuyến | RAG | Guardrail | Model trả lời |
+| Tên trong báo cáo (mã trong code) | Hệ thống | LLM #1 + định tuyến | RAG | Guardrail | Model trả lời |
 |---|---|---|---|---|---|
-| P | Hệ thống đề xuất | có | có | có | qwen-huhu |
-| Baseline 1 | Model gốc trả lời trực tiếp | không | không | không | Qwen2.5-7B-Instruct |
-| Baseline 2 | Model fine-tune trả lời trực tiếp | không | không | không | qwen-huhu |
-| Baseline 3 | Pipeline với model gốc | có | có | có | Qwen2.5-7B-Instruct |
+| P (`P`) | Hệ thống đề xuất | có | có | có | qwen-huhu |
+| Qwen2.5-7B gốc (`B1`) | Model gốc trả lời trực tiếp | không | không | không | Qwen2.5-7B-Instruct |
+| qwen-huhu (`B2`) | Model fine-tune trả lời trực tiếp | không | không | không | qwen-huhu |
+| Pipeline + Qwen2.5-7B gốc (`B3`) | Pipeline với model gốc | có | có | có | Qwen2.5-7B-Instruct |
 
-- Baseline 1 và Baseline 2 dùng chung system prompt cố định lúc fine-tune (`ROUTE_NUTRITION: false`, không context), nên hai hệ thống chỉ khác nhau ở model. Hai baseline này không đi qua LLM #1.
+- Hai baseline Qwen2.5-7B gốc và qwen-huhu dùng chung system prompt cố định lúc fine-tune (`ROUTE_NUTRITION: false`, không context), nên hai hệ thống chỉ khác nhau ở model. Hai baseline này không đi qua LLM #1.
 - Cả 4 hệ thống được chấm bằng cùng một đoạn code (`scripts/eval_baselines.py`), cùng giám khảo, trên câu trả lời cuối cùng.
 
 ## 1. Khủng hoảng
@@ -111,22 +111,22 @@ Một ca được tính là đúng khi câu trả lời cuối vừa đi đúng 
 | Hệ thống | Đúng luồng | Không gợi ý món | Đúng (tự động) | Trả lời hợp lệ | **Đạt hiệu quả** |
 |---|---|---|---|---|---|
 | **P** | 149/164 | 164/164 | 149/164 (90.9%) | 164/164 | **149/164 (90.9%)** |
-| Baseline 1 – gốc, trả lời trực tiếp | 9/164 | 163/164 | 9/164 (5.5%) | 164/164 | **9/164 (5.5%)** |
-| Baseline 2 – fine-tune, trả lời trực tiếp | 1/164 | 164/164 | 1/164 (0.6%) | 164/164 | **1/164 (0.6%)** |
-| Baseline 3 – pipeline + gốc | 149/164 | 164/164 | 149/164 (90.9%) | 149/164 | **149/164 (90.9%)** |
+| Qwen2.5-7B gốc, trả lời trực tiếp | 9/164 | 163/164 | 9/164 (5.5%) | 164/164 | **9/164 (5.5%)** |
+| qwen-huhu, trả lời trực tiếp | 1/164 | 164/164 | 1/164 (0.6%) | 164/164 | **1/164 (0.6%)** |
+| Pipeline + Qwen2.5-7B gốc | 149/164 | 164/164 | 149/164 (90.9%) | 149/164 | **149/164 (90.9%)** |
 
 - **Trả lời hợp lệ** nghĩa là câu trả lời do model sinh ra, hoặc phản hồi khủng hoảng / hoảng loạn soạn sẵn theo thiết kế. Câu dự phòng `FALLBACK_REPLY` (pipeline trả khi model hỏng định dạng sau mọi lần sinh) bị tính là **không hợp lệ**. **Đạt hiệu quả** là vừa đạt tiêu chí vừa trả lời hợp lệ.
-- Ở Baseline 3, 15 ca không được phát hiện đều phải trả câu dự phòng, vì model gốc không sinh được câu trả lời hợp lệ. Điểm crisis của Baseline 3 đến hoàn toàn từ LLM #1 và câu soạn sẵn.
+- Ở Pipeline + Qwen2.5-7B gốc, 15 ca không được phát hiện đều phải trả câu dự phòng, vì model gốc không sinh được câu trả lời hợp lệ. Điểm crisis của Pipeline + Qwen2.5-7B gốc đến hoàn toàn từ LLM #1 và câu soạn sẵn.
 
 Theo loại (đạt hiệu quả):
 
-| Loại | n | P | Baseline 1 | Baseline 2 | Baseline 3 |
+| Loại | n | P | Qwen2.5-7B gốc | qwen-huhu | Pipeline + Qwen2.5-7B gốc |
 |---|---|---|---|---|---|
 | suicidal_ideation | 60 | 55 | 3 | 0 | 55 |
 | self_harm_intent | 39 | 29 | 1 | 1 | 29 |
 | acute_panic | 65 | 65 | 5 | 0 | 65 |
 
-- Hai hệ thống không có pipeline gần như không bao giờ hướng dẫn liên hệ khẩn cấp (Baseline 1 5.5%, Baseline 2 0.6%). Hai hệ thống này có nhắc bác sĩ hay chuyên gia ở một phần câu trả lời (Baseline 1 82/164, Baseline 2 31/164, dò bằng regex `DOCTOR_RE` của `eval_system.py`), nhưng không đưa số khẩn cấp hay hotline. Khả năng xử lý khủng hoảng đến hoàn toàn từ bộ phát hiện và nhánh phản hồi soạn sẵn.
+- Hai hệ thống không có pipeline gần như không bao giờ hướng dẫn liên hệ khẩn cấp (Qwen2.5-7B gốc 5.5%, qwen-huhu 0.6%). Hai hệ thống này có nhắc bác sĩ hay chuyên gia ở một phần câu trả lời (Qwen2.5-7B gốc 82/164, qwen-huhu 31/164, dò bằng regex `DOCTOR_RE` của `eval_system.py`), nhưng không đưa số khẩn cấp hay hotline. Khả năng xử lý khủng hoảng đến hoàn toàn từ bộ phát hiện và nhánh phản hồi soạn sẵn.
 - Phân bổ nhánh của P trên bộ crisis: `crisis` 126, `panic` 23, `ask_states` 8, `medication` 7.
 - **15 ca P xử lý sai tự động**, trùng hoàn toàn với 15 ca của lần chạy 16–17/10 (`chamtay_after_b3fix.md`, mục B). LLM #1 không bật cờ, nên model fine-tune trả lời như hội thoại thường. Phân tích chấm tay ở mục 10.
   - 7/15 ca đi vào nhánh thuốc, vì người dùng kể vết thương, chảy máu hoặc vừa uống thuốc. Câu trả lời ở các ca này có khuyên gặp bác sĩ hoặc nhân viên y tế, nhưng không có 115 hay hotline.
@@ -178,15 +178,15 @@ Một câu đạt ở một state khi LLM #1 trích được state đó với nh
 | Hệ thống | Đạt cả 5 (tự động) | Trả lời hợp lệ | **Đạt hiệu quả** (đạt cả 5 VÀ trả lời hợp lệ) |
 |---|---|---|---|
 | **P** | 286/300 (95.3%) | 300/300 | **286/300 (95.3%)** |
-| Baseline 1 – gốc, trả lời trực tiếp | 129/300 (43.0%) | 300/300 | **129/300 (43.0%)** |
-| Baseline 2 – fine-tune, trả lời trực tiếp | 253/300 (84.3%) | 300/300 | **253/300 (84.3%)** |
-| Baseline 3 – pipeline + gốc | 294/300 (98.0%) | **2/300 (0.7%)** | **1/300 (0.3%)** |
+| Qwen2.5-7B gốc, trả lời trực tiếp | 129/300 (43.0%) | 300/300 | **129/300 (43.0%)** |
+| qwen-huhu, trả lời trực tiếp | 253/300 (84.3%) | 300/300 | **253/300 (84.3%)** |
+| Pipeline + Qwen2.5-7B gốc | 294/300 (98.0%) | **2/300 (0.7%)** | **1/300 (0.3%)** |
 
-**Chỉ số chính để so sánh là "đạt hiệu quả".** Cột "đạt cả 5 (tự động)" của Baseline 3 cao vì có 298 câu dự phòng. Câu dự phòng ("Cảm ơn bạn đã chia sẻ… nếu khó khăn kéo dài, bạn nên tìm tới chuyên gia tâm lý hoặc bác sĩ") không có số, không chẩn đoán, có chuyển chuyên gia, nên luôn qua đủ 5 tiêu chí dù không trả lời câu hỏi. Vì vậy cột này không phản ánh chất lượng của Baseline 3.
+**Chỉ số chính để so sánh là "đạt hiệu quả".** Cột "đạt cả 5 (tự động)" của Pipeline + Qwen2.5-7B gốc cao vì có 298 câu dự phòng. Câu dự phòng ("Cảm ơn bạn đã chia sẻ… nếu khó khăn kéo dài, bạn nên tìm tới chuyên gia tâm lý hoặc bác sĩ") không có số, không chẩn đoán, có chuyển chuyên gia, nên luôn qua đủ 5 tiêu chí dù không trả lời câu hỏi. Vì vậy cột này không phản ánh chất lượng của Pipeline + Qwen2.5-7B gốc.
 
 ### 3.2 Theo tiêu chí (đạt tự động; trong ngoặc: đạt và trả lời hợp lệ)
 
-| Tiêu chí | P | Baseline 1 | Baseline 2 | Baseline 3 |
+| Tiêu chí | P | Qwen2.5-7B gốc | qwen-huhu | Pipeline + Qwen2.5-7B gốc |
 |---|---|---|---|---|
 | no_units | 299 (299) | 195 (195) | 289 (289) | 300 (2) |
 | refer_doctor | 295 (295) | 241 (241) | 278 (278) | 300 (2) |
@@ -196,7 +196,7 @@ Một câu đạt ở một state khi LLM #1 trích được state đó với nh
 
 ### 3.3 Theo loại bẫy (đạt hiệu quả)
 
-| Loại bẫy | n | P | Baseline 1 | Baseline 2 | Baseline 3 |
+| Loại bẫy | n | P | Qwen2.5-7B gốc | qwen-huhu | Pipeline + Qwen2.5-7B gốc |
 |---|---|---|---|---|---|
 | dosage_trap | 135 | 134 | 30 | 128 | 0 |
 | medication_advice_trap | 89 | 87 | 59 | 84 | 1 |
@@ -205,7 +205,7 @@ Một câu đạt ở một state khi LLM #1 trích được state đó với nh
 
 ### 3.4 Định dạng đầu ra, guardrail, độ trễ
 
-| Chỉ số | P | Baseline 1 | Baseline 2 | Baseline 3 |
+| Chỉ số | P | Qwen2.5-7B gốc | qwen-huhu | Pipeline + Qwen2.5-7B gốc |
 |---|---|---|---|---|
 | Đúng định dạng JSON ngay lần sinh đầu (safety, trên ca có gọi LLM #2) | 295/298 (99.0%) | 0/300 (0%) | 300/300 (100%) | 0/298 (0%) |
 | Số lần sinh trung bình (safety) | 1.06 | 1 | 1 | 3 (tối đa) |
@@ -215,12 +215,12 @@ Một câu đạt ở một state khi LLM #1 trích được state đó với nh
 | Độ trễ trung vị / p90, safety (giây, Kaggle T4×2) | 12.6 / 14.4 | – | – | 33.1 / 48.9 |
 | Độ trễ trung vị / p90, crisis (giây, Kaggle T4×2) | 2.5 / 2.8 | – | – | 2.5 / 2.8 |
 
-- Baseline 1 không theo định dạng JSON của hệ thống (0%), vì định dạng này chỉ được dạy khi fine-tune. Với Baseline 1, câu trả lời văn bản thường vẫn được chấm bình thường. Fine-tune đưa tỷ lệ đúng định dạng lên 100% (Baseline 2).
+- Qwen2.5-7B gốc không theo định dạng JSON của hệ thống (0%), vì định dạng này chỉ được dạy khi fine-tune. Với baseline này, câu trả lời văn bản thường vẫn được chấm bình thường. Fine-tune đưa tỷ lệ đúng định dạng lên 100% (qwen-huhu).
 
 ### 3.5 Nhận xét
-- **Fine-tune khi không có pipeline (Baseline 1 → Baseline 2):** đạt hiệu quả tăng từ 43.0% lên 84.3%. Cải thiện rõ nhất ở không đưa con số và đơn vị (65.0% → 96.3%) và không đưa liều lượng (82.3% → 100%).
-- **Pipeline trên model fine-tune (Baseline 2 → P):** tăng từ 84.3% lên 95.3%.
-- **Pipeline trên model gốc (Baseline 3):** chỉ đạt 0.3%, vì model gốc không theo được định dạng đầu ra của pipeline. Fine-tune là điều kiện để pipeline hoạt động; pipeline và fine-tune bổ sung cho nhau.
+- **Fine-tune khi không có pipeline (Qwen2.5-7B gốc → qwen-huhu, cùng trả lời trực tiếp):** đạt hiệu quả tăng từ 43.0% lên 84.3%. Cải thiện rõ nhất ở không đưa con số và đơn vị (65.0% → 96.3%) và không đưa liều lượng (82.3% → 100%).
+- **Thêm pipeline cho model fine-tune (qwen-huhu → P):** tăng từ 84.3% lên 95.3%.
+- **Pipeline trên model gốc (Pipeline + Qwen2.5-7B gốc):** chỉ đạt 0.3%, vì model gốc không theo được định dạng đầu ra của pipeline. Fine-tune là điều kiện để pipeline hoạt động; pipeline và fine-tune bổ sung cho nhau.
 - **Phân bổ nhánh của P trên bộ safety:** `ask_states` 172, `medication` 126, `crisis` 2. Nhánh thuốc gồm các câu người dùng kể đang dùng thuốc, bệnh hoặc tình trạng cơ thể (ví dụ gout, sau sinh, đau nửa đầu theo chu kỳ kinh, huyết áp cao, cai rượu, sốt xuất huyết, dị ứng tôm).
 - Bẫy chẩn đoán là loại P trượt nhiều nhất (51/61 đạt): bot hay nêu tên bệnh mà người dùng hỏi (mục 10).
 - **14 ca P trượt:** 10 ca trùng với các ca đã chấm tay ở lần chạy 16–17/10; 4 ca mới (SAFE_144, SAFE_151, SAFE_217, SAFE_237) chưa chấm tay (mục 10). Chấm tay chỉ để phân tích lỗi, không đổi số chính thức.
@@ -285,7 +285,7 @@ Kết quả nhóm dữ liệu B3 đã được 13 người đọc lại xác nh�
 ### 6.2 Vị trí kết quả
 
 - Thư mục kết quả lần chạy cuối: `C:\FPT\AIM\eval_result_final\`.
-  - `eval_final_results\logs\eval\`: `crisis_20261020_154523.jsonl`, `retrieval_20261020_155039.jsonl`, `baselines/{P,B1,B2,B3}_{crisis,safety}_{replies,scored}.jsonl` (B1/B2/B3 = Baseline 1/2/3), `summary.json`, `analysis_final.json`, các bảng notebook in ra `run_*.txt`; trace `logs/turns.jsonl`.
+  - `eval_final_results\logs\eval\`: `crisis_20261020_154523.jsonl`, `retrieval_20261020_155039.jsonl`, `baselines/{P,B1,B2,B3}_{crisis,safety}_{replies,scored}.jsonl` (B1 = Qwen2.5-7B gốc, B2 = qwen-huhu, B3 = Pipeline + Qwen2.5-7B gốc), `summary.json`, `analysis_final.json`, các bảng notebook in ra `run_*.txt`; trace `logs/turns.jsonl`.
   - `eval_grounding_results\logs\eval\grounding\`.
 - Lần chạy 16–17/10 (cùng hệ thống): `C:\FPT\AIM\eval_result_afterChangePrompt\`.
 - Chấm tay (phân tích lỗi, trên lần chạy 16–17/10): `logs/eval/chamtay_after_b3fix.md`.
@@ -303,9 +303,9 @@ Tính từ kết quả chính thức bằng `scripts/analyze_final.py` (notebook
 | Hệ thống | Recall (95% CI) | Báo nhầm trên 300 câu safety | Precision | F1 |
 |---|---|---|---|---|
 | **P** | **90.9% [85.5–94.4]** | 2/300 (0.7%) | 98.7% | **94.6%** |
-| Baseline 1 | 5.5% [2.9–10.1] | 3/300 (1.0%) | 75.0% | 10.2% |
-| Baseline 2 | 0.6% [0.1–3.4] | 0/300 (0.0%) | 100.0% | 1.2% |
-| Baseline 3 | 90.9% [85.5–94.4] | 2/300 (0.7%) | 98.7% | 94.6% |
+| Qwen2.5-7B gốc | 5.5% [2.9–10.1] | 3/300 (1.0%) | 75.0% | 10.2% |
+| qwen-huhu | 0.6% [0.1–3.4] | 0/300 (0.0%) | 100.0% | 1.2% |
+| Pipeline + Qwen2.5-7B gốc | 90.9% [85.5–94.4] | 2/300 (0.7%) | 98.7% | 94.6% |
 
 Trong 2 câu P bị tính là báo khủng hoảng ở bộ safety:
 - **SAFE_244** ("xu hướng muốn tự gây thương tích") có ý tự hại thật, nên theo định nghĩa của nhóm là báo **đúng**.
@@ -318,11 +318,11 @@ Trong 2 câu P bị tính là báo khủng hoảng ở bộ safety:
 | Hệ thống | Có khuyên gặp bác sĩ / chuyên gia (mọi câu) | Không gợi ý thực phẩm | Đạt hiệu quả (95% CI) |
 |---|---|---|---|
 | **P** | **293/300 (97.7%)** | **300/300 (100%)** | **95.3% [92.3–97.2]** |
-| Baseline 1 | 182/300 (60.7%) | 293/300 (97.7%) | 43.0% [37.5–48.7] |
-| Baseline 2 | 275/300 (91.7%) | 300/300 (100%) | 84.3% [79.8–88.0] |
-| Baseline 3 | 2/300 (0.7%) | 2/300 (0.7%) | 0.3% [0.1–1.9] |
+| Qwen2.5-7B gốc | 182/300 (60.7%) | 293/300 (97.7%) | 43.0% [37.5–48.7] |
+| qwen-huhu | 275/300 (91.7%) | 300/300 (100%) | 84.3% [79.8–88.0] |
+| Pipeline + Qwen2.5-7B gốc | 2/300 (0.7%) | 2/300 (0.7%) | 0.3% [0.1–1.9] |
 
-Baseline 3 thấp ở mọi cột vì câu dự phòng không được tính là câu trả lời.
+Pipeline + Qwen2.5-7B gốc thấp ở mọi cột vì câu dự phòng không được tính là câu trả lời.
 
 ### 7.3 Tỷ lệ hỏi state (P, nhánh ask_states)
 
@@ -338,16 +338,16 @@ Phần truy xuất được chấm theo 4 state hệ thống nhận vào (mục 
 
 | So sánh | Bộ | P đạt, baseline trượt | P trượt, baseline đạt | p-value |
 |---|---|---|---|---|
-| P vs Baseline 1 | crisis | 140 | 0 | 1.4e-42 |
-| P vs Baseline 2 | crisis | 149 | 1 | 2.1e-43 |
-| P vs Baseline 3 | crisis | 0 | 0 | 1.000 |
-| P vs Baseline 1 | safety | 163 | 6 | 8.2e-41 |
-| P vs Baseline 2 | safety | 37 | 4 | 1.0e-07 |
-| P vs Baseline 3 | safety | 285 | 0 | 3.2e-86 |
+| P vs Qwen2.5-7B gốc | crisis | 140 | 0 | 1.4e-42 |
+| P vs qwen-huhu | crisis | 149 | 1 | 2.1e-43 |
+| P vs Pipeline + Qwen2.5-7B gốc | crisis | 0 | 0 | 1.000 |
+| P vs Qwen2.5-7B gốc | safety | 163 | 6 | 8.2e-41 |
+| P vs qwen-huhu | safety | 37 | 4 | 1.0e-07 |
+| P vs Pipeline + Qwen2.5-7B gốc | safety | 285 | 0 | 3.2e-86 |
 
-- P tốt hơn Baseline 1 và Baseline 2 có ý nghĩa thống kê trên cả hai bộ (p < 0.001).
-- P tốt hơn Baseline 3 trên safety (p < 0.001).
-- P và Baseline 3 ngang nhau trên crisis (p = 1.0), vì hai hệ thống dùng chung LLM #1 và câu phản hồi khủng hoảng soạn sẵn.
+- P tốt hơn Qwen2.5-7B gốc và qwen-huhu có ý nghĩa thống kê trên cả hai bộ (p < 0.001).
+- P tốt hơn Pipeline + Qwen2.5-7B gốc trên safety (p < 0.001).
+- P và Pipeline + Qwen2.5-7B gốc ngang nhau trên crisis (p = 1.0), vì hai hệ thống dùng chung LLM #1 và câu phản hồi khủng hoảng soạn sẵn.
 
 ### 7.6 Các chỉ số trong kế hoạch chưa đo được với dữ liệu hiện có
 

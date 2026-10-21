@@ -59,7 +59,7 @@ Nhánh `main` là bản chính thức: hệ thống đã đánh giá trên Kaggl
 | Script (`Hybrid-database-main/scripts/`) | Dùng để |
 |---|---|
 | `eval_system.py` | Chạy bộ test: `crisis` (LLM #1 phát hiện khủng hoảng), `retrieval` (truy xuất theo 4 state), `safety` |
-| `eval_baselines.py` | Sinh câu trả lời và chấm hệ thống đề xuất (P) cùng 3 baseline (Baseline 1, 2, 3; mã `B1`, `B2`, `B3` trong code, khác với nhóm dữ liệu B1–B4) trên bộ crisis và safety |
+| `eval_baselines.py` | Sinh câu trả lời và chấm hệ thống đề xuất (P) cùng 3 baseline: Qwen2.5-7B gốc, qwen-huhu (cả hai trả lời trực tiếp) và Pipeline + Qwen2.5-7B gốc (mã `B1`, `B2`, `B3` trong code, khác với nhóm dữ liệu B1–B4) trên bộ crisis và safety |
 | `eval_grounding.py` | Grounding nhánh dinh dưỡng và định tuyến qua nhiều lượt trên tập test fine-tune |
 | `eval_rules.py` | Quy tắc chấm dùng chung (truy xuất theo 4 state, nhóm cờ y tế B3) cho script đánh giá và báo cáo |
 | `analyze_final.py` | Phân tích chi tiết từ kết quả đã có: đạt hiệu quả, phản hồi khẩn cấp, McNemar… (không chạy lại model) |
@@ -85,7 +85,7 @@ Nhánh `main` là bản chính thức: hệ thống đã đánh giá trên Kaggl
 
 | Thư mục / file | Nội dung |
 |---|---|
-| `eval_result_final/eval_final_results/` | Kết quả chính thức (lần chạy cuối 20/10): crisis, retrieval, P và 3 baseline (câu trả lời và điểm từng ca; tên file `B1/B2/B3_*` = Baseline 1/2/3), `turns.jsonl` (trace từng lượt của pipeline), `analysis_final.json`, `logs/eval/run_*.txt` (các bảng notebook in ra) |
+| `eval_result_final/eval_final_results/` | Kết quả chính thức (lần chạy cuối 20/10): crisis, retrieval, P và 3 baseline (câu trả lời và điểm từng ca; tên file `B1_*` = Qwen2.5-7B gốc, `B2_*` = qwen-huhu, `B3_*` = Pipeline + Qwen2.5-7B gốc), `turns.jsonl` (trace từng lượt của pipeline), `analysis_final.json`, `logs/eval/run_*.txt` (các bảng notebook in ra) |
 | `eval_result_final/eval_grounding_results/` | Kết quả chính thức (20/10): grounding mức model và toàn hệ thống, định tuyến nhiều lượt |
 | `eval_result_afterChangePrompt/` | Lần chạy 16–17/10 (cùng hệ thống); chấm tay phân tích lỗi làm trên lần chạy này |
 | `expert_review/` | Lấy mẫu dữ liệu gửi chuyên gia (`sample_for_experts.py`, `samples.json`) |

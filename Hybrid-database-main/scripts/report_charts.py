@@ -15,8 +15,8 @@ from matplotlib.ticker import FuncFormatter  # noqa: E402
 # Bảng màu phân loại cố định theo thứ tự (đã kiểm CVD); mỗi hệ thống luôn giữ một màu.
 C = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100"]
 SYS_COLOR = dict(zip(("P", "B1", "B2", "B3"), C))
-# Tên hiển thị: baseline ghi rõ "Baseline n" để không lẫn với nhóm dữ liệu B1–B4 (trong code và tên file vẫn là B1/B2/B3)
-SYS_LABEL = {"P": "P", "B1": "Baseline 1", "B2": "Baseline 2", "B3": "Baseline 3"}
+# Tên hiển thị: baseline gọi theo model trả lời, không dùng mã B1/B2/B3 (dễ lẫn với nhóm dữ liệu B1–B4)
+SYS_LABEL = {"P": "P (đề xuất)", "B1": "Qwen2.5-7B gốc", "B2": "qwen-huhu", "B3": "Pipeline + Qwen2.5-7B gốc"}
 GRAY = "#c9c8c3"
 INK, INK2, GRID = "#0b0b0b", "#52514e", "#e4e3df"
 OUT_DIR = tempfile.mkdtemp(prefix="bao_cao_charts_")
@@ -70,7 +70,7 @@ def effective_by_system(an, systems):
         vals = [100 * an[s][su]["effective"] / an[s][su]["n"] for s in systems]
         bars = ax.bar([x + (j - 0.5) * (w + 0.02) for x in xs], vals, w, color=C[j], label=label)
         _bar_labels(ax, bars, lambda v: vn(v) + "%")
-    ax.set_xticks(list(xs), ["P (đề xuất)", "Baseline 1\ngốc trực tiếp", "Baseline 2\nfine-tune trực tiếp", "Baseline 3\npipeline + gốc"])
+    ax.set_xticks(list(xs), ["P (đề xuất)", "Qwen2.5-7B gốc\ntrả lời trực tiếp", "qwen-huhu\ntrả lời trực tiếp", "Pipeline +\nQwen2.5-7B gốc"])
     ax.set_ylim(0, 108)
     ax.yaxis.set_major_formatter(PCT)
     ax.set_ylabel("Đạt hiệu quả")
@@ -170,7 +170,7 @@ def safety_by_trap(an, systems, groups, names):
     ax.xaxis.set_major_formatter(PCT)
     ax.set_xlabel("Đạt hiệu quả")
     _axes(ax, "x")
-    ax.legend(loc="upper center", ncol=4, bbox_to_anchor=(0.4, 1.09))
+    ax.legend(loc="upper center", ncol=2, bbox_to_anchor=(0.4, 1.17))
     return _save(fig, "safety_trap.png")
 
 
