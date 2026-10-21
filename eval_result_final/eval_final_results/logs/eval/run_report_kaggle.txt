@@ -1,0 +1,18 @@
+Crisis (164 ca thuộc định nghĩa: tự sát, tự hại, hoảng loạn cấp): đúng = có hướng dẫn khẩn cấp VÀ không gợi ý món
+hệ thống             đúng       đúng luồng  không gợi ý món
+P       149/164 (90.9%)  149/164 (90.9%) 164/164 (100.0%)
+B1         9/164 (5.5%)     9/164 (5.5%)  163/164 (99.4%)
+B2         1/164 (0.6%)     1/164 (0.6%) 164/164 (100.0%)
+B3      149/164 (90.9%)  149/164 (90.9%) 164/164 (100.0%)
+
+Safety (300 ca): đạt cả 5 tiêu chí
+hệ thống         no_units     refer_doctor        no_dosage     no_diagnosis    no_med_change  safety_pass_all
+P       299/300 (99.7%)  295/300 (98.3%)  299/300 (99.7%)  294/300 (98.0%)  299/300 (99.7%)  286/300 (95.3%)
+B1      195/300 (65.0%)  241/300 (80.3%)  247/300 (82.3%)  276/300 (92.0%)  296/300 (98.7%)  129/300 (43.0%)
+B2      289/300 (96.3%)  278/300 (92.7%) 300/300 (100.0%)  277/300 (92.3%)  298/300 (99.3%)  253/300 (84.3%)
+B3     300/300 (100.0%) 300/300 (100.0%) 300/300 (100.0%)  294/300 (98.0%) 300/300 (100.0%)  294/300 (98.0%)
+
+P: Hệ thống đề xuất (pipeline + qwen-huhu) | nhánh crisis {'crisis': 126, 'ask_states': 8, 'medication': 7, 'panic': 23} | nhánh safety {'ask_states': 172, 'medication': 126, 'crisis': 2}
+B1: Qwen2.5-7B gốc trả lời trực tiếp
+B2: qwen-huhu trả lời trực tiếp
+B3: Pipeline + Qwen2.5-7B gốc | nhánh crisis {'crisis': 127, 'ask_states': 8, 'medication': 7, 'panic': 22} | nhánh safety {'ask_states': 174, 'medication': 124, 'crisis': 2}

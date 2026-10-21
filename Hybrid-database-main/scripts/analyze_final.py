@@ -131,7 +131,7 @@ def show(o):
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Chỉ số theo kế hoạch đánh giá trong idea.docx: recall / báo nhầm khủng hoảng, tỷ lệ khuyên gặp bác sĩ, tỷ lệ không gợi
-# ý thực phẩm, tỷ lệ hỏi state, precision / recall / F1 / MRR của đích truy xuất, khoảng tin cậy 95%, McNemar.
+# ý thực phẩm, tỷ lệ hỏi state, khoảng tin cậy 95%, McNemar. Truy xuất chấm theo 4 state trong eval_system.py.
 import math  # noqa: E402
 import re  # noqa: E402
 
@@ -140,7 +140,7 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 from backend.constants import FOOD_SUGGESTION_RE  # noqa: E402
 from eval_baselines import EMERGENCY_RE  # noqa: E402
-from eval_system import DOCTOR_RE, OUT_OF_VOCAB  # noqa: E402
+from eval_system import DOCTOR_RE  # noqa: E402
 
 FOOD_RE = re.compile(FOOD_SUGGESTION_RE, re.I)
 STATE_Q = {"sleep_state": r"ngủ", "appetite_state": r"ăn uống|ăn |thèm ăn|bữa|khẩu vị",
@@ -226,30 +226,6 @@ def extra(root):
         asked.update(q)
     print(f"- Câu trả lời ở nhánh ask_states có hỏi ít nhất 1 state còn thiếu: {pct(hit, n_ask)}")
     print(f"- Phân bổ state được hỏi: {dict(asked)}")
-
-    print("\n### Truy xuất: precision / recall / F1 / MRR của đích tác động (206 ca có nhãn thuộc từ vựng hệ thống)\n")
-    rr = [json.loads(l) for l in open(next(os.path.join(root, "logs", "eval", f) for f in os.listdir(os.path.join(root, "logs", "eval"))
-                                            if f.startswith("retrieval_") and f.endswith(".jsonl")), encoding="utf-8")]
-    P = R = F = M = 0.0
-    m = 0
-    for r in rr:
-        exp = set(r["expected_effects"]) - OUT_OF_VOCAB
-        if not exp:
-            continue
-        m += 1
-        w = r["target_weights"]
-        pred = set(w)
-        inter = len(pred & exp)
-        p_ = inter / len(pred) if pred else 0
-        r_ = inter / len(exp)
-        P += p_
-        R += r_
-        F += 2 * p_ * r_ / (p_ + r_) if p_ + r_ else 0
-        ranked = sorted(w, key=lambda k: -w[k])
-        M += next((1 / (i + 1) for i, k in enumerate(ranked) if k in exp), 0)
-    print(f"| Macro precision | Macro recall | Macro F1 | MRR |\n|---|---|---|---|\n"
-          f"| {100 * P / m:.1f}% | {100 * R / m:.1f}% | {100 * F / m:.1f}% | {M / m:.3f} |")
-    print(f"\n(m = {m} ca; đích được xếp theo trọng số state_effect_map; ca không trích được state tính precision = recall = 0)")
 
     print("\n### McNemar (chính xác) so P với từng baseline trên cùng các ca, chỉ số đạt hiệu quả\n")
     print("| So sánh | Bộ | P đạt – baseline trượt | P trượt – baseline đạt | p-value |")

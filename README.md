@@ -16,13 +16,14 @@ LLM #2 (qwen-huhu = Qwen2.5-7B-Instruct + LoRA fine-tune) ─► Guardrail tần
 
 ## Bản chính thức
 
-Nhánh `main` là bản chính thức: hệ thống đã đánh giá ngày 16–17/10/2026 trên Kaggle, kết quả và báo cáo tương ứng.
+Nhánh `main` là bản chính thức: hệ thống đã đánh giá trên Kaggle (lần chạy cuối 20/10/2026, cùng hệ thống với lần chạy
+16–17/10), kết quả và báo cáo tương ứng. Số liệu báo cáo lấy từ lần chạy cuối.
 
 | Muốn xem | Ở đâu |
 |---|---|
 | Báo cáo kết quả cuối (Word, có biểu đồ) | `BAO_CAO_KET_QUA_CUOI.docx` |
 | Báo cáo đánh giá đầy đủ (Markdown) | `Hybrid-database-main/logs/eval/BAO_CAO_DANH_GIA.md` |
-| Kết quả đánh giá gốc (từng ca) | `eval_result_afterChangePrompt/` |
+| Kết quả đánh giá gốc (từng ca) | `eval_result_final/` (lần chạy cuối 20/10) |
 | Ý tưởng, thiết kế, quy ước dữ liệu, việc còn mở | `idea.docx` |
 | Code hệ thống, cách cài và chạy | `Hybrid-database-main/` (xem `Hybrid-database-main/README.md`) |
 | Các thử nghiệm sau đánh giá (không dùng cho số chính thức) | `thu-nghiem/` (xem `thu-nghiem/README.md`) |
@@ -84,8 +85,9 @@ Nhánh `main` là bản chính thức: hệ thống đã đánh giá ngày 16–
 
 | Thư mục / file | Nội dung |
 |---|---|
-| `eval_result_afterChangePrompt/eval_final_results (1)/` | Kết quả chính thức 17/10: crisis, retrieval, P/B1/B2/B3 (câu trả lời và điểm từng ca), `turns.jsonl` (trace từng lượt của pipeline), `analysis_final.json` |
-| `eval_result_afterChangePrompt/eval_grounding_results/` | Kết quả chính thức 16/10: grounding mức model và toàn hệ thống, định tuyến nhiều lượt |
+| `eval_result_final/eval_final_results/` | Kết quả chính thức (lần chạy cuối 20/10): crisis, retrieval, P/B1/B2/B3 (câu trả lời và điểm từng ca), `turns.jsonl` (trace từng lượt của pipeline), `analysis_final.json`, `logs/eval/run_*.txt` (các bảng notebook in ra) |
+| `eval_result_final/eval_grounding_results/` | Kết quả chính thức (20/10): grounding mức model và toàn hệ thống, định tuyến nhiều lượt |
+| `eval_result_afterChangePrompt/` | Lần chạy 16–17/10 (cùng hệ thống); chấm tay phân tích lỗi làm trên lần chạy này |
 | `expert_review/` | Lấy mẫu dữ liệu gửi chuyên gia (`sample_for_experts.py`, `samples.json`) |
 | `expert_feedback/` | Phiếu chấm chuyên gia đã ẩn danh (`anonymized/`, 8 người chấm), `agreement.json` (độ đồng thuận), `TONG_KET_CHUYEN_GIA.md` (tổng kết và nhận xét) |
 | `flowchart_he_thong.drawio`, `flowchart_du_lieu.drawio` | Sơ đồ luồng hệ thống và quy trình dữ liệu (mở bằng draw.io) |

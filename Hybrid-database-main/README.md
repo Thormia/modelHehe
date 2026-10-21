@@ -253,10 +253,11 @@ python scripts/eval_baselines.py report
    `/kaggle/working/eval_final_results.zip`. Các cell in trực tiếp các bảng của báo cáo (truy xuất theo 4 state, phân tích
    `analyze_final.py`; notebook grounding in định tuyến khi đã có thông tin và bảng cờ y tế B3). Hết 12 giờ thì gắn Output
    làm input và chạy lại: ca đã xong được bỏ qua; ca lỗi khi sinh được chạy lại tối đa 3 lượt.
-**Kết quả chính thức và cách dựng lại báo cáo** (lần chạy 16–17/10 sau khi sửa lỗi implement nhóm B3):
-- Output 2 notebook Kaggle nằm ở `../eval_result_afterChangePrompt/` (`eval_final_results (1)/` cho crisis, retrieval, safety và 3 baseline;
-  `eval_grounding_results/` cho grounding và định tuyến nhiều lượt). Báo cáo chỉ dùng số của lần chạy này.
-- `python scripts/analyze_final.py "../eval_result_afterChangePrompt/eval_final_results (1)"` tính lại các chỉ số chi tiết
+**Kết quả chính thức và cách dựng lại báo cáo** (lần chạy cuối 20/10, cùng hệ thống với lần chạy 16–17/10):
+- Output 2 notebook Kaggle nằm ở `../eval_result_final/` (`eval_final_results/` cho crisis, retrieval, safety và 3 baseline;
+  `eval_grounding_results/` cho grounding và định tuyến nhiều lượt). Báo cáo chỉ dùng số của lần chạy này; lần chạy
+  16–17/10 lưu ở `../eval_result_afterChangePrompt/`.
+- `python scripts/analyze_final.py ../eval_result_final/eval_final_results` tính lại các chỉ số chi tiết
   (recall/F1, McNemar, theo loại bẫy…) mà không chạy lại model.
 - `python scripts/build_final_report.py` sinh `../BAO_CAO_KET_QUA_CUOI.docx` từ các file kết quả trên; báo cáo đầy đủ ở
   `logs/eval/BAO_CAO_DANH_GIA.md`, chấm tay (chỉ để phân tích lỗi) ở `logs/eval/chamtay_after_b3fix.md`.

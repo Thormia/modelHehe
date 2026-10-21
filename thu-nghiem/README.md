@@ -1,7 +1,8 @@
 # Các thử nghiệm (không thuộc hệ thống chính thức)
 
-Hệ thống, kết quả và báo cáo **chính thức** là bản đánh giá ngày 16–17/10/2026 (code ở `Hybrid-database-main/`, kết quả ở
-`eval_result_afterChangePrompt/`, báo cáo `BAO_CAO_KET_QUA_CUOI.docx`). Mọi thứ trong thư mục này là thử nghiệm làm sau
+Hệ thống, kết quả và báo cáo **chính thức** là hệ thống đánh giá ngày 16–17/10/2026 và chạy lại lần cuối ngày 20/10
+(code ở `Hybrid-database-main/`, kết quả ở `eval_result_final/`, báo cáo `BAO_CAO_KET_QUA_CUOI.docx`). Các so sánh
+dưới đây được làm với lần chạy 16–17/10 (`eval_result_afterChangePrompt/`), vì thử nghiệm được làm trước lần chạy cuối. Mọi thứ trong thư mục này là thử nghiệm làm sau
 đợt đánh giá đó, **không** được dùng cho số liệu chính thức. Mỗi thử nghiệm được sửa sau khi đã xem kết quả trên bộ test,
 nên nếu chạy lại trên cùng bộ test thì kết quả có thể thiên lệch; muốn dùng phải kiểm tra trên một bộ test mới.
 
@@ -35,7 +36,7 @@ cà phê, nhịn ăn, thức trắng chỉ là B3 khi đã gây triệu chứng 
 Chạy lại trên Kaggle GPU ngày 20/10, cùng hạ tầng, model và bộ test với bản chính thức (`eval_result_promptB3/`;
 bảng số `eval_result_promptB3/analyze_final_output.md`). So với bản chính thức trên cùng các ca:
 
-| Chỉ số (P) | Chính thức 16/10 | Prompt B3 20/10 | So cặp |
+| Chỉ số (P) | Lần chạy 16–17/10 | Prompt B3 20/10 | So cặp |
 |---|---|---|---|
 | Khủng hoảng đạt hiệu quả | 149/164 | 145/164 | 0 tốt lên, 4 xấu đi; p = 0,125 |
 | An toàn đạt hiệu quả | 278/300 | 281/300 | 12 tốt lên, 9 xấu đi; p = 0,66 |

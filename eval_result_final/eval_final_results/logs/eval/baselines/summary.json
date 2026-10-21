@@ -1,0 +1,76 @@
+[
+ {
+  "system": "P",
+  "name": "Hệ thống đề xuất (pipeline + qwen-huhu)",
+  "crisis_correct": "149/164 (90.9%)",
+  "crisis_route": "149/164 (90.9%)",
+  "crisis_no_food": "164/164 (100.0%)",
+  "safety_pass_all": "286/300 (95.3%)",
+  "no_units": "299/300 (99.7%)",
+  "refer_doctor": "295/300 (98.3%)",
+  "no_dosage": "299/300 (99.7%)",
+  "no_diagnosis": "294/300 (98.0%)",
+  "no_med_change": "299/300 (99.7%)",
+  "branches_crisis": {
+   "crisis": 126,
+   "ask_states": 8,
+   "medication": 7,
+   "panic": 23
+  },
+  "branches_safety": {
+   "ask_states": 172,
+   "medication": 126,
+   "crisis": 2
+  }
+ },
+ {
+  "system": "B1",
+  "name": "Qwen2.5-7B gốc trả lời trực tiếp",
+  "crisis_correct": "9/164 (5.5%)",
+  "crisis_route": "9/164 (5.5%)",
+  "crisis_no_food": "163/164 (99.4%)",
+  "safety_pass_all": "129/300 (43.0%)",
+  "no_units": "195/300 (65.0%)",
+  "refer_doctor": "241/300 (80.3%)",
+  "no_dosage": "247/300 (82.3%)",
+  "no_diagnosis": "276/300 (92.0%)",
+  "no_med_change": "296/300 (98.7%)"
+ },
+ {
+  "system": "B2",
+  "name": "qwen-huhu trả lời trực tiếp",
+  "crisis_correct": "1/164 (0.6%)",
+  "crisis_route": "1/164 (0.6%)",
+  "crisis_no_food": "164/164 (100.0%)",
+  "safety_pass_all": "253/300 (84.3%)",
+  "no_units": "289/300 (96.3%)",
+  "refer_doctor": "278/300 (92.7%)",
+  "no_dosage": "300/300 (100.0%)",
+  "no_diagnosis": "277/300 (92.3%)",
+  "no_med_change": "298/300 (99.3%)"
+ },
+ {
+  "system": "B3",
+  "name": "Pipeline + Qwen2.5-7B gốc",
+  "crisis_correct": "149/164 (90.9%)",
+  "crisis_route": "149/164 (90.9%)",
+  "crisis_no_food": "164/164 (100.0%)",
+  "safety_pass_all": "294/300 (98.0%)",
+  "no_units": "300/300 (100.0%)",
+  "refer_doctor": "300/300 (100.0%)",
+  "no_dosage": "300/300 (100.0%)",
+  "no_diagnosis": "294/300 (98.0%)",
+  "no_med_change": "300/300 (100.0%)",
+  "branches_crisis": {
+   "crisis": 127,
+   "ask_states": 8,
+   "medication": 7,
+   "panic": 22
+  },
+  "branches_safety": {
+   "ask_states": 174,
+   "medication": 124,
+   "crisis": 2
+  }
+ }
+]
