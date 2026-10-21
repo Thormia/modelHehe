@@ -29,7 +29,7 @@
 | | Hỏi ít nhất 1 state còn thiếu (nhánh ask_states, xấp xỉ) | 73.3% | – | – | – |
 | Định dạng | Đúng JSON ngay lần sinh đầu (safety) | 99.0% | 0% | 100% | 0% |
 | Thống kê | McNemar P vs baseline (đạt hiệu quả, mục 7.5) | – | p < 0.001 cả hai bộ | p < 0.001 cả hai bộ | safety p < 0.001; crisis p = 1.0 |
-| Định tuyến nhiều lượt (tập test fine-tune, mục 9) | Nhóm dữ liệu B2: đủ 4 state và không có cờ y tế → truy xuất database | 72/72 (100%)‡ | – | – | 64/64 (100%)‡ |
+| Định tuyến nhiều lượt (tập test fine-tune, mục 9) | Kiểm tra tích hợp (nhóm dữ liệu B2): LLM #1 báo đủ 4 state, không có cờ y tế → có món lấy từ PostgreSQL | 72/72 (100%)‡ | – | – | 64/64 (100%)‡ |
 | | Trên cùng 53 hội thoại cả hai hệ thống đều đủ 4 state, không có cờ y tế | 53/53 | – | – | 53/53 |
 | | Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc | 169/171 | – | – | 168/169 |
 | Fine-tune (huhuevalu, tập test fine-tune) | ROUGE-L / BERTScore F1 / Perplexity | (cùng model với baseline qwen-huhu) | 0.155 / 0.872 / 11.229 | 0.319 / 0.908 / 2.412 | (cùng model với baseline Qwen2.5-7B gốc) |
@@ -412,7 +412,11 @@ Chi tiết: `C:\FPT\AIM\expert_feedback\TONG_KET_CHUYEN_GIA.md`. Script: `script
 
 Nhãn nhánh của tập test fine-tune được gắn theo kịch bản sinh dữ liệu, kể cả khi lời người dùng không nói ra thông tin đó. Vì vậy định tuyến chỉ được chấm khi thông tin cần cho nhánh đã có trong hội thoại.
 
-**Nhóm dữ liệu B2 (tiêu chí của nhóm: đủ 4 state thì truy xuất database là đạt):**
+**Nhóm dữ liệu B2: kiểm tra tích hợp "đủ 4 state → truy xuất PostgreSQL"** (không phải độ chính xác):
+- Chỉ số này đo: khi LLM #1 đã báo đủ 4 state thì phần còn lại của luồng (luật định tuyến, truy vấn PostgreSQL, đưa món vào context) có chạy tới cùng không. Chỉ số không kiểm tra LLM #1 trích 4 state có đúng hay không, vì tập test fine-tune không có nhãn từng state (chỉ có nhãn nhánh gắn theo kịch bản sinh dữ liệu).
+- Dữ liệu: 240 hội thoại của `traindata/test_B_B2.jsonl`; từng câu người dùng được gửi lần lượt vào pipeline, mỗi hội thoại một phiên mới.
+- Hội thoại được chấm khi ở lượt cuối LLM #1 trích đủ 4 state và không bật cờ y tế. Đạt khi câu trả lời ở lượt đó vào nhánh dinh dưỡng và thật sự có món lấy từ PostgreSQL trong context (có mã `NUT_…`); `nutrition_blocked` (guardrail chặn phần gợi ý món sau khi đã truy xuất) vẫn tính là đạt.
+
 - 76 hội thoại có đủ 4 state ở lượt cuối. 72 ca vào nhánh dinh dưỡng và cả 72 đều có context lấy từ PostgreSQL. 4 ca còn lại (B2_003, B2_083, B2_085, B2_230) vào nhánh thuốc vì cờ y tế ưu tiên hơn. → **72/72 (100%)** ca không có cờ y tế được truy xuất database.
 - 164 hội thoại thiếu state: 155 hỏi tiếp state (đúng thiết kế), 9 vào nhánh thuốc. Các ca thiếu state chủ yếu vì lời người dùng không nói ra đủ 4 state.
 
