@@ -295,6 +295,10 @@ def build(D):
     doc.add_paragraph("Báo cáo gồm 3 phần đánh giá: Phần A đánh giá toàn hệ thống (hệ thống đề xuất P so với 3 baseline trên bộ khủng hoảng, "
                       "an toàn và hội thoại nhiều lượt); Phần B đánh giá truy xuất database (LLM #1 trích 4 state, state_effect_map, PostgreSQL); "
                       "Phần C đánh giá model fine-tune (qwen-huhu so với Qwen2.5-7B gốc).")
+    doc.add_paragraph("Các mục ghi (core) là bằng chứng chính: có đáp án gắn sẵn cho từng ca trong bộ test (nhãn khủng hoảng, loại bẫy an toàn, "
+                      "nhãn đích tác động, câu trả lời tham chiếu của tập test fine-tune) và được chấm cùng một chuẩn cho mọi hệ thống. Các mục còn lại "
+                      "là kiểm tra tích hợp, phân tích lỗi hoặc chỉ số chưa có đáp án (gom bằng từ khoá, giám khảo chưa được kiểm, đánh giá của chuyên gia "
+                      "trên mẫu nhỏ), dùng để bổ sung, không dùng làm kết luận chính.")
     an, em = D["an"], D["emerg"]
     cd = D["crisis_detect"]
     det = (sum(c["flag"] for c in cd.values()), sum(c["n"] for c in cd.values()))
@@ -375,7 +379,7 @@ def build(D):
     doc.add_heading("3. Phần A – Đánh giá toàn hệ thống", 1)
     doc.add_paragraph("Hệ thống đề xuất P so với 3 baseline trên câu trả lời cuối cùng: bộ khủng hoảng (164 câu), bộ an toàn (300 câu bẫy) "
                       "và hội thoại nhiều lượt có cờ y tế (nhóm dữ liệu B3 của tập test fine-tune).")
-    doc.add_heading("3.1 Khủng hoảng (164 câu thuộc định nghĩa: tự sát, tự hại, hoảng loạn cấp)", 2)
+    doc.add_heading("3.1 Khủng hoảng (164 câu thuộc định nghĩa: tự sát, tự hại, hoảng loạn cấp) (core)", 2)
     tbl(doc, ["Loại", "LLM #1 phát hiện", "crisis_flag", "panic_flag"],
         [[t, pc(c["flag"], c["n"]), c["crisis"], c["panic"]] for t, c in sorted(cd.items())]
         + [["Tổng", pc(sum(c["flag"] for c in cd.values()), sum(c["n"] for c in cd.values())), "", ""]], widths=[5, 4.5, 3, 3])
@@ -403,7 +407,7 @@ def build(D):
                 "\"vừa uống một nắm thuốc\" → chỉ khuyên đến cơ sở y tế sớm. Câu trả lời từng ca: eval_result_final/eval_final_results/logs/eval/baselines/P_crisis_replies.jsonl.")
     bullet(doc, "Phân tích chấm tay 15 ca này: mục 3.5.")
 
-    doc.add_heading("3.2 Ranh giới an toàn (300 câu bẫy)", 2)
+    doc.add_heading("3.2 Ranh giới an toàn (300 câu bẫy) (core)", 2)
     rows = []
     for s in SYS:
         a = an[s]["safety"]
@@ -433,7 +437,7 @@ def build(D):
                 f"({an['P']['safety']['by_group']['clinical_diagnosis_trap']['effective']}/{an['P']['safety']['by_group']['clinical_diagnosis_trap']['n']}): bot hay nêu tên bệnh người dùng hỏi (mục 3.5).")
     bullet(doc, "Phân tích chấm tay các câu P trượt: mục 3.5.")
 
-    doc.add_heading("3.3 Kiểm định McNemar (đạt hiệu quả, cùng các câu)", 2)
+    doc.add_heading("3.3 Kiểm định McNemar (đạt hiệu quả, cùng các câu) (core)", 2)
     tbl(doc, ["So sánh", "Bộ", "P đạt – baseline trượt", "P trượt – baseline đạt", "p-value"],
         [[f"P vs {L[s]}", su, b, c, (f"{p:.1e}" if p < 0.001 else f"{p:.3f}").replace(".", ",")] for s, su, b, c, p in D["mcnemar"]])
 
@@ -490,7 +494,7 @@ def build(D):
     doc.add_heading("4. Phần B – Đánh giá truy xuất database", 1)
     doc.add_paragraph("Luồng truy xuất: LLM #1 trích 4 state từ lời người dùng → state_effect_map (PostgreSQL) đổi state thành đích tác động → "
                       "truy vấn món trong bảng 400 món (PostgreSQL + pgvector) → đưa món vào context cho model trả lời. Phần này đánh giá từng bước của luồng.")
-    doc.add_heading(f"4.1 Trích state và đích tác động ({r_items} câu của bộ test truy xuất)", 2)
+    doc.add_heading(f"4.1 Trích state và đích tác động ({r_items} câu của bộ test truy xuất) (core)", 2)
     note(doc, "Hệ thống chỉ nhận 4 state (giấc ngủ, ăn uống, căng thẳng, tâm trạng) rồi suy ra đích tác động qua state_effect_map, nên phần truy xuất "
               "được chấm theo 4 state này. Bộ test gắn nhãn theo đích tác động; mỗi nhãn được đổi sang state tương ứng: sleep_regulation → sleep_state, "
               "appetite_regulation → appetite_state, stress_response → stress_state, mood_regulation → mood_state. Một câu đạt ở một state khi LLM #1 "
@@ -602,7 +606,7 @@ def build(D):
         bullet(doc, t)
     figure(doc, ch.training_loss(os.path.join(ROOT, "logs", "finetune", "train_history.json")),
            "Train loss và validation loss (toàn bộ tập validation) theo bước huấn luyện; checkpoint dùng là bước có val loss thấp nhất.")
-    doc.add_heading("5.2 So với model gốc trên tập test fine-tune (huhuevalu.ipynb)", 2)
+    doc.add_heading("5.2 So với model gốc trên tập test fine-tune (huhuevalu.ipynb) (core)", 2)
     tbl(doc, ["Chỉ số", "Qwen2.5-7B gốc", "Fine-tune"], [
         ["Perplexity – A / B1 / B2 / B3 / B4", " / ".join(num(x, 2) for x in PPL_BASE[:5]), " / ".join(num(x, 2) for x in PPL_FT[:5])],
         ["Perplexity – toàn bộ", num(PPL_BASE[5], 2), num(PPL_FT[5], 2)], ["ROUGE-L", "0,155", "0,319"], ["BERTScore F1 (xlm-roberta-large)", "0,872", "0,908"],
