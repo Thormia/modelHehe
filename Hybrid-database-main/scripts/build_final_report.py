@@ -143,7 +143,11 @@ def load_all():
     D["routing"] = routing(GROUND)
     D["routing_base"] = routing(ROUTE_BASE)
     # So từng hội thoại với P: nhánh lượt cuối (một lượt / nhiều lượt), lượt 1 (đầu vào giống hệt P), số lượt trả câu dự phòng
-    cmp = {"single": [0, 0], "multi": {}, "t1_states": 0, "t1_branch": 0, "n": 0, "canned": 0, "turns": 0}
+    cmp = {"single": [0, 0], "multi": {}, "t1_states": 0, "t1_branch": 0, "n": 0, "canned": 0, "turns": 0,
+           "both": 0, "both_db": [0, 0], "only": [0, 0]}
+    last = lambda r: r["turns"][-1]
+    ok = lambda r: all(last(r)["states"].get(k) for k in STATES) and not last(r)["medication"]  # đủ 4 state, không cờ y tế
+    db = lambda r: (last(r)["branch"] == "nutrition" and bool(last(r)["context_codes"])) or last(r)["branch"] == "nutrition_blocked"
     for g in ("B2", "B3"):
         pr = {r["id"]: r for r in jl(os.path.join(GROUND, f"B_{g}_runs.jsonl"))}
         br = {r["id"]: r for r in jl(os.path.join(ROUTE_BASE, f"B_{g}_runs.jsonl"))}
@@ -159,6 +163,14 @@ def load_all():
             cmp["n"] += 1
             cmp["canned"] += sum(t["fallback"] == "canned" for t in b["turns"])
             cmp["turns"] += len(b["turns"])
+            if g == "B2":
+                if ok(a) and ok(b):
+                    cmp["both"] += 1
+                    cmp["both_db"][0] += db(a)
+                    cmp["both_db"][1] += db(b)
+                else:
+                    cmp["only"][0] += ok(a)
+                    cmp["only"][1] += ok(b)
         cmp["multi"][g] = mu
     D["route_cmp"] = cmp
     D["expert"] = json.load(open(os.path.join(AIM, "expert_feedback", "agreement.json"), encoding="utf-8"))
@@ -301,7 +313,9 @@ def build(D):
          f"{pp(r_prob / r_n)} / {pp(r_ok / r_items)}", "–", "–", "= P (§)"],
         ["", "Có đích tác động để truy xuất món (từ state đã trích)", pp(r_tgt / r_items), "–", "–", "= P (§)"],
         ["Định tuyến nhiều lượt", "Nhóm dữ liệu B2: đủ 4 state và không có cờ y tế → truy xuất PostgreSQL",
-         f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']}", "–", "–", f"{rb['b2_full_ctx']}/{rb['b2_full'] - rb['b2_full_med']}"],
+         f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']} (‡)", "–", "–", f"{rb['b2_full_ctx']}/{rb['b2_full'] - rb['b2_full_med']} (‡)"],
+        ["", f"Trên cùng {D['route_cmp']['both']} hội thoại cả hai hệ thống đều đủ 4 state, không có cờ y tế",
+         f"{D['route_cmp']['both_db'][0]}/{D['route_cmp']['both']}", "–", "–", f"{D['route_cmp']['both_db'][1]}/{D['route_cmp']['both']}"],
         ["", "Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc", f"{ro['b3_flag_med']}/{ro['b3_flag']}", "–", "–", f"{rb['b3_flag_med']}/{rb['b3_flag']}"],
         ["Định dạng", "Đúng JSON ngay lần sinh đầu (safety)"]
         + [pc(an[s]["safety"]["fmt_first"], an[s]["safety"]["llm2_called"]) for s in SYS],
@@ -312,6 +326,7 @@ def build(D):
     note(doc, "P = hệ thống đề xuất (LLM #1 + định tuyến + RAG + guardrail, LLM #2 = qwen-huhu). 3 baseline gọi theo model trả lời: "
               "Qwen2.5-7B gốc và qwen-huhu trả lời trực tiếp (không pipeline); Pipeline + Qwen2.5-7B gốc là toàn pipeline nhưng LLM #2 là model gốc. "
               "Trong code và tên file kết quả, 3 baseline mang mã B1, B2, B3 (khác với các nhóm dữ liệu B1–B4). "
+              "(‡) Mẫu số là số hội thoại mỗi hệ thống tự gom được đủ 4 state (không có cờ y tế) ở lượt cuối, nên khác nhau dù cùng 240 hội thoại đầu vào (mục 4.5). "
               "(§) Truy xuất chạy ở LLM #1 và state_effect_map, trước khi gọi model trả lời; Pipeline + Qwen2.5-7B gốc dùng chung các thành phần này "
               "nên kết quả như P, không đo riêng. Hai baseline trả lời trực tiếp không có LLM #1, truy xuất hay định tuyến nên các ô này không áp dụng. "
               f"Câu dự phòng tính là không đạt: pipeline chỉ trả câu dự phòng khi model trả lời đã hỏng định dạng ở mọi lần sinh "
@@ -503,16 +518,25 @@ def build(D):
     note(doc, "Cùng pipeline, chỉ đổi model trả lời; chạy trên Kaggle 21/10 với cùng dữ liệu và cách chấm (serving/eval_routing_baseline_kaggle.ipynb). "
               "Ở mỗi lượt, LLM #1 đọc cả hội thoại, gồm câu bot đã trả lời; model gốc trả câu dự phòng ở "
               f"{cm['canned']}/{cm['turns']} lượt, nên từ lượt 2 LLM #1 đọc một hội thoại khác với P.")
+    note(doc, "Cả hai hệ thống nhận cùng 240 hội thoại nhóm dữ liệu B2. Mẫu số của chỉ số truy xuất database là số hội thoại mỗi hệ thống tự gom "
+              "được đủ 4 state (không có cờ y tế) ở lượt cuối, nên khác nhau; so sánh chính làm trên các hội thoại cả hai cùng đủ 4 state.")
     tbl(doc, ["Chỉ số", "P", "Pipeline + Qwen2.5-7B gốc"], [
-        ["Nhóm dữ liệu B2: hội thoại đủ 4 state ở lượt cuối", ro["b2_full"], rb["b2_full"]],
-        ["Đủ 4 state, không có cờ y tế → truy xuất database", f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']}",
-         f"{rb['b2_full_ctx']}/{rb['b2_full'] - rb['b2_full_med']}"],
+        [f"Nhóm dữ liệu B2, {cm['both']} hội thoại cả hai cùng đủ 4 state, không có cờ y tế → truy xuất database",
+         f"{cm['both_db'][0]}/{cm['both']}", f"{cm['both_db'][1]}/{cm['both']}"],
+        ["Hội thoại mỗi hệ thống tự gom đủ 4 state, không có cờ y tế → truy xuất database",
+         f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']}", f"{rb['b2_full_ctx']}/{rb['b2_full'] - rb['b2_full_med']}"],
+        ["Trong đó: chỉ hệ thống này gom đủ 4 state", cm["only"][0], cm["only"][1]],
         ["Thiếu state: hỏi tiếp state / vào nhánh thuốc", f"{ro['b2_short']['ask_states']} / {ro['b2_short']['medication']}",
          f"{rb['b2_short']['ask_states']} / {rb['b2_short']['medication']}"],
         ["Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc", f"{ro['b3_flag_med']}/{ro['b3_flag']}", f"{rb['b3_flag_med']}/{rb['b3_flag']}"],
     ], widths=[9, 3.5, 4.5])
-    bullet(doc, "Khi đã có thông tin, cơ chế định tuyến cho kết quả như P (đủ 4 state thì truy xuất database, cờ y tế bật thì vào nhánh thuốc). "
-                f"Khác biệt nằm ở số hội thoại gom được đủ 4 state ({rb['b2_full']} so với {ro['b2_full']}).")
+    bullet(doc, f"Cơ chế định tuyến cho kết quả như P: trên cùng {cm['both']} hội thoại, cả hai đều truy xuất database "
+                f"{cm['both_db'][0]}/{cm['both']} và {cm['both_db'][1]}/{cm['both']}; cờ y tế bật thì vào nhánh thuốc.")
+    bullet(doc, "Vì sao số hội thoại đủ 4 state khác nhau: ở mỗi lượt, LLM #1 đọc cả hội thoại, gồm câu bot đã trả lời; P hỏi lại state còn thiếu, "
+                "còn baseline trả câu dự phòng. Ví dụ B2_075: người dùng nói tâm trạng chùng xuống, P hỏi \"Bạn có đang bị áp lực gì không? Dạo này giấc ngủ "
+                "và chuyện ăn uống của bạn thế nào?\", người dùng đáp về giấc ngủ và ăn uống; ở P, LLM #1 trích thêm căng thẳng Moderate nên đủ 4 state, "
+                "ở baseline thì không. Người dùng không nói ra mức căng thẳng, LLM #1 suy ra từ câu hỏi của bot, nên P gom đủ 4 state ở nhiều hội thoại "
+                "hơn không có nghĩa là P trích state đúng hơn.")
     bullet(doc, f"So từng hội thoại với P, nhánh ở lượt cuối khác ở {cm['multi']['B2'][0]}/{cm['multi']['B2'][1]} hội thoại nhiều lượt của nhóm B2 và "
                 f"{cm['multi']['B3'][0]}/{cm['multi']['B3'][1]} của nhóm B3, nhưng chỉ {cm['single'][0]}/{cm['single'][1]} hội thoại một lượt. "
                 f"Ở lượt 1 (đầu vào giống hệt P), LLM #1 trích state khác P ở {cm['t1_states']}/{cm['n']} hội thoại và cho nhánh khác ở "

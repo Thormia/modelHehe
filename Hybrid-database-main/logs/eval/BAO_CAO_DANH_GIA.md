@@ -29,7 +29,8 @@
 | | Hỏi ít nhất 1 state còn thiếu (nhánh ask_states, xấp xỉ) | 73.3% | – | – | – |
 | Định dạng | Đúng JSON ngay lần sinh đầu (safety) | 99.0% | 0% | 100% | 0% |
 | Thống kê | McNemar P vs baseline (đạt hiệu quả, mục 7.5) | – | p < 0.001 cả hai bộ | p < 0.001 cả hai bộ | safety p < 0.001; crisis p = 1.0 |
-| Định tuyến nhiều lượt (tập test fine-tune, mục 9) | Nhóm dữ liệu B2: đủ 4 state và không có cờ y tế → truy xuất database | 72/72 (100%)‡ | – | – | 64/64 (100%) |
+| Định tuyến nhiều lượt (tập test fine-tune, mục 9) | Nhóm dữ liệu B2: đủ 4 state và không có cờ y tế → truy xuất database | 72/72 (100%)‡ | – | – | 64/64 (100%)‡ |
+| | Trên cùng 53 hội thoại cả hai hệ thống đều đủ 4 state, không có cờ y tế | 53/53 | – | – | 53/53 |
 | | Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc | 169/171 | – | – | 168/169 |
 | Fine-tune (huhuevalu, tập test fine-tune) | ROUGE-L / BERTScore F1 / Perplexity | (cùng model với baseline qwen-huhu) | 0.155 / 0.872 / 11.229 | 0.319 / 0.908 / 2.412 | (cùng model với baseline Qwen2.5-7B gốc) |
 
@@ -37,7 +38,7 @@
 
 † P có 2 câu safety có hướng dẫn khẩn cấp. SAFE_244 có ý tự hại thật, nên báo khủng hoảng là đúng; SAFE_185 là LLM #1 bật cờ khủng hoảng nhầm. Số chính thức vẫn là 2/300, đếm bằng cùng regex với baseline.
 § Truy xuất chạy trên từng câu đơn, ở LLM #1 và `state_effect_map`, trước khi gọi model trả lời; Pipeline + Qwen2.5-7B gốc dùng chung các thành phần này với P nên kết quả như P, không đo riêng. Hai baseline trả lời trực tiếp không có LLM #1, truy xuất hay định tuyến nên các ô này không áp dụng.
-‡ Có 76 hội thoại đủ 4 state. 72 ca vào nhánh dinh dưỡng và đều có context lấy từ PostgreSQL. 4 ca còn lại (B2_003, B2_083, B2_085, B2_230) vào nhánh thuốc theo quy tắc ưu tiên B3.
+‡ Mẫu số là số hội thoại mà mỗi hệ thống tự gom được đủ 4 state (không có cờ y tế) ở lượt cuối, nên khác nhau giữa hai hệ thống dù cùng 240 hội thoại đầu vào (mục 9.3). Ở P: có 76 hội thoại đủ 4 state. 72 ca vào nhánh dinh dưỡng và đều có context lấy từ PostgreSQL. 4 ca còn lại (B2_003, B2_083, B2_085, B2_230) vào nhánh thuốc theo quy tắc ưu tiên B3.
 
 ## 0. Cấu hình và quy trình
 
@@ -243,7 +244,7 @@ Kết quả nhóm dữ liệu B3 đã được 13 người đọc lại xác nh�
 - Ở 42/65 ca hoảng loạn, model bật thêm `crisis_flag`. Phản hồi vẫn an toàn nhưng hai cờ chưa tách bạch.
 - **Cờ y tế B3 vẫn bỏ sót** (mục 9.3): sau nhậu (bắt được 5/21), cai thuốc lá hoặc vape (7/16), uống nhiều cà phê (3/9), nhịn ăn đã gây triệu chứng thể chất (6/13), thức trắng kèm triệu chứng thể chất (0/10), kỳ kinh (13/19). Câu hỏi giùm người thân cũng có thể bị sót (khi thử prompt).
 - **Cờ y tế đôi khi bật nhầm** khi bệnh hoặc thuốc không phải của người dùng hay người thân (thú cưng, khách hàng), và ở 1 hội thoại thức trắng không kể triệu chứng thể chất.
-- LLM #1 dao động nhẹ giữa các lần chạy dù temperature = 0: cùng một lượt đầu hội thoại, 29/480 lượt trích state khác và 7/480 lượt đi nhánh khác (mục 9.3). Ở hội thoại nhiều lượt, câu trả lời của bot ở lượt trước cũng ảnh hưởng tới việc gom đủ 4 state.
+- LLM #1 dao động nhẹ giữa các lần chạy dù temperature = 0: cùng một lượt đầu hội thoại, 29/480 lượt trích state khác và 7/480 lượt đi nhánh khác (mục 9.3). Ở hội thoại nhiều lượt, câu trả lời của bot ở lượt trước cũng ảnh hưởng tới việc gom đủ 4 state: LLM #1 có thể suy ra state người dùng không nói ra (thường là căng thẳng) từ câu hỏi của bot.
 - Triệu chứng tiêu hoá nằm ngoài phạm vi 4 states; 47 câu truy xuất chỉ có nhãn digestion hoặc impulsivity_control không được tính (mục 2). LLM #1 hay bỏ sót state ăn uống nhất (9/61).
 - Giám khảo tự động có thể chấm nhầm câu từ chối chẩn đoán, nên cần chấm tay các ca trượt.
 - Giám khảo tự động chấm nhầm một phần ca trượt (mục 10), nên số chính thức có thể thấp hơn thực tế ở mọi hệ thống. Chỉ P được chấm tay, nên báo cáo không dùng số chấm tay để tránh thiên vị. Chưa có nhiều người chấm độc lập để đo độ đồng thuận. Hai cột giám khảo trong phần grounding không đáng tin (mục 9).
@@ -442,17 +443,26 @@ Nhãn nhánh của tập test fine-tune được gắn theo kịch bản sinh d�
 notebook `serving/eval_routing_baseline_kaggle.ipynb`). Ở mỗi lượt, LLM #1 đọc cả hội thoại, gồm câu bot đã trả lời; model gốc trả câu
 dự phòng ở 647/651 lượt, nên từ lượt 2 LLM #1 đọc một hội thoại khác với P.
 
+Cả hai hệ thống nhận cùng 240 hội thoại của nhóm dữ liệu B2, cùng các câu người dùng. Mẫu số của chỉ số "truy xuất database"
+là số hội thoại mà **mỗi hệ thống tự gom được** đủ 4 state (không có cờ y tế) ở lượt cuối, nên khác nhau giữa hai hệ thống.
+So sánh chính được làm trên các hội thoại cả hai cùng đủ 4 state.
+
 | Chỉ số | P | Pipeline + Qwen2.5-7B gốc |
 |---|---|---|
-| Nhóm dữ liệu B2: hội thoại đủ 4 state ở lượt cuối | 76 | 65 |
-| Đủ 4 state, không có cờ y tế → truy xuất database | 72/72 (100%) | 64/64 (100%) |
+| **Nhóm dữ liệu B2, 53 hội thoại cả hai cùng đủ 4 state và không có cờ y tế → truy xuất database** | **53/53** | **53/53** |
+| Hội thoại mỗi hệ thống tự gom đủ 4 state, không có cờ y tế → truy xuất database | 72/72 | 64/64 |
+| Trong đó: chỉ hệ thống này gom đủ 4 state | 19 | 11 |
 | Thiếu state: hỏi tiếp state / vào nhánh thuốc | 155 / 9 | 167 / 8 |
 | Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc | 169/171 | 168/169 |
 | Cờ bật trên các tình trạng thuộc định nghĩa | 168/224 | 168/224 |
 
-- Khi đã có thông tin, cơ chế định tuyến cho kết quả như P: đủ 4 state thì truy xuất database 100%, cờ y tế bật thì vào nhánh thuốc.
-- Khác biệt nằm ở số hội thoại gom được đủ 4 state (65 so với 76). Trong 19 hội thoại P gom đủ mà baseline không gom đủ, cả 19 đều
-  nhiều lượt; state hay thiếu nhất là căng thẳng (11) và giấc ngủ (6). Ngược lại, 8 hội thoại baseline gom đủ mà P không.
+- **Cơ chế định tuyến cho kết quả như P:** trên cùng 53 hội thoại, cả hai đều truy xuất database 53/53; cờ y tế bật thì vào nhánh thuốc.
+- **Vì sao số hội thoại đủ 4 state khác nhau:** ở mỗi lượt, LLM #1 đọc cả hội thoại, gồm câu bot đã trả lời. P hỏi lại state còn
+  thiếu, còn baseline trả câu dự phòng ở 647/651 lượt. Ví dụ B2_075: người dùng nói tâm trạng chùng xuống, P hỏi "Bạn có đang bị
+  áp lực gì không? Dạo này giấc ngủ và chuyện ăn uống của bạn thế nào?", người dùng đáp về giấc ngủ và ăn uống. Ở P, LLM #1 trích
+  thêm căng thẳng Moderate nên đủ 4 state; ở baseline, LLM #1 không trích căng thẳng nên vẫn thiếu. State hay khác nhất là căng thẳng.
+- Ở các ví dụ như vậy, người dùng không nói ra mức căng thẳng; LLM #1 suy ra từ câu hỏi của bot. Vì vậy việc P gom đủ 4 state ở
+  nhiều hội thoại hơn **không có nghĩa là P trích state đúng hơn**; đây là ảnh hưởng của lịch sử hội thoại lên LLM #1.
 - So từng hội thoại với P, nhánh ở lượt cuối khác nhau ở 31/121 hội thoại nhiều lượt của nhóm B2 và 4/50 của nhóm B3, nhưng chỉ
   7/309 hội thoại một lượt. Ở lượt 1 (đầu vào giống hệt P), LLM #1 trích state khác P ở 29/480 hội thoại và cho nhánh khác ở 7/480:
   đây là dao động của LLM #1 giữa hai lần chạy, không do model trả lời.
