@@ -51,7 +51,7 @@ Nhánh `main` là bản chính thức: hệ thống đã đánh giá trên Kaggl
 | `retrieval/` | `state_retriever.py`: 4 states → đích tác động (`state_effect_map`) → món ăn; `hybrid_retriever.py`: truy xuất Graph RAG + vector |
 | `db/`, `ingestion/` | Lược đồ PostgreSQL/pgvector, Neo4j; `seed_all.py` nạp toàn bộ dữ liệu |
 | `data/processed/` | Dữ liệu hệ thống dùng khi chạy: 400 món ăn, `state_effect_map.json` (ontology theo Xhani et al., 2026), danh mục CBT, kho tâm lý |
-| `serving/` | `Modelfile` (Ollama), `export_gguf_kaggle.ipynb`, `eval_final_kaggle.ipynb` và `eval_grounding_kaggle.ipynb` (chạy đánh giá trên Kaggle GPU), `kaggle_services.sh` (dựng PostgreSQL, Redis, Neo4j, Ollama trên Kaggle) |
+| `serving/` | `Modelfile` (Ollama), `export_gguf_kaggle.ipynb`, `eval_final_kaggle.ipynb` và `eval_grounding_kaggle.ipynb` (chạy đánh giá trên Kaggle GPU), `eval_routing_baseline_kaggle.ipynb` (định tuyến nhiều lượt của baseline Pipeline + Qwen2.5-7B gốc), `kaggle_services.sh` (dựng PostgreSQL, Redis, Neo4j, Ollama trên Kaggle) |
 | `scripts/` | Đánh giá và báo cáo (bảng dưới) |
 | `tests/` | Unit test (không cần model hay database) |
 | `logs/eval/` | `BAO_CAO_DANH_GIA.md`; `chamtay_after_b3fix.md` (chấm tay các ca trượt, chỉ để phân tích lỗi) |

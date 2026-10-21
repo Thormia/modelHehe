@@ -15,6 +15,10 @@ Phần B - toàn hệ thống qua các lượt (B1-B4): gửi lần lượt các
     python scripts/eval_grounding.py gen-b  [--groups B1 B2 B3 B4] [--limit N] [--workers K]
     python scripts/eval_grounding.py score
     python scripts/eval_grounding.py report
+
+Định tuyến của baseline Pipeline + Qwen2.5-7B gốc (cùng pipeline, chỉ đổi model trả lời; kết quả để thư mục riêng):
+    python scripts/eval_grounding.py gen-b   --groups B2 B3 --gen-model qwen2.5:7b-instruct --out-dir logs/eval/grounding_pipeline_qwen_goc
+    python scripts/eval_grounding.py routing --out-dir logs/eval/grounding_pipeline_qwen_goc
 """
 import argparse
 import json
@@ -161,9 +165,11 @@ class _Capture:
         self.inner.write(rec)
 
 
-def _make_pipeline():
+def _make_pipeline(gen_model=None):
     from backend.pipeline import build_default_pipeline
     p = build_default_pipeline()
+    if gen_model and gen_model != config.GEN_MODEL:  # baseline: cùng pipeline, chỉ đổi model trả lời (như eval_baselines.py)
+        p.generator = LLMClient(config.GEN_BASE_URL, gen_model, config.GEN_API_KEY, config.LLM_TIMEOUT)
     if config.RETRIEVER != "offline":
         from db.db_clients import DatabaseClients
         from retrieval.state_retriever import StateRetriever
@@ -173,7 +179,7 @@ def _make_pipeline():
     return p
 
 
-def gen_b(groups, limit, workers):
+def gen_b(groups, limit, workers, gen_model=None):
     os.makedirs(OUT_DIR, exist_ok=True)
     local = threading.local()
     for g in groups:
@@ -185,7 +191,7 @@ def gen_b(groups, limit, workers):
 
         def fn(r):
             if not hasattr(local, "p"):
-                local.p = _make_pipeline()
+                local.p = _make_pipeline(gen_model)
             p = local.p
             sid = f"ground-{uuid.uuid4().hex[:8]}"
             users = [m["content"] for m in r["messages"] if m["role"] == "user"]
@@ -329,19 +335,26 @@ def report():
 
 
 def main():
+    global OUT_DIR
     ap = argparse.ArgumentParser()
-    ap.add_argument("phase", choices=["gen-a", "gen-b", "score", "report"])
+    ap.add_argument("phase", choices=["gen-a", "gen-b", "score", "report", "routing"])
     ap.add_argument("--models", nargs="+", default=[config.GEN_MODEL, config.BASE_MODEL])
     ap.add_argument("--groups", nargs="+", default=GROUPS, choices=GROUPS)
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--workers", type=int, default=1)
+    ap.add_argument("--gen-model", default=config.GEN_MODEL, help="model trả lời của pipeline ở gen-b (mặc định: hệ thống P)")
+    ap.add_argument("--out-dir", default=OUT_DIR, help="thư mục kết quả (tương đối với thư mục app)")
     a = ap.parse_args()
+    OUT_DIR = a.out_dir if os.path.isabs(a.out_dir) else os.path.join(ROOT, a.out_dir)
     if a.phase == "gen-a":
         gen_a(a.models, a.limit, a.workers)
     elif a.phase == "gen-b":
-        gen_b(a.groups, a.limit, a.workers)
+        gen_b(a.groups, a.limit, a.workers, a.gen_model)
     elif a.phase == "score":
         score()
+    elif a.phase == "routing":
+        print(f"Định tuyến, kết quả ở {OUT_DIR}\n")
+        print_routing(routing(OUT_DIR))
     else:
         report()
 
