@@ -21,10 +21,10 @@ Lấy từ `git stash` (`stash@{0}`, vẫn còn trong repo).
 - LLM #1 gộp tự sát, tự hại, hoảng loạn cấp thành một cờ khủng hoảng; định nghĩa cờ y tế B3 mới.
 - LLM #3 (`gemma3:12b`) kiểm tra câu trả lời cuối, thay guardrail tầng 2.
 - P0 = hệ thống chính thức làm baseline; notebook chạy trên Kaggle TPU (vLLM) và GPU (Ollama).
-- `expert_review/blind_eval/make_blind_form.py`: Google Form đánh giá mù P0, P, B1, B2, B3.
+- `expert_review/blind_eval/make_blind_form.py`: Google Form đánh giá mù P0, P, Baseline 1, 2, 3.
 - `kaggle_upload/`: các gói đã gửi chạy và notebook lỗi `loi-eval-final-gpu-kaggle.ipynb` (có kết quả sơ bộ).
 
-Kết quả sơ bộ trên GPU (chưa phân tích xong do thiếu 4 ca B2): so với P0, crisis 148 vs 149/164 (p = 1,0), safety
+Kết quả sơ bộ trên GPU (chưa phân tích xong do thiếu 4 ca của Baseline 2): so với P0, crisis 148 vs 149/164 (p = 1,0), safety
 276 vs 285/300 (P0 tốt hơn, McNemar p = 0,049); LLM #1 mới phát hiện khủng hoảng 141/164 (bản chính thức 148). Không dùng.
 
 ## 3_prompt-b3 (20/10)
@@ -45,7 +45,7 @@ bảng số `eval_result_promptB3/analyze_final_output.md`). So với bản chí
 
 Cờ y tế: tốt lên ở rượu bia (5 → 13/21), nhịn ăn có triệu chứng (6 → 12/13), thức trắng có triệu chứng (0 → 5/10),
 cà phê (2 → 4/9); xấu đi ở kỳ kinh (15 → 7/19), mang thai (21 → 16/21), cai thuốc lá/vape (6 → 2/16), vừa mổ (19 → 18);
-bật nhầm 3 ca không kể triệu chứng (bản chính thức 0). Không có thay đổi nào có ý nghĩa thống kê. B1 safety thiếu 1 ca
+bật nhầm 3 ca không kể triệu chứng (bản chính thức 0). Không có thay đổi nào có ý nghĩa thống kê. Baseline 1 thiếu 1 ca safety
 (SAFE_079, server trả lỗi 500).
 
 `kaggle_upload/`: gói `huhu-system-final-prompt-b3.zip` và thư mục đã gửi chạy.

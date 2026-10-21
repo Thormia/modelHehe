@@ -34,6 +34,7 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 
 import report_charts as ch  # noqa: E402
 from analyze_final import ci, mcnemar_exact  # noqa: E402
+from report_charts import SYS_LABEL as L  # noqa: E402
 from backend.constants import FOOD_SUGGESTION_RE  # noqa: E402
 from eval_baselines import EMERGENCY_RE  # noqa: E402
 from eval_system import DOCTOR_RE  # noqa: E402
@@ -279,24 +280,25 @@ def build(D):
         [f"Truy xuất theo 4 state ({r_items} câu)", "Trích đúng state mong đợi, đúng chiều vấn đề: theo từng state / đủ mọi state của câu",
          f"{pp(r_prob / r_n)} / {pp(r_ok / r_items)}", "–", "–", "–"],
         ["", "Có đích tác động để truy xuất món (từ state đã trích)", pp(r_tgt / r_items), "–", "–", "–"],
-        ["Định tuyến nhiều lượt", "B2: đủ 4 state và không có cờ y tế → truy xuất PostgreSQL",
+        ["Định tuyến nhiều lượt", "Nhóm dữ liệu B2: đủ 4 state và không có cờ y tế → truy xuất PostgreSQL",
          f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']}", "–", "–", "–"],
-        ["", "B3: cờ y tế bật → nhánh thuốc", f"{ro['b3_flag_med']}/{ro['b3_flag']}", "–", "–", "–"],
+        ["", "Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc", f"{ro['b3_flag_med']}/{ro['b3_flag']}", "–", "–", "–"],
         ["Định dạng", "Đúng JSON ngay lần sinh đầu (safety)"]
         + [pc(an[s]["safety"]["fmt_first"], an[s]["safety"]["llm2_called"]) for s in SYS],
     ]
-    tbl(doc, ["Nhóm", "Chỉ số", "P (đề xuất)", "B1 gốc trực tiếp", "B2 fine-tune trực tiếp", "B3 pipeline + gốc"], rows,
+    tbl(doc, ["Nhóm", "Chỉ số", "P (đề xuất)", "Baseline 1: gốc trực tiếp", "Baseline 2: fine-tune trực tiếp", "Baseline 3: pipeline + gốc"], rows,
         widths=[2.6, 5.2, 2.4, 2.2, 2.4, 2.4])
     b3s = an["B3"]["safety"]
-    note(doc, "P = hệ thống đề xuất (LLM #1 + định tuyến + RAG + guardrail, LLM #2 = qwen-huhu). B1 = Qwen2.5-7B gốc trả lời trực tiếp. "
-              "B2 = qwen-huhu trả lời trực tiếp. B3 = toàn pipeline nhưng LLM #2 là Qwen2.5-7B gốc. "
-              f"*B3: {b3s['n'] - b3s['valid']}/{b3s['n']} câu là câu dự phòng soạn sẵn vì model gốc không theo được định dạng đầu ra, nên cột tự động không dùng để so sánh. "
+    note(doc, "P = hệ thống đề xuất (LLM #1 + định tuyến + RAG + guardrail, LLM #2 = qwen-huhu). Baseline 1 = Qwen2.5-7B gốc trả lời trực tiếp. "
+              "Baseline 2 = qwen-huhu trả lời trực tiếp. Baseline 3 = toàn pipeline nhưng LLM #2 là Qwen2.5-7B gốc. "
+              "Baseline 1–3 khác với các nhóm dữ liệu B1–B4; trong code và tên file kết quả, 3 baseline mang mã B1, B2, B3. "
+              f"*Baseline 3: {b3s['n'] - b3s['valid']}/{b3s['n']} câu là câu dự phòng soạn sẵn vì model gốc không theo được định dạng đầu ra, nên cột tự động không dùng để so sánh. "
               "Mọi con số chấm câu trả lời là số chấm tự động, cùng giám khảo và cùng code cho P và 3 baseline; chấm tay chỉ có cho P nên chỉ dùng để phân tích lỗi (mục 4.6), không dùng làm điểm.")
     figure(doc, ch.effective_by_system(an, SYS), "Tỷ lệ đạt hiệu quả của hệ thống đề xuất (P) và 3 baseline trên bộ khủng hoảng và bộ an toàn (chấm tự động).")
-    bullet(doc, f"Fine-tune là điều kiện để pipeline hoạt động: model gốc trong pipeline (B3) chỉ trả lời thật {pp(b3s['valid'] / b3s['n'])} số câu.")
+    bullet(doc, f"Fine-tune là điều kiện để pipeline hoạt động: model gốc trong pipeline (Baseline 3) chỉ trả lời thật {pp(b3s['valid'] / b3s['n'])} số câu.")
     bullet(doc, "Pipeline là điều kiện để xử lý khủng hoảng: hai hệ thống không có pipeline gần như không bao giờ hướng dẫn liên hệ khẩn cấp "
-                f"(B1 {pp(an['B1']['crisis']['effective'] / 164)}, B2 {pp(an['B2']['crisis']['effective'] / 164)}).")
-    bullet(doc, "McNemar: P tốt hơn B1 và B2 trên cả hai bộ, tốt hơn B3 trên safety (p < 0,001); P và B3 ngang nhau trên crisis vì dùng chung LLM #1.")
+                f"(Baseline 1 {pp(an['B1']['crisis']['effective'] / 164)}, Baseline 2 {pp(an['B2']['crisis']['effective'] / 164)}).")
+    bullet(doc, "McNemar: P tốt hơn Baseline 1 và Baseline 2 trên cả hai bộ, tốt hơn Baseline 3 trên safety (p < 0,001); P và Baseline 3 ngang nhau trên crisis vì dùng chung LLM #1.")
     bullet(doc, "Hạn chế quan trọng nhất: ở các ca khủng hoảng LLM #1 bỏ sót, model fine-tune trả lời như hội thoại thường và có câu nguy hiểm (mục 4.1).")
 
     # ---------------------------------------------------------------- 2
@@ -313,7 +315,7 @@ def build(D):
     for t in [
         "Bộ test 300 câu (crisis, retrieval, safety) chỉ chạy trên hệ thống đã cố định rồi báo số. Không lấy câu, cụm từ hay ca sót trong bộ test để viết prompt, từ khoá hay luật; định nghĩa và cách chấm do nhóm quy định từ đầu.",
         "Gói hệ thống kèm manifest sha256 (2026-10-20T16:06:58). Trước khi chạy, notebook Kaggle kiểm mọi file, GGUF (sha256), digest 3 model Ollama và trọng số bge-m3 so với bản local; seed lại database và kiểm số dòng; so truy xuất PostgreSQL với bản JSON trên 384 tổ hợp state; chạy unit test. Notebook dừng nếu có bước lệch; cả hai notebook đều chạy đến bước nén kết quả.",
-        "Mỗi hệ thống (P, B1, B2, B3) được sinh câu trả lời rồi chấm bằng cùng một đoạn code và cùng giám khảo; mỗi câu chạy trong phiên mới.",
+        "Mỗi hệ thống (P, Baseline 1, 2, 3) được sinh câu trả lời rồi chấm bằng cùng một đoạn code và cùng giám khảo; mỗi câu chạy trong phiên mới.",
         "Toàn bộ phần sinh và chấm (kể cả grounding) chạy trên Kaggle; bge-m3 chạy bằng CPU để model trả lời không bị đẩy sang CPU (chỉ ảnh hưởng tốc độ).",
     ]:
         bullet(doc, t)
@@ -367,12 +369,12 @@ def build(D):
     for s in SYS:
         a = an[s]["crisis"]
         bg = a["by_group"]
-        rows.append([s, pc(a["effective"], a["n"]), pc(a["valid"], a["n"]),
+        rows.append([L[s], pc(a["effective"], a["n"]), pc(a["valid"], a["n"]),
                      f"{bg['suicidal_ideation']['effective']}/{bg['suicidal_ideation']['n']}",
                      f"{bg['self_harm_intent']['effective']}/{bg['self_harm_intent']['n']}",
                      f"{bg['acute_panic']['effective']}/{bg['acute_panic']['n']}"])
     tbl(doc, ["Hệ thống", "Đạt hiệu quả", "Trả lời hợp lệ", "Tự sát", "Tự hại", "Hoảng loạn"], rows)
-    rows = [[s, f"{em[s][0]}/{em[s][1]} = {ci(em[s][0], em[s][1])}".replace(".", ","), pc(em[s][2], 300), pp(em[s][3]), pp(em[s][4])] for s in SYS]
+    rows = [[L[s], f"{em[s][0]}/{em[s][1]} = {ci(em[s][0], em[s][1])}".replace(".", ","), pc(em[s][2], 300), pp(em[s][3]), pp(em[s][4])] for s in SYS]
     tbl(doc, ["Hệ thống", "Recall (95% CI)", "Báo nhầm trên 300 câu safety", "Precision", "F1"], rows, widths=[2.2, 5, 4.2, 2.6, 2.4])
     bullet(doc, f"P có {em['P'][2]} câu safety chứa hướng dẫn khẩn cấp: SAFE_244 có ý tự gây thương tích thật (báo đúng); SAFE_185 là báo nhầm. "
                 "Số chính thức là số đếm bằng cùng regex cho mọi hệ thống.")
@@ -416,21 +418,21 @@ def build(D):
     rows = []
     for s in SYS:
         a = an[s]["safety"]
-        rows.append([s, pc(a["correct"], a["n"]) + ("*" if s == "B3" else ""), pc(a["valid"], a["n"]), pc(a["effective"], a["n"]),
+        rows.append([L[s], pc(a["correct"], a["n"]) + ("*" if s == "B3" else ""), pc(a["valid"], a["n"]), pc(a["effective"], a["n"]),
                      ci(a["effective"], a["n"]).replace(".", ",")])
     tbl(doc, ["Hệ thống", "Đạt cả 5 (tự động)", "Trả lời hợp lệ", "Đạt hiệu quả", "Đạt hiệu quả (95% CI)"], rows)
     crit = list(an["P"]["safety"]["checks"])
-    tbl(doc, ["Tiêu chí"] + SYS, [[k] + [f"{an[s]['safety']['checks'][k]} ({an[s]['safety']['checks_valid'][k]})" for s in SYS] for k in crit])
+    tbl(doc, ["Tiêu chí"] + [L[s] for s in SYS], [[k] + [f"{an[s]['safety']['checks'][k]} ({an[s]['safety']['checks_valid'][k]})" for s in SYS] for k in crit])
     note(doc, "Số đạt tự động; trong ngoặc: đạt và trả lời hợp lệ.")
     groups = list(an["P"]["safety"]["by_group"])
-    tbl(doc, ["Loại bẫy", "n"] + SYS, [[g, an["P"]["safety"]["by_group"][g]["n"]] + [an[s]["safety"]["by_group"][g]["effective"] for s in SYS] for g in groups])
+    tbl(doc, ["Loại bẫy", "n"] + [L[s] for s in SYS], [[g, an["P"]["safety"]["by_group"][g]["n"]] + [an[s]["safety"]["by_group"][g]["effective"] for s in SYS] for g in groups])
     note(doc, "Số câu đạt hiệu quả theo loại bẫy.")
     figure(doc, ch.safety_by_trap(an, SYS, groups, {"calorie_and_portion_trap": "Calo, khẩu phần", "clinical_diagnosis_trap": "Chẩn đoán",
                                                     "dosage_trap": "Liều lượng", "medication_advice_trap": "Khuyên dùng thuốc"}),
            "Tỷ lệ đạt hiệu quả theo loại bẫy an toàn của P và 3 baseline.")
     bh = D["behav"]
-    tbl(doc, ["Hệ thống", "Có khuyên gặp bác sĩ / chuyên gia", "Không gợi ý thực phẩm"], [[s, pc(bh[s][0], bh[s][2]), pc(bh[s][1], bh[s][2])] for s in SYS])
-    tbl(doc, ["Chỉ số (safety)"] + SYS, [
+    tbl(doc, ["Hệ thống", "Có khuyên gặp bác sĩ / chuyên gia", "Không gợi ý thực phẩm"], [[L[s], pc(bh[s][0], bh[s][2]), pc(bh[s][1], bh[s][2])] for s in SYS])
+    tbl(doc, ["Chỉ số (safety)"] + [L[s] for s in SYS], [
         ["Đúng JSON ngay lần sinh đầu"] + [pc(an[s]["safety"]["fmt_first"], an[s]["safety"]["llm2_called"]) for s in SYS],
         ["Số lần sinh trung bình"] + [str(an[s]["safety"]["mean_gen"]).replace(".", ",") for s in SYS],
         ["Ca guardrail tầng 2 yêu cầu sinh lại"] + [str(an[s]["safety"]["tier2_retry_cases"]) if s in ("P", "B3") else "–" for s in SYS],
@@ -443,7 +445,7 @@ def build(D):
 
     doc.add_heading("4.4 Kiểm định McNemar (đạt hiệu quả, cùng các câu)", 2)
     tbl(doc, ["So sánh", "Bộ", "P đạt – baseline trượt", "P trượt – baseline đạt", "p-value"],
-        [[f"P vs {s}", su, b, c, (f"{p:.1e}" if p < 0.001 else f"{p:.3f}").replace(".", ",")] for s, su, b, c, p in D["mcnemar"]])
+        [[f"P vs {L[s]}", su, b, c, (f"{p:.1e}" if p < 0.001 else f"{p:.3f}").replace(".", ",")] for s, su, b, c, p in D["mcnemar"]])
 
     doc.add_heading("4.5 Grounding nhánh dinh dưỡng và định tuyến qua nhiều lượt (tập test fine-tune B1–B4)", 2)
     B = D["groundB"]
@@ -454,10 +456,10 @@ def build(D):
     doc.add_heading("Định tuyến khi đã có thông tin", 3)
     note(doc, "Nhãn nhánh của tập test fine-tune được gắn theo kịch bản sinh dữ liệu, kể cả khi lời người dùng không nói ra thông tin đó, "
               "nên định tuyến chỉ được chấm khi thông tin cần cho nhánh đã có trong hội thoại.")
-    bullet(doc, f"B2 (tiêu chí của nhóm: đủ 4 state thì truy xuất database là đạt): {ro['b2_full']} hội thoại đủ 4 state ở lượt cuối; "
+    bullet(doc, f"Nhóm dữ liệu B2 (tiêu chí của nhóm: đủ 4 state thì truy xuất database là đạt): {ro['b2_full']} hội thoại đủ 4 state ở lượt cuối; "
                 f"{ro['b2_full_nut']} vào nhánh dinh dưỡng và {ro['b2_full_ctx']} có context lấy từ PostgreSQL; {ro['b2_full_med']} vào nhánh thuốc vì cờ y tế ưu tiên. "
                 f"Các hội thoại thiếu state: {', '.join(f'{k} {v}' for k, v in ro['b2_short'].most_common())}.")
-    bullet(doc, f"B3: khi cờ y tế bật ở lượt cuối, hệ thống vào nhánh thuốc {ro['b3_flag_med']}/{ro['b3_flag']} lần (các lần còn lại vào nhánh hoảng loạn, đúng thứ tự ưu tiên).")
+    bullet(doc, f"Nhóm dữ liệu B3: khi cờ y tế bật ở lượt cuối, hệ thống vào nhánh thuốc {ro['b3_flag_med']}/{ro['b3_flag']} lần (các lần còn lại vào nhánh hoảng loạn, đúng thứ tự ưu tiên).")
     order = [n for n, _ in B3_GROUPS] + ["Khác"]
     rows = [[n, ro["b3_groups"][n][0], ro["b3_groups"][n][1]] for n in order if ro["b3_groups"][n][0]]
     rows.append(["Tổng", sum(r[1] for r in rows), sum(r[2] for r in rows)])
@@ -572,7 +574,7 @@ def build(D):
     # ---------------------------------------------------------------- 8
     doc.add_heading("7. Nguồn số liệu", 1)
     tbl(doc, ["Nội dung", "File"], [
-        ["Crisis, retrieval, P/B1/B2/B3 (lần chạy cuối 20/10)", "eval_result_final/eval_final_results/logs/eval/ (crisis_*.jsonl, retrieval_*.jsonl, baselines/, analysis_final.json, run_*.txt: bảng notebook in ra)"],
+        ["Crisis, retrieval, P và 3 baseline (lần chạy cuối 20/10; mã B1/B2/B3 trong tên file = Baseline 1/2/3)", "eval_result_final/eval_final_results/logs/eval/ (crisis_*.jsonl, retrieval_*.jsonl, baselines/, analysis_final.json, run_*.txt: bảng notebook in ra)"],
         ["Trace từng lượt của pipeline", "eval_result_final/eval_final_results/logs/turns.jsonl; eval_result_final/eval_grounding_results/logs/turns.jsonl"],
         ["Grounding và định tuyến (20/10)", "eval_result_final/eval_grounding_results/logs/eval/grounding/"],
         ["Lần chạy trước (16–17/10, cùng hệ thống)", "eval_result_afterChangePrompt/"],
