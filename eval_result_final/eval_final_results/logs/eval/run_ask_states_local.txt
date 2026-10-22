@@ -1,0 +1,21 @@
+180 lượt ask_states; đã chấm 0, còn 180 (judge=gemma3:4b)
+  25/180
+  50/180
+  75/180
+  100/180
+  125/180
+  150/180
+  175/180
+
+### Hỏi lại state còn thiếu (nhánh ask_states; giám khảo LLM, không tính câu dự phòng)
+
+| Nhóm | Lượt ask_states | Hỏi ít nhất 1 state còn thiếu | Giám khảo lỗi |
+|---|---|---|---|
+| P | 180 | 122/180 (67.8%) | 0 |
+
+| State còn thiếu | Số lượt thiếu state này | Bot hỏi về state này |
+|---|---|---|
+| sleep_state | 174 | 41/174 (23.6%) |
+| appetite_state | 180 | 2/180 (1.1%) |
+| stress_state | 168 | 3/168 (1.8%) |
+| mood_state | 175 | 81/175 (46.3%) |

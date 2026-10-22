@@ -254,10 +254,9 @@ python scripts/eval_baselines.py report
    `/kaggle/working/eval_final_results.zip`. Các cell in trực tiếp các bảng của báo cáo (truy xuất theo 4 state, phân tích
    `analyze_final.py`; notebook grounding in định tuyến khi đã có thông tin và bảng cờ y tế B3). Hết 12 giờ thì gắn Output
    làm input và chạy lại: ca đã xong được bỏ qua; ca lỗi khi sinh được chạy lại tối đa 3 lượt.
-**Kết quả chính thức và cách dựng lại báo cáo** (lần chạy cuối 20/10, cùng hệ thống với lần chạy 16–17/10):
-- Output 2 notebook Kaggle nằm ở `../eval_result_final/` (`eval_final_results/` cho crisis, retrieval, safety và 3 baseline;
-  `eval_grounding_results/` cho grounding và định tuyến nhiều lượt). Báo cáo chỉ dùng số của lần chạy này; lần chạy
-  16–17/10 lưu ở `../eval_result_afterChangePrompt/`.
+**Kết quả chính thức và cách dựng lại báo cáo:**
+- Notebook chính (20/10): `../eval_result_final/eval_final_results/` (crisis, retrieval, safety và 3 baseline).
+- Notebook grounding (21/10): `../eval_grounding_result_2/` (grounding, hội thoại nhiều lượt, hỏi lại state).
 - `python scripts/eval_ask_states.py final|grounding [--root <thư mục kết quả>]` chấm tỷ lệ hỏi lại state còn thiếu bằng giám khảo LLM
   (notebook chạy luôn bước này).
 - `python scripts/analyze_final.py ../eval_result_final/eval_final_results` tính lại các chỉ số chi tiết

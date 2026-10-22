@@ -16,8 +16,8 @@ LLM #2 (qwen-huhu = Qwen2.5-7B-Instruct + LoRA fine-tune) ─► Guardrail tần
 
 ## Bản chính thức
 
-Nhánh `main` là bản chính thức: hệ thống đã đánh giá trên Kaggle (lần chạy cuối 20/10/2026, cùng hệ thống với lần chạy
-16–17/10), kết quả và báo cáo tương ứng. Số liệu báo cáo lấy từ lần chạy cuối.
+Nhánh `main` là bản chính thức: hệ thống đã đánh giá trên Kaggle (notebook chính 20/10/2026, notebook grounding 21/10/2026),
+kết quả và báo cáo tương ứng.
 
 | Muốn xem | Ở đâu |
 |---|---|
@@ -87,7 +87,8 @@ Nhánh `main` là bản chính thức: hệ thống đã đánh giá trên Kaggl
 | Thư mục / file | Nội dung |
 |---|---|
 | `eval_result_final/eval_final_results/` | Kết quả chính thức (lần chạy cuối 20/10): crisis, retrieval, P và 3 baseline (câu trả lời và điểm từng ca; tên file `B1_*` = Qwen2.5-7B gốc, `B2_*` = qwen-huhu, `B3_*` = Pipeline + Qwen2.5-7B gốc), `turns.jsonl` (trace từng lượt của pipeline), `analysis_final.json`, `logs/eval/run_*.txt` (các bảng notebook in ra) |
-| `eval_result_final/eval_grounding_results/` | Kết quả chính thức (20/10): grounding mức model và toàn hệ thống, định tuyến nhiều lượt |
+| `eval_grounding_result_2/` | Kết quả chính thức (21/10): grounding mức model và toàn hệ thống, hội thoại nhiều lượt, tỷ lệ hỏi lại state (`ask_states_grounding.jsonl`) |
+| `eval_result_final/eval_grounding_results/` | Notebook grounding lần 20/10 (không dùng trong báo cáo) |
 | `eval_routing_baseline_results/` | Định tuyến nhiều lượt của baseline Pipeline + Qwen2.5-7B gốc (21/10, notebook `eval_routing_baseline_kaggle.ipynb`) |
 | `eval_result_afterChangePrompt/` | Lần chạy 16–17/10 (cùng hệ thống); chấm tay phân tích lỗi làm trên lần chạy này |
 | `expert_review/` | Lấy mẫu dữ liệu gửi chuyên gia (`sample_for_experts.py`, `samples.json`) |
