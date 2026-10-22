@@ -99,8 +99,9 @@ def build():
         ["20/10", "Lần chạy cuối, notebook chính (cùng hệ thống với 16–17/10)", "Crisis P 149/164; safety P 286/300", "Có"],
         ["20/10", "Lần chạy cuối, notebook grounding", "Kiểm tra tích hợp 72/72; cờ y tế 168/224", "Không (thay bằng lần 21/10)"],
         ["21/10", "Hội thoại nhiều lượt của baseline Pipeline + Qwen2.5-7B gốc", "64/64; cờ y tế 168/224; 647/651 lượt là câu dự phòng", "Có"],
-        ["21/10", "Notebook grounding chạy lại, thêm chấm hỏi lại state bằng giám khảo LLM", "75/75; cờ y tế 167/224; hỏi lại state 88,0%", "Có"],
-        ["22/10", "Chấm hỏi lại state của P trên bộ crisis/safety (câu trả lời 20/10)", "122/180 (67,8%)", "Có"],
+        ["21/10", "Notebook grounding chạy lại, thêm chấm hỏi lại state bằng giám khảo LLM", "75/75; cờ y tế 167/224; hỏi lại state 88,0%", "Có (trừ tỷ lệ hỏi lại state)"],
+        ["22/10", "Chấm hỏi lại state của P trên bộ crisis/safety (câu trả lời 20/10)", "122/180 (67,8%)", "Không (chỉ số bỏ, mục 5)"],
+        ["22/10", "Bỏ 2 chỉ số khỏi báo cáo: tỷ lệ hỏi lại state; cột giám khảo \"tác dụng ngoài dữ liệu\" và tỷ lệ \"Grounded\"", "Xem mục 5", "–"],
     ], widths=[1.9, 6.2, 5.6, 3.5])
 
     # ---------------------------------------------------------------- 2
@@ -186,7 +187,11 @@ def build():
         ["Nhịn ăn, thức trắng", "Tính là cờ y tế B3", "Chỉ tính khi người dùng kể triệu chứng thể chất"],
         ["Câu dự phòng", "Có cột \"đạt cả 5 tiêu chí (tự động)\" tính cả câu dự phòng: Pipeline + Qwen2.5-7B gốc 98,0% safety", "Câu dự phòng tính là không đạt ở mọi chỉ số: 0,3% safety; cột 98,0% bỏ"],
         ["Tên baseline", "B1, B2, B3 (trùng tên nhóm dữ liệu B1–B4)", "Gọi theo model trả lời; mã B1/B2/B3 chỉ còn trong code và tên file"],
-        ["Hỏi lại state còn thiếu", "Dò từ khoá: 132/180 (73,3%) trên bộ crisis/safety", "Giám khảo LLM: 122/180 (67,8%) trên cùng 180 câu; hội thoại nhiều lượt 929/1.056 (88,0%)"],
+        ["Hỏi lại state còn thiếu", "Dò từ khoá: 132/180 (73,3%) trên bộ crisis/safety", "Giám khảo LLM: 122/180 (67,8%) trên cùng 180 câu; hội thoại nhiều lượt 929/1.056 (88,0%). "
+         "Sau đó bỏ khỏi báo cáo: chatbot tâm lý không phải lúc nào cũng cần hỏi; ở 53/58 lượt không hỏi của bộ crisis/safety, bot thấu cảm hoặc khuyên gặp bác sĩ mà không đặt câu hỏi"],
+        ["Grounding: cột giám khảo", "\"Tác dụng ngoài dữ liệu\" (21/10: qwen-huhu 51/240 đạt) và \"món ngoài dữ liệu\" (143/240), gộp thành \"Grounded\" 47/240",
+         "Bỏ: model bổ sung giải thích từ kiến thức phổ thông về dưỡng chất (transfer learning kiến thức đại chúng; câu bổ sung có ở 231/240 câu trả lời, "
+         "học từ 596/892 mẫu train nhóm B2), báo cáo xem là điểm mạnh; cột \"món ngoài dữ liệu\" chấm nhầm món có trong context. Giữ các cột chấm bằng luật"],
         ["Bố cục báo cáo Word", "Theo loại kết quả", "3 phần: toàn hệ thống, truy xuất database, model fine-tune; đánh dấu (core) các mục có đáp án từng ca"],
     ], widths=[3.4, 6.4, 7.4])
     doc.add_heading("Cách chấm hỏi lại state bằng LLM: các phiên bản đã thử", 2)

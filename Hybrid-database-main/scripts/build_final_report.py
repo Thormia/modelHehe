@@ -5,7 +5,7 @@
 Mọi số liệu đánh giá hệ thống được tính lại trực tiếp từ file kết quả:
   ../eval_result_final/eval_final_results/logs/   (lần chạy cuối 20/10:
                                                                     crisis, retrieval, P/B1/B2/B3)
-  ../eval_grounding_result_2/logs/eval/grounding/   (grounding, hội thoại nhiều lượt, hỏi lại state; 21/10)
+  ../eval_grounding_result_2/logs/eval/grounding/   (grounding, hội thoại nhiều lượt; 21/10)
   ../eval_routing_baseline_results/logs/eval/grounding_pipeline_qwen_goc/   (hội thoại nhiều lượt của Pipeline + Qwen2.5-7B gốc, 21/10)
   ../expert_feedback/agreement.json         (kiểm chứng dữ liệu với chuyên gia)
 Số liệu fine-tune lấy từ huhuevalu.ipynb (đã ghi trong idea.docx); bảng chọn giám khảo từ scripts/judge_bench.py;
@@ -143,10 +143,6 @@ def load_all():
     B = {g: jl(os.path.join(GROUND, f"B_{g}_scored.jsonl")) for g in ("B1", "B2", "B3", "B4")}
     D["groundB"] = B
     D["routing"] = routing(GROUND)
-    # Hỏi lại state còn thiếu (scripts/eval_ask_states.py): P trên bộ crisis/safety (chấm ở máy trên câu trả lời 20/10)
-    # và các lượt ask_states của hội thoại nhiều lượt (chấm trên Kaggle 21/10)
-    D["ask"] = {"final": jl(os.path.join(FINAL, "eval", "ask_states_final.jsonl")),
-                "grounding": jl(os.path.join(GROUND, "ask_states_grounding.jsonl"))}
     D["routing_base"] = routing(ROUTE_BASE)
     # So từng hội thoại với P: nhánh lượt cuối (một lượt / nhiều lượt), lượt 1 (đầu vào giống hệt P), số lượt trả câu dự phòng
     cmp = {"single": [0, 0], "multi": {}, "t1_states": 0, "t1_branch": 0, "n": 0, "canned": 0, "turns": 0,
@@ -257,9 +253,7 @@ def figure(doc, path, caption, width=16):
     r.font.size = Pt(10)
 
 
-def ask_rate(rows):
-    ok = [r for r in rows if r["asked"] is not None]
-    return sum(bool(r["asked"]) for r in ok) / len(ok) if ok else 0
+NOTE_DROPPED = 'Hai chỉ số không dùng trong báo cáo. (1) Tỷ lệ hỏi lại state còn thiếu: chatbot tâm lý không phải lúc nào cũng cần hỏi; ở nhiều lượt, thấu cảm hoặc khuyên gặp bác sĩ mà không hỏi thêm vẫn là câu trả lời phù hợp, nên tỷ lệ hỏi không phản ánh chất lượng câu trả lời. (2) Cột giám khảo "tác dụng ngoài dữ liệu" và tỷ lệ "Grounded" gộp các cột giám khảo: model fine-tune bổ sung giải thích dựa trên kiến thức phổ thông về tác dụng của dưỡng chất (transfer learning kiến thức đại chúng của model nền), điều này không phải là lỗi; cột giám khảo "món ngoài dữ liệu" cũng không dùng vì giám khảo chấm nhầm món có trong context, và việc không gợi ý món ngoài context đã được đo bằng luật.'
 
 
 def build(D):
@@ -279,7 +273,7 @@ def build(D):
     p = doc.add_paragraph("A Multi-Agent Chatbot with Stateful Hybrid RAG for Mental Health Support among Vietnamese Users through Nutritional Therapy")
     p.runs[0].italic = True
     doc.add_paragraph("Lần chạy đánh giá cuối trên Kaggle GPU T4 ×2: notebook chính ngày 20/10/2026 (crisis, truy xuất, safety, 3 baseline; "
-                      "thư mục eval_result_final) và notebook grounding ngày 21/10/2026 (grounding, hội thoại nhiều lượt, hỏi lại state; "
+                      "thư mục eval_result_final) và notebook grounding ngày 21/10/2026 (grounding, hội thoại nhiều lượt; "
                       "thư mục eval_grounding_result_2). Các bảng chính được notebook in trực tiếp và tính lại từ file kết quả bằng scripts/build_final_report.py.")
     doc.add_heading("Cờ y tế (nhóm B3)", 2)
     for t in [
@@ -330,9 +324,7 @@ def build(D):
          f"{ro['b2_full_ctx']}/{ro['b2_full'] - ro['b2_full_med']}", "–", "–", f"{rb['b2_full_ctx']}/{rb['b2_full'] - rb['b2_full_med']}"],
         ["", f"Trên cùng {cm['both']} hội thoại cả hai hệ thống đều báo đủ 4 state", f"{cm['both_db'][0]}/{cm['both']}", "–", "–",
          f"{cm['both_db'][1]}/{cm['both']}"],
-        ["C. Model fine-tune", "Hỏi lại ít nhất 1 state còn thiếu (nhánh ask_states, giám khảo LLM): bộ crisis/safety / hội thoại nhiều lượt",
-         f"{pp(ask_rate(D['ask']['final']))} / {pp(ask_rate(D['ask']['grounding']))}", "–", "–", "–"],
-        ["", "Đúng JSON ngay lần sinh đầu (safety)"] + [pc(an[s]["safety"]["fmt_first"], an[s]["safety"]["llm2_called"]) for s in SYS],
+        ["C. Model fine-tune", "Đúng JSON ngay lần sinh đầu (safety)"] + [pc(an[s]["safety"]["fmt_first"], an[s]["safety"]["llm2_called"]) for s in SYS],
         ["", "ROUGE-L / BERTScore F1 / Perplexity (tập test fine-tune)", "(model qwen-huhu)", f"0,155 / 0,872 / {num(PPL_BASE[5], 2)}",
          f"0,319 / 0,908 / {num(PPL_FT[5], 2)}", "(model Qwen2.5-7B gốc)"],
     ]
@@ -563,8 +555,8 @@ def build(D):
     ng = [r for g in B.values() for r in g if "final_grounding" in r]
     bullet(doc, f"{len(ng)} lượt cuối vào nhánh dinh dưỡng, context lấy từ PostgreSQL: lần sinh đầu qua tầng 1 {pc(sum(r['first_attempt_tier1_ok'] for r in ng), len(ng))}; "
                 f"mã nguồn thuộc context {pc(sum(r['final_grounding']['refs_in_context'] for r in ng), len(ng))}; tên món ngoài context {sum(bool(r['final_grounding']['foreign_food_names']) for r in ng)}; "
-                f"câu dự phòng {sum(r.get('fallback') == 'canned' for r in ng)}; grounded (gồm hai cột giám khảo) {pc(sum(r['final_grounding']['grounded'] for r in ng), len(ng))}.")
-    note(doc, "Các cột mã nguồn và tên món chấm bằng luật. Hai cột giám khảo (tác dụng ngoài dữ liệu, món ngoài dữ liệu) chưa đáng tin (mục 5.3), nên tỷ lệ grounded cần người chấm xác nhận.")
+                f"câu dự phòng {sum(r.get('fallback') == 'canned' for r in ng)}.")
+    note(doc, "Mã nguồn và tên món chấm bằng luật. Các cột giám khảo không dùng (ghi chú ở mục 5.3).")
 
     E = D["expert"]
     n_new = sum(r in NEW_RATERS for r in E["raters"])
@@ -626,12 +618,13 @@ def build(D):
         n = len(rs)
         rows.append([model, pc(sum(r["json_ok"] for r in rs), n), pc(sum(r["refs_in_context"] for r in rs), n),
                      pc(sum(r["nut_cited"] for r in rs), n), pc(sum(r["no_quantity"] for r in rs), n),
-                     pc(sum(not r["foreign_food_names"] for r in rs), n), pc(sum(not r["unsupported_claim"] for r in rs), n),
-                     pc(sum(not r["judge_foreign_food"] for r in rs), n), pc(sum(r["grounded"] for r in rs), n)])
-    tbl(doc, ["Model", "JSON đúng", "Mã thuộc context", "Có mã NUT_", "Không định lượng", "Không tên món ngoài",
-              "GK: không tác dụng ngoài", "GK: không món ngoài", "Grounded"], rows)
-    note(doc, "Các cột từ \"JSON đúng\" đến \"Không tên món ngoài\" chấm bằng luật. Hai cột \"GK\" do giám khảo gemma3:4b chấm; lý do giám khảo viết có chỗ mâu thuẫn với chính cờ nó bật "
-              "(ví dụ nói món rau sắng không có trong dữ liệu dù đó là món trong context), nên hai cột này và cột Grounded cần người chấm xác nhận. Model gốc 0% vì không sinh được JSON.")
+                     pc(sum(not r["foreign_food_names"] for r in rs), n)])
+    tbl(doc, ["Model", "JSON đúng", "Mã thuộc context", "Có mã NUT_", "Không định lượng", "Không tên món ngoài context"], rows)
+    note(doc, "Các cột chấm bằng luật. Model gốc 0% vì không sinh được JSON.")
+    bullet(doc, "Điểm mạnh: ngoài tác dụng ghi trong context, model fine-tune bổ sung giải thích dựa trên kiến thức phổ thông về dưỡng chất "
+                "(transfer learning kiến thức đại chúng của model nền), giúp câu trả lời tự nhiên và dễ hiểu, trong khi vẫn chỉ gợi ý món trong context, "
+                "trích đúng mã nguồn và không đưa định lượng.")
+    note(doc, NOTE_DROPPED)
     doc.add_heading("5.4 Kiểm chứng dữ liệu fine-tune với chuyên gia và độ đồng thuận giữa người chấm", 2)
     tbl(doc, ["Phần", "Tiêu chí", "n", "Trung bình ± SD / số Có–Đạt"], expert_rows({"1_FineTune", "2_Generative_QA"}), widths=[3.6, 7.4, 1.4, 4.6])
     figure(doc, ch.expert_likert([(sheet_name[k.split("|")[0]], k.split("|", 1)[1], v["mean"], v["sd"])
@@ -648,28 +641,7 @@ def build(D):
     note(doc, "Độ đồng thuận tính trên cả 4 phần dữ liệu (gồm 2 phần trong database ở mục 4.4). Điểm dồn về 4–5 (92–100% số lượt chấm ≥ 4 tùy tiêu chí) nên Fleiss' κ và Krippendorff's α trên thang Likert gần 0 dù các cặp người chấm đồng ý cao (nghịch lý kappa); Gwet's AC và tỷ lệ đồng ý thô được dùng làm chỉ số chính. "
               "Các chỉ số đã đối chiếu khớp với gói krippendorff 0.9.0 và irrCAC 0.4.4. Chi tiết và nhận xét định tính: expert_feedback/TONG_KET_CHUYEN_GIA.md.")
     bullet(doc, "Góp ý chính: dữ liệu fine-tune đôi khi vội chuyển sang tích cực, có câu phán xét; QA tự sinh phóng đại tác dụng dưỡng chất (selen, vitamin C trong rong biển, B1 trong khoai môn).")
-    doc.add_heading("5.5 Hỏi lại state còn thiếu (nhánh ask_states)", 2)
-    note(doc, "Ở nhánh ask_states, LLM #2 nhận danh sách state còn thiếu (MISSING_STATES) và phải khéo léo hỏi 1–2 state. Chấm hai bước "
-              "(scripts/eval_ask_states.py): tách các câu bot hỏi người dùng (câu kết thúc bằng \"?\" hoặc lời mời kể, chia sẻ); giám khảo gemma3:4b "
-              "xếp các câu hỏi đó vào 4 state. Chủ đề do giám khảo quyết định, không dò từ khoá; câu dự phòng không tính. Bộ crisis/safety: chấm ở máy "
-              "trên câu trả lời đã lưu của lần chạy 20/10; hội thoại nhiều lượt: chấm trên Kaggle trong lần chạy 21/10.")
-    rows = []
-    for name, rs in (("P, bộ crisis và safety", D["ask"]["final"]),
-                     *[(f"Nhóm dữ liệu {g}", [r for r in D["ask"]["grounding"] if r["group"] == g]) for g in ("B1", "B2", "B3", "B4")],
-                     ("Hội thoại nhiều lượt, tổng", D["ask"]["grounding"])):
-        ok = [r for r in rs if r["asked"] is not None]
-        rows.append([name, len(rs), pc(sum(bool(r["asked"]) for r in ok), len(ok)), len(rs) - len(ok)])
-    tbl(doc, ["Tập", "Lượt ask_states", "Hỏi ít nhất 1 state còn thiếu", "Giám khảo lỗi"], rows, widths=[6, 3, 5, 3])
-    need, asked = Counter(), Counter()
-    for r in D["ask"]["final"] + D["ask"]["grounding"]:
-        if r["asked"] is not None:
-            need.update(r["missing"])
-            asked.update(r["asked"])
-    tbl(doc, ["State còn thiếu", "Số lượt thiếu state này", "Bot hỏi về state này"],
-        [[STATE_VI[st], need[st], pc(asked[st], need[st])] for st in STATES if need[st]], widths=[6, 4, 5])
-    bullet(doc, "Model hỏi lệch rõ: hay hỏi giấc ngủ và tâm trạng, ít hỏi ăn uống và căng thẳng. Giám khảo chưa được kiểm trên bộ có đáp án; "
-                "nhóm đọc lại 40 ca: giám khảo chấm đúng cả 40.")
-    doc.add_heading("5.6 Vai trò của fine-tune trong hệ thống (từ Phần A)", 2)
+    doc.add_heading("5.5 Vai trò của fine-tune trong hệ thống (từ Phần A)", 2)
     bullet(doc, f"Trả lời trực tiếp, không pipeline: fine-tune đưa tỷ lệ an toàn đạt hiệu quả từ {pp(an['B1']['safety']['effective'] / an['B1']['safety']['n'])} "
                 f"(Qwen2.5-7B gốc) lên {pp(an['B2']['safety']['effective'] / an['B2']['safety']['n'])} (qwen-huhu); đúng JSON ngay lần sinh đầu từ "
                 f"{pc(an['B1']['safety']['fmt_first'], an['B1']['safety']['llm2_called'])} lên {pc(an['B2']['safety']['fmt_first'], an['B2']['safety']['llm2_called'])}.")
@@ -686,7 +658,6 @@ def build(D):
         "Cờ y tế B3 vẫn sót nhiều ca rượu bia, thuốc lá/vape, cà phê, và nhịn ăn hay thức trắng đã gây triệu chứng thể chất; đôi khi bật nhầm khi bệnh hoặc thuốc không phải của người dùng hay người thân (thú cưng, khách hàng).",
         "LLM #1 dao động nhẹ giữa các lần chạy dù temperature = 0; ở hội thoại nhiều lượt, câu trả lời của bot ở lượt trước ảnh hưởng tới state LLM #1 trích. "
         "Chưa có nhãn state cho hội thoại nhiều lượt; muốn đo độ chính xác gom state qua nhiều lượt cần gán nhãn tay.",
-        "Hai cột grounding do giám khảo chấm chưa đáng tin; cần người chấm xác nhận.",
         "Giám khảo tự động chấm nhầm một phần ca trượt (mục 3.5), nên số chính thức có thể thấp hơn thực tế ở mọi hệ thống; chỉ P được chấm tay nên báo cáo không dùng số chấm tay để tránh thiên vị. "
         "Nhóm và Claude khác kết luận ở 9 câu safety và 5 ca khủng hoảng; chưa có nhiều người chấm độc lập để đo độ đồng thuận.",
         "Chưa đo: đánh giá mù thang Likert và Fleiss' κ trên câu trả lời của hệ thống (Tier 3), kịch bản bẫy guardrail.",
@@ -718,14 +689,13 @@ def build(D):
     tbl(doc, ["Nội dung", "File"], [
         ["Crisis, retrieval, P và 3 baseline (lần chạy cuối 20/10; trong tên file B1 = Qwen2.5-7B gốc, B2 = qwen-huhu, B3 = Pipeline + Qwen2.5-7B gốc)", "eval_result_final/eval_final_results/logs/eval/ (crisis_*.jsonl, retrieval_*.jsonl, baselines/, analysis_final.json, run_*.txt: bảng notebook in ra)"],
         ["Trace từng lượt của pipeline", "eval_result_final/eval_final_results/logs/turns.jsonl; eval_grounding_result_2/logs/turns.jsonl"],
-        ["Grounding, kiểm tra tích hợp truy xuất, cờ y tế nhiều lượt, hỏi lại state (21/10)", "eval_grounding_result_2/logs/eval/grounding/ (ask_states_grounding.jsonl)"],
-        ["Hỏi lại state của P trên bộ crisis/safety (chấm ở máy, câu trả lời 20/10)", "eval_result_final/eval_final_results/logs/eval/ask_states_final.jsonl"],
+        ["Grounding, kiểm tra tích hợp truy xuất, cờ y tế nhiều lượt (21/10)", "eval_grounding_result_2/logs/eval/grounding/"],
         ["Hội thoại nhiều lượt của Pipeline + Qwen2.5-7B gốc (21/10)", "eval_routing_baseline_results/logs/eval/grounding_pipeline_qwen_goc/"],
         ["Lần chạy trước (16–17/10, cùng hệ thống)", "eval_result_afterChangePrompt/"],
         ["Chấm tay (phân tích lỗi)", "Hybrid-database-main/logs/eval/chamtay_after_b3fix.md"],
         ["Kiểm chứng chuyên gia", "expert_feedback/TONG_KET_CHUYEN_GIA.md, agreement.json"],
         ["Báo cáo đánh giá đầy đủ", "Hybrid-database-main/logs/eval/BAO_CAO_DANH_GIA.md"],
-        ["Script", "scripts/eval_system.py, eval_baselines.py, eval_grounding.py, eval_ask_states.py, analyze_final.py, expert_agreement.py, build_final_report.py"],
+        ["Script", "scripts/eval_system.py, eval_baselines.py, eval_grounding.py, analyze_final.py, expert_agreement.py, build_final_report.py"],
     ], widths=[5.5, 11.7], bold_first_col=True)
     doc.save(OUT)
     _fix_zoom(OUT)

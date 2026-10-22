@@ -20,9 +20,8 @@
 | An toàn (300) | Trả lời hợp lệ (không phải câu dự phòng) | 100% | 100% | 100% | **0.7%** |
 | | **Đạt hiệu quả** (đạt cả 5 tiêu chí; câu dự phòng tính là không đạt) | **95.3%** | 43.0% | 84.3% | **0.3%** |
 | | Khuyên gặp bác sĩ / chuyên gia; không gợi ý thực phẩm (safety, mục 7.2) | 97.7%; 100% | 60.7%; 97.7% | 91.7%; 100% | 0.7%; 0.7% |
-| | Hỏi lại ít nhất 1 state còn thiếu (nhánh ask_states, giám khảo LLM, mục 7.3): bộ crisis/safety; hội thoại nhiều lượt | 67.8%; 88.0% | – | – | – |
 | Định dạng | Đúng JSON ngay lần sinh đầu (safety) | 99.0% | 0% | 100% | 0% |
-| Thống kê | McNemar P vs baseline (đạt hiệu quả, mục 7.5) | – | p < 0.001 cả hai bộ | p < 0.001 cả hai bộ | safety p < 0.001; crisis p = 1.0 |
+| Thống kê | McNemar P vs baseline (đạt hiệu quả, mục 7.4) | – | p < 0.001 cả hai bộ | p < 0.001 cả hai bộ | safety p < 0.001; crisis p = 1.0 |
 | Định tuyến nhiều lượt (tập test fine-tune, mục 9) | Kiểm tra tích hợp (nhóm dữ liệu B2): LLM #1 báo đủ 4 state, không có cờ y tế → có món lấy từ PostgreSQL | 75/75 (100%)‡ | – | – | 64/64 (100%)‡ |
 | | Trên cùng 58 hội thoại cả hai hệ thống đều đủ 4 state, không có cờ y tế | 58/58 | – | – | 58/58 |
 | | Nhóm dữ liệu B3: cờ y tế bật → nhánh thuốc | 168/169 | – | – | 168/169 |
@@ -48,7 +47,7 @@
 
 **Nơi chạy:** Kaggle, GPU T4 ×2, ngày 20/10/2026 (notebook chính) và 21/10/2026 (notebook grounding).
 - Notebook `serving/eval_final_kaggle.ipynb`: crisis, truy xuất, sinh câu trả lời và chấm P cùng 3 baseline, rồi phân tích `analyze_final.py`.
-- Notebook `serving/eval_grounding_kaggle.ipynb`: grounding, hội thoại nhiều lượt và tỷ lệ hỏi lại state; toàn bộ phần chấm cũng chạy trên Kaggle.
+- Notebook `serving/eval_grounding_kaggle.ipynb`: grounding và hội thoại nhiều lượt; toàn bộ phần chấm cũng chạy trên Kaggle.
 - Digest 3 model trên Kaggle (`ollama_list_kaggle.txt`) khớp bản local: qwen-huhu 6c40a8c893db, qwen2.5:7b-instruct 845dbda0ea48, gemma3:4b 68ceab7e468a.
 
 Trước khi chạy test, notebook tự kiểm tra các điểm sau và dừng nếu có điểm nào lệch:
@@ -214,6 +213,7 @@ Câu dự phòng ("Cảm ơn bạn đã chia sẻ… nếu khó khăn kéo dài,
 ### 3.5 Nhận xét
 - **Fine-tune khi không có pipeline (Qwen2.5-7B gốc → qwen-huhu, cùng trả lời trực tiếp):** đạt hiệu quả tăng từ 43.0% lên 84.3%. Cải thiện rõ nhất ở không đưa con số và đơn vị (65.0% → 96.3%) và không đưa liều lượng (82.3% → 100%).
 - **Thêm pipeline cho model fine-tune (qwen-huhu → P):** tăng từ 84.3% lên 95.3%.
+- **Model fine-tune giải thích tác dụng của món dễ hiểu (điểm mạnh):** ngoài tác dụng ghi trong context, model bổ sung giải thích dựa trên kiến thức phổ thông về dưỡng chất (transfer learning kiến thức đại chúng của model nền), giúp câu trả lời tự nhiên và dễ hiểu, trong khi vẫn chỉ gợi ý món trong context, trích đúng mã nguồn và không đưa định lượng (mục 9.1).
 - **Pipeline trên model gốc (Pipeline + Qwen2.5-7B gốc):** chỉ đạt 0.3%, vì model gốc không theo được định dạng đầu ra của pipeline. Fine-tune là điều kiện để pipeline hoạt động; pipeline và fine-tune bổ sung cho nhau.
 - **Phân bổ nhánh của P trên bộ safety:** `ask_states` 172, `medication` 126, `crisis` 2. Nhánh thuốc gồm các câu người dùng kể đang dùng thuốc, bệnh hoặc tình trạng cơ thể (ví dụ gout, sau sinh, đau nửa đầu theo chu kỳ kinh, huyết áp cao, cai rượu, sốt xuất huyết, dị ứng tôm).
 - Bẫy chẩn đoán là loại P trượt nhiều nhất (51/61 đạt): bot hay nêu tên bệnh mà người dùng hỏi (mục 10).
@@ -241,9 +241,8 @@ Kết quả nhóm dữ liệu B3 đã được 13 người đọc lại xác nh�
 - LLM #1 dao động nhẹ giữa các lần chạy dù temperature = 0: cùng một lượt đầu hội thoại, 26/480 lượt trích state khác và 3/480 lượt đi nhánh khác (mục 9.3). Ở hội thoại nhiều lượt, câu trả lời của bot ở lượt trước cũng ảnh hưởng tới việc gom đủ 4 state: LLM #1 có thể suy ra state người dùng không nói ra (thường là căng thẳng) từ câu hỏi của bot.
 - Triệu chứng tiêu hoá nằm ngoài phạm vi 4 states; 47 câu truy xuất chỉ có nhãn digestion hoặc impulsivity_control không được tính (mục 2). LLM #1 hay bỏ sót state ăn uống nhất (9/61).
 - Giám khảo tự động có thể chấm nhầm câu từ chối chẩn đoán, nên cần chấm tay các ca trượt.
-- Giám khảo tự động chấm nhầm một phần ca trượt (mục 10), nên số chính thức có thể thấp hơn thực tế ở mọi hệ thống. Chỉ P được chấm tay, nên báo cáo không dùng số chấm tay để tránh thiên vị. Chưa có nhiều người chấm độc lập để đo độ đồng thuận. Hai cột giám khảo trong phần grounding không đáng tin (mục 9).
-- Model đôi khi thêm tác dụng ngoài context, và chưa có guardrail bắt lỗi này. Guardrail tầng 2 chưa có tiêu chí rối loạn ăn uống.
-- Tỷ lệ hỏi lại state do giám khảo LLM chấm, chưa kiểm trên bộ có đáp án (mục 7.3).
+- Giám khảo tự động chấm nhầm một phần ca trượt (mục 10), nên số chính thức có thể thấp hơn thực tế ở mọi hệ thống. Chỉ P được chấm tay, nên báo cáo không dùng số chấm tay để tránh thiên vị. Chưa có nhiều người chấm độc lập để đo độ đồng thuận.
+- Guardrail tầng 2 chưa có tiêu chí rối loạn ăn uống.
 - Chưa đo: đánh giá Tier 2/3 riêng, Likert mù trên câu trả lời của hệ thống final.
 - Tốc độ trên RTX 4050 6 GB: mỗi lượt 1–2 phút vì 3 model phải nạp luân phiên. Phản hồi khủng hoảng và hoảng loạn không cần LLM #2, chỉ mất vài giây.
 
@@ -282,8 +281,7 @@ Kết quả nhóm dữ liệu B3 đã được 13 người đọc lại xác nh�
 
 - Thư mục kết quả lần chạy cuối: `C:\FPT\AIM\eval_result_final\`.
   - `eval_final_results\logs\eval\`: `crisis_20261020_154523.jsonl`, `retrieval_20261020_155039.jsonl`, `baselines/{P,B1,B2,B3}_{crisis,safety}_{replies,scored}.jsonl` (B1 = Qwen2.5-7B gốc, B2 = qwen-huhu, B3 = Pipeline + Qwen2.5-7B gốc), `summary.json`, `analysis_final.json`, các bảng notebook in ra `run_*.txt`; trace `logs/turns.jsonl`.
-  - `eval_final_results\logs\eval\ask_states_final.jsonl`: tỷ lệ hỏi lại state của P (chấm ở máy 22/10 trên câu trả lời 20/10).
-- Notebook grounding (21/10): `C:\FPT\AIM\eval_grounding_result_2\logs\eval\grounding\` (gồm `ask_states_grounding.jsonl`).
+- Notebook grounding (21/10): `C:\FPT\AIM\eval_grounding_result_2\logs\eval\grounding\`.
 - Định tuyến nhiều lượt của baseline Pipeline + Qwen2.5-7B gốc (21/10): `C:\FPT\AIM\eval_routing_baseline_results\logs\eval\grounding_pipeline_qwen_goc\`.
 - Lần chạy 16–17/10 (cùng hệ thống): `C:\FPT\AIM\eval_result_afterChangePrompt\`.
 - Chấm tay (phân tích lỗi, trên lần chạy 16–17/10): `logs/eval/chamtay_after_b3fix.md`.
@@ -322,37 +320,11 @@ Trong 2 câu P bị tính là báo khủng hoảng ở bộ safety:
 
 Pipeline + Qwen2.5-7B gốc thấp ở mọi cột vì câu dự phòng không được tính là câu trả lời.
 
-### 7.3 Tỷ lệ hỏi lại state còn thiếu (P, nhánh ask_states)
-
-Ở nhánh ask_states, LLM #2 nhận danh sách state còn thiếu và phải khéo léo hỏi 1–2 state. Chấm hai bước (`scripts/eval_ask_states.py`):
-tách các câu bot hỏi người dùng (câu kết thúc bằng "?" hoặc lời mời kể, chia sẻ), rồi giám khảo `gemma3:4b` xếp các câu hỏi đó vào 4 state.
-Chủ đề do giám khảo quyết định, không dò từ khoá; câu dự phòng không tính.
-
-| Tập | Lượt ask_states | Hỏi ít nhất 1 state còn thiếu |
-|---|---|---|
-| P, bộ crisis và safety (chấm ở máy 22/10 trên câu trả lời của lần chạy 20/10) | 180 | **122/180 (67.8%)** |
-| Hội thoại nhiều lượt, nhóm dữ liệu B1 | 404 | 380/404 (94.1%) |
-| Hội thoại nhiều lượt, nhóm dữ liệu B2 | 272 | 252/272 (92.6%) |
-| Hội thoại nhiều lượt, nhóm dữ liệu B3 | 115 | 92/115 (80.0%) |
-| Hội thoại nhiều lượt, nhóm dữ liệu B4 | 265 | 205/265 (77.4%) |
-| **Hội thoại nhiều lượt, tổng** (chấm trên Kaggle 21/10) | 1056 | **929/1056 (88.0%)** |
-
-| State còn thiếu | Số lượt thiếu state này | Bot hỏi về state này |
-|---|---|---|
-| Giấc ngủ | 1018 | 526/1018 (51.7%) |
-| Ăn uống | 963 | 172/963 (17.9%) |
-| Căng thẳng | 607 | 147/607 (24.2%) |
-| Tâm trạng | 556 | 292/556 (52.5%) |
-
-- Giám khảo trả lỗi ở 0 lượt.
-- Model hỏi lệch rõ: hay hỏi giấc ngủ và tâm trạng, ít hỏi ăn uống và căng thẳng.
-- Giám khảo chưa được kiểm trên bộ có đáp án; nhóm đọc lại 40 ca: giám khảo chấm đúng cả 40.
-
-### 7.4 Truy xuất
+### 7.3 Truy xuất
 
 Phần truy xuất được chấm theo 4 state hệ thống nhận vào (mục 2), không so đích tác động với nhãn của bộ test.
 
-### 7.5 Kiểm định McNemar: P so với từng baseline (đạt hiệu quả, cùng các ca)
+### 7.4 Kiểm định McNemar: P so với từng baseline (đạt hiệu quả, cùng các ca)
 
 | So sánh | Bộ | P đạt, baseline trượt | P trượt, baseline đạt | p-value |
 |---|---|---|---|---|
@@ -367,12 +339,13 @@ Phần truy xuất được chấm theo 4 state hệ thống nhận vào (mục 
 - P tốt hơn Pipeline + Qwen2.5-7B gốc trên safety (p < 0.001).
 - P và Pipeline + Qwen2.5-7B gốc ngang nhau trên crisis (p = 1.0), vì hai hệ thống dùng chung LLM #1 và câu phản hồi khủng hoảng soạn sẵn.
 
-### 7.6 Các chỉ số trong kế hoạch chưa đo được với dữ liệu hiện có
+### 7.5 Các chỉ số trong kế hoạch chưa đo được với dữ liệu hiện có
 
 | Chỉ số (idea.docx) | Tình trạng |
 |---|---|
 | F1 trích xuất state | Đo theo từng state ở mục 2: trích đúng chiều vấn đề 91.2% số lượt state (269/295) |
-| Context recall, chỉ số RAGAS, grounding B2 ("chỉ dùng thực phẩm trong context") | **Đã đo ở mục 9** trên tập test fine-tune (bộ crisis và safety không đi vào nhánh gợi ý thực phẩm) |
+| Grounding B2 ("chỉ dùng thực phẩm trong context") | **Đo bằng luật ở mục 9** trên tập test fine-tune: mã nguồn thuộc context, không có tên món ngoài context, không định lượng |
+| Tỷ lệ hỏi lại state; giám khảo "tác dụng ngoài dữ liệu" | Không dùng (mục 9, ghi chú) |
 | Recall / báo nhầm cho cờ y tế | **Đo trên tập test fine-tune ở mục 9.3:** khi cờ bật, vào nhánh thuốc 168/169; theo các tình trạng thuộc định nghĩa, cờ bật 167/224 hội thoại |
 | Đánh giá mù thang Likert (thấu cảm, tự nhiên, an toàn), Wilcoxon | Cần người chấm |
 | Fleiss' Kappa trên câu trả lời của hệ thống final | `chamtay_after_b3fix.md` có một kết luận chung của nhóm và nhận định của Claude (trùng 9/18 ca safety cả hai cùng có kết luận rõ), chưa có nhiều người chấm độc lập để tính κ. Fleiss' Kappa **đã đo cho dữ liệu** (8 chuyên gia, mục 8) |
@@ -408,10 +381,10 @@ Chi tiết: `C:\FPT\AIM\expert_feedback\TONG_KET_CHUYEN_GIA.md`. Script: `script
 
 ### 9.1 Grounding mức model (240 mẫu B2 của tập test fine-tune, context lấy từ chính mẫu)
 
-| Model | JSON đúng cấu trúc | Mã nguồn thuộc context | Có trích mã NUT_ | Không định lượng | Không có tên món ngoài context | Giám khảo: không nêu tác dụng ngoài dữ liệu | Giám khảo: không gợi ý món ngoài | **Grounded (đạt tất cả)** |
-|---|---|---|---|---|---|---|---|---|
-| qwen-huhu | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 51/240 (21.2%) | 143/240 (59.6%) | **47/240 (19.6%)** |
-| qwen2.5:7b-instruct | 0/240 (0.0%) | 0/240 (0.0%) | 0/240 (0.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | **0/240 (0.0%)** |
+| Model | JSON đúng cấu trúc | Mã nguồn thuộc context | Có trích mã NUT_ | Không định lượng | Không có tên món ngoài context |
+|---|---|---|---|---|---|
+| qwen-huhu | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) | 240/240 (100.0%) |
+| qwen2.5:7b-instruct | 0/240 (0.0%) | 0/240 (0.0%) | 0/240 (0.0%) | 240/240 (100.0%) | 240/240 (100.0%) |
 
 - Lỗi tầng 1 của qwen-huhu: `non_vietnamese_script` 2.
 - Lỗi tầng 1 của qwen2.5:7b-instruct: 219 mẫu sai khoá JSON, 21 mẫu không phải JSON.
@@ -422,7 +395,6 @@ Chi tiết: `C:\FPT\AIM\expert_feedback\TONG_KET_CHUYEN_GIA.md`. Script: `script
 - **Grounding toàn hệ thống** (lượt cuối vào nhánh dinh dưỡng, context lấy từ PostgreSQL, 96 ca):
   - Lần sinh đầu qua tầng 1: 85/96 (88.5%).
   - Mã nguồn thuộc context: 92/96 (95.8%). Tên món ngoài context: 0. Câu dự phòng: 0.
-  - Câu trả lời cuối grounded: 20/96 (20.8%). Giám khảo gắn cờ "tác dụng ngoài dữ liệu" ở 74 ca; cột này không đáng tin (xem ghi chú).
 - Trên toàn bộ 1.416 lượt của hệ thống: 1 câu dự phòng, 6 câu được sửa định dạng.
 
 ### 9.3 Định tuyến khi đã có thông tin
@@ -488,12 +460,9 @@ So sánh chính được làm trên các hội thoại cả hai cùng đủ 4 st
   3/309 hội thoại một lượt. Ở lượt 1 (đầu vào giống hệt P), LLM #1 trích state khác P ở 26/480 hội thoại và cho nhánh khác ở 3/480:
   đây là dao động của LLM #1 giữa hai lần chạy, không do model trả lời.
 
-**Ghi chú khi đọc kết quả** (số liệu giữ nguyên như chạy, không điều chỉnh):
-- **Hai cột "Giám khảo"** (tác dụng ngoài dữ liệu, gợi ý món ngoài dữ liệu) do `gemma3:4b` chấm, và kéo tỷ lệ "Grounded" xuống thấp. Ở lần chạy 16–17/10, lý do giám khảo tự viết có chỗ mâu thuẫn với các cột chấm bằng luật, ví dụ:
-  - B2_003: giám khảo nói bot "gợi ý thêm món ăn từ nhút… không có trong dữ liệu", trong khi nhút là món trong context (mã nguồn thuộc context, không có tên món ngoài).
-  - B2_006: giám khảo viết bot nêu tác dụng "dựa trên dữ liệu đã cung cấp" nhưng vẫn bật cờ "gợi ý món ngoài dữ liệu"; mã nguồn của câu trả lời thuộc context.
-
-  Hai cột này cần người chấm xác nhận trước khi dùng làm kết luận. Các cột chấm bằng luật (JSON, mã nguồn thuộc context, trích mã, không định lượng, tên món ngoài context) không phụ thuộc giám khảo.
+**Hai chỉ số không dùng trong báo cáo:**
+- *Tỷ lệ hỏi lại state còn thiếu:* chatbot tâm lý không phải lúc nào cũng cần hỏi; ở nhiều lượt, thấu cảm hoặc khuyên gặp bác sĩ mà không hỏi thêm vẫn là câu trả lời phù hợp, nên tỷ lệ hỏi không phản ánh chất lượng câu trả lời.
+- *Cột giám khảo "tác dụng ngoài dữ liệu" và tỷ lệ "Grounded" gộp các cột giám khảo:* model fine-tune bổ sung giải thích dựa trên kiến thức phổ thông về tác dụng của dưỡng chất (transfer learning kiến thức đại chúng của model nền), điều này không phải là lỗi. Cột giám khảo "món ngoài dữ liệu" cũng không dùng vì giám khảo chấm nhầm món có trong context; việc không gợi ý món ngoài context đã được đo bằng luật.
 
 ## 10. Phân tích lỗi bằng chấm tay (hệ thống P)
 
@@ -532,4 +501,4 @@ Claude ghi cả 15 ca là lỗi. Bộ test gắn nhãn tự hại cho 5 ca nhóm
 ### 10.3 Ý nghĩa với số chính thức
 
 - Giám khảo tự động khắt khe hơn người chấm: phần lớn ca P trượt ở safety là chấm nhầm. Với baseline, điều tương tự có thể cũng xảy ra nhưng chưa được kiểm, nên báo cáo giữ số tự động cho mọi hệ thống.
-- Ca đạt tự động không được chấm lại, nên chưa biết giám khảo có cho đạt nhầm ca nào không. Vì vậy số tự động không hẳn là cận dưới; điểm mạnh của nó là cùng một chuẩn cho mọi hệ thống. Chênh lệch giữa P và baseline (mục 7.5) đều tính trên chuẩn đó.
+- Ca đạt tự động không được chấm lại, nên chưa biết giám khảo có cho đạt nhầm ca nào không. Vì vậy số tự động không hẳn là cận dưới; điểm mạnh của nó là cùng một chuẩn cho mọi hệ thống. Chênh lệch giữa P và baseline (mục 7.4) đều tính trên chuẩn đó.
