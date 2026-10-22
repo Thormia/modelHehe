@@ -22,6 +22,7 @@ kết quả và báo cáo tương ứng.
 | Muốn xem | Ở đâu |
 |---|---|
 | Báo cáo kết quả cuối (Word, có biểu đồ) | `BAO_CAO_KET_QUA_CUOI.docx` |
+| Nhật ký các hướng đã thử và các lần chạy đánh giá, kèm số liệu (Word) | `NHAT_KY_THU_NGHIEM.docx` (dựng bằng `scripts/build_experiment_log.py`) |
 | Báo cáo đánh giá đầy đủ (Markdown) | `Hybrid-database-main/logs/eval/BAO_CAO_DANH_GIA.md` |
 | Kết quả đánh giá gốc (từng ca) | `eval_result_final/` (lần chạy cuối 20/10) |
 | Ý tưởng, thiết kế, quy ước dữ liệu, việc còn mở | `idea.docx` |
