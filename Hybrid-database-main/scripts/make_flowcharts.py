@@ -191,7 +191,7 @@ def data():
     d.node("2. Dữ liệu RAG → Hybrid Database", 800, 0, 620, 1100, "lane")
     r1 = d.node("Bảng thành phần thực phẩm VN FCT 2007 / USDA\n→ Data-to-Text: 400 data dinh duong.json\n(food_item, key_nutrients, ontology_effect, content_text)", 830, 50, 300, 90, "data")
     r2 = d.node("Tài liệu tâm lý CBT–CCI, MBSR, WHO PFA\ndịch EN → VI, chunk\n→ psychology_dataset_vi.json (988 đoạn)", 830, 160, 300, 80, "data")
-    r3 = d.node("state_effect_map.json (14 dòng)\nstate → đích tác động + trọng số\ntheo ontology Xhani et al. (2026)\n+ excluded_foods (NUT_060)", 830, 260, 300, 90, "data")
+    r3 = d.node("state_effect_map.json (14 dòng)\nstate → đích tác động + trọng số\ntheo ontology Xhani et al. (2026)\n+ excluded_foods (NUT_060, NUT_043, NUT_113)", 830, 260, 300, 90, "data")
     r4 = d.node("cbt_catalog.json\n10 kỹ thuật CBT / chánh niệm", 830, 370, 300, 60, "data")
     ing = d.node("ingestion/seed_all.py\ningest_postgres: schema.sql, nut_code (NUT_xxx theo thứ tự),\ncờ excluded, embedding bge-m3 (normalize)\ningest_neo4j: đồ thị Food → Nutrient → TargetFunction", 830, 470, 360, 100, "proc")
     for r in (r1, r2, r3, r4):

@@ -284,7 +284,7 @@ crisis_flag / panic_flag; từ khóa chỉ dự phòng khi LLM #1 lỗi); script
   nền Neurotransmission (mục 3.3) và Digestion (Figure 3). Sửa JSON rồi chạy lại `seed_all.py`.
 - **Nhãn states**: `mood_state` theo state chart của bài báo (Calm, Stressed, LowMood, Recovering, Energized);
   nhãn của `sleep_state`, `appetite_state`, `stress_state` (`backend/constants.py`) bài báo không định nghĩa, vẫn cần nhóm chốt.
-- `NUT_060` (nhút) đang bị loại khỏi gợi ý cho tới khi xác minh `ontology_effect` (idea.docx: Việc còn mở).
+- `excluded_foods` trong `state_effect_map.json` loại món khỏi gợi ý mà vẫn giữ trong dữ liệu (không đổi số thứ tự mã): `NUT_060` (nhút) cho tới khi xác minh `ontology_effect`; `NUT_043` (tiết lợn sống) và `NUT_113` (lá sắn tươi) theo góp ý chuyên gia (thêm 28/10, sau lần đánh giá chính thức). Sửa danh sách rồi chạy lại `seed_all.py`.
 - `CRISIS_HOTLINE_TEXT` trong `.env`: đã điền Ngày Mai 096 306 1414 và 111 (trẻ em); 115 luôn có trong câu trả lời khủng hoảng. Nên gọi thử để xác nhận giờ trực của Ngày Mai.
 - Bản Q4_K_M chạy trên Ollama có thể lệch nhẹ so với bản bf16 đã đánh giá trên Kaggle.
 - GPU 6 GB chỉ giữ được 1 model 7–8B mỗi lúc: Ollama nạp luân phiên LLM #1, LLM #2 và giám khảo (3 model khác nhau)

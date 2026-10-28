@@ -27,7 +27,7 @@ Phiếu này **không** chấm câu trả lời của hệ thống final; phần
   - Điểm Likert: 97,1% các cặp người chấm lệch nhau không quá 1 điểm; Gwet's AC2 = 0,95.
   - Cột chọn: Fleiss' κ = 0,93; Krippendorff's α = 0,91; Gwet's AC1 = 0,94.
 - **Fleiss' κ và Krippendorff's α trên điểm Likert gần 0.** Đây là nghịch lý kappa, không có nghĩa là người chấm bất đồng (giải thích ở mục 2.1).
-- **Phát hiện cần xử lý cho hệ thống final:** món "Tiết lợn sống" (NUT_043), bị 2 chuyên gia cảnh báo nguy cơ nhiễm bệnh nguy hiểm và 2 chuyên gia khác đề xuất thay bằng nguồn sắt dễ tiếp cận hơn, vẫn có trong dữ liệu mà hệ thống đang dùng để gợi ý (mục 6).
+- **Phát hiện đã xử lý cho hệ thống final:** món "Tiết lợn sống" (NUT_043), bị 2 chuyên gia cảnh báo nguy cơ nhiễm bệnh nguy hiểm và 2 chuyên gia khác đề xuất thay bằng nguồn sắt dễ tiếp cận hơn, đã được loại khỏi gợi ý ngày 28/10 bằng `excluded_foods`, cùng với NUT_113 "Lá sắn tươi" (mục 6).
 
 8 người chấm, 40 mẫu (4 phần × 10 mẫu, cùng một bộ mẫu cho mọi người).
 
@@ -199,14 +199,14 @@ Kiểm tra đối chiếu với `data/processed/400 data dinh duong.json` và `s
 
 | Góp ý | Món trong dữ liệu hệ thống | Trạng thái hiện tại | Đề xuất |
 |---|---|---|---|
-| Tiết lợn sống: nguy cơ nhiễm bệnh; nên thay nguồn sắt khác | NUT_043 "Tiết lợn sống" (mood_regulation) | **Vẫn được gợi ý** | Thêm vào `excluded_foods` (chỉ là cấu hình, không sửa dữ liệu) |
+| Tiết lợn sống: nguy cơ nhiễm bệnh; nên thay nguồn sắt khác | NUT_043 "Tiết lợn sống" (mood_regulation) | **Đã loại khỏi gợi ý (28/10)** | Đã thêm vào `excluded_foods` (chỉ là cấu hình, không sửa dữ liệu) |
 | Cà muối nén: rất mặn | NUT_215 "Cà muối nén", NUT_346 "Cà muối sối" (mood_regulation) | Vẫn được gợi ý | Cân nhắc loại, hoặc giữ nhưng nêu lưu ý ăn ít |
 | Cà rốt không giàu kẽm | NUT_147 (ontology_effect trống) | Không được gợi ý (không có đích tác động) | Không cần làm gì cho hệ thống |
 | Trà Ô long: nhãn lệch; chứa caffeine | NUT_359 (digestion) | Vẫn được gợi ý | Nhóm xem lại nhãn và lưu ý caffeine |
 
-Ngoài phạm vi phiếu chấm, mình thấy trong dữ liệu còn **NUT_113 "Lá sắn tươi"**. Lá sắn tươi có độc tố cyanogenic, cần nấu kỹ mới ăn được, nên nhóm nên xem cùng lúc với NUT_043.
+Ngoài phạm vi phiếu chấm, trong dữ liệu còn **NUT_113 "Lá sắn tươi"**. Lá sắn tươi có độc tố cyanogenic, cần nấu kỹ mới ăn được; món này đã được loại khỏi gợi ý cùng lúc với NUT_043 (28/10).
 
-**Mọi thay đổi ở trên đều thay đổi hệ thống sau lần chạy final.** Nếu nhóm loại món, kết quả final (chạy 16–17/10) vẫn giữ nguyên làm số chính thức. Báo cáo sẽ ghi rõ là đã loại món sau khi có góp ý của chuyên gia. Bộ test crisis và safety không đi vào nhánh gợi ý món, nên các số đó không bị ảnh hưởng.
+**Mọi thay đổi ở trên đều thay đổi hệ thống sau lần chạy final.** Việc loại NUT_043 và NUT_113 (28/10) không làm đổi số liệu final (chạy 16–17/10): bộ test crisis và safety không đi vào nhánh gợi ý món, đích tác động giống hệt ở cả 384 tổ hợp state, và lần chạy final chưa lần nào chọn 2 món này. Các món còn lại trong bảng (cà muối, trà Ô long) vẫn chờ nhóm quyết định.
 
 ## 7. Hạn chế của đợt kiểm chứng
 - Chỉ có 40 mẫu, mỗi tiêu chí 10 mẫu, nên khoảng tin cậy rộng.

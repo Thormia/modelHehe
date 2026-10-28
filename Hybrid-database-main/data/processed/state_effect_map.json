@@ -1,5 +1,5 @@
 {
- "_note": "Ánh xạ (state, nhãn) -> đích tác động, theo ontology của Xhani et al. (2026), 'Modelling Food and Mood Relation with Dynamic Personas', MODELSWARD 2026 (index.html). Ontology (mục 3.2, Figure 1) gắn SleepState/AppetiteState/StressState/MoodState với SleepRegulation/AppetiteRegulation/StressResponse/MoodRegulation; bảng 400 thực phẩm (bản cuối) chỉ có các đích stress_response, mood_regulation, neurotransmission, digestion, nên giấc ngủ và ăn uống được nối qua cơ chế nền: Neurotransmission (mục 3.3: tryptophan, vitamin nhóm B cần cho tổng hợp chất dẫn truyền thần kinh, hỗ trợ điều hòa tâm trạng, ăn uống, nhận thức) và Digestion (Figure 3: rối loạn tiêu hóa, thay đổi khẩu vị -> chất xơ, thực phẩm lên men, vi chất). Nhãn mood theo state chart Figure 2. weight: 1.5 = phản ứng sinh lý tương ứng trực tiếp với state; 1.0 = cơ chế sinh lý nền; 0.5 = liên hệ gián tiếp. Dòng state='*' là mặc định khi 4 states đều tích cực (Figure 2, Calm: exit/ monitor micronutrient status). excluded_foods: mã NUT_ bị loại khỏi gợi ý vì ontology_effect chưa xác minh (idea.docx: nhút ghi REDUCING: mood_regulation).",
+ "_note": "Ánh xạ (state, nhãn) -> đích tác động, theo ontology của Xhani et al. (2026), 'Modelling Food and Mood Relation with Dynamic Personas', MODELSWARD 2026 (index.html). Ontology (mục 3.2, Figure 1) gắn SleepState/AppetiteState/StressState/MoodState với SleepRegulation/AppetiteRegulation/StressResponse/MoodRegulation; bảng 400 thực phẩm (bản cuối) chỉ có các đích stress_response, mood_regulation, neurotransmission, digestion, nên giấc ngủ và ăn uống được nối qua cơ chế nền: Neurotransmission (mục 3.3: tryptophan, vitamin nhóm B cần cho tổng hợp chất dẫn truyền thần kinh, hỗ trợ điều hòa tâm trạng, ăn uống, nhận thức) và Digestion (Figure 3: rối loạn tiêu hóa, thay đổi khẩu vị -> chất xơ, thực phẩm lên men, vi chất). Nhãn mood theo state chart Figure 2. weight: 1.5 = phản ứng sinh lý tương ứng trực tiếp với state; 1.0 = cơ chế sinh lý nền; 0.5 = liên hệ gián tiếp. Dòng state='*' là mặc định khi 4 states đều tích cực (Figure 2, Calm: exit/ monitor micronutrient status). excluded_foods: mã NUT_ bị loại khỏi gợi ý nhưng vẫn giữ trong dữ liệu (không đổi số thứ tự mã): NUT_060 Nhút vì ontology_effect chưa xác minh (idea.docx: ghi REDUCING: mood_regulation); NUT_043 Tiết lợn sống vì nguy cơ nhiễm bệnh (2 chuyên gia cảnh báo, expert_feedback/TONG_KET_CHUYEN_GIA.md); NUT_113 Lá sắn tươi vì độc tố cyanogenic khi chưa nấu kỹ. NUT_043 và NUT_113 thêm sau lần đánh giá chính thức; không đổi số liệu đã báo cáo.",
  "map": [
   {
    "state": "sleep_state",
@@ -101,6 +101,8 @@
   }
  ],
  "excluded_foods": [
-  "NUT_060"
+  "NUT_060",
+  "NUT_043",
+  "NUT_113"
  ]
 }

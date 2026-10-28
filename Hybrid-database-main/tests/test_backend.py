@@ -313,7 +313,9 @@ class TestOfflineRetriever(unittest.TestCase):
         self.assertEqual(len(out), 3)
         for f in out:
             self.assertRegex(f["line"], r"^NUT_\d{3} – .+ \| .+ \| (INHIBITING|REDUCING|REGULATING) \| .+$")
-        self.assertNotIn("NUT_060", [c for c, _ in r.foods])
+        # NUT_060 nhút (ontology_effect chưa xác minh); NUT_043 tiết lợn sống, NUT_113 lá sắn tươi (chuyên gia cảnh báo)
+        for code in ("NUT_060", "NUT_043", "NUT_113"):
+            self.assertNotIn(code, [c for c, _ in r.foods])
 
     def test_stress_high_picks_stress_response(self):
         from retrieval.state_retriever import OfflineStateRetriever

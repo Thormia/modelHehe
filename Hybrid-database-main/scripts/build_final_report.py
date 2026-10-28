@@ -587,7 +587,7 @@ def build(D):
               "và phổ biến trong tư vấn y khoa hơn (thịt đỏ, rau xanh đậm thay hến, tiết; ổi thay kiwi cho vitamin C; thay đường cát làm nguồn sắt), lưu ý món chứa "
               "caffeine với người rối loạn giấc ngủ. Một người đề nghị nêu lượng ăn cụ thể; hệ thống chủ ý không nêu định lượng nên đề xuất này không áp dụng.",
               "Góp ý về kho tâm lý: mẫu PSY-01 có thể gắn nhầm nhãn trầm cảm.",
-              "NUT_043 \"Tiết lợn sống\" bị 2 chuyên gia cảnh báo nguy cơ nhiễm bệnh nhưng vẫn có thể được hệ thống final gợi ý; cần nhóm quyết định loại khỏi gợi ý (cùng với NUT_113 \"Lá sắn tươi\")."]:
+              "NUT_043 \"Tiết lợn sống\" (2 chuyên gia cảnh báo nguy cơ nhiễm bệnh) và NUT_113 \"Lá sắn tươi\" (độc tố cyanogenic khi chưa nấu kỹ) đã được loại khỏi gợi ý bằng excluded_foods (28/10, sau lần đánh giá chính thức); số liệu đã báo cáo không đổi vì bộ crisis và safety không đi vào nhánh gợi ý món, đích tác động giống hệt ở cả 384 tổ hợp state, và lần chạy chính thức chưa chọn 2 món này."]:
         bullet(doc, t)
 
     # ================================================================ PHẦN C
