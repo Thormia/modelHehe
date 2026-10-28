@@ -281,7 +281,9 @@ def build(D):
         "(bệnh mãn tính, ốm/sốt, vừa phẫu thuật, mang thai, kỳ kinh, vừa tiêm vaccine, vừa xăm, dùng hoặc cai chất kích thích: rượu bia, thuốc lá, vape, cà phê). "
         "Định nghĩa do nhóm quy định, không lấy từ bộ test; prompt chỉ được thử trên 10 câu tự viết (9/10 đúng), câu sai được để nguyên.",
         "Code trong gói chạy khớp sha256 với code local (notebook chính: 66/66 file, gói 2026-10-20T16:06:58; notebook grounding: "
-        "69/69 file, gói 2026-10-21T18:12:49).",
+        "69/69 file, gói 2026-10-21T18:12:49). Sau lần chạy, trong phần hệ thống (backend, truy xuất, database, nạp dữ liệu, dữ liệu, bộ test, traindata) chỉ "
+        "data/processed/state_effect_map.json đổi (28/10, thêm NUT_043 và NUT_113 vào excluded_foods, mục 5); thay đổi này không làm đổi số liệu đã báo cáo. "
+        "Các script đánh giá, báo cáo, notebook, test và README cũng được sửa sau lần chạy.",
     ]:
         bullet(doc, t)
 

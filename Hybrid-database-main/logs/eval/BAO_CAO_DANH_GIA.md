@@ -5,7 +5,7 @@
 ## Cờ y tế (nhóm B3) và kiểm tra gói chạy
 
 - **Cờ y tế B3** (LLM #1, khoá JSON `health_alert`; parser cũng nhận `medication_alert`): người dùng đang dùng thuốc, **hoặc** cơ thể có điểm khác thường so với người bình thường. Ví dụ: bệnh mãn tính, ốm/sốt, vừa phẫu thuật, mang thai, kỳ kinh, vừa tiêm vaccine, vừa xăm, dùng hoặc cai chất kích thích (rượu bia, thuốc lá, vape, cà phê). Định nghĩa do nhóm quy định, không lấy từ bộ test nào. Khoá có tên `health_alert` vì với tên `medication_alert`, model bỏ qua phần "cơ thể khác thường".
-- Code trong gói khớp sha256 với code local (notebook chính: 66/66 file; notebook grounding: 69/69 file). Notebook grounding cho bge-m3 chạy bằng CPU để model trả lời không bị đẩy sang CPU (chỉ ảnh hưởng tốc độ).
+- Code trong gói khớp sha256 với code local lúc chạy (notebook chính: 66/66 file; notebook grounding: 69/69 file). Sau lần chạy, trong phần hệ thống (backend, truy xuất, database, nạp dữ liệu, dữ liệu, bộ test, traindata) chỉ `data/processed/state_effect_map.json` đổi (28/10, thêm NUT_043 và NUT_113 vào `excluded_foods`, mục 8); thay đổi này không làm đổi số liệu đã báo cáo. Các script đánh giá, script báo cáo, notebook, test và README cũng được sửa sau lần chạy, nên khác bản trong gói. Notebook grounding cho bge-m3 chạy bằng CPU để model trả lời không bị đẩy sang CPU (chỉ ảnh hưởng tốc độ).
 
 ## Tóm tắt chỉ số
 
